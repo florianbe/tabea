@@ -43,9 +43,18 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			return Redirect::guest(route('login'));
 		}
 	}
+});
+
+Route::filter('admin', function()
+{
+	if (!(Auth::user()->is_admin))
+	{
+		return Response::make('Unauthorized', 401);
+	}
+
 });
 
 

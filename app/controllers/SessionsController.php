@@ -28,7 +28,7 @@ class SessionsController extends \BaseController {
 			return Redirect::intended(route('home'));
 		}
 
-		return Redirect::back()->withInput()->with('message', 'error|E-Mail und/oder Passwort falsch.');
+		return Redirect::back()->withInput()->with('message', 'dam|error|E-Mail und/oder Passwort falsch.');
 	}
 
 	/**
@@ -42,7 +42,7 @@ class SessionsController extends \BaseController {
 	{
 		Auth::logout();
 
-		return Redirect::route('login')->with('message', 'success|Abmeldung erfolgreich.');
+		return Redirect::route('login')->with('message', 'dam|success|Abmeldung erfolgreich.');
 	}
 
 }

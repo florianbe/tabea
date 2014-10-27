@@ -11,9 +11,7 @@
     <title>@yield('title', 'TaBEA')</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <!-- Bootstrap theme CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/cerulean/bootstrap.min.css" >
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <!-- Custom styles for this website -->
@@ -22,34 +20,9 @@
   </head>
 
   <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand">TaBEA</a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            
-            <li><a href="{{ route('home') }}">Home</a></li>
-            @if (Auth::guest())
-            {{-- 
-            <li><a href="{{ route('registration') }}">Register</a></li>
-            --}}
-            <li><a href="{{ route('login') }}">Login</a></li>
-            @else
-            <li><a href="{{ route('logout') }}">Logout</a></li>
-            @endif
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
+    @if (Auth::check())
+      @include('layouts.navbar')
+    @endif
 
     <div class="container">
       @yield('content')     

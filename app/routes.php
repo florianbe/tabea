@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', array('as' => 'home', 'uses' => 'PagesController@index'));
+Route::get('/', array('as' => 'home', 'before' => 'auth', 'uses' => 'PagesController@index'));
 
 
 /* 
@@ -20,3 +20,16 @@ Route::get('/', array('as' => 'home', 'uses' => 'PagesController@index'));
 Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));
 Route::post('login', array('as' => 'login.store', 'uses' => 'SessionsController@store'));
 Route::get('logout', array('as' => 'logout', 'uses' => 'SessionsController@destroy'));
+
+
+/*
+ * Administration Panel - Access restricted to authenticated users with the role 'admin'
+ */
+Route::group(array('before' => array('auth', 'admin')), function(){
+	
+	/*
+	 * Admin - User management
+	 */
+	Route::resource('admin/users', 'UsersController');
+	Route::get('admin/users', array('as' => 'users', 'uses' => 'UsersController@index'));
+});

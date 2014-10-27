@@ -12,7 +12,12 @@ function displayAlertMessage()
 {
       if (Session::has('message'))
       {
-         list($type, $message) = explode('|', Session::get('message'));
+         list($dam, $type, $message) = explode('|', Session::get('message'));
+
+         if ($dam != 'dam')
+         {
+         	return '';
+         }
 
          if ($type == 'error') 
          {
