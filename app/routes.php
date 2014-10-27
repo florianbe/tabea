@@ -11,7 +11,12 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', array('as' => 'home', 'uses' => 'PagesController@index'));
+
+
+/* 
+ * Authentication
+ */
+Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));
+Route::post('login', array('as' => 'login.store', 'uses' => 'SessionsController@store'));
+Route::get('logout', array('as' => 'logout', 'uses' => 'SessionsController@destroy'));
