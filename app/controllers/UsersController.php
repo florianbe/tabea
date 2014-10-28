@@ -10,8 +10,9 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$users = User::whereIsAdmin(false)->get();
-		return $users;
+		$users = User::where('is_admin', '=', false)->get();
+		$admins = User::where('is_admin', '=', true)->get();
+		return View::make('admin.users.index')->with('users', $users)->with('admins', $admins);
 	}
 
 	/**
@@ -33,7 +34,24 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
-		return "in store method";
+
+		$password = (substr(md5(rand()),0,6));
+
+		$user = new User;
+		$user->first_name = Input::get('first_name');
+		$user->last_name = Input::get('last_name');
+		$user->email = Input::get('email');
+		$user->password = $password;
+		$user->is_admin = Input::has('is_admin');		 
+
+		$user->save();
+
+		Mail::send('emails.auth.newuser', array('user'=>$user, 'password' => $password), function($message){
+        $message->to('florian.binoeder@gmail.com', Input::get('first_name').' '.Input::get('first_name'))->subject('Welcome to the Laravel 4 Auth App!');
+    	});
+
+		return Redirect::route('users')->with('message', 'dam|success|Neues Nutzerkonto erstellt');
+
 	}
 
 	/**
