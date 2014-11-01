@@ -123,6 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Cornford\Bootstrapper\BootstrapServiceProvider',
+		'Laracasts\Validation\ValidationServiceProvider'
 	),
 
 	/*

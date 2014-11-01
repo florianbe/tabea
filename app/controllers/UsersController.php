@@ -1,6 +1,15 @@
 <?php
 
+use Tabea\Forms\UserForm;
+
 class UsersController extends \BaseController {
+
+	protected $userForm;
+
+	function __construct(UserForm $userForm) 
+	{
+		$this->userForm = $userForm;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -35,23 +44,35 @@ class UsersController extends \BaseController {
 	public function store()
 	{
 
-		$password = (substr(md5(rand()),0,6));
+		
+		try 
+		{
+			$this->userForm->validate(Input:all());
 
-		$user = new User;
-		$user->first_name = Input::get('first_name');
-		$user->last_name = Input::get('last_name');
-		$user->email = Input::get('email');
-		$user->password = $password;
-		$user->is_admin = Input::has('is_admin');		 
+			$password = (substr(md5(rand()),0,6));
 
-		$user->save();
+			$user = new User;
+			$user->first_name = Input::get('first_name');
+			$user->last_name = Input::get('last_name');
+			$user->email = Input::get('email');
+			$user->password = $password;
+			$user->is_admin = Input::has('is_admin');		 
 
-		Mail::send('emails.auth.newuser', array('user'=>$user, 'password' => $password), function($message){
-        $message->to('florian.binoeder@gmail.com', Input::get('first_name').' '.Input::get('first_name'))->subject('Welcome to the Laravel 4 Auth App!');
-    	});
+			$user->save();
 
-		return Redirect::route('users')->with('message', 'dam|success|Neues Nutzerkonto erstellt');
+			Mail::send('emails.auth.newuser', array('user'=>$user, 'password' => $password), function($message){
+    	    $message->to('florian.binoeder@gmail.com', Input::get('first_name').' '.Input::get('first_name'))->subject('Welcome to the Laravel 4 Auth App!');
+    		});
 
+			return Redirect::route('users')->with('message', 'dam|success|Neues Nutzerkonto erstellt');
+
+		}
+		catch (Laracasts\Validation\FormValidationException $e)
+		{
+			return Redirect::back()->withInput()->withErrors($e->getErrors());
+		}
+
+		
 	}
 
 	/**
@@ -75,7 +96,7 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		return "Edit User " . $id;
 	}
 
 	/**

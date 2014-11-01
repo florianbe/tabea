@@ -9,24 +9,19 @@
 @stop
 @section('content') 
 
-    {{ Form::open(['route' => 'admin.users.store']) }}
-        <div class="panel panel-primary">
+     <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Neues Benutzerkonto anlegen</h3>
+                <h3 class="panel-title">Benutzerkonto bearbeiten</h3>
             </div>
-
             <div class="panel-body">
-
+            {{ Form::open(['route' => 'admin.users.update']) }}
                 <!-- Name fields -->                
-                {{ Bootstrap::text('first_name', 'Vorname') }}
-                {{ show_errors_for('first_name', $errors) }}
+                {{ Bootstrap::text('first_name', 'Vorname', $user->first_name) }}
+                {{ Bootstrap::text('last_name', 'Nachname', $user->last_name) }}
 
-                {{ Bootstrap::text('last_name', 'Nachname') }}
-                {{ show_errors_for('last_name', $errors) }}
-                
                 <!-- E-Mail -->
-                {{ Bootstrap::email('email', 'E-Mail Adresse') }}
-                {{ show_errors_for('email', $errors) }}
+                {{ Bootstrap::email('email', 'E-Mail Adresse', $user->email) }}
+
                 <!-- Set Administrative Rights -->
                 <div class="checkbox form-group">
                     <label>
@@ -34,8 +29,10 @@
                     </label>
                 </div>
 
-                {{ Bootstrap::submit('Erstellen') }}
+                {{ Bootstrap::submit('Änderungen speichern') }}
+            {{ Form::close() }}  
+            {{ Form::}}
             </div>
         </div>
-        {{ Form::close() }}  
+ 
 @stop

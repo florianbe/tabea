@@ -8,7 +8,7 @@
  *  
  *  @return string
  */
-function displayAlertMessage()
+function display_alert_message()
 {
       if (Session::has('message'))
       {
@@ -32,4 +32,10 @@ function displayAlertMessage()
       }
 
       return '';
+}
+
+
+function show_errors_for($attribute, $errors)
+{
+   return $errors->first($attribute, '<span class="error">:message</span>');
 }

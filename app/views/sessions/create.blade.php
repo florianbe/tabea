@@ -30,7 +30,7 @@
 
                 <div class="form-group">
                 
-                {{ displayAlertMessage() }}
+                {{ display_alert_message() }}
             </div>
         </div>
         {{ Form::close() }}
