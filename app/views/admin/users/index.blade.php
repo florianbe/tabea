@@ -9,6 +9,8 @@
     <li>{{ HTML::link('/admin/users/create', 'Neuer Benutzer')}}</li>
 @stop
 @section('content') 
+    
+    {{ display_alert_message() }}
 
     <table class="table table-striped">
       <thead>

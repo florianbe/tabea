@@ -47,8 +47,8 @@ class UsersController extends \BaseController {
 		
 		try 
 		{
-			$this->userForm->validate(Input:all());
-
+			$this->userForm->validate(Input::only('first_name', 'last_name', 'email'));
+			
 			$password = (substr(md5(rand()),0,6));
 
 			$user = new User;
@@ -64,7 +64,7 @@ class UsersController extends \BaseController {
     	    $message->to('florian.binoeder@gmail.com', Input::get('first_name').' '.Input::get('first_name'))->subject('Welcome to the Laravel 4 Auth App!');
     		});
 
-			return Redirect::route('users')->with('message', 'dam|success|Neues Nutzerkonto erstellt');
+			return Redirect::route('users')->with('message', 'dam|success|Neues Nutzerkonto für ' .  $user->first_name . ' ' . $user->last_name . ' erstellt');
 
 		}
 		catch (Laracasts\Validation\FormValidationException $e)
