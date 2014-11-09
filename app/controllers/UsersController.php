@@ -61,7 +61,7 @@ class UsersController extends \BaseController {
 			$user->save();
 
 			Mail::send('emails.auth.newuser', array('user'=>$user, 'password' => $password), function($message){
-    	    $message->to('florian.binoeder@gmail.com', Input::get('first_name').' '.Input::get('first_name'))->subject('Welcome to the Laravel 4 Auth App!');
+    	    $message->to('florian.binoeder@gmail.com', Input::get('first_name').' '.Input::get('first_name'))->subject('Zugangsdaten für TaBEA - TagebuchErhebungsAdministration');
     		});
 
 			return Redirect::route('users')->with('message', 'dam|success|Neues Nutzerkonto für ' .  $user->first_name . ' ' . $user->last_name . ' erstellt');
