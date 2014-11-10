@@ -23,6 +23,14 @@ Route::get('logout', array('as' => 'logout', 'uses' => 'SessionsController@destr
 
 
 /*
+ * Profile
+ */
+Route::get('profile', array('as' => 'profile', function(){return 'user_profile';}));
+Route::get('studies/list', array('as' => 'studies', function(){return 'studies';}));
+Route::get('requests/list', array('as'=> 'requests', function() {return 'requests';}));
+
+
+/*
  * Administration Panel - Access restricted to authenticated users with the role 'admin'
  */
 Route::group(array('before' => array('auth', 'admin')), function(){

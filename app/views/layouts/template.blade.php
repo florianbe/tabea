@@ -44,6 +44,10 @@
       </div><!-- /.container -->
     @endif
 
+     <div class="container">
+        @yield('footer')
+     </div>
+
     
 
     <!-- Bootstrap core JavaScript

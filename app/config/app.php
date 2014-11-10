@@ -52,7 +52,7 @@ return array(
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'de',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -123,7 +123,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Cornford\Bootstrapper\BootstrapServiceProvider',
-		'Laracasts\Validation\ValidationServiceProvider'
+		'Laracasts\Validation\ValidationServiceProvider',
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider'
 	),
 
 	/*

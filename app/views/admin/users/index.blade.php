@@ -1,12 +1,12 @@
 @extends('layouts.template')
 
-@section('title', 'Nutzerverwaltung|Übersicht')
+@section('title', trans('pagestrings.users_index_header'))
 
-@section('header', 'Nutzerverwaltung|Übersicht')
+@section('header', trans('pagestrings.users_index_header'))
 
 @section('sidebar')
-    <li>{{ HTML::link('/admin/users', 'Übersicht')}}</li>
-    <li>{{ HTML::link('/admin/users/create', 'Neuer Benutzer')}}</li>
+    <li>{{ HTML::link('/admin/users/create', trans('pagestrings.users_rmenu_createlink'))}}</li>
+    <li>{{ HTML::link('/admin/users', trans('pagestrings.users_rmenu_indexlink'))}}</li>
 @stop
 @section('content') 
     
@@ -16,13 +16,13 @@
       <thead>
         <tr>
           <th></th>
-          <th>Vorname</th>
-          <th>Nachname</th>
-          <th>E-Mail</th>
+          <th>{{ trans('pagestrings.users_first_name') }}</th>
+          <th>{{ trans('pagestrings.users_last_name') }}</th>
+          <th>{{ trans('pagestrings.users_email') }}</th>
         </tr>
       </thead>
       <tbody>
-        <h3>Nutzer</h3>
+        <h3></h3>
         @foreach ($users as $user)
         <tr>
           <td><a href="{{ action('UsersController@edit', array($user->id)) }}"><i class="fa fa-pencil"></i></a>&nbsp&nbsp  
@@ -35,10 +35,10 @@
       </tbody>
     </table>
       <hr/>
-        <h3>Administratoren</h3>
+        <h3>{{ trans('pagestrings.users_index_admins') }}</h3>
     <ul>
         @foreach ($admins as $admin)
-        <li>{{ $admin->email }}</li>
+        <li><a href="mailto:{{ $admin->email }}">{{"$user->first_name $user->last_name: $admin->email"}}</a></li>
         @endforeach
     </ul>
 
