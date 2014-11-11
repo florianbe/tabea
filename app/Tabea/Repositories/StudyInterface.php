@@ -13,6 +13,5 @@ interface StudyInterface
     public function getStudiesByStateId($stateId);
     public function getStudiesByStateName($stateName);
 
-    public function create
     public function updateWithValues(Study $study, $input);
 }

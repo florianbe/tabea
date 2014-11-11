@@ -17,6 +17,24 @@ return array(
     'top_menu_users' => 'Benutzerverwaltung',
     'top_menu_profile' => 'Profil',
     'top_menu_logout' => 'Abmelden',
+
+
+    //********************************************
+    //Studies
+    //Right_menu
+    'studies_rmenu_indexlink' => 'Übersicht',
+    'studies_rmenu_createlink' => 'Neue Studie',
+    'studies_rmenu_mystudieslink' => 'Meine Studien',
+
+    //Words
+    'studies_name' => 'Studie',
+
+    //Studies Index
+    'studies_index_nostudies' => 'Keine Studien vorhanden',
+
+
+
+    //********************************************
     //Admin
     //Right menu
     'users_rmenu_indexlink' => 'Übersicht',

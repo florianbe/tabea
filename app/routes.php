@@ -26,9 +26,52 @@ Route::get('logout', array('as' => 'logout', 'uses' => 'SessionsController@destr
  * Profile
  */
 Route::get('profile', array('as' => 'profile', function(){return 'user_profile';}));
-Route::get('studies/list', array('as' => 'studies', function(){return 'studies';}));
 Route::get('requests/list', array('as'=> 'requests', function() {return 'requests';}));
 
+Route::get('generateTestStudy', function(){
+
+    $study = new Study();
+
+    $study->name = 'Long näme for ze test stüdy';
+    $study->short_name = 'shortname';
+    $study->description = 'BlubBlubBlubBlub';
+    $study->comment = 'BlubComment';
+    $study->password = 'secret';
+    $study->accessible_from = Carbon\Carbon::now();
+    $study->accessible_until = Carbon\Carbon::now();
+    $study->answerable_from = Carbon\Carbon::now();
+    $study->answerable_until = Carbon\Carbon::now();
+    $study->uploadable_until = Carbon\Carbon::now();
+
+    $studystate = StudyState::find(1);
+
+    $study->studystate()->associate($studystate);
+    $study->save();
+
+
+    $study->users()->attach(Auth::user()->id, ['is_contributor' => true]);
+    $study->users()->attach(6, ['is_contributor' => false]);
+    $study->save();
+    return $study;
+
+});
+
+Route::get('getUsers', function(){
+    $study = Study::find(1);
+
+    print '<ul>';
+    foreach($study->contributors as $user){
+        print '<li>' . $user->email . ' ' . $user->pivot->is_contributor . '</li>';
+    }
+    print '</ul>';
+
+
+});
+
+Route::group(array('before' => 'auth'), function(){
+    Route::resource('studies', 'StudiesController');
+    Route::get('studies', array('as' => 'studies', 'uses' => 'StudiesController@index'));
+});
 
 /*
  * Administration Panel - Access restricted to authenticated users with the role 'admin'
