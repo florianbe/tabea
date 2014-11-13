@@ -26,4 +26,9 @@ class Study extends Eloquent
     {
         return $this->belongsToMany('User', 'user_study', 'study_id', 'user_id')->withPivot('is_contributor')->where('is_contributor', '=', '0');
     }
+
+    public function userRequests()
+    {
+        return $this->hasMany('Request');
+    }
 }
