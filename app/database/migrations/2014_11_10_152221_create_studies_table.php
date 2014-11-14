@@ -45,6 +45,9 @@ class CreateStudiesTable extends Migration {
             $table->dateTime('answerable_until');
             $table->dateTime('uploadable_until');
 
+            $table->integer('author_id')->unsigned();
+            $table->foreign('author_id')->references('id')->on('users');
+
             $table->integer('studystate_id')->unsigned();
             $table->foreign('studystate_id')->references('id')->on('studystates');
 

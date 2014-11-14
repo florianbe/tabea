@@ -12,6 +12,11 @@ class Study extends Eloquent
         return $this->belongsTo('StudyState');
     }
 
+    public function author()
+    {
+        return $this->belongsTo('User');
+    }
+
     public function users()
     {
         return $this->belongsToMany('User', 'user_study', 'study_id', 'user_id')->withPivot('is_contributor')->withTimestamps();

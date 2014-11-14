@@ -23,6 +23,7 @@ class CreateRequestsTable extends Migration {
             $table->foreign('id')->references('id')->on('users');
 
             $table->boolean('as_contributor');
+            $table->boolean('is_accepted');
 
 			$table->timestamps();
 		});
