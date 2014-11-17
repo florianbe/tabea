@@ -20,10 +20,11 @@ class CreateRequestsTable extends Migration {
             $table->foreign('study_id')->references('id')->on('studies');
 
             $table->integer('user_id')->unsigned();
-            $table->foreign('id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->boolean('as_contributor');
-            $table->boolean('is_accepted');
+            $table->boolean('is_viewed')->nullable();
+            $table->boolean('is_accepted')->nullable();
 
 			$table->timestamps();
 		});

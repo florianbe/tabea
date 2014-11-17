@@ -1,18 +1,18 @@
 @extends('layouts.template')
 
-@section('title', trans('pagestrings.studies_index_header'))
+@section('title', trans('pagestrings.studyrequests_index_header'))
 
-@section('header', trans('pagestrings.studies_index_header'))
+@section('header', trans('pagestrings.studyrequests_index_header'))
 
 @section('sidebar')
-    <li>{{ HTML::link('/studies/create', trans('pagestrings.studies_rmenu_createlink'))}}</li>
-    <li>{{ HTML::link('/studies', trans('pagestrings.studies_rmenu_indexlink'))}}</li>
-    <li>{{ HTML::link('/studies/my', trans('pagestrings.studies_rmenu_mystudieslink'))}}</li>
+    <li>{{ HTML::link('/requests', trans('pagestrings.studyrequests_rmenu_indexlink'))}}</li>
+
 @stop
 @section('content') 
-    
+
     {{ display_alert_message() }}
-    @if( (count($studies) > 0) )
+    @if( (count($userRequests) > 0) )
+    <h2>{{ trans('pagestrings.studyrequests_index_myRequests') }}</h2>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -39,8 +39,13 @@
       </tbody>
     </table>
       <hr/>
-    @else
-        <h2>{{ trans('pagestrings.studies_index_nostudies') }}</h2>
     @endif
+    @if( count($userResponses > 0))
+    <h2>{{ trans('pagestrings.studyrequests_index_myResponse_needed') }}</h2>
+    @endif
+    @if(count($userResponses < 1) && count($userRequests) < 1)
+    <h2>{{ trans('pagestrings.studyrequests_index_no_requests') }}</h2>
+    @endif
+
 @stop
 

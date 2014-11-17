@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <!-- Custom styles for this website -->
     {{ HTML::style('css/style.css') }}
-    
+    {{ HTML::style('css/bootstrap-datetimepicker.min.css') }}
+
   </head>
 
   <body>
@@ -49,12 +50,13 @@
      </div>
 
     
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+    <!-- Bootstrap core JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  </body>
+    <!-- Local JavaScript files -->
+    {{ HTML::script('js/moment-with-locales.js') }}
+    {{ HTML::script('js/bootstrap-datetimepicker.min.js') }}
+    @yield('javascript')
 </html>

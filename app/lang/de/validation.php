@@ -97,6 +97,12 @@ return array(
     'attributes' => array(
         'first_name' => 'Vorname',
         'last_name' => 'Nachname',
-        'email' => 'E-Mail'
+        'email' => 'E-Mail',
+        'name' => 'Name',
+        'short_name' => 'Kurzbezeichnung',
+        'studypassword' => 'Studienpasswort',
+        'accessible_from' => 'Beginn der Verfügbarkeit',
+        'accessible_until' => 'Ende der Verfügbarkeit',
+        'uploadable_until' => 'Ende Datenupload'
     ),
 );

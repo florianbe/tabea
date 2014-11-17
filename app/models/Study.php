@@ -5,7 +5,11 @@ class Study extends Eloquent
 
     protected $table = 'studies';
 
-    protected $fillable = [];
+    protected $fillable = [
+        'name', 'short_name',
+        'description', 'comment',
+        'password', 'accessible_from',
+        'accessible_until', 'uploadable_until'];
 
     public function studystate()
     {

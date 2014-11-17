@@ -57,6 +57,30 @@ Route::filter('admin', function()
 
 });
 
+Route::filter('has_study_access', function($route)
+{
+    $studyId = $route->getParameter('study');
+    $study = Study::findOrFail($studyId);
+
+    if(!(Auth::user()->hasAccessToStudy($study)))
+    {
+        return Response::make('Unauthorized', 401);
+    }
+
+});
+
+Route::filter('is_study_contributor', function($route)
+{
+    $studyId = $route->getParameter('study');
+    $study = Study::findOrFail($studyId);
+
+    if(!(Auth::user()->isContributorToStudy($study)))
+    {
+        return Response::make('Unauthorized', 401);
+    }
+
+});
+
 
 Route::filter('auth.basic', function()
 {

@@ -99,7 +99,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $this->attributes['password'] = Hash::make($password);
     }
 
-    public function getFullNameAttribute($value)
+    public function getFullNameAttribute()
     {
         return $this->first_name . " " . $this->last_name;
     }
@@ -114,4 +114,22 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('Request');
     }
 
+    public function hasAccessToStudy(Study $study)
+    {
+        if(count($study->users->find($this)) > 0 || ($this->is_admin) || ($this == $study->author))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public function isContributorToStudy(Study $study)
+    {
+        if(count($study->contributors->find($this)) > 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

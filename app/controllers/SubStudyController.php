@@ -1,22 +1,21 @@
 <?php
 
-class StudiesController extends \BaseController {
+class SubStudyController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /studies
+	 * GET /substudy
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		$studies = Study::all();
-        return View::make('studies.index')->with(compact('studies'));
+		//
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /studies/create
+	 * GET /substudy/create
 	 *
 	 * @return Response
 	 */
@@ -27,7 +26,7 @@ class StudiesController extends \BaseController {
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /studies
+	 * POST /substudy
 	 *
 	 * @return Response
 	 */
@@ -38,7 +37,7 @@ class StudiesController extends \BaseController {
 
 	/**
 	 * Display the specified resource.
-	 * GET /studies/{id}
+	 * GET /substudy/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -50,7 +49,7 @@ class StudiesController extends \BaseController {
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /studies/{id}/edit
+	 * GET /substudy/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -62,7 +61,7 @@ class StudiesController extends \BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /studies/{id}
+	 * PUT /substudy/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -74,7 +73,7 @@ class StudiesController extends \BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /studies/{id}
+	 * DELETE /substudy/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response

@@ -38,7 +38,7 @@
         <h3>{{ trans('pagestrings.users_index_admins') }}</h3>
     <ul>
         @foreach ($admins as $admin)
-        <li><a href="mailto:{{ $admin->email }}">{{"$user->first_name $user->last_name: $admin->email"}}</a></li>
+        <li><a href="mailto:{{ $admin->email }}">{{$admin->full_name . ": " .$admin->email}}</a></li>
         @endforeach
     </ul>
 

@@ -64,7 +64,7 @@ class UsersController extends \BaseController {
     	    $message->to('florian.binoeder@gmail.com', Input::get('first_name').' '.Input::get('first_name'))->subject('Zugangsdaten für TaBEA - TagebuchErhebungsAdministration');
     		});
 
-			return Redirect::route('users')->with('message', 'dam|success|Neues Nutzerkonto für ' .  $user->first_name . ' ' . $user->last_name . ' erstellt');
+            return Redirect::route('users')->with('message', 'dam|success|Neues Nutzerkonto für ' .  $user->first_name . ' ' . $user->last_name . ' erstellt');
 
 		}
 		catch (Laracasts\Validation\FormValidationException $e)
