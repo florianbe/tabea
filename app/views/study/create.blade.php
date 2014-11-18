@@ -5,12 +5,11 @@
 @section('header', trans('pagestrings.studies_create_header'))
 
 @section('sidebar')
-        <li>{{ HTML::link('/studies', trans('pagestrings.studies_rmenu_indexlink'))}}</li>
-        <li>{{ HTML::link('/studies/my', trans('pagestrings.studies_rmenu_mystudieslink'))}}</li>
+       @include('study.sidebars.overview')
 @stop
 @section('content') 
 
-    {{ Form::open(['route' => 'studies.store', ]) }}
+    {{ Form::open(['route' => 'study.store', ]) }}
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">{{ trans('pagestrings.studies_create_panelheader') }}</h3>

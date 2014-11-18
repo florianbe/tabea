@@ -5,13 +5,11 @@
 @section('header', trans('pagestrings.studies_index_header'))
 
 @section('sidebar')
-    <li>{{ HTML::link('/studies/create', trans('pagestrings.studies_rmenu_createlink'))}}</li>
-    <li>{{ HTML::link('/studies', trans('pagestrings.studies_rmenu_indexlink'))}}</li>
-    <li>{{ HTML::link('/studies/my', trans('pagestrings.studies_rmenu_mystudieslink'))}}</li>
+    @include('study.sidebaroverview')
 @stop
 @section('content') 
-    
-    {{ display_alert_message() }}
+
+
     @if( (count($studies) > 0) )
     <table class="table table-striped">
       <thead>

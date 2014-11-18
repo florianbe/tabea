@@ -64,7 +64,7 @@ class UsersController extends \BaseController {
     	    $message->to('florian.binoeder@gmail.com', Input::get('first_name').' '.Input::get('first_name'))->subject('Zugangsdaten für TaBEA - TagebuchErhebungsAdministration');
     		});
 
-            return Redirect::route('users')->with('message', 'dam|success|Neues Nutzerkonto für ' .  $user->first_name . ' ' . $user->last_name . ' erstellt');
+            return Redirect::route('admin.users.index')->with('message', 'dam|success|Neues Nutzerkonto für ' .  $user->first_name . ' ' . $user->last_name . ' erstellt');
 
 		}
 		catch (Laracasts\Validation\FormValidationException $e)
@@ -165,11 +165,11 @@ class UsersController extends \BaseController {
         if ($user->is_admin == true && $user->id != Auth::user()->id) {
             throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
         }
-        $successMessage = trans('pagestrings.users_edit_delete_success_1') . $user->first_name . ' ' . $user->last_name . trans('pagestrings.users_edit_delete_success_2');
+        $successMessage = trans('pagestrings.users_edit_delete_success', ['name' => $user->full_name]);
 
         $user->delete();
 
-        return Redirect::route('users')->with('message', $successMessage);
+        return Redirect::route('admin.users.index')->with('message', $successMessage);
 
     }
 

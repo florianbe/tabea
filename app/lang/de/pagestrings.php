@@ -25,6 +25,7 @@ return array(
     "studies_rmenu_indexlink" => "Übersicht",
     "studies_rmenu_createlink" => "Neue Studie",
     "studies_rmenu_mystudieslink" => "Meine Studien",
+    "studies_rmenu_studyedit" => "Studie bearbeiten",
 
     //Words
     "studies_name" => "Studie",
@@ -37,6 +38,7 @@ return array(
     "studies_accessible_from_label" => "Bereitstellung der Studiendaten ab",
     "studies_accessible_until_label" => "Bereitstellung der Studiendaten bis",
     "studies_uploadable_until_label" => "Upload von Antwortdaten bis",
+    "studies_state" => "Studienstatus",
 
     //Studies Index
     "studies_index_header" => "Übersicht Studien",
@@ -49,8 +51,17 @@ return array(
     "studies_create_createbutton" => "Studie erstellen",
     "studies_create_successmessage" => "dam|success|Studie erstellt.",
 
+    //Studies RUD
+    "studies_detail_header" => "Studie: :study_name",
     //Studies show
     "study_show_request_access" => "Zugriff beantragen",
+    "studies_show_studydetails" => "Studiendetails",
+
+
+
+
+    //Right_menu
+    "substudies_rmenu_index" => "Teilstudien",
 
 
     //********************************************
@@ -73,7 +84,7 @@ return array(
     "studyrequest_mailauthor_body" => "für die von Ihnen erstellte Studie :study_name liegt eine Zugriffsanfrage von :requesting_user vor. Sie können diese unter dem folgenden Link bearbeiten.",
 
     //Error message
-    "studyrequest_create_already_access" => "dam|error|Für diese Studie bestehen bereits Zugriffsrechte.",
+    "studyrequest_create_already_access" => "dam|error|Sie haben bereits Zugriff auf diese Studie.",
     "studyrequest_create_already_request" => "dam|error|Für diese Studie existiert bereits eine Anfrage.",
     //********************************************
     //Admin
@@ -91,9 +102,16 @@ return array(
     "users_index_header" => "Übersicht Benutzer",
     "users_index_admins" => "Administratoren",
 
+    //Create
+    "users_create_header" => "Neuer Benutzer",
+    "users_create_header" => "Neues Benutzerkonto erstellen",
+    "users_create_create" => "Erstellen",
+
     //Edit User
     "users_edit_header" => "Benutzerkonto bearbeiten",
+    "users_edit_save" => "Änderungen speichern",
     "users_edit_delete" => "Benutzerkonto löschen",
-    "users_edit_delete_success_1" => "dam|success|Benutzerkonto von",
-    "users_edit_delete_success_2" => " erfolgreich gelöscht."
+    "users_edit_delete_sure" => "Soll das Benutzerkonto von :name wirklich gelöscht werden?",
+    "users_edit_delete_success" => "dam|success|Benutzerkonto von :name erfolgreich gelöscht.",
+
 );

@@ -5,13 +5,10 @@
 @section('header', trans('pagestrings.users_index_header'))
 
 @section('sidebar')
-    <li>{{ HTML::link('/admin/users/create', trans('pagestrings.users_rmenu_createlink'))}}</li>
-    <li>{{ HTML::link('/admin/users', trans('pagestrings.users_rmenu_indexlink'))}}</li>
+    @include('admin.users.sidebars.user_side')
 @stop
 @section('content') 
     
-    {{ display_alert_message() }}
-
     <table class="table table-striped">
       <thead>
         <tr>
@@ -25,8 +22,8 @@
         <h3></h3>
         @foreach ($users as $user)
         <tr>
-          <td><a href="{{ action('UsersController@edit', array($user->id)) }}"><i class="fa fa-pencil"></i></a>&nbsp&nbsp  
-          <a href="{{ action('UsersController@show', array($user->id)) }}"><i class="fa fa-list"></i></a></td>
+          <td><a href="{{ action('UsersController@edit', [$user->id]) }}"><i class="fa fa-pencil"></i></a>&nbsp&nbsp
+          <a href="{{ action('UsersController@show', [$user->id]) }}"><i class="fa fa-list"></i></a></td>
           <td>{{ $user->first_name }}</td>
           <td>{{ $user->last_name }}</td>
           <td>{{ $user->email }}</a></td>

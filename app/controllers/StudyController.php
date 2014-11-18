@@ -19,30 +19,30 @@ class StudyController extends \BaseController {
     }
 	/**
 	 * Display a listing of the resource.
-	 * GET /studies
+	 * GET /study
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
 		$studies = Study::all();
-        return View::make('studies.index')->with(compact('studies'));
+        return View::make('study.index')->with(compact('studies'));
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /studies/create
+	 * GET /study/create
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-		return View::make('studies.create');
+		return View::make('study.create');
 	}
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /studies
+	 * POST /study
 	 *
 	 * @return Response
 	 */
@@ -62,7 +62,7 @@ class StudyController extends \BaseController {
             $study->author()->associate(Auth::user());
 
             $study->save();
-            return Redirect::route('studies')->with('message', trans('pagestrings.studies_create_successmessage'));
+            return Redirect::route('study')->with('message', trans('pagestrings.studies_create_successmessage'));
             
         }
         catch (Laracasts\Validation\FormValidationException $e)
@@ -73,7 +73,7 @@ class StudyController extends \BaseController {
 
 	/**
 	 * Display the specified resource.
-	 * GET /studies/{id}
+	 * GET /study/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -82,12 +82,12 @@ class StudyController extends \BaseController {
 	{
         $study = Study::findOrFail($studyId);
 
-        return View::make('studies.show')->with(compact('study'));
+        return View::make('study.show')->with(compact('study'));
 	}
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /studies/{id}/edit
+	 * GET /study/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -99,7 +99,7 @@ class StudyController extends \BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /studies/{id}
+	 * PUT /study/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -111,7 +111,7 @@ class StudyController extends \BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /studies/{id}
+	 * DELETE /study/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response

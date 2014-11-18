@@ -1,40 +1,40 @@
 @extends('layouts.template')
 
-@section('title', 'Neues Benutzerkonto anlegen')
+@section('title', trans('pagestrings.users_create_header'))
 
-@section('header', 'Neuer Benutzer')
+@section('header', trans('pagestrings.users_create_header'))
 
 @section('sidebar')
-    <li>{{ HTML::link('/admin/users', 'Übersicht')}}</li>
+    @include('admin.users.sidebars.user_side')
 @stop
 @section('content') 
 
     {{ Form::open(['route' => 'admin.users.store']) }}
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Neues Benutzerkonto anlegen</h3>
+                <h3 class="panel-title">{{ trans('pagestrings.users_create_header') }}</h3>
             </div>
 
             <div class="panel-body">
 
                 <!-- Name fields -->                
-                {{ Bootstrap::text('first_name', 'Vorname') }}
+                {{ Bootstrap::text('first_name', trans('pagestrings.users_first_name')) }}
                 {{ show_errors_for('first_name', $errors) }}
 
-                {{ Bootstrap::text('last_name', 'Nachname') }}
+                {{ Bootstrap::text('last_name', trans('pagestrings.users_last_name')) }}
                 {{ show_errors_for('last_name', $errors) }}
                 
                 <!-- E-Mail -->
-                {{ Bootstrap::email('email', 'E-Mail Adresse') }}
+                {{ Bootstrap::email('email', trans('pagestrings.users_email')) }}
                 {{ show_errors_for('email', $errors) }}
                 <!-- Set Administrative Rights -->
                 <div class="checkbox form-group">
                     <label>
-                        {{Form::checkbox('is_admin', '1')}} Administrator
+                        {{Form::checkbox('is_admin', '1')}} {{trans('pagestrings.users_is_admin')}}
                     </label>
                 </div>
 
-                {{ Bootstrap::submit('Erstellen') }}
+                {{ Bootstrap::submit(trans('pagestrings.users_create_create')) }}
             </div>
         </div>
         {{ Form::close() }}  

@@ -7,43 +7,61 @@
 @stop
 
 @section('sidebar')
-    <li>{{ HTML::link('/admin/users/create', trans('pagestrings.users_rmenu_createlink'))}}</li>
-    <li>{{ HTML::link('/admin/users', trans('pagestrings.users_rmenu_indexlink'))}}</li>
+    @include('admin.users.sidebars.user_side')
+    <ul class="nav nav-sidebar">
+        <li class="active">{{ HTML::linkRoute('admin.users.edit', trans('pagestrings.users_edit_header'), ['user' => $user->id])}}</li>
+    </ul>
 @stop
 @section('content')
     <div class="row">
-    {{ Form::model($user, ['method' => 'PATCH', 'route' => ['admin.users.update', $user->id]]) }}
+
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">{{ trans('pagestrings.users_edit_header') }}</h3>
             </div>
 
             <div class="panel-body">
-
+                {{ Form::model($user, ['method' => 'PATCH', 'route' => ['admin.users.update', $user->id]]) }}
                 <!-- Name fields -->                
-                {{ Bootstrap::text('first_name', 'Vorname') }}
+                {{ Bootstrap::text('first_name', trans('pagestrings.users_first_name')) }}
                 {{ show_errors_for('first_name', $errors) }}
 
-                {{ Bootstrap::text('last_name', 'Nachname') }}
+                {{ Bootstrap::text('last_name', trans('pagestrings.users_last_name')) }}
                 {{ show_errors_for('last_name', $errors) }}
                 
                 <!-- E-Mail -->
-                {{ Bootstrap::email('email', 'E-Mail Adresse') }}
+                {{ Bootstrap::email('email', trans('pagestrings.users_email')) }}
                 {{ show_errors_for('email', $errors) }}
                 @if($user->is_admin == false)
                 <!-- Set Administrative Rights -->
                 <div class="checkbox form-group">
                     <label>
-                        {{Form::checkbox('is_admin', '1')}} Administrator
+                        {{Form::checkbox('is_admin', '1')}} {{ trans('pagestrings.users_is_admin') }}
                     </label>
                 </div>
                 @endif
-                {{ Bootstrap::submit('Aktualisieren') }}
-            </div>
+                {{ Bootstrap::submit(trans('pagestrings.users_edit_save')) }}
+                {{ Form::close() }}
+         </div>
+         </div>
+
+        <div class="panel panel-danger">
+             <div class="panel-heading">
+                <h3 class="panel-title">{{ trans('pagestrings.users_edit_delete') }}</h3>
+             </div>
+             <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        {{ Form::model($user, ['method' => 'DELETE', 'route' => ['admin.users.destroy', $user->id], 'id' => 'delete_user']) }}
+                            {{ Bootstrap::submit(trans('pagestrings.users_edit_delete'), ['class' => 'btn btn-danger btn-block']) }}
+                        {{ Form::close() }}
+                    </div>
+                </div>
+             </div>
         </div>
-        {{ Form::close() }}
-        {{ Form::model($user, ['method' => 'DELETE', 'route' => ['admin.users.destroy', $user->id]]) }}
-            {{ Bootstrap::submit(trans('pagestrings.users_edit_delete')) }}
-        {{ Form::close() }}
-        </div>
+    </div>
+@stop
+
+@section('javascript')
+
 @stop

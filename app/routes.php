@@ -33,6 +33,7 @@ Route::group(['before' => 'auth'], function(){
     /*
      * Studies, SubStudies, QuestionGroups and Questions
      */
+    Route::get('study/my', ['as' => 'study.my', 'uses' => 'StudyController@myStudies']);
     Route::resource('study', 'StudyController');
     Route::resource('study.substudy', 'SubStudyController');
     Route::resource('study.substudy.questiongroup', 'QuestionGroupController');
@@ -61,5 +62,4 @@ Route::group(array('before' => array('auth', 'admin')), function(){
 	 * Admin - User management
 	 */
 	Route::resource('admin/users', 'UsersController');
-	Route::get('admin/users', array('as' => 'users', 'uses' => 'UsersController@index'));
 });

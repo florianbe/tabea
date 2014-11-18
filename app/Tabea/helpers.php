@@ -34,7 +34,10 @@ function display_alert_message()
       return '';
 }
 
-
+function set_class($route, $class = 'active')
+{
+    return Route::currentRouteName() == $route ? $class : '';
+}
 function show_errors_for($attribute, $errors)
 {
    return $errors->first($attribute, '<div class="alert alert-danger">:message</div>');
