@@ -49,6 +49,10 @@ return array(
     "studies_create_createbutton" => "Studie erstellen",
     "studies_create_successmessage" => "dam|success|Studie erstellt.",
 
+    //Studies show
+    "study_show_request_access" => "Zugriff beantragen",
+
+
     //********************************************
     //Requests
     //Right_menu
@@ -63,11 +67,14 @@ return array(
     //Create message
     "studyrequest_create_success" => "dam|success|Zugriffsanfrage gespeichert",
 
+    "studyrequest_mailauthor_subject" => "TaBEA: Neue Zugriffsanfrage",
     "studyrequest_mailauthor_header" => "Neue Zugriffsanfrage",
     "studyrequest_mailauthor_linkto" => "Zugriffsanfrage bearbeiten",
     "studyrequest_mailauthor_body" => "für die von Ihnen erstellte Studie :study_name liegt eine Zugriffsanfrage von :requesting_user vor. Sie können diese unter dem folgenden Link bearbeiten.",
 
-
+    //Error message
+    "studyrequest_create_already_access" => "dam|error|Für diese Studie bestehen bereits Zugriffsrechte.",
+    "studyrequest_create_already_request" => "dam|error|Für diese Studie existiert bereits eine Anfrage.",
     //********************************************
     //Admin
     //Right menu

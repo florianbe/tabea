@@ -35,13 +35,13 @@ Route::group(['before' => 'auth'], function(){
      */
     Route::resource('study', 'StudyController');
     Route::resource('study.substudy', 'SubStudyController');
-    Route::resource('study.substudy.questionGroup', 'QuestionGroupController');
+    Route::resource('study.substudy.questiongroup', 'QuestionGroupController');
     Route::resource('study.substudy.question', 'QuestionController');
 
     /*
      * Study Access requests
      */
-    Route::get('request/new/{studyId}', ['as' => 'request.new', 'uses' => 'StudyRequestController@store']);
+    Route::get('request/new/{studyId}', ['as' => 'request.new', 'uses' => 'StudyRequestController@newRequest']);
     Route::resource('request', 'StudyRequestController', ['except' => ['create', 'show', 'store']]);
 });
 

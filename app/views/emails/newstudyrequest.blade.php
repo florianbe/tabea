@@ -11,7 +11,7 @@
 			<p>{{Lang::get('pagestrings.studyrequest_mailauthor_body', ['study_name' => $study_name, 'requesting_user' => $requesting_name])}}</p>
 
             <ul>
-            <li>{{ link_torequest }}</li>
+            <li>{{ $link_torequest }}</li>
             </ul>
 		</div>
 	</body>

@@ -8,7 +8,7 @@
     @if(Auth::user()->hasAccessToStudy($study))
 
     @else
-
+        <li>{{ HTML::linkRoute('request.new', trans('pagestrings.study_show_request_access'), ["studyId" => $study->id]) }}</li>
     @endif
 @stop
 @section('content') 

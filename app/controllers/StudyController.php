@@ -3,7 +3,7 @@
 use Tabea\Forms\CreateStudyForm;
 use Tabea\Forms\ActivateStudyForm;
 
-class StudieController extends \BaseController {
+class StudyController extends \BaseController {
 
     protected $createStudyForm;
     protected $activateStudyForm;

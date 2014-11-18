@@ -109,7 +109,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('Study');
     }
 
-    public function studyRequests()
+    public function studyrequests()
     {
         return $this->hasMany('Request');
     }
@@ -130,6 +130,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
             return true;
         }
 
+        return false;
+    }
+
+    public function hasRequestForStudy(Study $study)
+    {
+        foreach ($study->studyRequests as $studyRequest)
+        {
+            if ($studyRequest->requestingUser == $this) {
+                return true;
+            }
+        }
         return false;
     }
 }

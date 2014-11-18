@@ -8,10 +8,10 @@ class StudyRequest extends Eloquent {
 
     public function study()
     {
-        return $this->hasOne('Study');
+        return $this->belongsTo('Study');
     }
     public function requestingUser()
     {
-        return $this->hasOne('User');
+        return $this->belongsTo('User', 'user_id');
     }
 }

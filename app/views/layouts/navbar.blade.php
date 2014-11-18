@@ -6,7 +6,7 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">       
             <li><a href="{{ route('home') }}">{{ trans('pagestrings.top_menu_home') }}</a></li>
-            <li><a href="{{ route('studies.index') }}">{{ trans('pagestrings.top_menu_studies') }}</a></li>
+            <li><a href="{{ route('study.index') }}">{{ trans('pagestrings.top_menu_studies') }}</a></li>
             <li><a href="{{ route('request.index') }}">{{ trans('pagestrings.top_menu_requests') }}</a></li>
             </ul>
           <ul class="nav navbar-nav navbar-right">

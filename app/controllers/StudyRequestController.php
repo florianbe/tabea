@@ -33,27 +33,34 @@ class StudyRequestController extends \BaseController {
 
         if (Auth::user()->hasAccessToStudy($study))
         {
-            return Response::make('Unauthorized', 401);
+            return Redirect::route('study.index')->with('message', trans('pagestrings.studyrequest_create_already_access'));
+        }
+        if (Auth::user()->hasRequestForStudy($study))
+        {
+            return Redirect::route('study.index')->with('message', trans('pagestrings.studyrequest_create_already_request'));
         }
 
+
         $studyRequest = new StudyRequest;
-        $studyRequest->study()->associate($study);
         $studyRequest->requestingUser()->associate(Auth::user());
+        $studyRequest->study()->associate($study);
         $studyRequest->is_viewed = false;
-        $studyRequest->as_contributor = Input::has('as_contributor');
+        $studyRequest->as_contributor = true;
 
         $studyRequest->save();
+
+        $link_request = HTML::linkRoute('request.edit', trans('pagestrings.studyrequest_mailauthor_linkto'), ["request" => $studyRequest->id]);
 
         Mail::send('emails.newstudyrequest',[
             'author_name' => $study->author->full_name,
             'requesting_name' => Auth::user()->full_name,
             'link_torequest' => HTML::linkRoute('request.edit', trans('pagestrings.studyrequest_mailauthor_linkto'), [$studyRequest->id]),
             'study_name' => $study->name
-            ], function($message, $study){
+            ], function($message) use ($study, $link_request) {
                 $message->to('florian.binoeder@gmail.com', $study->author->full_name)->subject(trans('pagestrings.studyrequest_mailauthor_subject'));
         });
 
-        return Redirect::back()->with('message', trans('pagestrings.studyrequest_create_success'));
+        return Redirect::route('study.index')->with('message', trans('pagestrings.studyrequest_create_success'));
 	}
 
 
