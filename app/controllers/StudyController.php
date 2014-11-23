@@ -14,7 +14,7 @@ class StudyController extends \BaseController {
         $this->activateStudyForm = $activateStudyForm;
 
         $this->beforeFilter('auth');
-        $this->beforeFilter('is_study_contributor', ['only' => ['edit', 'update']]);
+        $this->beforeFilter('is_study_contributor_or_admin', ['only' => ['edit', 'update']]);
         $this->beforeFilter('csrf', ['only' => 'post']);
     }
 	/**
@@ -50,7 +50,6 @@ class StudyController extends \BaseController {
 	{
         try
         {
-
             $this->createStudyForm->validate(Input::only('name', 'short_name', 'studypassword', 'accessible_from', 'accessible_until', 'uploadable_until'));
 
             $study = new Study;
@@ -58,11 +57,12 @@ class StudyController extends \BaseController {
 
             $studystate = StudyState::where('code', '=', 'DESIGN')->firstOrFail();
 
+
             $study->studystate()->associate($studystate);
             $study->author()->associate(Auth::user());
 
             $study->save();
-            return Redirect::route('study')->with('message', trans('pagestrings.studies_create_successmessage'));
+            return Redirect::route('study.edit', ['study' => $study->id])->with('message', trans('pagestrings.studies_create_successmessage'));
             
         }
         catch (Laracasts\Validation\FormValidationException $e)
@@ -92,9 +92,11 @@ class StudyController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($studyId)
 	{
-		//
+		$study = Study::findOrFail($studyId);
+
+        return View::make('study.edit')->with(compact('study'));
 	}
 
 	/**
@@ -104,9 +106,9 @@ class StudyController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($studyId)
 	{
-		//
+		return 'in update ' . $studyId;
 	}
 
 	/**

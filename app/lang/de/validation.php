@@ -101,8 +101,8 @@ return array(
         'name' => 'Name',
         'short_name' => 'Kurzbezeichnung',
         'studypassword' => 'Studienpasswort',
-        'accessible_from' => 'Beginn der Verfügbarkeit',
-        'accessible_until' => 'Ende der Verfügbarkeit',
+        'accessible_from' => 'Bereitstellung der Studiendaten ab',
+        'accessible_until' => 'Bereitstellung der Studiendaten bis',
         'uploadable_until' => 'Ende Datenupload'
     ),
 );

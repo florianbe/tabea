@@ -39,7 +39,12 @@ return array(
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'Europe/Berlin',
+
+    /*
+     * The dateformat as requested by Carbon
+     */
+    'phplocale' => 'de_DE',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -124,7 +129,8 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Cornford\Bootstrapper\BootstrapServiceProvider',
 		'Laracasts\Validation\ValidationServiceProvider',
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider'
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        'Tabea\Validation\CustomValidationServiceProvider',
 	),
 
 	/*
@@ -191,7 +197,9 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
-		'Bootstrap'       => 'Cornford\Bootstrapper\Facades\Bootstrap',
+		'Carbon'            => 'Carbon\Carbon',
+        'Bootstrap'         => 'Cornford\Bootstrapper\Facades\Bootstrap',
+
 
 	),
 

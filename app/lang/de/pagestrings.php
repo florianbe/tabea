@@ -40,6 +40,13 @@ return array(
     "studies_uploadable_until_label" => "Upload von Antwortdaten bis",
     "studies_state" => "Studienstatus",
 
+    //Study States
+    "studystate_design" => "in Erstellung",
+    "studystate_planned" => "Geplant",
+    "studystate_running" => "Laufend",
+    "studystate_closed" => "Abgeschlossend",
+    "studystate_archived" => "Archiviert",
+
     //Studies Index
     "studies_index_header" => "Übersicht Studien",
     "studies_state" => "Status",
@@ -53,6 +60,8 @@ return array(
 
     //Studies RUD
     "studies_detail_header" => "Studie: :study_name",
+    "studies_create_savebutton" => "Studie speichern",
+
     //Studies show
     "study_show_request_access" => "Zugriff beantragen",
     "studies_show_studydetails" => "Studiendetails",

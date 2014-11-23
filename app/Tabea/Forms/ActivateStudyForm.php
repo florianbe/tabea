@@ -2,7 +2,8 @@
 
 use Laracasts\Validation\FormValidator;
 
-class ActivateStudyForm extends FormValidator {
+class ActivateStudyForm extends FormValidator
+{
 
     /**
      * Validation rules for creating/updating the user object
@@ -11,8 +12,11 @@ class ActivateStudyForm extends FormValidator {
      */
 
     protected $rules = [
-        'first_name' => 'required',
-        'last_name' => 'required',
-        'email' => 'required|email|unique:users'
+        'name' => 'required|',
+        'short_name' => 'required|max:20|unique:studies',
+        'studypassword' => 'required',
+        'accessible_from' => 'required|date|before:accessible_until',
+        'accessible_until' => 'required|date',
+        'uploadable_until' => 'required|date|after:accessible_from'
     ];
 }

@@ -37,7 +37,7 @@ class CreateStudiesTable extends Migration {
             $table->text('short_name', 20);
             $table->text('description')->nullable();
             $table->text('comment')->nullable();
-            $table->text('password');
+            $table->text('studypassword');
 
             $table->dateTime('accessible_from')->nullable();
             $table->dateTime('accessible_until')->nullable();

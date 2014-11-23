@@ -67,6 +67,14 @@ App::down(function()
 	return Response::make("Be right back!", 503);
 });
 
+App::before(function()
+{
+    // Get default PHP locale
+    $phpLocale = Config::get('app.phplocale');
+    setlocale(LC_TIME, $phpLocale);
+
+});
+
 /*
 |--------------------------------------------------------------------------
 | Require The Filters File

@@ -11,11 +11,11 @@ class CreateStudyForm extends FormValidator {
      */
 
     protected $rules = [
-        'name' => 'required',
-        'short_name' => 'required|max:20',
+        'name' => 'required|',
+        'short_name' => 'required|max:20|unique:studies',
         'studypassword' => 'required',
-        'accessible_from' => 'date',
+        'accessible_from' => 'date|before:accessible_until',
         'accessible_until' => 'date',
-        'uploadable_until' => 'date'
+        'uploadable_until' => 'date|after:accessible_from'
     ];
 }

@@ -42,3 +42,27 @@ function show_errors_for($attribute, $errors)
 {
    return $errors->first($attribute, '<div class="alert alert-danger">:message</div>');
 }
+
+function format_date_to_display($date)
+{
+    $phpLocale = Config::get('app.phplocale');
+    setlocale(LC_TIME, $phpLocale);
+    if (!(is_a($date, 'Carbon\Carbon'))) return '--------';
+    if (starts_with($date, '-0001')) return '--------';
+
+    return $date->formatLocalized('%d. %B %Y');
+};
+
+function date_for_picker($date)
+{
+    if (!(is_a($date, 'Carbon\Carbon'))) return '';
+    if (starts_with($date, '-0001')) return '';
+
+    return 'value=' . $date->formatLocalized('%d.%m.%Y');
+
+}
+
+function format_time_to_display($date)
+{
+
+};
