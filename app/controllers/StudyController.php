@@ -108,7 +108,50 @@ class StudyController extends \BaseController {
 	 */
 	public function update($studyId)
 	{
-		return 'in update ' . $studyId;
+        try
+        {
+            $study = Study::findOrFail($studyId);
+            $studyStateCode = Input::get('studystate');
+
+            //Prevent invalid studystates
+            if (!array_key_exists($studyStateCode, $study->getStudystateOptions())) { throw new Exception('invalid study state in put request');}
+            $studystate = StudyState::where('code', '=', $studyStateCode)->firstOrFail();
+
+            //Update validation rules to prevent errors on unique fields - add id as parameter
+            $this->createStudyForm->setRules('short_name', $this->createStudyForm->getRules('short_name') . ',id');
+            $this->activateStudyForm->setRules('short_name', $this->activateStudyForm->getRules('short_name') . ',id');
+
+            if ($study->isStudyEditable())
+            {
+                $input = Input::only('name', 'short_name', 'studypassword', 'description', 'comment', 'accessible_from', 'accessible_until', 'uploadable_until');
+
+                //Complete validation if studystate is change to planned, otherwise "soft" validation
+                if ($studyStateCode == 'PLANNED') {
+                    $this->activateStudyForm->validate($input);
+                    //TODO: Validate substudies: at least one, all must validate itself
+
+                }
+                else {
+                    $this->createStudyForm->validate($input);
+                }
+
+                $study->fill($input);
+                $study->studystate()->associate($studystate);
+            }
+
+            else if ($study->isStateEditable())
+            {
+                $study->studystate()->associate($studystate);
+            }
+
+            $study->save();
+
+            return Redirect::route('study.show', ['study' => $study->id])->with('message', trans('pagestrings.studies_create_successmessage'));
+        }
+        catch (Laracasts\Validation\FormValidationException $e)
+        {
+            return Redirect::back()->withInput()->withErrors($e->getErrors());
+        }
 	}
 
 	/**

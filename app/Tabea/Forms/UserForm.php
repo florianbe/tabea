@@ -1,8 +1,6 @@
 <?php namespace Tabea\Forms;
 
-use Laracasts\Validation\FormValidator;
-
-class UserForm extends FormValidator {
+class UserForm extends BaseForm {
 
 	/**
 	* Validation rules for creating/updating the user object

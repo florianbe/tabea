@@ -1,8 +1,6 @@
 <?php namespace Tabea\Forms;
 
-use Laracasts\Validation\FormValidator;
-
-class ActivateStudyForm extends FormValidator
+class ActivateStudyForm extends BaseForm
 {
 
     /**

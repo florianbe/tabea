@@ -44,7 +44,7 @@ return array(
     "studystate_design" => "in Erstellung",
     "studystate_planned" => "Geplant",
     "studystate_running" => "Laufend",
-    "studystate_closed" => "Abgeschlossend",
+    "studystate_closed" => "Abgeschlossen",
     "studystate_archived" => "Archiviert",
 
     //Studies Index

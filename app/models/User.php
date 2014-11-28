@@ -129,7 +129,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         {
             return true;
         }
+        return false;
+    }
 
+    public function hasWriteAccessToStudy(Study $study)
+    {
+        if(count($study->contributors->find($this)) > 0 || ($this->is_admin) || ($this == $study->author))
+        {
+            return true;
+        }
         return false;
     }
 

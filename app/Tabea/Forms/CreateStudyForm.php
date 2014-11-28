@@ -1,8 +1,6 @@
 <?php namespace Tabea\Forms;
 
-use Laracasts\Validation\FormValidator;
-
-class CreateStudyForm extends FormValidator {
+class CreateStudyForm extends BaseForm {
 
     /**
      * Validation rules for creating/updating the user object
@@ -18,4 +16,5 @@ class CreateStudyForm extends FormValidator {
         'accessible_until' => 'date',
         'uploadable_until' => 'date|after:accessible_from'
     ];
+
 }

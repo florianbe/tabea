@@ -63,7 +63,7 @@
                 </div>
                 {{ show_errors_for('uploadable_until', $errors) }}
 
-                {{ Bootstrap::select('studystate', trans('pagestrings.studies_state'), $study->getStudystateOptions(), $study->studystate->code) }}
+                {{ Bootstrap::select('studystate', trans('pagestrings.studies_state'), $study->getStudystateOptions(), $study->studystate->code, [], [$study->isStateEditable() ? '' : 'disabled']) }}
 
                  {{ Bootstrap::submit(trans('pagestrings.studies_create_savebutton')) }}
             </div>

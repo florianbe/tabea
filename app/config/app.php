@@ -46,6 +46,11 @@ return array(
      */
     'phplocale' => 'de_DE',
 
+    /*
+     * The location of the datatables localization file
+     */
+    'datatableslocale' => 'http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json',
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application Locale Configuration

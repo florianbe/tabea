@@ -11,7 +11,7 @@
 
 
     @if( (count($studies) > 0) )
-    <table class="table table-striped">
+    <table id ="studies" class="table table-striped ">
       <thead>
         <tr>
           <th></th>
@@ -41,4 +41,18 @@
         <h2>{{ trans('pagestrings.studies_index_nostudies') }}</h2>
     @endif
 @stop
+
+@section('javascript')
+    <script type="text/javascript">
+          $(document).ready(function() {
+                  $('#studies').dataTable( {
+                      "language": {
+                          "url": "{{ Config::get('app.datatableslocale') }}"
+                      }
+                  } );
+              } );
+
+     </script>
+@stop
+
 
