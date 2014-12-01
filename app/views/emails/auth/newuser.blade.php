@@ -3,19 +3,20 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-		<h2>Neues Benutzerkonto</h2>
+		<h2>{{ trans('pagestrings.users_mail_new_header') }}</h2>
 
 		<div>
-			Hallo {{$user->first_name}} {{$user->last_name}}, </br>
+			{{ trans('pagestrings.users_mail_new_salutation', ['full_name' => $user->full_name]) }}</br>
 
-			<p>für Sie wurde ein neues Benutzerkonto für das System "TaBEA - TagebuchErhebungsAdministration" erstellt. Sie können sich mit folgenden Zugangsdaten anmelden:</p>
+
+			<p>{{ trans('pagestrings.users_mail_new_body') }}</p>
 			<ul>
-				<li>URL: {{ HTML::linkRoute('home') }}</li>
-				<li>E-Mail: {{ $user->email}}</li>
-				<li>Passwort: {{ $password }}</li>
+				<li>{{ trans('pagestrings.users_mail_new_url') }}: {{ HTML::linkRoute('home') }}</li>
+				<li>{{ trans('pagestrings.users_mail_new_login') }}: {{ $user->email}}</li>
+				<li>{{ trans('pagestrings.users_password') }}: {{ $password }}</li>
 			</ul>
 
-			<p>Das Passwort muss bei Erstanmeldung geändert werden.</p>
+			<p>{{ trans('pagestrings.users_mail_new_passwordreset') }}</p>
 
 		</div>
 	</body>

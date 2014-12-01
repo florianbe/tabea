@@ -29,6 +29,10 @@ class StudyController extends \BaseController {
         return View::make('study.index')->with(compact('studies'));
 	}
 
+    public function myStudies()
+    {
+        $contrib_studies = Study::where();
+    }
 	/**
 	 * Show the form for creating a new resource.
 	 * GET /study/create

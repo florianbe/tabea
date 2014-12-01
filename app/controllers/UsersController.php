@@ -57,14 +57,14 @@ class UsersController extends \BaseController {
 			$user->email = Input::get('email');
 			$user->password = $password;
 			$user->is_admin = Input::has('is_admin');		 
-
+            $user->must_reset_password = true;
 			$user->save();
 
 			Mail::send('emails.auth.newuser', array('user'=>$user, 'password' => $password), function($message){
-    	    $message->to('florian.binoeder@gmail.com', Input::get('first_name').' '.Input::get('first_name'))->subject('Zugangsdaten für TaBEA - TagebuchErhebungsAdministration');
+    	    $message->to('florian.binoeder@gmail.com', $user->full_name)->subject( trans('pagestrings.users_mail_new_subject'));
     		});
 
-            return Redirect::route('admin.users.index')->with('message', 'dam|success|Neues Nutzerkonto für ' .  $user->first_name . ' ' . $user->last_name . ' erstellt');
+            return Redirect::route('admin.users.index')->with('message', trans('pagestrings.users_create_success', ['full_name' => $user->full_name]));
 
 		}
 		catch (Laracasts\Validation\FormValidationException $e)
@@ -141,7 +141,7 @@ class UsersController extends \BaseController {
 
             $user->save();
 
-            return Redirect::route('users')->with('message', "dam|success|Nutzerkonto von $user->first_name $user->last_name aktualisiert.");
+            return Redirect::route('admin.users.index')->with('message', trans('pagestrings.users_edit_success', ['name' => $user->full_name]));
         }
         catch (Laracasts\Validation\FormValidationException $e)
         {
@@ -150,6 +150,30 @@ class UsersController extends \BaseController {
             return Redirect::back()->withInput()->withErrors($e->getErrors());
         }
 
+    }
+
+    /**
+     * Send a new password to user
+     * POST /users/{users}/resend
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function resendPassword($id)
+    {
+        $user = User::findOrFail($id);
+        $password = (substr(md5(rand()),0,6));
+        $user->password = $password;
+        $user->must_reset_password = true;
+
+        $user->save();
+
+        //Send info E-Mail
+        Mail::send('emails.auth.resetpassword', array('user'=>$user, 'password' => $password), function($message){
+            $message->to('florian.binoeder@gmail.com', $user->full_name)->subject( trans('pagestrings.users_mail_reset_subject'));
+        });
+
+        return Redirect::route('admin.users.index')->with('message', trans('pagestrings.users_edit_resend_success', ['name' => $user->full_name]));
     }
 
 	/**
@@ -165,11 +189,9 @@ class UsersController extends \BaseController {
         if ($user->is_admin == true && $user->id != Auth::user()->id) {
             throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
         }
-        $successMessage = trans('pagestrings.users_edit_delete_success', ['name' => $user->full_name]);
-
         $user->delete();
 
-        return Redirect::route('admin.users.index')->with('message', $successMessage);
+        return Redirect::route('admin.users.index')->with('message', trans('pagestrings.users_edit_delete_success', ['name' => $user->full_name]));
 
     }
 

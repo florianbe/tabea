@@ -1,86 +1,50 @@
 <?php
 
+use Tabea\Forms\ProfileForm;
+
 class PagesController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 * GET /pages
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		return View::make('hello');
-	}
+    protected $profileForm;
 
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /pages/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
+    function __construct(ProfileForm $profileForm)
+    {
+        $this->profileForm = $profileForm;
+    }
 
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /pages
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
 
-	/**
-	 * Display the specified resource.
-	 * GET /pages/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+    public function showHome()
+    {
+        return View::make('hello');
+    }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /pages/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
+	public function showProfile()
+    {
+        return View::make('pages.profile');
+    }
 
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /pages/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+    public function updateProfile()
+    {
 
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /pages/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+        try {
+
+            //return Input::all();
+
+            $this->profileForm->validate(Input::only('password', 'password_confirmation'));
+
+            $user = Auth::user();
+            $user->password = Input::get('password');
+            $user->must_reset_password = false;
+
+            $user->save();
+
+            return Redirect::route('home')->with('message', trans('pagestrings.profile_password_success'));
+        }
+        catch (Laracasts\Validation\FormValidationException $e)
+        {
+            return Redirect::back()->withInput()->withErrors($e->getErrors());
+        }
+    }
+
+
 
 }

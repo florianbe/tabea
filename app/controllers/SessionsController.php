@@ -25,10 +25,14 @@ class SessionsController extends \BaseController {
 
 		if (Auth::attempt($input))
 		{
+            if(Auth::user()->must_reset_password)
+            {
+                return Redirect::route('profile.show')->with('message', trans('pagestrings.profile_change_password'));
+            }
 			return Redirect::intended(route('home'));
 		}
 
-		return Redirect::back()->withInput()->with('message', 'dam|error|E-Mail und/oder Passwort falsch.');
+		return Redirect::back()->withInput()->with('message', trans('pagestrings.login_error'));
 	}
 
 	/**
@@ -42,7 +46,7 @@ class SessionsController extends \BaseController {
 	{
 		Auth::logout();
 
-		return Redirect::route('login')->with('message', 'dam|success|Abmeldung erfolgreich.');
+		return Redirect::route('login')->with('message', trans('pagestrings.logout_success'));
 	}
 
 }

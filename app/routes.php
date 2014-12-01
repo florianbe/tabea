@@ -27,8 +27,9 @@ Route::group(['before' => 'auth'], function(){
     /*
      * PagesController
      */
-    Route::get('/', array('as' => 'home', 'uses' => 'PagesController@index'));
-    Route::get('profile', array('as' => 'profile', function(){return 'user_profile';}));
+    Route::get('/', array('as' => 'home', 'uses' => 'PagesController@showHome'));
+    Route::get('profile', array('as' => 'profile.show', 'uses' => 'PagesController@showProfile'));
+    Route::patch('profile/update/', array('as' => 'profile.update', 'uses' => 'PagesController@updateProfile'));
 
     /*
      * Studies, SubStudies, QuestionGroups and Questions
@@ -61,5 +62,6 @@ Route::group(array('before' => array('auth', 'admin')), function(){
 	/*
 	 * Admin - User management
 	 */
+    Route::post('admin/users/{users}/resend', ['as' => 'admin.users.resend', 'uses' => 'UsersController@resendPassword']);
 	Route::resource('admin/users', 'UsersController');
 });

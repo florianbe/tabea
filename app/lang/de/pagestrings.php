@@ -10,6 +10,14 @@ return array(
     | The following strings are used for all the system generated text
     |
     */
+    //Login
+    "login_loginheader" => "TaBEA | Anmeldung",
+    "login_login" => "Anmelden",
+    "login_error" => "dam|error|E-Mail und/oder Passwort falsch.",
+
+    //Logout
+    "logout_success" => "dam|success|Abmeldung erfolgreich.",
+
     //Top Menu
     "top_menu_home" => "Home",
     "top_menu_studies" => "Studien",
@@ -95,6 +103,23 @@ return array(
     //Error message
     "studyrequest_create_already_access" => "dam|error|Sie haben bereits Zugriff auf diese Studie.",
     "studyrequest_create_already_request" => "dam|error|Für diese Studie existiert bereits eine Anfrage.",
+
+
+    //********************************************
+    //Profile page
+    //Header
+    "profile_header" => "Passwort ändern",
+    "panel_header" => "Passwort ändern",
+    "profile_password" => "neues Passwort",
+    "profile_password_verify" => "Passwort bestätigen",
+    "profile_save" => "Speichern",
+
+    "profile_change_password" => "dam|message|Bitte ändern Sie das von der Anwendung generierte Passwort.",
+    "profile_password_success" => "dam|success|Das Passwort wurde aktualisiert.",
+
+
+
+
     //********************************************
     //Admin
     //Right menu
@@ -106,6 +131,7 @@ return array(
     "users_last_name" => "Nachname",
     "users_email" => "E-Mail",
     "users_is_admin" => "Administrator",
+    "users_password" => "Passwort",
 
     //Users Index
     "users_index_header" => "Übersicht Benutzer",
@@ -115,12 +141,36 @@ return array(
     "users_create_header" => "Neuer Benutzer",
     "users_create_header" => "Neues Benutzerkonto erstellen",
     "users_create_create" => "Erstellen",
+    "users_create_success" => "dam|success|Neues Nutzerkonto für :full_name erstellt",
 
     //Edit User
     "users_edit_header" => "Benutzerkonto bearbeiten",
     "users_edit_save" => "Änderungen speichern",
     "users_edit_delete" => "Benutzerkonto löschen",
+    "users_edit_success" => "dam|success|Nutzerkonto von :name aktualisiert.",
     "users_edit_delete_sure" => "Soll das Benutzerkonto von :name wirklich gelöscht werden?",
     "users_edit_delete_success" => "dam|success|Benutzerkonto von :name erfolgreich gelöscht.",
+
+    "users_edit_resend_success" => "dam|success|Das Passwort von :name wurde zurückgesetzt.",
+
+    //Mail reset password
+    "users_mail_reset_subject" => "Neues Passwort für TaBEA - TagebuchErhebungsAdministration",
+    "users_mail_reset_header" => "Neues Passwort",
+    "users_mail_reset_salutation" => "Hallo :full_name",
+    "users_mail_reset_body" => "Ihr Passwort für das System \"TaBEA - TagebuchErhebungsAdministration\" wurde zurückgesetzt. Sie können sich mit folgenden Zugangsdaten anmelden:",
+    "users_mail_reset_url" => "URL",
+    "users_mail_reset_login" => "Benutzername",
+    "users_mail_reset_passwordreset" => "Das Passwort muss nach Anmeldung geändert werden.",
+
+
+    //Mail to new user
+    "users_mail_new_subject" => "Zugangsdaten für TaBEA - TagebuchErhebungsAdministration",
+    "users_mail_new_header" => "Neues Benutzerkonto",
+    "users_mail_new_salutation" => "Hallo :full_name,",
+    "users_mail_new_body" => "für Sie wurde ein neues Benutzerkonto für das System \"TaBEA - TagebuchErhebungsAdministration\" erstellt. Sie können sich mit folgenden Zugangsdaten anmelden:",
+    "users_mail_new_url" => "URL",
+    "users_mail_new_login" => "Benutzername",
+    "users_mail_new_passwordreset" => "Das Passwort muss bei Erstanmeldung geändert werden.",
+
 
 );

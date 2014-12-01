@@ -103,6 +103,7 @@ return array(
         'studypassword' => 'Studienpasswort',
         'accessible_from' => 'Bereitstellung der Studiendaten ab',
         'accessible_until' => 'Bereitstellung der Studiendaten bis',
-        'uploadable_until' => 'Ende Datenupload'
+        'uploadable_until' => 'Ende Datenupload',
+        'password' => 'Passwort',
     ),
 );

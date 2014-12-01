@@ -22,7 +22,6 @@
         </tr>
       </thead>
       <tbody>
-        <h3></h3>
         @foreach ($studies as $study)
         <tr>
           <td>{{$study->short_name}}</td>

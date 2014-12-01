@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', trans('pagestrings.users_edit_header'))
+@section('title', trans('pagestrings.profile_header'))
 @stop
 
 @section('header', trans('pagestrings.users_edit_header'))
