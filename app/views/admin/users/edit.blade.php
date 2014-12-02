@@ -40,8 +40,17 @@
                     </label>
                 </div>
                 @endif
-                {{ Bootstrap::submit(trans('pagestrings.users_edit_save')) }}
-                {{ Form::close() }}
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ Bootstrap::submit(trans('pagestrings.users_edit_save')) }}
+                        {{ Form::close() }}
+                    </div>
+                        {{ Form::model($user, ['method' => 'PATCH', 'route' => ['admin.users.resend', $user->id]]) }}
+                        {{ Bootstrap::submit(trans('pagestrings.users_edit_reset_password')) }}
+                        {{ Form::close() }}
+                    <div class="col-md-6">
+                    </div>
+                </div>
          </div>
          </div>
 

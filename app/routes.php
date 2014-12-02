@@ -50,10 +50,6 @@ Route::group(['before' => 'auth'], function(){
 
 //Studies Routes: expanded to ease use of filters
 
-
-
-
-
 /*
  * Administration Panel - Access restricted to authenticated users with the role 'admin'
  */
@@ -62,6 +58,6 @@ Route::group(array('before' => array('auth', 'admin')), function(){
 	/*
 	 * Admin - User management
 	 */
-    Route::post('admin/users/{users}/resend', ['as' => 'admin.users.resend', 'uses' => 'UsersController@resendPassword']);
+    Route::patch('admin/users/{users}/resend', ['as' => 'admin.users.resend', 'uses' => 'UsersController@resendPassword']);
 	Route::resource('admin/users', 'UsersController');
 });

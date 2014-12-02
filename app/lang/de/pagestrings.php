@@ -150,6 +150,7 @@ return array(
     "users_edit_success" => "dam|success|Nutzerkonto von :name aktualisiert.",
     "users_edit_delete_sure" => "Soll das Benutzerkonto von :name wirklich gelöscht werden?",
     "users_edit_delete_success" => "dam|success|Benutzerkonto von :name erfolgreich gelöscht.",
+    "users_edit_reset_password" => "Passwort zurücksetzen",
 
     "users_edit_resend_success" => "dam|success|Das Passwort von :name wurde zurückgesetzt.",
 

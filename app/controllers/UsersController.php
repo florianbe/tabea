@@ -60,7 +60,7 @@ class UsersController extends \BaseController {
             $user->must_reset_password = true;
 			$user->save();
 
-			Mail::send('emails.auth.newuser', array('user'=>$user, 'password' => $password), function($message){
+			Mail::send('emails.auth.newuser', array('user'=>$user, 'password' => $password), function($message) use ($user){
     	    $message->to('florian.binoeder@gmail.com', $user->full_name)->subject( trans('pagestrings.users_mail_new_subject'));
     		});
 
@@ -169,7 +169,7 @@ class UsersController extends \BaseController {
         $user->save();
 
         //Send info E-Mail
-        Mail::send('emails.auth.resetpassword', array('user'=>$user, 'password' => $password), function($message){
+        Mail::send('emails.auth.resetpassword', array('user'=>$user, 'password' => $password), function($message) use ($user) {
             $message->to('florian.binoeder@gmail.com', $user->full_name)->subject( trans('pagestrings.users_mail_reset_subject'));
         });
 
