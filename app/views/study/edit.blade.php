@@ -65,7 +65,9 @@
 
                 {{ Bootstrap::select('studystate', trans('pagestrings.studies_state'), $study->getStudystateOptions(), $study->studystate->code, [], [$study->isStateEditable() ? '' : 'disabled']) }}
 
-                 {{ Bootstrap::submit(trans('pagestrings.studies_create_savebutton')) }}
+                @if($study->isStudyEditable() || $study->isStateEditable())
+                {{ Bootstrap::submit(trans('pagestrings.studies_create_savebutton')) }}
+                @endif
             </div>
         </div>
         {{ Form::close() }}  

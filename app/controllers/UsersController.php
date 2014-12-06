@@ -189,7 +189,16 @@ class UsersController extends \BaseController {
         if ($user->is_admin == true && $user->id != Auth::user()->id) {
             throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
         }
+        $studies_authored = $user->studiesAuthored();
+
+        foreach($studies_authored as $study)
+        {
+            $study->author()->associate(Auth::user());
+            $study->save();
+        }
+
         $user->delete();
+
 
         return Redirect::route('admin.users.index')->with('message', trans('pagestrings.users_edit_delete_success', ['name' => $user->full_name]));
 

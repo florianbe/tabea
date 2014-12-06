@@ -31,7 +31,17 @@ class StudyController extends \BaseController {
 
     public function myStudies()
     {
-        $contrib_studies = Study::where();
+
+        $studies_authored = Auth::user()->studiesAuthored()->get();
+        $studies_contributing  = Auth::user()->studiesContributing()->get();
+        $studies_readable = Auth::user()->studiesReadable();
+
+        $studies_my = [
+            trans('pagestrings.studies_role_author')        => $studies_authored,
+            trans('pagestrings.studies_role_contributor')   => $studies_contributing,
+            trans('pagestrings.studies_role_reading')       => $studies_readable];
+
+        return View::make('study.mystudies')->with(compact('studies_my'));
     }
 	/**
 	 * Show the form for creating a new resource.

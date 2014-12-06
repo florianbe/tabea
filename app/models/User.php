@@ -104,9 +104,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->first_name . " " . $this->last_name;
     }
 
-    public function authoredStudies()
+    public function studiesAuthored()
     {
-        return $this->hasMany('Study');
+        return $this->hasMany('Study', 'author_id', 'id');
     }
 
     public function studyrequests()
@@ -121,6 +121,21 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
             return true;
         }
         return false;
+    }
+
+    public function studiesAll()
+    {
+        return $this->belongsToMany('Study', 'user_study', 'user_id', 'study_id')->withPivot('is_contributor')->withTimestamps();
+    }
+
+    public function studiesContributing()
+    {
+        return $this->belongsToMany('Study', 'user_study', 'user_id', 'study_id')->withPivot('is_contributor')->where('is_contributor', '=', '1');
+    }
+
+    public function studiesReadable()
+    {
+        return $this->belongsToMany('Study', 'user_study', 'user_id', 'study_id')->withPivot('is_contributor')->where('is_contributor', '=', '0');
     }
 
     public function isContributorToStudy(Study $study)
