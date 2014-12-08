@@ -86,7 +86,7 @@ Route::filter('is_study_contributor_or_admin', function($route)
     $studyId = $route->getParameter('study');
     $study = Study::findOrFail($studyId);
 
-    if(!(Auth::user()->isContributorToStudy($study)) && !(Auth::user()->is_admin))
+    if(!($study->author == Auth::user()) && !(Auth::user()->isContributorToStudy($study)) && !(Auth::user()->is_admin))
     {
         return Response::make('Unauthorized', 401);
     }

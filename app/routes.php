@@ -35,6 +35,8 @@ Route::group(['before' => 'auth'], function(){
      * Studies, SubStudies, QuestionGroups and Questions
      */
     Route::get('study/my', ['as' => 'study.my', 'uses' => 'StudyController@myStudies']);
+    Route::get('study/{studyId}/users', ['as' => 'study.users.view', 'uses' => 'StudyController@viewUsers']);
+    Route::post('study/{studyId}/users', ['as' => 'study.users.set', 'uses' => 'StudyController@setUsers']);
     Route::resource('study', 'StudyController');
     Route::resource('study.substudy', 'SubStudyController');
     Route::resource('study.substudy.questiongroup', 'QuestionGroupController');

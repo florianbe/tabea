@@ -26,7 +26,7 @@
           <a href="{{ action('UsersController@show', [$user->id]) }}"><i class="fa fa-list"></i></a></td>
           <td>{{ $user->last_name }}</td>
           <td>{{ $user->first_name }}</td>
-          <td><a href={{ $user->email }}>{{ $user->email }}</a></td>
+          <td><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
         </tr>
         @endforeach
       </tbody>
@@ -50,7 +50,7 @@
                   <a href="{{ action('UsersController@show', [$admin->id]) }}"><i class="fa fa-list"></i></a></td>
                   <td>{{ $admin->last_name }}</td>
                   <td>{{ $admin->first_name }}</td>
-                  <td><a href={{ $admin->email }}>{{ $admin->email }}</a></td>
+                  <td><a href="mailto:{{ $admin->email }}">{{ $admin->email }}</a></td>
                 </tr>
                 @endforeach
               </tbody>

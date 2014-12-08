@@ -116,3 +116,8 @@ body {
 .main .page-header {
   margin-top: 0;
 }
+
+.center-table {
+    text-align: center;
+    vertical-align: middle;
+}

@@ -34,6 +34,7 @@ return array(
     "studies_rmenu_createlink"      => "Neue Studie",
     "studies_rmenu_mystudieslink"   => "Meine Studien",
     "studies_rmenu_studyedit"       => "Studie bearbeiten",
+    "studies_rmenu_access"          => "Zugriffsrechte",
 
     //Words
     "studies_name"                  => "Studie",
@@ -79,6 +80,14 @@ return array(
     //Studies show
     "study_show_request_access"     => "Zugriff beantragen",
     "studies_show_studydetails"     => "Studiendetails",
+
+    //Access
+    "study_access_header"           => "Studie: :study_name | Zugriffsrechte",
+    "study_access_readable"         => "Lesezugriff",
+    "study_access_contributor"      => "Mitwirken",
+    "study_access_fullname"         => "Name",
+    "study_access_set"              => "Zugriffsrechte aktualisieren",
+    "study_access_set_success"      => "dam|success|Zugriffsrechte erfolgreich aktualisiert.",
 
     //Right_menu
     "substudies_rmenu_index"        => "Teilstudien",

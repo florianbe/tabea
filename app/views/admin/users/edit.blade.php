@@ -14,7 +14,6 @@
 @stop
 @section('content')
     <div class="row">
-
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">{{ trans('pagestrings.users_edit_header') }}</h3>
@@ -71,18 +70,27 @@
                 </div>
                 <div class="panel-body">
                 <div class="col-md-6 col-md-offset-3">
-                {{ Form::model($user, ['method' => 'DELETE', 'route' => ['admin.users.destroy', $user->id]]) }}
-                {{ Bootstrap::submit(trans('pagestrings.users_edit_delete'), ['class' => 'btn btn-danger']) }}
+
+                {{ Form::model($user, ['method' => 'DELETE', 'route' => ['admin.users.destroy', $user->id], 'class' => 'delete-form']) }}
+                {{ Bootstrap::submit(trans('pagestrings.users_edit_delete'), ['class' => 'btn btn-danger', 'onclick' => 'confirmDelete();']) }}
                 {{ Form::close() }}
+
                 </div>
                 </div>
                 </div>
             </div>
             </div>
         </div>
+
     </div>
 @stop
 
 @section('javascript')
+<script type="text/javascript">
 
+$(document).on('submit', '.delete-form', function(){
+    return confirm({{ trans('pagestrings.users_edit_delete_sure', ['name' => $user->full_name])}});
+});
+
+</script>
 @stop

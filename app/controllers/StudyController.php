@@ -168,6 +168,46 @@ class StudyController extends \BaseController {
         }
 	}
 
+    public function viewUsers($studyId)
+    {
+        $study = Study::findOrFail($studyId);
+        $users = User::all();
+        //Remove author, should not be deletable
+        $users = $users->diff([Auth::user()]);
+        $users = $users->diff($study->contributors()->get());
+        $users = $users->diff($study->readAccessUsers()->get());
+
+        $users_to_roles = [
+            "contributors"  => $study->contributors()->get(),
+            "readers"       => $study->readAccessUsers()->get(),
+            "none"          => $users
+        ];
+
+        return View::make('study.access')->with(compact('users_to_roles', 'study'));
+    }
+
+    public function setUsers($studyId)
+    {
+        $study = Study::findOrFail($studyId);
+        $study->readAccessUsers()->detach();
+
+        //Contrib rights supercede read rights, calculate diff
+        $access_rights = [
+            "false"     => array_diff(Input::get('read'), Input::get('contrib')),
+            "true"      => Input::get('contrib')
+        ];
+
+        foreach ($access_rights as $right => $userGroup)
+        {
+            foreach ($userGroup as $userId) {
+                $user = User::findOrFail($userId);
+                $study->users()->attach($userId, ['is_contributor' => $right=='true' ? 1 : 0]);
+            }
+        }
+
+        return Redirect::route('study.show', ['study' => $study->id])->with('message', trans('pagestrings.study_access_set_success'));
+    }
+
 	/**
 	 * Remove the specified resource from storage.
 	 * DELETE /study/{id}

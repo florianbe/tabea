@@ -99,10 +99,6 @@ class UsersController extends \BaseController {
         try {
             $user = User::findOrFail($id);
 
-            if ($user->is_admin == true && $user->id != Auth::user()->id) {
-                throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-            }
-
             return View::make('admin.users.edit')->with('user', $user);
         }
         catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e)
@@ -124,9 +120,7 @@ class UsersController extends \BaseController {
         $user = User::findOrFail($id);
 
         try {
-            if ($user->is_admin == true && $user->id != Auth::user()->id) {
-                throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-            }
+
             //Save email during validation in temp variable - must be unique
             $email = $user->email;
             $user->email = "xaf@axud.af";
@@ -186,10 +180,8 @@ class UsersController extends \BaseController {
 	public function destroy($id)
 	{
         $user = User::findOrFail($id);
-        if ($user->is_admin == true && $user->id != Auth::user()->id) {
-            throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-        }
-        $studies_authored = $user->studiesAuthored();
+
+        $studies_authored = $user->studiesAuthored()->get();
 
         foreach($studies_authored as $study)
         {
@@ -198,7 +190,6 @@ class UsersController extends \BaseController {
         }
 
         $user->delete();
-
 
         return Redirect::route('admin.users.index')->with('message', trans('pagestrings.users_edit_delete_success', ['name' => $user->full_name]));
 
