@@ -15,7 +15,8 @@ class StudyController extends \BaseController {
 
         $this->beforeFilter('auth');
         $this->beforeFilter('is_study_contributor_or_admin', ['only' => ['edit', 'update']]);
-        $this->beforeFilter('csrf', ['only' => 'post']);
+        $this->beforeFilter('is_study_contributor_or_admin', ['only' => ['viewUsers', 'setUsers']]);
+
     }
 	/**
 	 * Display a listing of the resource.

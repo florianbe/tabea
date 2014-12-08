@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c4cf31e-4872-4c8e-a207-9cdde5289d48" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/study/access.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/StudyController.php" afterPath="$PROJECT_DIR$/app/controllers/StudyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/UsersController.php" afterPath="$PROJECT_DIR$/app/controllers/UsersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/study/sidebars/detail.blade.php" afterPath="$PROJECT_DIR$/app/views/study/sidebars/detail.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/users/edit.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/users/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/filters.php" afterPath="$PROJECT_DIR$/app/filters.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/users/index.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/users/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/lang/de/pagestrings.php" afterPath="$PROJECT_DIR$/app/lang/de/pagestrings.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tabea.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,11 +31,21 @@
       <file leaf-file-name="StudyController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/StudyController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.888889" vertical-offset="5349" max-vertical-offset="6156">
-              <caret line="207" column="105" selection-start-line="207" selection-start-column="94" selection-end-line="207" selection-end-column="105" />
+            <state vertical-scroll-proportion="-9.888889" vertical-offset="219" max-vertical-offset="6183">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="e#7#39#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.31764707" vertical-offset="0" max-vertical-offset="1728">
+              <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pagestrings.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pagestrings.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/lang/de/pagestrings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.88601035" vertical-offset="1890" max-vertical-offset="5103">
+            <state vertical-scroll-proportion="-9.679245" vertical-offset="1890" max-vertical-offset="5103">
               <caret line="89" column="92" selection-start-line="89" selection-start-column="92" selection-end-line="89" selection-end-column="92" />
               <folding />
             </state>
@@ -167,12 +168,12 @@
         <option value="$PROJECT_DIR$/app/filters.php" />
         <option value="$PROJECT_DIR$/app/controllers/UsersController.php" />
         <option value="$PROJECT_DIR$/app/views/admin/users/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/views/study/sidebars/detail.blade.php" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/app/views/study/access.blade.php" />
-        <option value="$PROJECT_DIR$/app/controllers/StudyController.php" />
         <option value="$PROJECT_DIR$/app/lang/de/pagestrings.php" />
+        <option value="$PROJECT_DIR$/app/controllers/StudyController.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
       </list>
     </option>
   </component>
@@ -676,7 +677,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.178125" sideWeight="0.78364116" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.178125" sideWeight="0.78364116" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14226191" sideWeight="0.21635884" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17519042" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32884902" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1037,14 +1038,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.037037" vertical-offset="647" max-vertical-offset="1674">
-          <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7829582" vertical-offset="2780" max-vertical-offset="3483">
@@ -1101,20 +1094,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/lang/de/pagestrings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.679245" vertical-offset="1890" max-vertical-offset="5103">
+          <caret line="89" column="92" selection-start-line="89" selection-start-column="92" selection-end-line="89" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/StudyController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.888889" vertical-offset="5349" max-vertical-offset="6156">
-          <caret line="207" column="105" selection-start-line="207" selection-start-column="94" selection-end-line="207" selection-end-column="105" />
+        <state vertical-scroll-proportion="-9.888889" vertical-offset="219" max-vertical-offset="6183">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="e#7#39#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/lang/de/pagestrings.php">
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88601035" vertical-offset="1890" max-vertical-offset="5103">
-          <caret line="89" column="92" selection-start-line="89" selection-start-column="92" selection-end-line="89" selection-end-column="92" />
+        <state vertical-scroll-proportion="0.31764707" vertical-offset="0" max-vertical-offset="1728">
+          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
           <folding />
         </state>
       </provider>

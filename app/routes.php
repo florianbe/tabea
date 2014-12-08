@@ -14,11 +14,13 @@
 /* 
  * Authentication
  */
+Route::when('*', 'csrf', ['post', 'put', 'patch', 'delete']);
 Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));
 Route::post('login', array('as' => 'login.store', 'uses' => 'SessionsController@store'));
 
 
 Route::group(['before' => 'auth'], function(){
+
     /*
      * Logout
      */
