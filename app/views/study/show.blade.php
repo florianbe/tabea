@@ -8,7 +8,9 @@
     @if(Auth::user()->hasAccessToStudy($study))
         @include('study.sidebars.detail', ['studyId' => $study->id])
     @else
+    <ul class="nav nav-sidebar">
         <li>{{ HTML::linkRoute('request.new', trans('pagestrings.study_show_request_access'), ["studyId" => $study->id]) }}</li>
+    </ul>
     @endif
 @stop
 @section('content') 
