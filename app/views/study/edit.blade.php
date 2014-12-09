@@ -5,7 +5,7 @@
 @section('header', (trans('pagestrings.studies_detail_header', ['study_name' => $study->name])))
 
 @section('sidebar')
-       @include('study.sidebars.detail', ['studyId' => $study->id])
+       @include('study.sidebars.detail', ['studyId' => $study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($study)])
 @stop
 @section('content')
 

@@ -11,6 +11,6 @@
 </ul>
 @else
 <ul class="nav nav-sidebar">
-        <li>{{ HTML::linkRoute('request.new', trans('pagestrings.study_show_request_access'), [$studyId]) }}</li>
+        <li class="{{set_class('request.new')}}">{{ HTML::linkRoute('request.new', trans('pagestrings.study_show_request_access'), [$studyId]) }}</li>
 </ul>
 @endif

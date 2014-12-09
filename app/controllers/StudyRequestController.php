@@ -16,7 +16,6 @@ class StudyRequestController extends \BaseController {
 	{
         $my_StudyRequests = Auth::user()->studyRequests;
 
-
         return $my_StudyRequests;
 
 	}
@@ -27,9 +26,9 @@ class StudyRequestController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function newRequest($id)
+	public function newRequest($studyId)
 	{
-        $study = Study::findOrFail($id);
+        $study = Study::findOrFail($studyId);
 
         if (Auth::user()->hasAccessToStudy($study))
         {
@@ -40,12 +39,30 @@ class StudyRequestController extends \BaseController {
             return Redirect::route('study.index')->with('message', trans('pagestrings.studyrequest_create_already_request'));
         }
 
+        return View::make('studyrequests.create')->with(compact('study'));
+
+	}
+
+    public function store()
+    {
+        $study = Study::findOrFail(Input::get('studyId'));
+
+        if (Auth::user()->hasAccessToStudy($study))
+        {
+            return Redirect::route('study.index')->with('message', trans('pagestrings.studyrequest_create_already_access'));
+        }
+        if (Auth::user()->hasRequestForStudy($study))
+        {
+            return Redirect::route('study.index')->with('message', trans('pagestrings.studyrequest_create_already_request'));
+        }
 
         $studyRequest = new StudyRequest;
         $studyRequest->requestingUser()->associate(Auth::user());
         $studyRequest->study()->associate($study);
         $studyRequest->is_viewed = false;
-        $studyRequest->as_contributor = true;
+        $studyRequest->is_accepted = false;
+        $studyRequest->as_contributor = Input::has('as_contrib');
+        $studyRequest->comment = Input::get('comment');
 
         $studyRequest->save();
 
@@ -56,14 +73,11 @@ class StudyRequestController extends \BaseController {
             'requesting_name' => Auth::user()->full_name,
             'link_torequest' => HTML::linkRoute('request.edit', trans('pagestrings.studyrequest_mailauthor_linkto'), [$studyRequest->id]),
             'study_name' => $study->name
-            ], function($message) use ($study, $link_request) {
-                $message->to('florian.binoeder@gmail.com', $study->author->full_name)->subject(trans('pagestrings.studyrequest_mailauthor_subject'));
+        ], function($message) use ($study, $link_request) {
+            $message->to('florian.binoeder@gmail.com', $study->author->full_name)->subject(trans('pagestrings.studyrequest_mailauthor_subject'));
         });
-
         return Redirect::route('study.index')->with('message', trans('pagestrings.studyrequest_create_success'));
-	}
-
-
+    }
 
 	/**
 	 * Show the form for editing the specified resource.

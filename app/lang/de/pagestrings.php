@@ -97,6 +97,12 @@ return array(
     //Right_menu
     "studyrequests_rmenu_indexlink" => "Übersicht",
 
+    //Create
+    "studyrequests_new_header"      => "Neue Zugriffsanfrage für Studie :study_name",
+    "studyrequests_new_comment"     => "Begründung/Kommentar (optional)",
+    "studyrequests_new_as_contrib"  => "Als Studienmitwirkender (Schreibrechte)",
+    "studyrequests_new_create"      => "Zugriffsanforderung erstellen",
+
     //Header
     "studyrequests_index_header"    => "Übersicht Zugriffsanfragen",
     "studyrequests_index_myRequests"            => "Meine Anfragen",

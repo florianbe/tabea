@@ -48,7 +48,7 @@ Route::group(['before' => 'auth'], function(){
      * Study Access requests
      */
     Route::get('request/new/{studyId}', ['as' => 'request.new', 'uses' => 'StudyRequestController@newRequest']);
-    Route::resource('request', 'StudyRequestController', ['except' => ['create', 'show', 'store']]);
+    Route::resource('request', 'StudyRequestController', ['except' => ['create']]);
 });
 
 
