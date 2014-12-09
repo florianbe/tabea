@@ -5,13 +5,7 @@
 @section('header', (trans('pagestrings.studies_detail_header', ['study_name' => $study->name])))
 
 @section('sidebar')
-    @if(Auth::user()->hasAccessToStudy($study))
-        @include('study.sidebars.detail', ['studyId' => $study->id])
-    @else
-    <ul class="nav nav-sidebar">
-        <li>{{ HTML::linkRoute('request.new', trans('pagestrings.study_show_request_access'), ["studyId" => $study->id]) }}</li>
-    </ul>
-    @endif
+    @include('study.sidebars.detail', ['studyId' => $study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($study)])
 @stop
 @section('content') 
         <div class="panel panel-primary">
