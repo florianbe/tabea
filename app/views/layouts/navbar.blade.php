@@ -6,8 +6,8 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">       
             <li><a href="{{ route('home') }}">{{ trans('pagestrings.top_menu_home') }}</a></li>
-            <li><a href="{{ route('study.my') }}">{{ trans('pagestrings.top_menu_studies') }}</a></li>
-            <li><a href="{{ route('request.index') }}">{{ trans('pagestrings.top_menu_requests') }}</a></li>
+            <li><a href="{{ route('studies.my') }}">{{ trans('pagestrings.top_menu_studies') }}</a></li>
+            <li><a href="{{ route('requests.index') }}">{{ trans('pagestrings.top_menu_requests') }}</a></li>
             </ul>
           <ul class="nav navbar-nav navbar-right">
             @if (Auth::user()->is_admin)

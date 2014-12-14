@@ -1,35 +1,38 @@
 @extends('layouts.template')
 
-@section('title', trans('pagestrings.studies_my_header'))
+@section('title', trans('pagestrings.studies_index_header'))
 
-@section('header', trans('pagestrings.studies_my_header'))
+@section('header', trans('pagestrings.studies_index_header'))
 
 @section('sidebar')
-    @include('study.sidebars.overview')
+    @include('studies.sidebars.overview')
 @stop
 @section('content') 
 
 
-    @if( (count($studies_my) > 0) )
-    <table id="studies" class="table table-striped">
+    @if( (count($studies) > 0) )
+    <table id ="studies" class="table table-striped ">
       <thead>
         <tr>
-          <th>{{ trans('pagestrings.studies_role') }}</th>
           <th></th>
           <th>{{ trans('pagestrings.studies_name') }}</th>
+          <th>{{ trans('pagestrings.studies_author') }}</th>
           <th>{{ trans('pagestrings.studies_state') }}</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        @foreach ($studies_my as $state => $studies)
+        <h3></h3>
         @foreach ($studies as $study)
         <tr>
-          <td>{{ $state }}</td>
           <td>{{$study->short_name}}</td>
           <td><a href="{{ action('StudyController@show', array($study->id)) }}">{{ $study->name}}</a></td>
+          <td>{{$study->author->fullName}}</td>
           <td>{{$study->studystate->name}}</td>
+          <td>
+
+          </td>
         </tr>
-        @endforeach
         @endforeach
       </tbody>
     </table>
@@ -51,3 +54,5 @@
 
      </script>
 @stop
+
+

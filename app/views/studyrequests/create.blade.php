@@ -5,11 +5,11 @@
 @section('header', trans('pagestrings.studyrequests_new_header', ['study_name' => $study->name]))
 
 @section('sidebar')
-       @include('study.sidebars.detail', ['studyId' => $study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($study)])
+       @include('studies.sidebars.detail', ['studyId' => $study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($study)])
 @stop
 @section('content')
 
-    {{ Form::open(['route' => ['request.store', "studyId" => $study->id]]) }}
+    {{ Form::open(['route' => ['requests.store', "studyId" => $study->id]]) }}
         {{ Bootstrap::textarea('comment', trans('pagestrings.studyrequests_new_comment') ) }}
 
 

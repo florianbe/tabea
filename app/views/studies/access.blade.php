@@ -5,10 +5,10 @@
 @section('header', (trans('pagestrings.study_access_header', ['study_name' => $study->name])))
 
 @section('sidebar')
-       @include('study.sidebars.detail', ['studyId' => $study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($study)])
+       @include('studies.sidebars.detail', ['studyId' => $study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($study)])
 @stop
 @section('content')
-    {{ Form::open(['route' => ['study.users.set', $study->id], 'method' => 'POST']) }}
+    {{ Form::open(['route' => ['studies.users.set', $study->id], 'method' => 'POST']) }}
     <table id ="user_access" class="table table-striped ">
       <thead>
         <tr>

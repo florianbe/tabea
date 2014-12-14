@@ -21,7 +21,7 @@ return array(
     //Top Menu
     "top_menu_home"         => "Home",
     "top_menu_studies"      => "Studien",
-    "top_menu_requests"     => "Berechtigungsanfragen",
+    "top_menu_requests"     => "Zugriffsanfragen",
     "top_menu_users"        => "Benutzerverwaltung",
     "top_menu_profile"      => "Profil",
     "top_menu_logout"       => "Abmelden",
@@ -108,6 +108,8 @@ return array(
     "studyrequests_index_myRequests"            => "Meine Anfragen",
     "studyrequests_index_myResponse_needed"     => "Zu bearbeitende Anfragen",
     "studyrequests_index_no_requests"           => "Keine Anfragen vorhanden",
+    "studyrequests_index_open"      => "offen",
+    "studyrequests_index_denied"    => "abgelehnt",
 
     //Create message
     "studyrequest_create_success"   => "dam|success|Zugriffsanfrage gespeichert",
@@ -121,7 +123,8 @@ return array(
     "studyrequest_create_already_access"        => "dam|error|Sie haben bereits Zugriff auf diese Studie.",
     "studyrequest_create_already_request"       => "dam|error|Für diese Studie existiert bereits eine Anfrage.",
 
-
+    //Delete message
+    "studyrequest_delete_success"   => "dam|succes|Zugriffsanfrage gelöscht",
     //********************************************
     //Profile page
     //Header

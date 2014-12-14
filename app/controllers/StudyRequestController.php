@@ -14,10 +14,9 @@ class StudyRequestController extends \BaseController {
 	 */
 	public function index()
 	{
-        $my_StudyRequests = Auth::user()->studyRequests;
+        $my_StudyRequests = Auth::user()->studyrequests()->get();
 
-        return $my_StudyRequests;
-
+        return View::make('studyrequests.index')->with(compact('my_StudyRequests'));
 	}
 
 	/**
@@ -32,11 +31,11 @@ class StudyRequestController extends \BaseController {
 
         if (Auth::user()->hasAccessToStudy($study))
         {
-            return Redirect::route('study.index')->with('message', trans('pagestrings.studyrequest_create_already_access'));
+            return Redirect::route('studies.index')->with('message', trans('pagestrings.studyrequest_create_already_access'));
         }
         if (Auth::user()->hasRequestForStudy($study))
         {
-            return Redirect::route('study.index')->with('message', trans('pagestrings.studyrequest_create_already_request'));
+            return Redirect::route('studies.index')->with('message', trans('pagestrings.studyrequest_create_already_request'));
         }
 
         return View::make('studyrequests.create')->with(compact('study'));
@@ -49,11 +48,11 @@ class StudyRequestController extends \BaseController {
 
         if (Auth::user()->hasAccessToStudy($study))
         {
-            return Redirect::route('study.index')->with('message', trans('pagestrings.studyrequest_create_already_access'));
+            return Redirect::route('studies.index')->with('message', trans('pagestrings.studyrequest_create_already_access'));
         }
         if (Auth::user()->hasRequestForStudy($study))
         {
-            return Redirect::route('study.index')->with('message', trans('pagestrings.studyrequest_create_already_request'));
+            return Redirect::route('studies.index')->with('message', trans('pagestrings.studyrequest_create_already_request'));
         }
 
         $studyRequest = new StudyRequest;
@@ -66,17 +65,17 @@ class StudyRequestController extends \BaseController {
 
         $studyRequest->save();
 
-        $link_request = HTML::linkRoute('request.edit', trans('pagestrings.studyrequest_mailauthor_linkto'), ["request" => $studyRequest->id]);
+        $link_request = HTML::linkRoute('requests.edit', trans('pagestrings.studyrequest_mailauthor_linkto'), ["request" => $studyRequest->id]);
 
         Mail::send('emails.newstudyrequest',[
             'author_name' => $study->author->full_name,
             'requesting_name' => Auth::user()->full_name,
-            'link_torequest' => HTML::linkRoute('request.edit', trans('pagestrings.studyrequest_mailauthor_linkto'), [$studyRequest->id]),
+            'link_torequest' => HTML::linkRoute('requests.edit', trans('pagestrings.studyrequest_mailauthor_linkto'), [$studyRequest->id]),
             'study_name' => $study->name
         ], function($message) use ($study, $link_request) {
             $message->to('florian.binoeder@gmail.com', $study->author->full_name)->subject(trans('pagestrings.studyrequest_mailauthor_subject'));
         });
-        return Redirect::route('study.index')->with('message', trans('pagestrings.studyrequest_create_success'));
+        return Redirect::route('studies.index')->with('message', trans('pagestrings.studyrequest_create_success'));
     }
 
 	/**
@@ -114,7 +113,19 @@ class StudyRequestController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+        $studyRequest = StudyRequest::findOrFail($id);
+
+        if ($studyRequest->requestingUser()->first() == Auth::User())
+        {
+            $studyRequest->delete();
+            $my_StudyRequests = Auth::user()->studyrequests()->get();
+
+            return View::make('studyrequests.index')->with(compact('my_StudyRequests'));
+        }
+        else
+        {
+            throw new \Symfony\Component\Security\Core\Exception\AccessDeniedException();
+        }
 	}
 
 }

@@ -27,7 +27,7 @@ class StudyController extends \BaseController {
 	public function index()
 	{
 		$studies = Study::all();
-        return View::make('study.index')->with(compact('studies'));
+        return View::make('studies.index')->with(compact('studies'));
 	}
 
     public function myStudies()
@@ -42,7 +42,7 @@ class StudyController extends \BaseController {
             trans('pagestrings.studies_role_contributor')   => $studies_contributing,
             trans('pagestrings.studies_role_reading')       => $studies_readable];
 
-        return View::make('study.mystudies')->with(compact('studies_my'));
+        return View::make('studies.mystudies')->with(compact('studies_my'));
     }
 	/**
 	 * Show the form for creating a new resource.
@@ -52,7 +52,7 @@ class StudyController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('study.create');
+		return View::make('studies.create');
 	}
 
 	/**
@@ -77,7 +77,7 @@ class StudyController extends \BaseController {
             $study->author()->associate(Auth::user());
 
             $study->save();
-            return Redirect::route('study.edit', ['study' => $study->id])->with('message', trans('pagestrings.studies_create_successmessage'));
+            return Redirect::route('studies.edit', ['study' => $study->id])->with('message', trans('pagestrings.studies_create_successmessage'));
             
         }
         catch (Laracasts\Validation\FormValidationException $e)
@@ -97,7 +97,7 @@ class StudyController extends \BaseController {
 	{
         $study = Study::findOrFail($studyId);
 
-        return View::make('study.show')->with(compact('study'));
+        return View::make('studies.show')->with(compact('study'));
 	}
 
 	/**
@@ -111,7 +111,7 @@ class StudyController extends \BaseController {
 	{
 		$study = Study::findOrFail($studyId);
 
-        return View::make('study.edit')->with(compact('study'));
+        return View::make('studies.edit')->with(compact('study'));
 	}
 
 	/**
@@ -161,7 +161,7 @@ class StudyController extends \BaseController {
 
             $study->save();
 
-            return Redirect::route('study.show', ['study' => $study->id])->with('message', trans('pagestrings.studies_create_successmessage'));
+            return Redirect::route('studies.show', ['study' => $study->id])->with('message', trans('pagestrings.studies_create_successmessage'));
         }
         catch (Laracasts\Validation\FormValidationException $e)
         {
@@ -184,7 +184,7 @@ class StudyController extends \BaseController {
             "none"          => $users
         ];
 
-        return View::make('study.access')->with(compact('users_to_roles', 'study'));
+        return View::make('studies.access')->with(compact('users_to_roles', 'study'));
     }
 
     public function setUsers($studyId)
@@ -206,7 +206,7 @@ class StudyController extends \BaseController {
             }
         }
 
-        return Redirect::route('study.show', ['study' => $study->id])->with('message', trans('pagestrings.study_access_set_success'));
+        return Redirect::route('studies.show', ['study' => $study->id])->with('message', trans('pagestrings.study_access_set_success'));
     }
 
 	/**
