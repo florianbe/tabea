@@ -26,7 +26,7 @@
         @foreach ($studies as $study)
         <tr>
           <td>{{$study->short_name}}</td>
-          <td><a href="{{ action('StudyController@show', array($study->id)) }}">{{ $study->name}}</a></td>
+          <td><a href="{{ action('StudyController@show', [$study->id]) }}">{{ $study->name}}</a></td>
           <td>{{$study->author->fullName}}</td>
           <td>{{$study->studystate->name}}</td>
           <td>

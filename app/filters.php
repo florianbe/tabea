@@ -59,7 +59,7 @@ Route::filter('admin', function()
 
 Route::filter('has_study_access', function($route)
 {
-    $studyId = $route->getParameter('study');
+    $studyId = $route->getParameter('studies');
     $study = Study::findOrFail($studyId);
 
     if(!(Auth::user()->hasAccessToStudy($study)))
@@ -71,7 +71,7 @@ Route::filter('has_study_access', function($route)
 
 Route::filter('is_study_contributor', function($route)
 {
-    $studyId = $route->getParameter('study');
+    $studyId = $route->getParameter('studies');
     $study = Study::findOrFail($studyId);
 
     if(!(Auth::user()->isContributorToStudy($study)))
@@ -83,7 +83,9 @@ Route::filter('is_study_contributor', function($route)
 
 Route::filter('is_study_contributor_or_admin', function($route)
 {
-    $studyId = $route->getParameter('study');
+
+    $studyId = $route->getParameter('studies');
+
     $study = Study::findOrFail($studyId);
 
     if(!($study->author == Auth::user()) && !(Auth::user()->isContributorToStudy($study)) && !(Auth::user()->is_admin))

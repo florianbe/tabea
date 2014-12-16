@@ -27,6 +27,8 @@ return array(
     "top_menu_logout"       => "Abmelden",
 
     "hello"                 => "Hallo :full_name",
+    "yes"                   => "Ja",
+    "no"                    => "Nein",
     //********************************************
     //Studies
     //Right_menu
@@ -35,6 +37,7 @@ return array(
     "studies_rmenu_mystudieslink"   => "Meine Studien",
     "studies_rmenu_studyedit"       => "Studie bearbeiten",
     "studies_rmenu_access"          => "Zugriffsrechte",
+    "studies_rmenu_requests"        => "Zugriffsanfragen",
 
     //Words
     "studies_name"                  => "Studie",
@@ -89,6 +92,22 @@ return array(
     "study_access_set"              => "Zugriffsrechte aktualisieren",
     "study_access_set_success"      => "dam|success|Zugriffsrechte erfolgreich aktualisiert.",
 
+    //Requests
+    "studies_showrequests_header"   => "Studie: :study_name | Zugriffsanfragen",
+    "studies_showrequests_nostudyrequests"  => "Keine Zugriffsanfragen vorhanden",
+    "studies_showrequests_fullname" => "Name",
+    "studies_showrequests_email"    => "E-Mail",
+    "studies_showrequests_state"    => "Status",
+    "studies_showrequests_edit"     => "Bearbeiten",
+
+
+    //Mail access
+    "studyrequest_mailaccess_subject"           => "TaBEA: Neuer Studienzugriff",
+    "studyrequest_mailaccess_header"            => "Neuer Studienzugriff",
+    "studyrequest_mailaccess_linkto"            => ":short_name - :study_name",
+    "studyrequest_mailaccess_body"              => "Sie haben Zugriffsrechte für die Studie :study_name erhalten. Der Zugriff ist über das System unter \"Meine Studien\" oder über den folgenden link möglich: ",
+
+
     //Right_menu
     "substudies_rmenu_index"        => "Teilstudien",
 
@@ -98,7 +117,7 @@ return array(
     "studyrequests_rmenu_indexlink" => "Übersicht",
 
     //Create
-    "studyrequests_new_header"      => "Neue Zugriffsanfrage für Studie :study_name",
+    "studyrequests_new_header"      => "Neue Zugriffsanfrage für Studie: :study_name",
     "studyrequests_new_comment"     => "Begründung/Kommentar (optional)",
     "studyrequests_new_as_contrib"  => "Als Studienmitwirkender (Schreibrechte)",
     "studyrequests_new_create"      => "Zugriffsanforderung erstellen",
@@ -110,6 +129,15 @@ return array(
     "studyrequests_index_no_requests"           => "Keine Anfragen vorhanden",
     "studyrequests_index_open"      => "offen",
     "studyrequests_index_denied"    => "abgelehnt",
+
+    //Edit
+    "studyrequests_edit_header"     => "Zugriffsanfrage für Studie: :study_name bearbeiten ",
+    "studyrequests_edit_select_please"  => "Bitte auswählen...",
+    "studyrequests_edit_select_deny"    => "Ablehnen",
+    "studyrequests_edit_select_read"  => "Lesen",
+    "studyrequests_edit_select_contribute"  => "Mitarbeiten",
+    "studyrequests_edit_set"        => "Änderungen speichern",
+    "studyrequests_edit_success"    => "dam|success|Ihre Änderungen wurden gespeichert.",
 
     //Create message
     "studyrequest_create_success"   => "dam|success|Zugriffsanfrage gespeichert",

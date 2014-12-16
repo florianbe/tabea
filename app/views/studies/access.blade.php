@@ -5,7 +5,7 @@
 @section('header', (trans('pagestrings.study_access_header', ['study_name' => $study->name])))
 
 @section('sidebar')
-       @include('studies.sidebars.detail', ['studyId' => $study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($study)])
+       @include('studies.sidebars.detail', ['studyId' => $study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($study), 'canContribute' => (Auth::user()->isAdmin || $study->contributors->contains(Auth::user()))])
 @stop
 @section('content')
     {{ Form::open(['route' => ['studies.users.set', $study->id], 'method' => 'POST']) }}

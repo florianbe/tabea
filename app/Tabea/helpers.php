@@ -60,9 +60,21 @@ function date_for_picker($date)
 
     return 'value=' . $date->formatLocalized('%d.%m.%Y');
 
-}
+};
 
 function format_time_to_display($date)
 {
+    return true;
+};
 
+function sendMailStudyAccess(Study $study, User $user)
+{
+    Mail::send('emails.studyaccess',[
+        'user_name' => $user->full_name,
+        'requesting_name' => Auth::user()->full_name,
+        'link_to_study' => HTML::linkRoute('study.show', trans('pagestrings.studyrequest_mailauthor_linkto', ["short_name" => $study->short_name, "study_name" => $study->name]), [$study->id]),
+        'study_name' => $study->name
+    ], function($message) use ($study, $user) {
+        $message->to('florian.binoeder@gmail.com', $user->full_name)->subject(trans('pagestrings.studyrequest_mailaccess_subject'));
+    });
 };

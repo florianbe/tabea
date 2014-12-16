@@ -89,7 +89,16 @@ class StudyRequestController extends \BaseController {
 	{
 		$studyRequest = StudyRequest::findOrFail($id);
 
-        return $studyRequest;
+
+        if (Auth::user()->is_admin || Auth::user() == $studyRequest->study->author || $studyRequest->study->contributors->contains(Auth::user()))
+        {
+            return View::make('studyrequests.edit')->with(compact('studyRequest'));
+        }
+        else
+        {
+            throw new \Symfony\Component\Security\Core\Exception\AccessDeniedException();
+        }
+
 	}
 
 	/**
@@ -101,7 +110,35 @@ class StudyRequestController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+        $studyRequest = StudyRequest::findOrFail($id);
+        $study = $studyRequest->study;
+        if (Auth::user()->is_admin || Auth::user() == $study->author || $study->contributors->contains(Auth::user()))
+        {
+            $state = Input::get('request_state', 1);
+            //DENIED
+            if ($state == '2')
+            {
+                $studyRequest->is_viewed = true;
+                $studyRequest->is_accepted = false;
+
+                $studyRequest->save();
+            }
+            if ($state == '3' || $state == '4')
+            {
+                $as_contrib = ($state == '3' ? false : true);
+                $studyRequest->study->users->attach($studyRequest->requestingUser->id, ['is_contributor' => $as_contrib]);
+
+                sendMailStudyAccess($study, $studyRequest->requestingUser);
+
+                $studyRequest->delete();
+            }
+
+            return View::make('studies.studyrequests')->with(compact('study'))->with('message', trans('pagestrings.studyrequests_edit_success'));
+        }
+        else
+        {
+            throw new \Symfony\Component\Security\Core\Exception\AccessDeniedException();
+        }
 	}
 
 	/**

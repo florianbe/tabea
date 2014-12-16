@@ -16,6 +16,7 @@ class StudyController extends \BaseController {
         $this->beforeFilter('auth');
         $this->beforeFilter('is_study_contributor_or_admin', ['only' => ['edit', 'update']]);
         $this->beforeFilter('is_study_contributor_or_admin', ['only' => ['viewUsers', 'setUsers']]);
+        $this->beforeFilter('is_study_contributor_or_admin', ['only' => ['showRequestsForStudy']]);
 
     }
 	/**
@@ -194,8 +195,8 @@ class StudyController extends \BaseController {
 
         //Contrib rights supercede read rights, calculate diff
         $access_rights = [
-            "false"     => array_diff(Input::get('read'), Input::get('contrib')),
-            "true"      => Input::get('contrib')
+            "false"     => array_diff(Input::get('read', []), Input::get('contrib', [])),
+            "true"      => Input::get('contrib', [])
         ];
 
         foreach ($access_rights as $right => $userGroup)
@@ -220,5 +221,14 @@ class StudyController extends \BaseController {
 	{
 		//
 	}
+
+    public function showRequestsForStudy($id)
+    {
+        $studyRequests = StudyRequest::where('study_id', $id)->get();
+        $study = Study::findOrFail($id);
+
+        return View::make('studies.studyrequests')->with(compact('studyRequests'))->with(compact('study'));
+    }
+
 
 }
