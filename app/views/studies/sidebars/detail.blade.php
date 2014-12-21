@@ -6,6 +6,7 @@
 @if($hasAccess)
 
 <ul class="nav nav-sidebar">
+        <li class="{{set_class('studies.show')}}">{{ HTML::linkRoute('studies.show', trans('pagestrings.studies_rmenu_studyshow'), [$studyId])}}</li>
         <li class="{{set_class('studies.edit')}}">{{ HTML::linkRoute('studies.edit', trans('pagestrings.studies_rmenu_studyedit'), [$studyId])}}</li>
         <li class="{{set_class('studies.users.view')}}">{{ HTML::linkRoute('studies.users.view', trans('pagestrings.studies_rmenu_access'), [$studyId])}}</li>
         <li class="{{set_class('studies.requests') . set_class('requests.edit')}}">{{ HTML::linkRoute('studies.requests', trans('pagestrings.studies_rmenu_requests'), [$studyId])}}</li>

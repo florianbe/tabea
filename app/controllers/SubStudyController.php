@@ -2,15 +2,23 @@
 
 class SubStudyController extends \BaseController {
 
+	function __construct()
+	{
+		$this->beforeFilter('auth');
+		$this->beforeFilter('has_study_access');
+		$this->beforeFilter('is_study_contributor_or_admin', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 * GET /substudy
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($studies)
 	{
-		//
+		$study = Study::findOrFail($studies);
+		return View::make('substudies.index')->with(compact('study'));
 	}
 
 	/**
@@ -19,9 +27,10 @@ class SubStudyController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create($studies)
 	{
-		//
+		$study = Study::findOrFail($studies);
+		return View::make('substudies.create')->with(compact('study'));
 	}
 
 	/**

@@ -35,6 +35,7 @@ return array(
     "studies_rmenu_indexlink"       => "Gesamtübersicht",
     "studies_rmenu_createlink"      => "Neue Studie",
     "studies_rmenu_mystudieslink"   => "Meine Studien",
+    "studies_rmenu_studyshow"       => "Übersicht",
     "studies_rmenu_studyedit"       => "Studie bearbeiten",
     "studies_rmenu_access"          => "Zugriffsrechte",
     "studies_rmenu_requests"        => "Zugriffsanfragen",
@@ -110,6 +111,16 @@ return array(
 
     //Right_menu
     "substudies_rmenu_index"        => "Teilstudien",
+
+    //********************************************
+    //Requests
+    //Right_menu
+    "studies_rmenu_requests_indexlink"       => "Übersicht",
+    "studies_rmenu_requests_createlink"      => "Neue Teilstudie",
+
+    //Index
+    "substudies_index_header"       => ":study_name: Übersicht Teilstudien",
+    "substudies_index_nosubstudies" => "Keine Teilstudien",
 
     //********************************************
     //Requests

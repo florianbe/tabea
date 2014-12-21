@@ -68,6 +68,11 @@ class Study extends Eloquent
         return $this->hasMany('StudyRequest');
     }
 
+    public function subStudies()
+    {
+        return $this->hasMany('SubStudy');
+    }
+
     public function getStudystateOptions()
     {
         $states = [];
