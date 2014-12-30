@@ -27,10 +27,10 @@
                  {{ Bootstrap::text('studypassword', trans('pagestrings.studies_studypassword'), $study->studypassword, [], [$study->isStudyEditable() ? '' : 'disabled']) }}
                  {{ show_errors_for('studypassword', $errors) }}
 
-                {{ Bootstrap::textarea('description', trans('pagestrings.studies_description'), $study->description, [], [$study->isStudyEditable() ? '' : 'disabled'] ) }}
+                {{ Bootstrap::textarea('description', trans('pagestrings.studies_description'), $study->description, [], [$study->isStudyEditable() ? '' : 'disabled', 'rows' => '4'] ) }}
                 {{ show_errors_for('description', $errors) }}
 
-                {{ Bootstrap::textarea('comment', trans('pagestrings.studies_comment'), $study->comment, [], [$study->isStudyEditable() ? '' : 'disabled']) }}
+                {{ Bootstrap::textarea('comment', trans('pagestrings.studies_comment'), $study->comment, [], [$study->isStudyEditable() ? '' : 'disabled', 'rows' => '4']) }}
                 {{ show_errors_for('comment', $errors) }}
 
                 <div class="form-group">

@@ -95,15 +95,16 @@ return array(
     |
     */
     'attributes' => array(
-        'first_name' => 'Vorname',
-        'last_name' => 'Nachname',
-        'email' => 'E-Mail',
-        'name' => 'Name',
-        'short_name' => 'Kurzbezeichnung',
-        'studypassword' => 'Studienpasswort',
-        'accessible_from' => 'Bereitstellung der Studiendaten ab',
-        'accessible_until' => 'Bereitstellung der Studiendaten bis',
-        'uploadable_until' => 'Ende Datenupload',
-        'password' => 'Passwort',
+        'first_name'        => 'Vorname',
+        'last_name'         => 'Nachname',
+        'email'             => 'E-Mail',
+        'name'              => 'Name',
+        'short_name'        => 'Kurzbezeichnung',
+        'studypassword'     => 'Studienpasswort',
+        'accessible_from'   => 'Bereitstellung der Studiendaten ab',
+        'accessible_until'  => 'Bereitstellung der Studiendaten bis',
+        'uploadable_until'  => 'Ende Datenupload',
+        'password'          => 'Passwort',
+        'intervaltime'      => 'Intervalldauer'
     ),
 );

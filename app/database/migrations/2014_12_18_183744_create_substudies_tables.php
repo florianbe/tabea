@@ -17,12 +17,15 @@ class CreateSubstudiesTables extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 
+			$table->integer('id_in_study');
+
 			$table->integer('study_id')->unsigned();
 			$table->foreign('study_id')->references('id')->on('studies');
 
 			$table->text('name');
 			$table->text('description')->nullable();
 			$table->text('comment')->nullable();
+			$table->integer('sequence_indicator');
 
 			$table->boolean('trigger_is_event');
 			$table->boolean('trigger_is_timefix');
@@ -35,9 +38,12 @@ class CreateSubstudiesTables extends Migration {
             $table->increments('id');
             $table->timestamps();
 
+			$table->integer('id_in_substudy');
+
 			$table->integer('substudy_id')->unsigned();
 			$table->foreign('substudy_id')->references('id')->on('substudies');
 
+			$table->integer('sequence_indicator');
 			$table->dateTime('start_date');
 			$table->dateTime('end_date');
 			$table->string('weekday_list');

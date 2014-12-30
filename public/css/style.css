@@ -6,6 +6,9 @@ body {
 	padding-top: 80px;
 }
 
+textarea {
+  height: 4em;
+}
 .form-signin {
   max-width: 550px;
   padding: 15px;
@@ -121,3 +124,5 @@ body {
     text-align: center;
     vertical-align: middle;
 }
+
+

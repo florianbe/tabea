@@ -113,14 +113,61 @@ return array(
     "substudies_rmenu_index"        => "Teilstudien",
 
     //********************************************
-    //Requests
+    //Substudies
     //Right_menu
-    "studies_rmenu_requests_indexlink"       => "Übersicht",
-    "studies_rmenu_requests_createlink"      => "Neue Teilstudie",
+    "substudies_rmenu_indexlink"       => "Gesamtübersicht",
+    "substudies_rmenu_createlink"      => "Neue Teilstudie",
+    "substudies_rmenu_showlink"        => "Übersicht Teilstudie",
+    "substudies_rmenu_editlink"        => "Teilstudie bearbeiten",
 
     //Index
-    "substudies_index_header"       => ":study_name: Übersicht Teilstudien",
+    "substudies_index_header"       => "Studie :study_name | Übersicht Teilstudien",
     "substudies_index_nosubstudies" => "Keine Teilstudien",
+
+    //Substudy namestrings
+    "substudies_name"                  => "Teilstudie",
+    "substudies_name_long"             => "Teilstudienbezeichnung",
+    "substudies_description"           => "Beschreibung (durch Probanden lesbar)",
+    "substudies_comment"               => "Kommentar (nur in Weboberfläche lesbar)",
+    "substudies_signal_type"           => "Signalsteuerung",
+    "substudies_signal_event"          => "Ereignis",
+    "substudies_signal_timefix"        => "Zeitgeber/fix",
+    "substudies_signal_timeflex"       => "Zeitgeber/variabel",
+    "substudies_signal_timefixtime"    => "Intervalldauer in Minuten",
+    "substudies_signal_timeflextime"    => "durchschn. Intervalldauer in Minuten",
+
+    "substudies_surveyperiod_header"   => "Erhebungszeiträume",
+    "substudies_surveyperiod_none"     => "keine Erhebungszeiträume vorhanden",
+    "substudies_surveyperiod_start"    => "Beginn Erhebungszeitraum",
+    "substudies_surveyperiod_end"      => "Ende Erhebungszeitraum",
+    "short_Mo"  => "Mo",
+    "short_Tu"  => "Di",
+    "short_We"  => "Mi",
+    "short_Th"  => "Do",
+    "short_Fr"  => "Fr",
+    "short_Sa"  => "Sa",
+    "short_So"  => "So",
+
+    //Create
+    "substudies_create_header"          => "Studie :study_name | Neue Teilstudie",
+    "substudies_create_panelheader"     => "Daten Teilstudie",
+    "substudies_create_createbutton"    => "Teilstudie erstellen",
+    "substudies_create_successmessage"  => "dam|success|Teilstudie erstellt.",
+
+    //SHOW
+    "substudies_detail_header"          => "Studie :study_name | Teilstudie :substudy_name",
+    "substudies_detail_panelheader"     => "Teilstudiendaten",
+
+    //EDIT
+    "substudies_edit_header"            => "Studie :study_name | Teilstudie :substudy_name bearbeiten",
+    "substudies_edit_panelheader"       => "Teilstudie bearbeiten",
+    "substudies_edit_editbutton"        => "Teilstudie aktualisieren",
+    "substudies_edit_successmessage"    => "dam|success|Teilstudie aktualisiert.",
+
+
+    "substudies_edit_surveyperiod_save"     => "Erhebungszeitraum speichern",
+    "substudies_edit_surveyperiod_delete"   => "Erhebungszeitraum löschen",
+    "substudies_edit_surveyperiod_new"      => "Neuer Erhebungszeitraum",
 
     //********************************************
     //Requests

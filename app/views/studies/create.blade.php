@@ -27,10 +27,10 @@
                  {{ Bootstrap::text('studypassword', trans('pagestrings.studies_studypassword')) }}
                  {{ show_errors_for('studypassword', $errors) }}
 
-                {{ Bootstrap::textarea('description', trans('pagestrings.studies_description') ) }}
+                {{ Bootstrap::textarea('description', trans('pagestrings.studies_description') , null, [], ['rows' => '4'])}}
                 {{ show_errors_for('description', $errors) }}
 
-                {{ Bootstrap::textarea('comment', trans('pagestrings.studies_comment') ) }}
+                {{ Bootstrap::textarea('comment', trans('pagestrings.studies_comment') , null, [], ['rows' => '4'])}}
                 {{ show_errors_for('comment', $errors) }}
 
 
