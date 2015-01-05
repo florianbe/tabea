@@ -10,8 +10,13 @@ class Substudy extends \Eloquent {
 
 	public function SurveyPeriods()
 	{
-		return $this->hasMany('SurveyPeriod');
+		return $this->hasMany('SurveyPeriod', 'substudy_id', 'id');
 
+	}
+
+	public function QuestionGroups()
+	{
+		return $this->hasMany('QuestionGroup', 'substudy_id', 'id');
 	}
 
 	public function setTrigger($triggerType, $timeInterval=0)

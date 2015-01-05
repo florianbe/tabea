@@ -119,6 +119,7 @@ return array(
     "substudies_rmenu_createlink"      => "Neue Teilstudie",
     "substudies_rmenu_showlink"        => "Übersicht Teilstudie",
     "substudies_rmenu_editlink"        => "Teilstudie bearbeiten",
+    "substudies_rmenu_questiongrouplink"    => "Fragegruppen",
 
     //Index
     "substudies_index_header"       => "Studie :study_name | Übersicht Teilstudien",
@@ -140,13 +141,17 @@ return array(
     "substudies_surveyperiod_none"     => "keine Erhebungszeiträume vorhanden",
     "substudies_surveyperiod_start"    => "Beginn Erhebungszeitraum",
     "substudies_surveyperiod_end"      => "Ende Erhebungszeitraum",
-    "short_Mo"  => "Mo",
-    "short_Tu"  => "Di",
-    "short_We"  => "Mi",
-    "short_Th"  => "Do",
-    "short_Fr"  => "Fr",
-    "short_Sa"  => "Sa",
-    "short_So"  => "So",
+    "substudies_surveyperiod_start_short"    => "Beginn",
+    "substudies_surveyperiod_end_short"      => "Ende",
+    "short_Mo"      => "Mo",
+    "short_Tu"      => "Di",
+    "short_We"      => "Mi",
+    "short_Th"      => "Do",
+    "short_Fr"      => "Fr",
+    "short_Sa"      => "Sa",
+    "short_Su"      => "So",
+    "short_MoFr"    => "Mo-Fr",
+    "short_MoSu"    => "Mo-So",
 
     //Create
     "substudies_create_header"          => "Studie :study_name | Neue Teilstudie",
@@ -165,9 +170,38 @@ return array(
     "substudies_edit_successmessage"    => "dam|success|Teilstudie aktualisiert.",
 
 
-    "substudies_edit_surveyperiod_save"     => "Erhebungszeitraum speichern",
+    "substudies_edit_surveyperiod_save"     => "Zeitraum speichern",
     "substudies_edit_surveyperiod_delete"   => "Erhebungszeitraum löschen",
-    "substudies_edit_surveyperiod_new"      => "Neuer Erhebungszeitraum",
+    "substudies_edit_surveyperiod_new"      => "Zeitraum speichern",
+    "substudies_edit_surveyperiod_successmessage"   => "dam|success|Erhebungszeitraum gespeichert.",
+    "substudies_edit_surveyperiod_deletemessage"    => "dam|success|Erhebungszeitraum gelöscht.",
+    "substudies_edit_surveyperiod_timehint" => "<strong>Hinweis:</strong> Die Uhrzeit von Beginn/Ende Erhebungszeitraum bezieht sich auf
+    jeden Tag im angegebenen Zeitraum. Zu diesen Zeiten ist somit täglich die Erfassung von Daten möglich bzw. findet hier
+    die Signalauslösung statt.",
+
+    //********************************************
+    //QuestionGroups
+    //Right_menu
+    "substudies_rmenu_questiongrouplinkind"    => "Gesamtübersicht",
+    "substudies_rmenu_questiongrouplinknew"    => "Neue Fragegruppe",
+
+    //QuestionGroup Namestrings
+    "questiongroup_name"                  => "Fragegruppe",
+    "questiongroup_name_long"             => "Fragegruppenname",
+    "questiongroup_shortname"             => "Kurzname",
+    "questiongroup_description"           => "Beschreibung (durch Probanden lesbar)",
+    "questiongroup_comment"               => "Kommentar (nur in Weboberfläche lesbar)",
+    "questiongroup_countquestions"        => "Anzahl Fragen",
+
+    //Index
+    "questiongroup_index_header"            => "Studie :study_name | Teilstudie :substudy_name | Fragegruppen",
+    "questiongroup_index_questiongroups"    => "Keine Fragegruppen",
+
+    //Create
+    "questiongroup_create_header"          => "Studie :study_name | Teilstudie :substudy_name | Neue Fragegruppe",
+    "questiongroup_create_panelheader"     => "Daten Fragegruppe",
+    "questiongroup_create_createbutton"    => "Fragegruppe erstellen",
+    "questiongroup_create_successmessage"  => "dam|success|Fragegruppe erstellt.",
 
     //********************************************
     //Requests

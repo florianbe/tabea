@@ -46,10 +46,35 @@
             </div>
             <div class="list-group-item">
                 <h4 class="list-group-item-heading">{{ trans('pagestrings.substudies_surveyperiod_header') }}</h4>
-                @if($substudy->surveyperiods->count() == 0)
-                    <strong>{{ trans('pagestrings.substudies_surveyperiod_none') }}</strong>
+                @if($substudy->SurveyPeriods->count() <= 0)
+                    {{ trans('pagestrings.substudies_surveyperiod_none') }}
                 @else
-                    <strong>Bring on the surveyperiods!!!!!One!Eleven</strong>
+                    <table id ="surveyperiods" class="table table-striped ">
+                        <thead>
+                        <tr>
+                            <th class="col-sm-2">{{ trans('pagestrings.substudies_surveyperiod_start_short') }}</th>
+                            <th class="col-sm-2">{{ trans('pagestrings.substudies_surveyperiod_end_short') }}</th>
+                            <th class="col-sm-1">{{ trans('pagestrings.short_Mo') }}</th>
+                            <th class="col-sm-1">{{ trans('pagestrings.short_Tu') }}</th>
+                            <th class="col-sm-1">{{ trans('pagestrings.short_We') }}</th>
+                            <th class="col-sm-1">{{ trans('pagestrings.short_Th') }}</th>
+                            <th class="col-sm-1">{{ trans('pagestrings.short_Fr') }}</th>
+                            <th class="col-sm-1">{{ trans('pagestrings.short_Sa') }}</th>
+                            <th class="col-sm-1">{{ trans('pagestrings.short_Su') }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($substudy->SurveyPeriods as $survPer)
+                                <tr>
+                                    <td>{{ format_datetime_to_display($survPer->start_date) }}</td>
+                                    <td>{{ format_datetime_to_display($survPer->end_date) }}</td>
+                                    @foreach($survPer->getWeekdays() as $day => $set)
+                                        <td>{{ $set ? '<i class="fa fa-check-square-o fa-lg"></i>' : '' }}</td>
+                                    @endforeach
+                                </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 @endif
             </div>
         </div>

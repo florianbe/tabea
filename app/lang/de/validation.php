@@ -105,6 +105,8 @@ return array(
         'accessible_until'  => 'Bereitstellung der Studiendaten bis',
         'uploadable_until'  => 'Ende Datenupload',
         'password'          => 'Passwort',
-        'intervaltime'      => 'Intervalldauer'
+        'intervaltime'      => 'Intervalldauer',
+        'surveyperiod_start'    => 'Beginn Erhebungszeitraum',
+        'surveyperiod_end'      => 'Ende Erhebungszeitraum',
     ),
 );

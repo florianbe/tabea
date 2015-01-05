@@ -16,17 +16,24 @@
         </div>
 
         <div class="panel-body">
-
             <!-- Name fields -->
-            {{ Bootstrap::text('name', trans('pagestrings.substudies_name_long')) }}
-            {{ show_errors_for('name', $errors) }}
-
-            {{ Bootstrap::textarea('description', trans('pagestrings.substudies_description'), null, [], ['rows' => '4'])}}
-            {{ show_errors_for('description', $errors) }}
-
-
-            {{ Bootstrap::textarea('comment', trans('pagestrings.substudies_comment'), null, [], ['rows' => '4'])}}
-            {{ show_errors_for('comment', $errors) }}
+            <div class="row">
+                <div class="col-md-6">
+                    {{ Bootstrap::text('name', trans('pagestrings.substudies_name_long')) }}
+                    {{ show_errors_for('name', $errors) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ Bootstrap::textarea('description', trans('pagestrings.substudies_description'), null, [], ['rows' => '4'])}}
+                    {{ show_errors_for('description', $errors) }}
+                </div>
+                <div class="col-md-6">
+                    {{ Bootstrap::textarea('comment', trans('pagestrings.substudies_comment'), null, [], ['rows' => '4'])}}
+                    {{ show_errors_for('comment', $errors) }}
+                </div>
+            </div>
+            
             <div class="row">
             <div class="col-sm-3">
                 {{ Bootstrap::select('signaltype', trans('pagestrings.substudies_signal_type'), ['EVENT' => trans('pagestrings.substudies_signal_event'), 'FIX' => trans('pagestrings.substudies_signal_timefix'), 'FLEX' => trans('pagestrings.substudies_signal_timeflex')]) }}
@@ -38,13 +45,16 @@
                     {{ show_errors_for('intervaltime', $errors) }}
                 </div>
             </div>
-
+            <div class="col-sm-5">
+                <br>
+                {{ Bootstrap::submit(trans('pagestrings.substudies_create_createbutton')) }}
             </div>
-            {{ Bootstrap::submit(trans('pagestrings.substudies_create_createbutton')) }}
-
+            </div>
         </div>
     </div>
     {{ Form::close() }}
+    <h4></h4>
+
 @stop
 
 

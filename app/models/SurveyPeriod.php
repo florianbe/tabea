@@ -3,9 +3,29 @@
 class SurveyPeriod extends \Eloquent {
 	protected $fillable = [];
 
-	protected $dayCodes = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SO'];
+	protected $dayCodes = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'];
 
 	protected $table = 'surveyperiods';
+
+	protected $dates =[
+		'start_date', 'end_date'
+	];
+
+	public function setStartDateAttribute($value)
+	{
+		if ($value != null)
+		{
+			$this->attributes['start_date'] = \Carbon\Carbon::createFromFormat('d.m.Y H:i', $value)->toDateTimeString();
+		}
+	}
+
+	public function setEndDateAttribute($value)
+	{
+		if ($value != null)
+		{
+			$this->attributes['end_date'] = \Carbon\Carbon::createFromFormat('d.m.Y H:i', $value)->toDateTimeString();
+		}
+	}
 
 	public function setWeekdays($weekdays)
 	{
@@ -36,8 +56,15 @@ class SurveyPeriod extends \Eloquent {
 		return $this->dayCodes;
 	}
 
+	public function isDaySet($daycode)
+	{
+		$weekdays = $this->getWeekdays();
+
+		return (array_key_exists($daycode, $weekdays) ? $weekdays[$daycode] : false);
+	}
+
 	public function SubStudy()
 	{
-		return $this->belongsTo('SubStudy');
+		return $this->belongsTo('SubStudy', 'substudy_id');
 	}
 }

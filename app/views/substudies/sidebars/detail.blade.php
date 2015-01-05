@@ -4,4 +4,5 @@
         <li class="{{set_class('studies.substudies.show')}}">{{ HTML::linkRoute('studies.substudies.show', trans('pagestrings.substudies_rmenu_showlink'), [$studyId, $substudyId])}}</li>
         <li class="{{set_class('studies.substudies.edit')}}">{{ HTML::linkRoute('studies.substudies.edit', trans('pagestrings.substudies_rmenu_editlink'), [$studyId, $substudyId])}}</li>
     </ul>
+    <h3>{{HTML::linkRoute('studies.substudies.questiongroup.index', trans('pagestrings.substudies_rmenu_questiongrouplink'), [$studyId, $substudyId])}}</h3>
 @endif

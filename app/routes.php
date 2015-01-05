@@ -21,6 +21,9 @@ Route::post('login', array('as' => 'login.store', 'uses' => 'SessionsController@
 
 Route::group(['before' => 'auth'], function(){
 
+    Route::get('testroute', function(){
+       dd(DB::table('studystates')->where('code', '=', 'DESIGN')->get(['id'])[0]->id);
+    });
     /*
      * Logout
      */
@@ -41,6 +44,10 @@ Route::group(['before' => 'auth'], function(){
     Route::post('studies/{studies}/users', ['as' => 'studies.users.set', 'uses' => 'StudyController@setUsers']);
     Route::get('studies/{studies}/requests', ['as' => 'studies.requests', 'uses' => 'StudyController@showRequestsForStudy']);
     Route::resource('studies', 'StudyController');
+    Route::post('studies/{studies}/substudies/{substudies}/surveytime', ['as' => 'studies.substudies.surveytime.new', 'uses' => 'SubStudyController@newSurveyperiod']);
+    Route::get('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.edit', 'uses' => 'SubStudyController@editSurveyperiod']);
+    Route::put('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.update', 'uses' => 'SubStudyController@updateSurveyperiod']);
+    Route::delete('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.delete', 'uses' => 'SubStudyController@deleteSurveyperiod']);
     Route::resource('studies.substudies', 'SubStudyController');
     Route::resource('studies.substudies.questiongroup', 'QuestionGroupController');
     Route::resource('studies.substudies.question', 'QuestionController');

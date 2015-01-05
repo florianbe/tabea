@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => Config::get( 'credentials.default_db' ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -53,14 +53,14 @@ return array(
 		),
 
 		'mysql' => array(
-			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'tabea',
-			'username'  => 'tabea',
-			'password'  => 'tabea',
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => 'tab_',
+			'driver' => Config::get( 'credentials.driver' ),
+			'host' => Config::get( 'credentials.host' ),
+			'database' => Config::get( 'credentials.database' ),
+			'username' => Config::get( 'credentials.username' ),
+			'password' => Config::get( 'credentials.password' ),
+			'charset' => Config::get( 'credentials.charset' ),
+			'collation' => Config::get( 'credentials.collation' ),
+			'prefix' => Config::get( 'credentials.prefix' ),
 		),
 
 		'pgsql' => array(

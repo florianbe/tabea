@@ -60,11 +60,25 @@ function date_for_picker($date)
 
     return 'value=' . $date->formatLocalized('%d.%m.%Y');
 
+}
+
+function format_datetime_to_display($date)
+{
+    $phpLocale = Config::get('app.phplocale');
+    setlocale(LC_TIME, $phpLocale);
+    if (!(is_a($date, 'Carbon\Carbon'))) return '--------';
+    if (starts_with($date, '-0001')) return '--------';
+
+    return $date->formatLocalized('%d.%m.%Y %R');
 };
 
-function format_time_to_display($date)
+function datetime_for_picker($date)
 {
-    return true;
+    if (!(is_a($date, 'Carbon\Carbon'))) return '';
+    if (starts_with($date, '-0001')) return '';
+
+    return 'value=' . $date->formatLocalized('%d.%m.%Y %R');
+
 };
 
 function sendMailStudyAccess(Study $study, User $user)

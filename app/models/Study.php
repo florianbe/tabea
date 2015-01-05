@@ -20,21 +20,27 @@ class Study extends Eloquent
     {
         if ($value != null)
         {
-            $this->attributes['accessible_from'] = \Carbon\Carbon::createFromFormat('d.m.Y', $value)->toDateTimeString();
+            $dateTime = \Carbon\Carbon::createFromFormat('d.m.Y', $value);
+            $dateTime->hour(0)->minute(0)->second(0);
+            $this->attributes['accessible_from'] = $dateTime->toDateTimeString();
         }
     }
     public function setAccessibleUntilAttribute($value)
     {
         if ($value != null)
         {
-            $this->attributes['accessible_until'] = \Carbon\Carbon::createFromFormat('d.m.Y', $value)->toDateTimeString();
+            $dateTime = \Carbon\Carbon::createFromFormat('d.m.Y', $value);
+            $dateTime->hour(23)->minute(59)->second(59);
+            $this->attributes['accessible_until'] = $dateTime->toDateTimeString();
         }
     }
     public function setUploadableUntilAttribute($value)
     {
         if ($value != null)
         {
-            $this->attributes['uploadable_until'] = \Carbon\Carbon::createFromFormat('d.m.Y', $value)->toDateTimeString();
+            $dateTime = \Carbon\Carbon::createFromFormat('d.m.Y', $value);
+            $dateTime->hour(23)->minute(59)->second(59);
+            $this->attributes['uploadable_until'] = $dateTime->toDateTimeString();
         }
     }
 

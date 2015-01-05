@@ -17,3 +17,4 @@
         <li class="{{set_class('requests.new')}}">{{ HTML::linkRoute('requests.new', trans('pagestrings.study_show_request_access'), [$studyId]) }}</li>
 </ul>
 @endif
+

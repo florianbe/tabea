@@ -9,7 +9,7 @@ class SubstudyForm extends BaseForm {
      */
 
     protected $rules = [
-        'name' => 'required|unique:substudies,name,NULL,id,study_id,',
+        'name' => 'required|unique:substudies,name,',
         'intervaltime' => 'integer|min:1'
     ];
 }

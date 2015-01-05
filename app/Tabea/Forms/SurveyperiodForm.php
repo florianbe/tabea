@@ -9,7 +9,7 @@ class SurveyperiodForm extends BaseForm {
      */
 
     protected $rules = [
-        'surveyperiod_start' => 'required|date|',
-        'surveyperiod_end' => 'integer|min:1'
+        'surveyperiod_start'    => 'required|date|before:surveyperiod_end|after:',
+        'surveyperiod_end'      => 'required|date|after:surveyperiod_start|before:'
     ];
 }
