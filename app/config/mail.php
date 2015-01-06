@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'smtp',
+	'driver' => Config::get( 'credentials.mail_driver' ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'host' => 'smtp.gmail.com',
+	'host' => Config::get( 'credentials.mail_host' ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return array(
 	|
 	*/
 
-	'port' => 587,
+	'port' => Config::get( 'credentials.mail_port' ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'tabea.testsystem@gmail.com', 'name' => 'TaBEA - TAgeBuchErhebungsAdministration'),
+	'from' => Config::get( 'credentials.mail_from' ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return array(
 	|
 	*/
 
-	'encryption' => 'tls',
+	'encryption' => Config::get( 'credentials.mail_encryption' ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'tabea.testsystem@gmail.com',
+	'username' => Config::get( 'credentials.mail_username' ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => 'OttoFriedrich2014',
+	'password' => Config::get( 'credentials.mail_password' ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -106,7 +106,7 @@ return array(
 	|
 	*/
 
-	'sendmail' => '/usr/sbin/sendmail -bs',
+	'sendmail' => Config::get( 'credentials.mail_sendmail' ),
 
 	/*
 	|--------------------------------------------------------------------------

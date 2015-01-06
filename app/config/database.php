@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => Config::get( 'credentials.default_db' ),
+	'default' => Config::get( 'credentials.db_default_db' ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -53,14 +53,14 @@ return array(
 		),
 
 		'mysql' => array(
-			'driver' => Config::get( 'credentials.driver' ),
-			'host' => Config::get( 'credentials.host' ),
-			'database' => Config::get( 'credentials.database' ),
-			'username' => Config::get( 'credentials.username' ),
-			'password' => Config::get( 'credentials.password' ),
-			'charset' => Config::get( 'credentials.charset' ),
-			'collation' => Config::get( 'credentials.collation' ),
-			'prefix' => Config::get( 'credentials.prefix' ),
+			'driver' => Config::get( 'credentials.db_driver' ),
+			'host' => Config::get( 'credentials.db_host' ),
+			'database' => Config::get( 'credentials.db_database' ),
+			'username' => Config::get( 'credentials.db_username' ),
+			'password' => Config::get( 'credentials.db_password' ),
+			'charset' => Config::get( 'credentials.db_charset' ),
+			'collation' => Config::get( 'credentials.db_collation' ),
+			'prefix' => Config::get( 'credentials.db_prefix' ),
 		),
 
 		'pgsql' => array(
