@@ -10,6 +10,19 @@ class SessionsController extends \BaseController {
 	 */
 	public function create()
 	{
+		//Create first admin from config if none exist
+		if (count(User::where('is_admin', '=', true)->get()) <= 0)
+		{
+			$user = new User;
+			$user->first_name = Config::get( 'credentials.admin_firstname' );
+			$user->last_name = Config::get( 'credentials.admin_lastname' );
+			$user->email = Config::get( 'credentials.admin_mail' );
+			$user->password = Config::get( 'credentials.admin_password' );
+			$user->is_admin = true;
+			$user->must_reset_password = true;
+			$user->save();
+		}
+
 		return View::make('sessions.create');
 	}
 
