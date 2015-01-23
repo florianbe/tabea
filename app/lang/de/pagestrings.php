@@ -120,6 +120,7 @@ return array(
     "substudies_rmenu_showlink"        => "Übersicht Teilstudie",
     "substudies_rmenu_editlink"        => "Teilstudie bearbeiten",
     "substudies_rmenu_questiongrouplink"    => "Fragegruppen",
+    "substudies_rmenu_substudy"        => "Teilstudie",
 
     //Index
     "substudies_index_header"       => "Studie :study_name | Übersicht Teilstudien",
@@ -184,6 +185,7 @@ return array(
     //Right_menu
     "substudies_rmenu_questiongrouplinkind"    => "Gesamtübersicht",
     "substudies_rmenu_questiongrouplinknew"    => "Neue Fragegruppe",
+
 
     //QuestionGroup Namestrings
     "questiongroup_name"                  => "Fragegruppe",
