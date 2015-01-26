@@ -9,7 +9,7 @@ class QuestionGroupForm extends BaseForm {
      */
 
     protected $rules = [
-        'name' => 'required|unique:questiongroups,name,NULL,id,substudy_id,',
-        'shortname' => 'required|unique:questiongroups,shortname,NULL,id,substudy_id,'
+        'name' => 'required|unique:questiongroups,name,',
+        'shortname' => 'required|unique:questiongroups,shortname,'
     ];
 }

@@ -46,9 +46,41 @@ class QuestionGroupController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($studies, $substudies)
 	{
-		//
+		try
+		{
+			$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
+
+			//Add substudy id to validator to check for unique name on study level
+			$this->questionGroupForm->setRules('name', $this->questionGroupForm->getRules('name') . 'NULL,id,substudy_id,' .  $substudy->id);
+			$this->questionGroupForm->setRules('shortname', $this->questionGroupForm->getRules('shortname') . 'NULL,id,substudy_id,' .  $substudy->id);
+
+			$this->questionGroupForm->validate(Input::all());
+
+			$questionGroup = new QuestionGroup;
+
+			$questionGroup->name = Input::get('name');
+			$questionGroup->shortname = Input::get('shortname');
+
+			$questionGroup->description = Input::get('description');
+			$questionGroup->comment = Input::get('comment');
+
+			$substudy->questionGroups->count() <= 0 ? $questionGroup->id_in_substudy = 1 : $questionGroup->id_in_substudy = ($substudy->questionGroups->max('id_in_substudy') + 1);
+
+
+			$questionGroup->SubStudy()->associate($substudy);
+			$questionGroup->save();
+
+			return "saved";
+
+			return Redirect::route('studies.substudies.questiongroup.edit', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study])->with('message', trans('pagestrings.substudies_create_successmessage'));
+
+		}
+		catch (Laracasts\Validation\FormValidationException $e)
+		{
+			return Redirect::back()->withInput()->withErrors($e->getErrors());
+		}
 	}
 
 	/**
