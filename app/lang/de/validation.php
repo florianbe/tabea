@@ -100,6 +100,7 @@ return array(
         'email'             => 'E-Mail',
         'name'              => 'Name',
         'short_name'        => 'Kurzbezeichnung',
+        'shortname'         => 'Kurzname',
         'studypassword'     => 'Studienpasswort',
         'accessible_from'   => 'Bereitstellung der Studiendaten ab',
         'accessible_until'  => 'Bereitstellung der Studiendaten bis',

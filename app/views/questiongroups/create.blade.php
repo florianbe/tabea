@@ -9,7 +9,7 @@
 @stop
 
 @section('content')
-    {{ Form::open(['route' => ['studies.substudies.questiongroup.store', "studies" => $substudy->study->id, "substudies" => $substudy->id_in_study], 'method' => 'POST']) }}
+    {{ Form::open(['route' => ['studies.substudies.questiongroups.store', "studies" => $substudy->study->id, "substudies" => $substudy->id_in_study], 'method' => 'POST']) }}
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">{{ trans('pagestrings.questiongroup_create_panelheader') }}</h3>

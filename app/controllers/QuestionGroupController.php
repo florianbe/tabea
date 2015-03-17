@@ -25,7 +25,7 @@ class QuestionGroupController extends \BaseController {
 	public function index($studies, $substudies)
 	{
 		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
-		return View::make('questiongroups.index')->with(compact('substudy'))->with(['edit_questiongroup' => null]);
+		return View::make('questiongroups.index')->with(compact('substudy'));
 	}
 
 	/**
@@ -37,7 +37,7 @@ class QuestionGroupController extends \BaseController {
 	public function create($studies, $substudies)
 	{
 		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
-		return View::make('questiongroups.create')->with(compact('substudy'))->with(['edit_questiongroup' => null]);
+		return View::make('questiongroups.create')->with(compact('substudy'));
 	}
 
 	/**
@@ -72,9 +72,8 @@ class QuestionGroupController extends \BaseController {
 			$questionGroup->SubStudy()->associate($substudy);
 			$questionGroup->save();
 
-			return "saved";
 
-			return Redirect::route('studies.substudies.questiongroup.edit', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study])->with('message', trans('pagestrings.substudies_create_successmessage'));
+			return Redirect::route('studies.substudies.questiongroups.edit', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study, 'questiongroup' => $questionGroup->id_in_substudy])->with('message', trans('pagestrings.substudies_create_successmessage'));
 
 		}
 		catch (Laracasts\Validation\FormValidationException $e)
@@ -90,9 +89,11 @@ class QuestionGroupController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($studies, $substudies, $questiongroups)
 	{
-		//
+		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
+		$questionGroup = QuestionGroup::where('substudy_id', '=', $substudy->id)->where('id_in_substudy', '=', $questiongroups)->firstOrFail();
+		return View::make('questiongroups.show')->with(['questiongroup' => $questionGroup]);
 	}
 
 	/**
@@ -102,9 +103,11 @@ class QuestionGroupController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($studies, $substudies, $questiongroups)
 	{
-		//
+		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
+		$questionGroup = QuestionGroup::where('substudy_id', '=', $substudy->id)->where('id_in_substudy', '=', $questiongroups)->firstOrFail();
+		return View::make('questiongroups.edit')->with(['questiongroup' => $questionGroup]);
 	}
 
 	/**
@@ -114,9 +117,37 @@ class QuestionGroupController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($studies, $substudies, $questiongroups)
 	{
-		//
+		try
+		{
+
+			$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
+			$questionGroup = QuestionGroup::where('substudy_id', '=', $substudy->id)->where('id_in_substudy', '=', $questiongroups)->firstOrFail();
+
+			//Add substudy id to validator to check for unique name on study level
+			$this->questionGroupForm->setRules('name', $this->questionGroupForm->getRules('name') . $questionGroup->id . ',id,substudy_id,' .  $substudy->id);
+			$this->questionGroupForm->setRules('shortname', $this->questionGroupForm->getRules('shortname') . $questionGroup->id . ',id,substudy_id,' .  $substudy->id);
+
+			$this->questionGroupForm->validate(Input::all());
+
+
+			$questionGroup->name = Input::get('name');
+			$questionGroup->shortname = Input::get('shortname');
+
+			$questionGroup->description = Input::get('description');
+			$questionGroup->comment = Input::get('comment');
+
+			$questionGroup->save();
+
+			return Redirect::route('studies.substudies.questiongroups.edit', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study, 'questiongroup' => $questionGroup->id_in_substudy])->with('message', trans('pagestrings.substudies_edit_successmessage'));
+
+		}
+		catch (Laracasts\Validation\FormValidationException $e)
+		{
+			return Redirect::back()->withInput()->withErrors($e->getErrors());
+		}
+
 	}
 
 	/**

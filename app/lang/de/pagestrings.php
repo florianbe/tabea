@@ -185,6 +185,8 @@ return array(
     //Right_menu
     "substudies_rmenu_questiongrouplinkind"    => "Gesamtübersicht",
     "substudies_rmenu_questiongrouplinknew"    => "Neue Fragegruppe",
+    "questiongroups_rmenu_showlink"            => "Übersicht Fragegruppe",
+    "questiongroups_rmenu_editlink"            => "Fragegruppe bearbeiten",
 
 
     //QuestionGroup Namestrings
@@ -196,14 +198,68 @@ return array(
     "questiongroup_countquestions"        => "Anzahl Fragen",
 
     //Index
-    "questiongroup_index_header"            => "Studie :study_name | Teilstudie :substudy_name | Fragegruppen",
+    "questiongroup_index_header"            => "Teilstudie :substudy_name | Fragegruppen",
     "questiongroup_index_questiongroups"    => "Keine Fragegruppen",
 
     //Create
-    "questiongroup_create_header"          => "Studie :study_name | Teilstudie :substudy_name | Neue Fragegruppe",
+    "questiongroup_create_header"          => "Teilstudie :substudy_name | Neue Fragegruppe",
     "questiongroup_create_panelheader"     => "Daten Fragegruppe",
     "questiongroup_create_createbutton"    => "Fragegruppe erstellen",
     "questiongroup_create_successmessage"  => "dam|success|Fragegruppe erstellt.",
+
+    //Edit
+    "questiongroup_edit_header"          => "Teilstudie :substudy_name | Fragegruppe bearbeiten",
+    "questiongroup_edit_panelheader"     => "Daten Fragegruppe",
+    "questiongroup_edit_createbutton"    => "Fragegruppe aktualisieren",
+    "questiongroup_edit_successmessage"  => "dam|success|Fragegruppe aktualisiert.",
+
+    //Show
+    "questiongroup_show_header"          => "Teilstudie :substudy_name | Fragegruppe :questiongroup_name",
+    "questiongroup_show_panelheader"     => "Fragegruppendaten",
+
+    //********************************************
+    //QuestionGroups
+    //Right_menu
+
+    //Question Namestrings
+    "question_shortname"             => "Kurzname",
+    "question_text"                  => "Frage (angezeigter Text)",
+    "question_comment"               => "Kommentar (nur in Weboberfläche lesbar)",
+    "question_countquestions"        => "Anzahl Fragen",
+    "question_type"                  => "Fragetyp",
+
+    "question_typename_NUMERIC"      => "Numerisch",
+    "question_typename_SLIDER"       => "Schieberegler",
+    "question_typename_TEXT"         => "Text",
+    "question_typename_BOOLEAN"      => "Ja/Nein",
+    "question_typename_SINGLECHOICE" => "Einfachauswahl",
+    "question_typename_MULTICHOICE"  => "Mehrfachauswahl",
+    "question_typename_MOODMAP"      => "Moodmap",
+
+    "question_optiongroup_LIKERT_4"  => "Likert 4",
+    "question_optiongroup_LIKERT_5"  => "Likert 5",
+    "question_optiongroup_LIKERT_6"  => "Likert 6",
+    "question_optiongroup_LIKERT_7"  => "Likert 7",
+    "question_optiongroup_LIKERT_10" => "Likert 10",
+    "question_optiongroup_SELF"      => "Selbstdefiniert",
+
+    "question_selfdef_values"        => "Auswahlwerte",
+
+    "question_min_integer"           => "Minimum",
+    "question_max_integer"           => "Maximum",
+    "question_min_numeric"           => "Minimum",
+    "question_max_numeric"           => "Maximum",
+    "question_step_numeric"          => "Schrittweite",
+    "question_no_config"             => "keine weiteren Angaben erforderlich",
+
+    "question_choice_selfdef_info"   => "Bitte pro Zeile einen Datensatz nach dem Muster 'DATENWERT;ANZEIGETEXT' eingeben.",
+
+
+    //Question Create
+    "question_create_header"                => "Teilstudie :substudy_name | Neue Frage",
+    "question_create_questiongroup_header"  => "Fragegruppe: :question_group",
+    "question_create_panelheader"           => "Daten Frage",
+    "question_create_createbutton"          => "Frage erstellen",
 
     //********************************************
     //Requests

@@ -19,9 +19,30 @@ class QuestionController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create($studies, $substudies, $questiongroups)
 	{
-		//
+		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
+		$questiongroup = QuestionGroup::where('substudy_id', '=', $substudy->id)->where('id_in_substudy', "=", $questiongroups)->firstOrFail();
+		$questiontypes = QuestionType::all();
+		$optiongroups = OptionGroup::where('is_predefined', '=', 1)->get();
+
+		$questiondropdown = [];
+		$optiondropdown = [];
+
+		foreach($questiontypes as $questiontype)
+		{
+			$questiondropdown[$questiontype->code] = trans('pagestrings.question_typename_' . $questiontype->code);
+		}
+
+		foreach($optiongroups as $optiongroup)
+		{
+			$optiondropdown[$optiongroup->code] = trans('pagestrings.question_optiongroup_' . $optiongroup->code);
+		}
+
+		$optiondropdown['SELF'] = trans('pagestrings.question_optiongroup_SELF');
+
+
+		return View::make('questions.create')->with(compact('questiongroup'))->with(compact('questiontypes'))->with(compact('questiondropdown'))->with(compact('optiondropdown'));
 	}
 
 	/**

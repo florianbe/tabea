@@ -23,7 +23,7 @@ class CreateQuestionTable extends Migration {
 
 		// Fill with predefined states
 		$type_data = [
-			['code' => 'NUMERIC', 		'mandatory_restrictions' => 'min_numeric;max_numeric;step_numeric'],
+			['code' => 'NUMERIC', 		'mandatory_restrictions' => 'min_numeric;max_numeric'],
 			['code' => 'SLIDER', 		'mandatory_restrictions' => 'min_numeric;max_numeric;step_numeric'],
 			['code' => 'TEXT', 			'mandatory_restrictions' => ''],
 			['code' => 'BOOLEAN', 		'mandatory_restrictions' => ''],
@@ -115,7 +115,6 @@ class CreateQuestionTable extends Migration {
 		Schema::create('questions', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->text('name');
 			$table->text('shortname');
 			$table->text('text');
 			$table->text('comment')->nullable();
