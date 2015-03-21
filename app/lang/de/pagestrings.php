@@ -220,13 +220,14 @@ return array(
     //********************************************
     //QuestionGroups
     //Right_menu
-
+    "substudies_rmenu_newquestion"   => "Neue Frage",
     //Question Namestrings
     "question_shortname"             => "Kurzname",
     "question_text"                  => "Frage (angezeigter Text)",
     "question_comment"               => "Kommentar (nur in Weboberfläche lesbar)",
     "question_countquestions"        => "Anzahl Fragen",
     "question_type"                  => "Fragetyp",
+    "qeustion_answer_required"       => "<strong>Pflichtfrage <br/> (Antwort erforderlich)</strong>",
 
     "question_typename_NUMERIC"      => "Numerisch",
     "question_typename_SLIDER"       => "Schieberegler",
@@ -260,6 +261,7 @@ return array(
     "question_create_questiongroup_header"  => "Fragegruppe: :question_group",
     "question_create_panelheader"           => "Daten Frage",
     "question_create_createbutton"          => "Frage erstellen",
+    "questions_create_successmessage"       => "dam|success|Frage erstellt",
 
     //********************************************
     //Requests

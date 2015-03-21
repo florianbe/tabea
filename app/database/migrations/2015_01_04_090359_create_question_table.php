@@ -19,6 +19,8 @@ class CreateQuestionTable extends Migration {
 			$table->text('code');
 			$table->text('mandatory_restrictions');
 
+			$table->timestamps();
+
 		});
 
 		// Fill with predefined states
@@ -28,30 +30,21 @@ class CreateQuestionTable extends Migration {
 			['code' => 'TEXT', 			'mandatory_restrictions' => ''],
 			['code' => 'BOOLEAN', 		'mandatory_restrictions' => ''],
 			['code' => 'SINGLECHOICE', 	'mandatory_restrictions' => ''],
-			['code' => 'MULTICHOICE', 	'mandatory_restrictions' => 'min_integer;max_integer'],
+			['code' => 'MULTICHOICE', 	'mandatory_restrictions' => 'min_integer;max_integer;selfdef_choice'],
 			['code' => 'MOODMAP',		'mandatory_restrictions' => '']
 		];
 
 		DB::table('questiontypes')->insert($type_data);
 
-		Schema::create('questionrestrictions', function(Blueprint $table)
-		{
-			$table->increments('id');
 
-			$table->decimal('min_numeric');
-			$table->decimal('max_numeric');
-			$table->decimal('step_numeric');
-			$table->integer('min_integer');
-			$table->integer('max_integer');
-			$table->integer('step_integer');
-
-		});
 
 		Schema::create('optiongroups', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->text('code')->nullable();
 			$table->boolean('is_predefined');
+
+			$table->timestamps();
 		});
 
 		$optiongroups_data = [
@@ -73,6 +66,8 @@ class CreateQuestionTable extends Migration {
 
 			$table->integer('optiongroup_id')->unsigned();
 			$table->foreign('optiongroup_id')->references('id')->on('optiongroups');
+
+			$table->timestamps();
 		});
 
 		$optionchoices = [
@@ -128,13 +123,28 @@ class CreateQuestionTable extends Migration {
 			$table->integer('questiontype_id')->unsigned();
 			$table->foreign('questiontype_id')->references('id')->on('questiontypes');
 
-			$table->integer('questionrestriction_id')->unsigned();
-			$table->foreign('questionrestriction_id')->references('id')->on('questionrestrictions');
-
 			$table->integer('optiongroup_id')->unsigned()->nullable();
 			$table->foreign('optiongroup_id')->references('id')->on('optiongroups');
 
 			$table->timestamps();
+		});
+
+		Schema::create('questionrestrictions', function(Blueprint $table)
+		{
+			$table->increments('id');
+
+			$table->integer('question_id')->unsigned();
+			$table->foreign('question_id')->references('id')->on('questions');
+
+			$table->decimal('min_numeric')->nullable();
+			$table->decimal('max_numeric')->nullable();
+			$table->decimal('step_numeric')->nullable();
+			$table->integer('min_integer')->nullable();
+			$table->integer('max_integer')->nullable();
+			$table->integer('step_integer')->nullable();
+
+			$table->timestamps();
+
 		});
 	}
 
@@ -145,10 +155,10 @@ class CreateQuestionTable extends Migration {
 	 */
 	public function down()
 	{
+		Schema::drop('questionrestrictions');
 		Schema::drop('questions');
 		Schema::drop('optionchoices');
 		Schema::drop('optiongroups');
-		Schema::drop('questionrestrictions');
 		Schema::drop('questiontypes');
 	}
 

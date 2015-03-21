@@ -36,6 +36,7 @@ return array(
 	"digits_between"       => "The :attribute must be between :min and :max digits.",
 	"email"                => "The :attribute must be a valid email address.",
 	"exists"               => "The selected :attribute is invalid.",
+	"greater_than"    	   => ":attribute must be greater than :min.",
 	"image"                => "The :attribute must be an image.",
 	"in"                   => "The selected :attribute is invalid.",
 	"integer"              => "The :attribute must be an integer.",
@@ -63,6 +64,7 @@ return array(
 	"required_without"     => "The :attribute field is required when :values is not present.",
 	"required_without_all" => "The :attribute field is required when none of :values are present.",
 	"same"                 => "The :attribute and :other must match.",
+	"step_between"     => ":attribute must be a possible iterator from start to end",
 	"size"                 => array(
 		"numeric" => "The :attribute must be :size.",
 		"file"    => "The :attribute must be :size kilobytes.",
@@ -71,6 +73,7 @@ return array(
 	),
 	"unique"               => "The :attribute has already been taken.",
 	"url"                  => "The :attribute format is invalid.",
+	"userdefined_options"   => ":attribute must have the following format: 'DATA_VALUE;DISPLAY_TEXT', one dataset per line",
 	"timezone"             => "The :attribute must be a valid zone.",
 
 	/*

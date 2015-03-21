@@ -28,7 +28,7 @@
                 <tr>
                     <td>{{ HTML::linkRoute('studies.substudies.questiongroups.show', $questiongroup->shortname, ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study, "questiongroups" => $questiongroup->id_in_substudy]) }}</td>
                     <td>{{ $questiongroup->name }}</td>
-                    <td>0</td>
+                    <td>{{ $questiongroup->questions->count() }}</td>
                     <td>{{ Form::model($questiongroup, ['route' => ['studies.substudies.questiongroups.destroy', "studies" => $substudy->study->id, "substudies" => $substudy->id_in_study, "questiongroups" => $questiongroup->id_in_substudy], 'method' => 'DELETE']) }}<button type="submit" class="btn btn-link "><i class="fa fa-times fa-lg" style="color: red"></i></button>{{Form::close()}}</td>
                 </tr>
             @endforeach

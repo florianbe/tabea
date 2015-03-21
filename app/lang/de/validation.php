@@ -33,6 +33,7 @@ return array(
     "digits_between"   => ":attribute muss zwischen :min und :max Stellen haben.",
     "email"            => ":attribute Format ist ungültig.",
     "exists"           => "Der gewählte Wert für :attribute ist ungültig.",
+    "greater_than"     => ":attribute muss größer als :min sein.",
     "image"            => ":attribute muss ein Bild sein.",
     "in"               => "Der gewählte Wert für :attribute ist ungültig.",
     "integer"          => ":attribute muss eine ganze Zahl sein.",
@@ -60,6 +61,7 @@ return array(
     "required_without" => ":attribute muss angegeben werden wenn :values nicht ausgefüllt wurde.",
     "required_without_all" => ":attribute muss angegeben werden wenn keines der Felder :values ausgefüllt wurde.",
     "same"             => ":attribute und :other müssen übereinstimmen.",
+    "step_between"     => ":attribute muss eine mögliche Schrittweite zwischen Anfangs- und Endwert sein.",
     "size"             => array(
         "numeric" => ":attribute muss gleich :size sein.",
         "file"    => ":attribute muss :size Kilobyte groß sein.",
@@ -69,6 +71,7 @@ return array(
     "timezone"         => ":attribute muss eine gültige Zeitzone sein.",
     "unique"           => ":attribute ist schon vergeben.",
     "url"              => "Das Format von :attribute ist ungültig.",
+    "userdefined_options"   => ":attribute muss dem folgenden Muster folgen: 'DATENWERT;ANZEIGETEXT', ein Datensatz pro Zeile und über genügend Auswahlmöglichkeiten verfügen.",
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
@@ -109,5 +112,13 @@ return array(
         'intervaltime'      => 'Intervalldauer',
         'surveyperiod_start'    => 'Beginn Erhebungszeitraum',
         'surveyperiod_end'      => 'Ende Erhebungszeitraum',
+        'max_numeric'       => 'Maximum',
+        'min_numeric'       => 'Minimum',
+        'step_numeric'      => 'Schrittweite',
+        'max_integer'       => 'Maximum',
+        'max_numeric'       => 'Minimum',
+        'text'              => 'Text',
+        'selfdef_choice'    => 'Auswahlwerte'
+
     ),
 );

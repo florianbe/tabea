@@ -4,7 +4,7 @@ class Question extends \Eloquent {
     protected $fillable = [];
     protected $table = 'questions';
 
-    public function Question()
+    public function QuestionGroup()
     {
         return $this->belongsTo('QuestionGroup', 'questiongroup_id');
     }
@@ -16,12 +16,12 @@ class Question extends \Eloquent {
 
     public function QuestionRestrictions()
     {
-        return $this->belongsTo('QuestionRestrictions', 'questionrestriction_id');
+        return $this->hasOne('QuestionRestrictions', 'question_id');
     }
 
     public function OptionGroup()
     {
-        return $this->belongsTo('OptionGroup', 'optionsgroup_id');
+        return $this->belongsTo('OptionGroup', 'optiongroup_id');
     }
 
 }

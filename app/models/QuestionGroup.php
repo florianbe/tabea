@@ -11,7 +11,7 @@ class QuestionGroup extends \Eloquent {
 
     public function Questions()
     {
-        return $this->hasMany('Questions', 'questiontype_id', 'id');
+        return $this->hasMany('Question', 'questiongroup_id', 'id');
     }
 
 }
