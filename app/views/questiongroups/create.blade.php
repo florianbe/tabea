@@ -18,15 +18,18 @@
         <div class="panel-body">
             <!-- Name fields -->
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     {{ Bootstrap::text('shortname', trans('pagestrings.questiongroup_shortname')) }}
                     {{ show_errors_for('shortname', $errors) }}
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-7">
                     {{ Bootstrap::text('name', trans('pagestrings.questiongroup_name_long')) }}
                     {{ show_errors_for('name', $errors) }}
                 </div>
-
+                <div class="col-md-3">
+                    <br/>
+                    {{ Bootstrap::checkbox('random_questionorder', trans('pagestrings.questiongroup_randomquestionorder'), 1, false) }}
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-6">

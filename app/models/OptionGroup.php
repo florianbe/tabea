@@ -14,4 +14,14 @@ class OptionGroup extends \Eloquent {
         return $this->hasMany('OptionChoice', 'optiongroup_id', 'id');
     }
 
+    public function delete()
+    {
+        foreach ($this->optionchoices as $oc)
+        {
+            $oc->delete();
+        }
+
+        return parent::delete();
+    }
+
 }

@@ -27,6 +27,7 @@ class CreateQuestionGroupsTable extends Migration {
 			$table->text('description')->nullable();
 			$table->text('comment')->nullable();
 			$table->integer('sequence_indicator');
+			$table->boolean('random_questionorder');
 
 		});
 	}

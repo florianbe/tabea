@@ -49,6 +49,8 @@ Route::group(['before' => 'auth'], function(){
     Route::put('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.update', 'uses' => 'SubStudyController@updateSurveyperiod']);
     Route::delete('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.delete', 'uses' => 'SubStudyController@deleteSurveyperiod']);
     Route::resource('studies.substudies', 'SubStudyController');
+    Route::get('studies/{studies}/substudies/{substudies}/questiongroups/order', ['as' => 'studies.substudies.questionsgroups.editorder', 'uses' => 'QuestionGroupController@editOrder']);
+    Route::put('studies/{studies}/substudies/{substudies}/questiongroups/order', ['as' => 'studies.substudies.questionsgroups.updateorder', 'uses' => 'QuestionGroupController@updateOrder']);
     Route::resource('studies.substudies.questiongroups', 'QuestionGroupController');
     Route::resource('studies.substudies.questiongroups.questions', 'QuestionController');
 

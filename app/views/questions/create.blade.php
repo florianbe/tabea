@@ -28,7 +28,7 @@
                     {{ Bootstrap::select('questiontype', trans('pagestrings.question_type'), $questiondropdown) }}
                 </div>
                 <div class="col-md-3">
-                    <br/>{{ Bootstrap::checkbox('answer_required', trans('pagestrings.qeustion_answer_required')) }}
+                    <br/>{{ Bootstrap::checkbox('answer_required', trans('pagestrings.question_answer_required'), 1) }}
                 </div>
             </div>
             <div class="row">

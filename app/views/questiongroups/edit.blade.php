@@ -6,6 +6,7 @@
 
 @section('sidebar')
     @include('questiongroups.sidebars.detail', ['studyId' => $questiongroup->substudy->study->id, 'substudyId'=> $questiongroup->substudy->id_in_study, 'questiongroupId' => $questiongroup->id_in_substudy, 'hasAccess' => Auth::user()->hasAccessToStudy($questiongroup->substudy->study), 'canContribute' => (Auth::user()->isAdmin || $questiongroup->substudy->study->contributors->contains(Auth::user()))])
+    <h3 >{{ HTML::linkRoute('studies.substudies.questiongroups.questions.create', trans('pagestrings.substudies_rmenu_newquestion'), [$questiongroup->substudy->study->id,  $questiongroup->substudy->id, $questiongroup->id])}}</h3>
 @stop
 
 @section('content')
@@ -18,13 +19,17 @@
         <div class="panel-body">
             <!-- Name fields -->
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     {{ Bootstrap::text('shortname', trans('pagestrings.questiongroup_shortname'), $questiongroup->shortname) }}
                     {{ show_errors_for('shortname', $errors) }}
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-7">
                     {{ Bootstrap::text('name', trans('pagestrings.questiongroup_name_long'), $questiongroup->name) }}
                     {{ show_errors_for('name', $errors) }}
+                </div>
+                <div class="col-md-3">
+                    <br/>
+                    {{ Bootstrap::checkbox('random_questionorder', trans('pagestrings.questiongroup_randomquestionorder'), 1, $questiongroup->random_questionorder) }}
                 </div>
 
             </div>
@@ -46,6 +51,7 @@
             </div>
         </div>
     </div>
+
     {{ Form::close() }}
     <h4></h4>
 

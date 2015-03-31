@@ -184,6 +184,7 @@ return array(
     //QuestionGroups
     //Right_menu
     "substudies_rmenu_questiongrouplinkind"    => "Gesamtübersicht",
+    "substudies_rmenu_editquestiongrouporderlink"   => "Reihenfolge bearbeiten",
     "substudies_rmenu_questiongrouplinknew"    => "Neue Fragegruppe",
     "questiongroups_rmenu_showlink"            => "Übersicht Fragegruppe",
     "questiongroups_rmenu_editlink"            => "Fragegruppe bearbeiten",
@@ -196,10 +197,15 @@ return array(
     "questiongroup_description"           => "Beschreibung (durch Probanden lesbar)",
     "questiongroup_comment"               => "Kommentar (nur in Weboberfläche lesbar)",
     "questiongroup_countquestions"        => "Anzahl Fragen",
+    "questiongroup_randomquestionorder"   => "<strong>zufällige Fragenreihenfolge</strong>",
 
     //Index
     "questiongroup_index_header"            => "Teilstudie :substudy_name | Fragegruppen",
     "questiongroup_index_questiongroups"    => "Keine Fragegruppen",
+
+    //EditOrder
+    "questiongroup_editorder_header"       => "Teilstudie :substudy_name | Fragegruppen Reihenfolge bearbeiten",
+    "questiongroup_editorder_successmessage"  => "dam|success|Reihenfolge der Fragegruppen aktualisiert.",
 
     //Create
     "questiongroup_create_header"          => "Teilstudie :substudy_name | Neue Fragegruppe",
@@ -217,17 +223,22 @@ return array(
     "questiongroup_show_header"          => "Teilstudie :substudy_name | Fragegruppe :questiongroup_name",
     "questiongroup_show_panelheader"     => "Fragegruppendaten",
 
+    //Delete
+    "questiongroup_delete_successmessage"   => "dam|success|Fragegruppe gelöscht",
+
     //********************************************
-    //QuestionGroups
+    //Questions
     //Right_menu
     "substudies_rmenu_newquestion"   => "Neue Frage",
+    "substudies_rmenu_editquestion"  => "Frage bearbeiten",
     //Question Namestrings
     "question_shortname"             => "Kurzname",
     "question_text"                  => "Frage (angezeigter Text)",
     "question_comment"               => "Kommentar (nur in Weboberfläche lesbar)",
     "question_countquestions"        => "Anzahl Fragen",
     "question_type"                  => "Fragetyp",
-    "qeustion_answer_required"       => "<strong>Pflichtfrage <br/> (Antwort erforderlich)</strong>",
+    "question_answer_required"       => "<strong>Pflichtfrage <br/> (Antwort erforderlich)</strong>",
+    "question_answer_required_ol"    => "<strong>Pflichtfrage (Antwort erforderlich)</strong>",
 
     "question_typename_NUMERIC"      => "Numerisch",
     "question_typename_SLIDER"       => "Schieberegler",
@@ -245,6 +256,8 @@ return array(
     "question_optiongroup_SELF"      => "Selbstdefiniert",
 
     "question_selfdef_values"        => "Auswahlwerte",
+    "question_selfdef_datavalue"     => "Datenwert",
+    "question_selfdef_displayvalue"  => "Anzeigewert",
 
     "question_min_integer"           => "Minimum",
     "question_max_integer"           => "Maximum",
@@ -262,6 +275,16 @@ return array(
     "question_create_panelheader"           => "Daten Frage",
     "question_create_createbutton"          => "Frage erstellen",
     "questions_create_successmessage"       => "dam|success|Frage erstellt",
+
+    //Edit
+    "question_edit_header"                  => "Teilstudie :substudy_name | Frage bearbeiten",
+    "question_edit_questiongroup_header"    => "Fragegruppe: :question_group",
+    "question_edit_panelheader"             => "Daten Frage",
+    "question_edit_createbutton"            => "Frage aktualisieren",
+    "questions_edit_successmessage"         => "dam|success|Frage aktualisiert",
+
+    //Delete
+    "questions_delete_successmessage"       => "dam|success|Frage gelöscht",
 
     //********************************************
     //Requests

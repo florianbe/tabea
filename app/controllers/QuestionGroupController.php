@@ -66,8 +66,11 @@ class QuestionGroupController extends \BaseController {
 
 			$questionGroup->description = Input::get('description');
 			$questionGroup->comment = Input::get('comment');
+			$questionGroup->random_questionorder = Input::has('random_questionorder');
 
 			$substudy->questionGroups->count() <= 0 ? $questionGroup->id_in_substudy = 1 : $questionGroup->id_in_substudy = ($substudy->questionGroups->max('id_in_substudy') + 1);
+
+			$questionGroup->sequence_indicator = $substudy->questionGroups->count() + 1;
 
 
 			$questionGroup->SubStudy()->associate($substudy);
@@ -138,6 +141,7 @@ class QuestionGroupController extends \BaseController {
 
 			$questionGroup->description = Input::get('description');
 			$questionGroup->comment = Input::get('comment');
+			$questionGroup->random_questionorder = Input::has('random_questionorder');
 
 			$questionGroup->save();
 
@@ -158,9 +162,44 @@ class QuestionGroupController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($studies, $substudies, $questiongroups)
 	{
-		//
+		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
+		$questionGroup = QuestionGroup::where('substudy_id', '=', $substudy->id)->where('id_in_substudy', '=', $questiongroups)->firstOrFail();
+
+		if ($substudy->isStudyEditable())
+		{
+			$questionGroup->delete();
+			return Redirect::route('studies.substudies.questiongroups.index', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study])->with('message', trans('pagestrings.questiongroup_delete_successmessage'));
+
+		}
+	}
+
+
+	public function editOrder($studies, $substudies)
+	{
+		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
+		return View::make('questiongroups.order')->with(compact('substudy'));
+	}
+
+	public function updateOrder($studies, $substudies)
+	{
+		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
+		$substudy_order = Input::get('substudy_order');
+
+		asort($substudy_order);
+
+		$sequence_order = 1;
+
+		foreach($substudy_order as $qg_id_in_substudy => $order)
+		{
+			$questionGroup = $substudy->questiongroups->filter(function($item) use ($qg_id_in_substudy) { return $item->id_in_substudy == $qg_id_in_substudy; })->first();
+			$questionGroup->sequence_indicator = $sequence_order;
+			$questionGroup->save();
+			$sequence_order = $sequence_order +1;
+		}
+
+		return Redirect::route('studies.substudies.questiongroups.index', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study ])->with('message', trans('pagestrings.questiongroup_editorder_successmessage'));
 	}
 
 }

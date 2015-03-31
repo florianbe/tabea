@@ -15,19 +15,19 @@
         <table id ="substudies" class="table table-striped ">
             <thead>
             <tr>
+                <th class="col-md-1"></th>
                 <th class="col-md-8">{{ trans('pagestrings.substudies_name') }}</th>
                 <th class="col-md-3">{{ trans('pagestrings.substudies_signal_type') }}</th>
-                <th class="col-md-1"></th>
             </tr>
             </thead>
             <tbody>
             <h3></h3>
             @foreach ($study->substudies as $substudy)
                 <tr>
-                    <td>{{ HTML::linkRoute('studies.substudies.show', $substudy->name, ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study]) }}</td>
-                    <td>{{ $substudy->getTriggerName() }}</td>
                     <td>{{ Form::model($substudy, ['route' => ['studies.substudies.destroy', "studies" => $substudy->study->id, "substudies" => $substudy->id_in_study], 'method' => 'DELETE']) }}<button type="submit" class="btn btn-link "><i class="fa fa-times fa-lg" style="color: red"></i></button>
                         {{Form::close()}}</td>
+                    <td>{{ HTML::linkRoute('studies.substudies.show', $substudy->name, ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study]) }}</td>
+                    <td>{{ $substudy->getTriggerName() }}</td>
                 </tr>
             @endforeach
             </tbody>

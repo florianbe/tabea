@@ -119,4 +119,5 @@ class CustomValidator extends \Illuminate\Validation\Validator {
 
         return true;
     }
+
 }
