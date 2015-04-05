@@ -64,10 +64,19 @@
                 </div>
                 {{ show_errors_for('uploadable_until', $errors) }}
 
-                 {{ Bootstrap::submit(trans('pagestrings.studies_create_createbutton')) }}
+
             </div>
         </div>
-        {{ Form::close() }}  
+
+        <div class="list-group-item">
+            <div class="list-group-item-text">
+                <div class="row">
+                    <div class="col-md-6 text-left"><a class="btn btn-primary btn-back" >{{ trans('pagestrings.back') }}</a></div>
+                    <div class="col-md-6 text-right">{{ Bootstrap::submit(trans('pagestrings.studies_create_createbutton')) }}</div>
+                </div>
+            </div>
+        </div>
+        {{ Form::close() }}
 @stop
 
 @section('javascript')
@@ -89,4 +98,5 @@
             $('#short_name').attr('maxlength', 20);
           });
      </script>
+    {{ HTML::script('js/tabea.js') }}
 @stop

@@ -46,9 +46,16 @@
                     </div>
                 </div>
                 <div class="col-sm-5">
-                    <br>
-                    {{ Bootstrap::submit(trans('pagestrings.substudies_edit_editbutton')) }}
+
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="list-group-item">
+        <div class="list-group-item-text">
+            <div class="row">
+                <div class="col-md-6 text-left"><a class="btn btn-primary btn-back" >{{ trans('pagestrings.back') }}</a></div>
+                <div class="col-md-6 text-right"> {{ Bootstrap::submit(trans('pagestrings.substudies_edit_editbutton')) }}</div>
             </div>
         </div>
     </div>
@@ -256,4 +263,5 @@
             }
         })
     </script>
+    {{ HTML::script('js/tabea.js') }}
 @stop

@@ -62,13 +62,23 @@ class Question extends \Eloquent {
 
     public function delete()
     {
-        if ($this->optiongroup && !($this->optiongroup->is_predefined))
+        $counter = 1;
+        foreach ($this->questiongroup->questions as $q)
         {
-            $this->optiongroup->delete();
+            if ($q->id != $this->id)
+            {
+                $q->sequence_indicator = $counter;
+                $q->save();
+                $counter = $counter + 1;
+            }
         }
         if ($this->questionrestriction)
         {
             $this->questionrestriction->delete();
+        }
+        if ($this->optiongroup && $this->optiongroup->is_predefined == false)
+        {
+            $this->optiongroup->delete();
         }
 
         return parent::delete();

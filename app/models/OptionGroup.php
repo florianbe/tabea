@@ -16,12 +16,18 @@ class OptionGroup extends \Eloquent {
 
     public function delete()
     {
-        foreach ($this->optionchoices as $oc)
+        if ($this->is_predefined)
         {
-            $oc->delete();
+            return true;
         }
-
-        return parent::delete();
+        else
+        {
+            foreach ($this->OptionChoices() as $choice)
+            {
+                $choice->delete();
+            }
+            return parent::delete();
+        }
     }
 
 }

@@ -78,4 +78,13 @@
             </div>
         </div>
     </div>
+    <div class="list-group-item">
+        <div class="list-group-item-text">
+            <div class="row">
+                <div class="col-md-6 text-left"></div>
+                <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.substudies.edit', [$substudy->study->id, $substudy->id_in_study])}}"><i class="icon-plus-sign"></i>  {{ trans('pagestrings.substudies_rmenu_editlink') }}</a></div>
+            </div>
+        </div>
+    </div>
+
 @stop

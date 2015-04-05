@@ -29,13 +29,16 @@ return array(
     "hello"                 => "Hallo :full_name",
     "yes"                   => "Ja",
     "no"                    => "Nein",
+    "errormessage_reload"   => "Es ist ein Fehler aufgetreten. Bitte laden Sie die Seite neu",
+    "editorder"             => "Reihenfolge bearbeiten",
+    "back"                  => "Zurück ohne Speichern",
     //********************************************
     //Studies
     //Right_menu
     "studies_rmenu_indexlink"       => "Gesamtübersicht",
     "studies_rmenu_createlink"      => "Neue Studie",
     "studies_rmenu_mystudieslink"   => "Meine Studien",
-    "studies_rmenu_studyshow"       => "Übersicht",
+    "studies_rmenu_studyshow"       => "Studiendaten",
     "studies_rmenu_studyedit"       => "Studie bearbeiten",
     "studies_rmenu_access"          => "Zugriffsrechte",
     "studies_rmenu_requests"        => "Zugriffsanfragen",
@@ -44,6 +47,7 @@ return array(
     "studies_name"                  => "Studie",
     "studies_name_long"             => "Studienname",
     "studies_name_short"            => "Kurzbezeichnung (20 Zeichen)",
+    "studies_mane_short_short"      => "Kurzbezeichnung",
     "studies_author"                => "Autor",
     "studies_studypassword"         => "Studienpasswort",
     "studies_description"           => "Beschreibung (durch Probanden lesbar)",
@@ -111,15 +115,17 @@ return array(
 
     //Right_menu
     "substudies_rmenu_index"        => "Teilstudien",
+    "substudies_rmenu_index_d"      => "Teilstudie",
 
     //********************************************
     //Substudies
     //Right_menu
     "substudies_rmenu_indexlink"       => "Gesamtübersicht",
     "substudies_rmenu_createlink"      => "Neue Teilstudie",
-    "substudies_rmenu_showlink"        => "Übersicht Teilstudie",
+    "substudies_rmenu_showlink"        => "Teilstudiendaten",
     "substudies_rmenu_editlink"        => "Teilstudie bearbeiten",
     "substudies_rmenu_questiongrouplink"    => "Fragegruppen",
+    "substudies_rmenu_questiongrouplink_d"  => "Fragegruppe",
     "substudies_rmenu_substudy"        => "Teilstudie",
 
     //Index
@@ -186,8 +192,9 @@ return array(
     "substudies_rmenu_questiongrouplinkind"    => "Gesamtübersicht",
     "substudies_rmenu_editquestiongrouporderlink"   => "Reihenfolge bearbeiten",
     "substudies_rmenu_questiongrouplinknew"    => "Neue Fragegruppe",
-    "questiongroups_rmenu_showlink"            => "Übersicht Fragegruppe",
+    "questiongroups_rmenu_showlink"            => "Fragegruppendaten",
     "questiongroups_rmenu_editlink"            => "Fragegruppe bearbeiten",
+    "substudies_rmenu_showquestion"            => "Frage anzeigen",
 
 
     //QuestionGroup Namestrings
@@ -206,6 +213,7 @@ return array(
     //EditOrder
     "questiongroup_editorder_header"       => "Teilstudie :substudy_name | Fragegruppen Reihenfolge bearbeiten",
     "questiongroup_editorder_successmessage"  => "dam|success|Reihenfolge der Fragegruppen aktualisiert.",
+    "questiongroup_saveorderbutton"         => "Reihenfolge speichern",
 
     //Create
     "questiongroup_create_header"          => "Teilstudie :substudy_name | Neue Fragegruppe",
@@ -222,15 +230,21 @@ return array(
     //Show
     "questiongroup_show_header"          => "Teilstudie :substudy_name | Fragegruppe :questiongroup_name",
     "questiongroup_show_panelheader"     => "Fragegruppendaten",
+    "questiongroup_questionheader"       => "Fragen",
 
     //Delete
+    "questiongroup_delete_confirm"       => 'Soll die Fragegruppe gelöscht werden?\nAlle zugehörigen Elemente (Fragegruppen, Regeln etc.) werden ebenfalls gelöscht.',
     "questiongroup_delete_successmessage"   => "dam|success|Fragegruppe gelöscht",
+    "questiongroup_delete_successmessage_a" => "Fragegruppe gelöscht",
 
     //********************************************
     //Questions
     //Right_menu
     "substudies_rmenu_newquestion"   => "Neue Frage",
     "substudies_rmenu_editquestion"  => "Frage bearbeiten",
+    "substudies_rmenu_questionlink"  => "Frage",
+    "substudies_rmenu_question"      => "Daten Frage",
+
     //Question Namestrings
     "question_shortname"             => "Kurzname",
     "question_text"                  => "Frage (angezeigter Text)",
@@ -239,6 +253,7 @@ return array(
     "question_type"                  => "Fragetyp",
     "question_answer_required"       => "<strong>Pflichtfrage <br/> (Antwort erforderlich)</strong>",
     "question_answer_required_ol"    => "<strong>Pflichtfrage (Antwort erforderlich)</strong>",
+    "question_parameter"             => "Frageparameter",
 
     "question_typename_NUMERIC"      => "Numerisch",
     "question_typename_SLIDER"       => "Schieberegler",
@@ -283,9 +298,15 @@ return array(
     "question_edit_createbutton"            => "Frage aktualisieren",
     "questions_edit_successmessage"         => "dam|success|Frage aktualisiert",
 
-    //Delete
-    "questions_delete_successmessage"       => "dam|success|Frage gelöscht",
+    //Show
+    "question_show_header"          => "Teilstudie :substudy_name | Frage anzeigen",
+    "question_show_questiongroup_header"  => "Fragegruppe: :question_group",
 
+
+    //Delete
+    "question_delete_confirm"               => 'Soll die Frage wirklich gelöscht werden? \nAlle zugeordneten Elemente werden ebenfalls gelöscht.',
+    "questions_delete_successmessage"       => "dam|success|Frage gelöscht",
+    "questions_delete_successmessage_a"     => "Frage gelöscht",
     //********************************************
     //Requests
     //Right_menu

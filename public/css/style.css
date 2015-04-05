@@ -129,4 +129,8 @@ body {
     vertical-align: middle;
 }
 
+.table tbody>tr>td.vert-align{
+  vertical-align: middle;
+}
+
 

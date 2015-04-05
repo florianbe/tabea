@@ -6,14 +6,9 @@
 
 @section('sidebar')
     @include('questiongroups.sidebars.overview', ['studyId' => $substudy->study->id, 'substudyId'=> $substudy->id_in_study, 'hasAccess' => Auth::user()->hasAccessToStudy($substudy->study), 'canContribute' => (Auth::user()->isAdmin || $substudy->study->contributors->contains(Auth::user()))])
-    @if( (count($substudy->questiongroups) > 0) )
-        <h3>{{ HTML::linkRoute('studies.substudies.questionsgroups.editorder', trans('pagestrings.substudies_rmenu_editquestiongrouporderlink'), [$substudy->study->id, $substudy->id])}}</h3>
-    @endif
 @stop
 
 @section('content')
-
-
     @if( (count($substudy->questiongroups) > 0) )
         {{ Form::open(['route' => ['studies.substudies.questionsgroups.updateorder', "studies" => $substudy->study->id, "substudies" => $substudy->id_in_study], 'method' => 'PUT']) }}
         <table id ="questiongroups" class="table table-striped ">
@@ -39,9 +34,20 @@
         </table>
 
         <hr/>
-        <div class="col-md-3 col-md-offset-9"> {{ Bootstrap::submit(trans('pagestrings.questiongroup_edit_createbutton')) }} </div>
+        <div class="list-group-item">
+            <div class="list-group-item-text">
+                <div class="row">
+                    <div class="col-md-6 text-left"><a class="btn btn-primary btn-back" >{{ trans('pagestrings.back') }}</a></div>
+                    <div class="col-md-6 text-right"> {{ Bootstrap::submit(trans('pagestrings.questiongroup_saveorderbutton')) }} </div>
+                </div>
+            </div>
+        </div>
         {{Form::close()}}
     @else
         <h2>{{ trans('pagestrings.questiongroup_index_questiongroups') }}</h2>
     @endif
+@stop
+
+@section('javascript')
+    {{ HTML::script('js/tabea.js') }}
 @stop

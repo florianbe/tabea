@@ -5,8 +5,7 @@
 @section('header', trans('pagestrings.question_edit_header', ['substudy_name'=>$question->questiongroup->substudy->name]))
 
 @section('sidebar')
-    @include('questiongroups.sidebars.detail', ['studyId' => $question->questiongroup->substudy->study->id, 'substudyId' => $question->questiongroup->substudy->id, 'questiongroupId' => $question->questiongroup->id,  'hasAccess' => Auth::user()->hasAccessToStudy($question->questiongroup->substudy->study), 'canContribute' => (Auth::user()->isAdmin || $question->questiongroup->substudy->study->contributors->contains(Auth::user()))])
-    <h3 >{{ HTML::linkRoute('studies.substudies.questiongroups.questions.edit', trans('pagestrings.substudies_rmenu_editquestion'), [$question->questiongroup->substudy->study->id,  $question->questiongroup->substudy->id, $question->questiongroup->id, $question->id])}}</h3>
+    @include('questions.sidebars.detail', ['studyId' => $question->questiongroup->substudy->study->id, 'substudyId' => $question->questiongroup->substudy->id, 'questiongroupId' => $question->questiongroup->id, 'questionId' => $question->id_in_questiongroup, 'hasAccess' => Auth::user()->hasAccessToStudy($question->questiongroup->substudy->study), 'canContribute' => (Auth::user()->isAdmin || $question->questiongroup->substudy->study->contributors->contains(Auth::user()))])
 @stop
 @section('content')
     <h2>{{trans('pagestrings.question_edit_questiongroup_header', ['question_group' => $question->questiongroup->name ])}}</h2>
@@ -85,17 +84,18 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+    <div class="list-group-item">
+        <div class="list-group-item-text">
             <div class="row">
-                <div class="col-sm-7"></div>
-                <div class="col-sm-5">
-                    {{ Bootstrap::submit(trans('pagestrings.question_edit_createbutton')) }}
-                </div>
+                <div class="col-md-6 text-left"><a class="btn btn-primary btn-back" >{{ trans('pagestrings.back') }}</a></div>
+                <div class="col-md-6 text-right"> {{ Bootstrap::submit(trans('pagestrings.question_edit_createbutton')) }}</div>
             </div>
         </div>
     </div>
     {{ Form::close() }}
 @stop
-
 
 @section('javascript')
     <script type="text/javascript">
@@ -128,4 +128,5 @@
             showSelfsinglechoide();
         });
     </script>
+    {{ HTML::script('js/tabea.js') }}
 @stop

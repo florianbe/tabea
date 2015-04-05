@@ -14,20 +14,20 @@
     <table id="studies" class="table table-striped">
       <thead>
         <tr>
-          <th>{{ trans('pagestrings.studies_role') }}</th>
-          <th></th>
-          <th>{{ trans('pagestrings.studies_name') }}</th>
-          <th>{{ trans('pagestrings.studies_state') }}</th>
+          <th class="col-md-2">{{ trans('pagestrings.studies_mane_short_short') }}</th>
+          <th class="col-md-5">{{ trans('pagestrings.studies_name') }}</th>
+          <th class="col-md-2">{{ trans('pagestrings.studies_role') }}</th>
+          <th class="col-md-3">{{ trans('pagestrings.studies_state') }}</th>
         </tr>
       </thead>
       <tbody>
         @foreach ($studies_my as $state => $studies)
         @foreach ($studies as $study)
         <tr>
-          <td>{{ $state }}</td>
-          <td>{{$study->short_name}}</td>
-          <td><a href="{{ action('StudyController@show', array($study->id)) }}">{{ $study->name}}</a></td>
-          <td>{{$study->studystate->name}}</td>
+            <td>{{$study->short_name}}</td>
+            <td><a href="{{ action('StudyController@show', array($study->id)) }}">{{ $study->name}}</a></td>
+            <td>{{ $state }}</td>
+            <td>{{$study->studystate->name}}</td>
         </tr>
         @endforeach
         @endforeach
@@ -37,6 +37,14 @@
     @else
         <h2>{{ trans('pagestrings.studies_index_nostudies') }}</h2>
     @endif
+    <div class="list-group-item">
+        <div class="list-group-item-text">
+            <div class="row">
+                <div class="col-md-6 text-left"></div>
+                <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.create')}}"><i class="icon-plus-sign"></i>  {{ trans('pagestrings.studies_rmenu_createlink') }}</a></div>
+            </div>
+        </div>
+    </div>
 @stop
 
 @section('javascript')

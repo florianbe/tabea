@@ -6,8 +6,6 @@
 
 @section('sidebar')
     @include('questiongroups.sidebars.detail', ['studyId' => $questiongroup->substudy->study->id, 'substudyId' => $questiongroup->substudy->id, 'questiongroupId' => $questiongroup->id,  'hasAccess' => Auth::user()->hasAccessToStudy($questiongroup->substudy->study), 'canContribute' => (Auth::user()->isAdmin || $questiongroup->substudy->study->contributors->contains(Auth::user()))])
-
-    <h3 >{{ HTML::linkRoute('studies.substudies.questiongroups.questions.create', trans('pagestrings.substudies_rmenu_newquestion'), [$questiongroup->substudy->study->id,  $questiongroup->substudy->id, $questiongroup->id])}}</h3>
 @stop
 @section('content')
     <h2>{{trans('pagestrings.question_create_questiongroup_header', ['question_group' => $questiongroup->name ])}}</h2>
@@ -84,20 +82,18 @@
                     </div>
                 </div>
             </div>
-
+        </div>
+    </div>
+    <div class="list-group-item">
+        <div class="list-group-item-text">
             <div class="row">
-                <div class="col-sm-7"></div>
-                <div class="col-sm-5">
-                    {{ Bootstrap::submit(trans('pagestrings.question_create_createbutton')) }}
-                </div>
+                <div class="col-md-6 text-left"><a class="btn btn-primary btn-back" >{{ trans('pagestrings.back') }}</a></div>
+                <div class="col-md-6 text-right">{{ Bootstrap::submit(trans('pagestrings.question_create_createbutton')) }}</div>
             </div>
         </div>
     </div>
     {{ Form::close() }}
-    <h4></h4>
-
 @stop
-
 
 @section('javascript')
     <script type="text/javascript">
@@ -130,4 +126,5 @@
             showSelfsinglechoide();
         });
     </script>
+    {{ HTML::script('js/tabea.js') }}
 @stop

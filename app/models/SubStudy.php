@@ -16,7 +16,7 @@ class Substudy extends \Eloquent {
 
 	public function QuestionGroups()
 	{
-		return $this->hasMany('QuestionGroup', 'substudy_id', 'id');
+		return $this->hasMany('QuestionGroup', 'substudy_id', 'id')->orderBy('sequence_indicator', 'ASC');;
 	}
 
 	public function setTrigger($triggerType, $timeInterval=0)

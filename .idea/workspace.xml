@@ -2,24 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c4cf31e-4872-4c8e-a207-9cdde5289d48" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/questiongroups/order.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/questions/show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2015_01_04_090321_create_question_groups_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2015_01_04_090321_create_question_groups_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Tabea/Validation/CustomValidator.php" afterPath="$PROJECT_DIR$/app/Tabea/Validation/CustomValidator.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/layouts/js/destroy_elements.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/questions/sidebars/detail.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/tabea.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/OptionGroup.php" afterPath="$PROJECT_DIR$/app/models/OptionGroup.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Question.php" afterPath="$PROJECT_DIR$/app/models/Question.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/QuestionController.php" afterPath="$PROJECT_DIR$/app/controllers/QuestionController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/QuestionGroup.php" afterPath="$PROJECT_DIR$/app/models/QuestionGroup.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/QuestionGroupController.php" afterPath="$PROJECT_DIR$/app/controllers/QuestionGroupController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/SubStudy.php" afterPath="$PROJECT_DIR$/app/models/SubStudy.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questiongroups/create.blade.php" afterPath="$PROJECT_DIR$/app/views/questiongroups/create.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questions/create.blade.php" afterPath="$PROJECT_DIR$/app/views/questions/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/studies/create.blade.php" afterPath="$PROJECT_DIR$/app/views/studies/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/substudies/create.blade.php" afterPath="$PROJECT_DIR$/app/views/substudies/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questiongroups/sidebars/detail.blade.php" afterPath="$PROJECT_DIR$/app/views/questiongroups/sidebars/detail.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/studies/sidebars/detail.blade.php" afterPath="$PROJECT_DIR$/app/views/studies/sidebars/detail.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/substudies/sidebars/detail.blade.php" afterPath="$PROJECT_DIR$/app/views/substudies/sidebars/detail.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questiongroups/edit.blade.php" afterPath="$PROJECT_DIR$/app/views/questiongroups/edit.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questions/edit.blade.php" afterPath="$PROJECT_DIR$/app/views/questions/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/studies/edit.blade.php" afterPath="$PROJECT_DIR$/app/views/studies/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/substudies/edit.blade.php" afterPath="$PROJECT_DIR$/app/views/substudies/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Tabea/helpers.php" afterPath="$PROJECT_DIR$/app/Tabea/helpers.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questiongroups/index.blade.php" afterPath="$PROJECT_DIR$/app/views/questiongroups/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/studies/index.blade.php" afterPath="$PROJECT_DIR$/app/views/studies/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/substudies/index.blade.php" afterPath="$PROJECT_DIR$/app/views/substudies/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/studies/mystudies.blade.php" afterPath="$PROJECT_DIR$/app/views/studies/mystudies.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questiongroups/order.blade.php" afterPath="$PROJECT_DIR$/app/views/questiongroups/order.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questiongroups/sidebars/overview.blade.php" afterPath="$PROJECT_DIR$/app/views/questiongroups/sidebars/overview.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/substudies/sidebars/overview.blade.php" afterPath="$PROJECT_DIR$/app/views/substudies/sidebars/overview.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/lang/de/pagestrings.php" afterPath="$PROJECT_DIR$/app/lang/de/pagestrings.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questiongroups/show.blade.php" afterPath="$PROJECT_DIR$/app/views/questiongroups/show.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questions/show.blade.php" afterPath="$PROJECT_DIR$/app/views/questions/show.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/studies/show.blade.php" afterPath="$PROJECT_DIR$/app/views/studies/show.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/substudies/show.blade.php" afterPath="$PROJECT_DIR$/app/views/substudies/show.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/template.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/template.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tabea.iws" />
@@ -45,64 +63,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="QuestionGroupController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/QuestionGroupController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.958333" vertical-offset="2182" max-vertical-offset="3150">
-              <caret line="171" column="37" selection-start-line="171" selection-start-column="37" selection-end-line="171" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuestionController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/QuestionController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.625" vertical-offset="5304" max-vertical-offset="6330">
-              <caret line="393" column="0" selection-start-line="393" selection-start-column="0" selection-end-line="411" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SubStudyController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/SubStudyController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="66.541664" vertical-offset="3577" max-vertical-offset="4560">
-              <caret line="133" column="147" selection-start-line="133" selection-start-column="12" selection-end-line="133" selection-end-column="147" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/questions/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34250763" vertical-offset="849" max-vertical-offset="1845">
-              <caret line="79" column="66" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="66" />
+            <state vertical-scroll-proportion="-1.25" vertical-offset="1035" max-vertical-offset="2010">
+              <caret line="71" column="88" selection-start-line="71" selection-start-column="88" selection-end-line="71" selection-end-column="88" />
               <folding>
-                <marker date="1427836059000" expanded="true" signature="310:729" placeholder="..." />
-                <marker date="1427836059000" expanded="true" signature="345:728" placeholder="..." />
-                <marker date="1427836059000" expanded="true" signature="759:996" placeholder="..." />
-                <marker date="1427836059000" expanded="true" signature="1177:1497" placeholder="..." />
-                <marker date="1427836059000" expanded="true" signature="1178:1496" placeholder="..." />
-                <marker date="1427836059000" expanded="true" signature="1190:1476" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/questiongroups/show.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0" vertical-offset="60" max-vertical-offset="1080">
-              <caret line="20" column="109" selection-start-line="20" selection-start-column="109" selection-end-line="20" selection-end-column="109" />
-              <folding>
-                <marker date="1427547380000" expanded="true" signature="401:789" placeholder="..." />
-                <marker date="1427547380000" expanded="true" signature="436:788" placeholder="..." />
-                <marker date="1427547380000" expanded="true" signature="819:1012" placeholder="..." />
-                <marker date="1427547380000" expanded="true" signature="3269:3547" placeholder="..." />
-                <marker date="1427547380000" expanded="true" signature="3344:3546" placeholder="..." />
+                <marker date="1428162891000" expanded="true" signature="310:784" placeholder="..." />
+                <marker date="1428162891000" expanded="true" signature="340:783" placeholder="..." />
+                <marker date="1428162891000" expanded="true" signature="958:1278" placeholder="..." />
+                <marker date="1428162891000" expanded="true" signature="959:1277" placeholder="..." />
+                <marker date="1428162891000" expanded="true" signature="971:1257" placeholder="..." />
+                <marker date="1428162891000" expanded="true" signature="8566:8780" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -111,18 +83,58 @@
       <file leaf-file-name="pagestrings.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/lang/de/pagestrings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.666667" vertical-offset="3377" max-vertical-offset="6015">
-              <caret line="258" column="31" selection-start-line="258" selection-start-column="5" selection-end-line="258" selection-end-column="31" />
+            <state vertical-scroll-proportion="-5.019608" vertical-offset="1499" max-vertical-offset="6330">
+              <caret line="117" column="52" selection-start-line="117" selection-start-column="52" selection-end-line="117" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Question.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Question.php">
+      <file leaf-file-name="detail.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/questiongroups/sidebars/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-36.791668" vertical-offset="212" max-vertical-offset="1230">
-              <caret line="73" column="32" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
+            <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="285">
+              <caret line="3" column="110" selection-start-line="3" selection-start-column="110" selection-end-line="3" selection-end-column="110" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detail.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/questions/sidebars/detail.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="300">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detail.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/substudies/sidebars/detail.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="315">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="overview.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/substudies/sidebars/overview.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="225">
+              <caret line="3" column="115" selection-start-line="3" selection-start-column="115" selection-end-line="3" selection-end-column="115" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="overview.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/questiongroups/sidebars/overview.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.046153847" vertical-offset="0" max-vertical-offset="975">
+              <caret line="3" column="106" selection-start-line="3" selection-start-column="106" selection-end-line="3" selection-end-column="106" />
               <folding />
             </state>
           </provider>
@@ -141,57 +153,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Tabea/Forms/SurveyperiodForm.php" />
-        <option value="$PROJECT_DIR$/app/models/SurveyPeriod.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2014_12_18_183744_create_substudies_tables.php" />
-        <option value="$PROJECT_DIR$/app/models/OptionChoice.php" />
-        <option value="$PROJECT_DIR$/app/Tabea/helpers.php" />
-        <option value="$PROJECT_DIR$/app/Tabea/Forms/SubstudyForm.php" />
-        <option value="$PROJECT_DIR$/app/views/studies/sidebars/detail.blade.php" />
-        <option value="$PROJECT_DIR$/app/models/SubStudy.php" />
-        <option value="$PROJECT_DIR$/app/config/.gitignore" />
-        <option value="$PROJECT_DIR$/app/controllers/SessionsController.php" />
-        <option value="$PROJECT_DIR$/app/config/mail.php" />
         <option value="$PROJECT_DIR$/app/config/database.php" />
         <option value="$PROJECT_DIR$/app/config/credentials.php" />
         <option value="$PROJECT_DIR$/app/config/sample_credentials.php" />
-        <option value="$PROJECT_DIR$/app/views/substudies/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/substudies/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/substudies/show.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/substudies/sidebars/overview.blade.php" />
         <option value="$PROJECT_DIR$/app/Tabea/Forms/QuestionGroupForm.php" />
         <option value="$PROJECT_DIR$/app/controllers/SubStudyController.php" />
-        <option value="$PROJECT_DIR$/app/views/substudies/sidebars/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/models/QuestionType.php" />
-        <option value="$PROJECT_DIR$/app/views/layouts/template.blade.php" />
         <option value="$PROJECT_DIR$/app/lang/en/validation.php" />
         <option value="$PROJECT_DIR$/app/lang/de/validation.php" />
         <option value="$PROJECT_DIR$/app/Tabea/Forms/QuestionForm.php" />
         <option value="$PROJECT_DIR$/app/models/QuestionRestrictions.php" />
         <option value="$PROJECT_DIR$/app/models/QuestionRestriction.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_01_04_090359_create_question_table.php" />
-        <option value="$PROJECT_DIR$/app/models/QuestionGroup.php" />
-        <option value="$PROJECT_DIR$/app/views/questions/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/substudies/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/questiongroups/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/questiongroups/editorder.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/style.css" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
-        <option value="$PROJECT_DIR$/app/views/questiongroups/order.blade.php" />
         <option value="$PROJECT_DIR$/app/Tabea/Validation/CustomValidator.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_01_04_090321_create_question_groups_table.php" />
-        <option value="$PROJECT_DIR$/app/views/questiongroups/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/questiongroups/sidebars/overview.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/questiongroups/sidebars/detail.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/questiongroups/show.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/questiongroups/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/models/OptionGroup.php" />
-        <option value="$PROJECT_DIR$/app/models/Question.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/QuestionController.php" />
+        <option value="$PROJECT_DIR$/app/Tabea/helpers.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/template.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/js/destroy_elements.blade.php" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/app/models/QuestionGroup.php" />
+        <option value="$PROJECT_DIR$/app/models/SubStudy.php" />
+        <option value="$PROJECT_DIR$/app/models/Question.php" />
+        <option value="$PROJECT_DIR$/public/js/tabea.js" />
+        <option value="$PROJECT_DIR$/app/views/studies/mystudies.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/studies/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/studies/sidebars/detail.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/studies/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/studies/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/substudies/sidebars/overview.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/studies/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/substudies/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/substudies/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/substudies/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/questiongroups/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/questiongroups/order.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/questiongroups/show.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/QuestionGroupController.php" />
+        <option value="$PROJECT_DIR$/app/views/questiongroups/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/substudies/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/questiongroups/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/questions/create.blade.php" />
         <option value="$PROJECT_DIR$/app/views/questions/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/lang/de/pagestrings.php" />
         <option value="$PROJECT_DIR$/app/views/questions/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/questions/sidebars/detail.blade.php" />
+        <option value="$PROJECT_DIR$/app/lang/de/pagestrings.php" />
+        <option value="$PROJECT_DIR$/app/views/questiongroups/sidebars/detail.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/substudies/sidebars/detail.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/questiongroups/sidebars/overview.blade.php" />
       </list>
     </option>
   </component>
@@ -200,10 +212,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="86" />
     <option name="y" value="23" />
-    <option name="width" value="1342" />
-    <option name="height" value="1102" />
+    <option name="width" value="1920" />
+    <option name="height" value="1109" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -407,7 +418,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="questions" />
+              <option name="myItemId" value="substudies" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sidebars" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -456,6 +471,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sidebars" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tabea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tabea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tabea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tabea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -648,7 +711,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="optiong&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/OptionGroup.php&#10;show.bl&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/substudies/show.blade.php&#10;study.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Study.php&#10;sub&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/SubStudyController.php&#10;Question.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Question.php&#10;Question&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/QuestionGroupController.php&#10;option&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/OptionGroup.php&#10;substudycon&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/SubStudyController.php&#10;page&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang/de/pagestrings.php&#10;QuestionGroupC&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/QuestionGroupController.php&#10;questionc&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/QuestionController.php&#10;create&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questions/create.blade.php&#10;QuestionF&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/Tabea/Forms/QuestionForm.php&#10;questiong&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/QuestionGroupController.php&#10;te&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/layouts/template.blade.php&#10;temp&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/layouts/template.blade.php&#10;pa&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang/de/pagestrings.php&#10;c&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questions/create.blade.php&#10;pages&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang/de/pagestrings.php&#10;substudies/c&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/substudies/create.blade.php&#10;questiongr&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/QuestionGroup.php&#10;routes&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/routes.php&#10;questiongroups/create&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questiongroups/create.blade.php&#10;questiongroups/in&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questiongroups/index.blade.php&#10;questiongroups/&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questiongroups&#10;rout&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/routes.php&#10;route&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/routes.php&#10;valid&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang/de/validation.php&#10;edi&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questiongroups/edit.blade.php&#10;subst&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SubStudy.php&#10;question&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/QuestionGroup.php&#10;questiongroup/c&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questiongroups/create.blade.php&#10;substudyform&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/Tabea/Forms/SubstudyForm.php&#10;questiongroupfo&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/Tabea/Forms/QuestionGroupForm.php&#10;de&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/substudies/sidebars/overview.blade.php" />
+    <property name="SearchEverywhereHistoryKey" value="p&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang/de/pagestrings.php&#10;pag&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang/de/pagestrings.php&#10;question&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/QuestionGroupController.php&#10;page&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang/de/pagestrings.php&#10;routes.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/routes.php&#10;pages&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang/de/pagestrings.php&#10;route&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/routes.php&#10;questionc&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/QuestionController.php&#10;optiong&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/OptionGroup.php&#10;show.bl&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/substudies/show.blade.php&#10;study.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Study.php&#10;sub&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/SubStudyController.php&#10;Question.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Question.php&#10;Question&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/QuestionGroupController.php&#10;option&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/OptionGroup.php&#10;substudycon&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/SubStudyController.php&#10;QuestionGroupC&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/QuestionGroupController.php&#10;create&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questions/create.blade.php&#10;QuestionF&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/Tabea/Forms/QuestionForm.php&#10;questiong&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/QuestionGroupController.php&#10;te&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/layouts/template.blade.php&#10;temp&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/layouts/template.blade.php&#10;pa&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang/de/pagestrings.php&#10;c&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questions/create.blade.php&#10;substudies/c&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/substudies/create.blade.php&#10;questiongr&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/QuestionGroup.php&#10;routes&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/routes.php&#10;questiongroups/create&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questiongroups/create.blade.php&#10;questiongroups/in&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questiongroups/index.blade.php&#10;questiongroups/&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questiongroups&#10;rout&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/routes.php&#10;valid&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang/de/validation.php&#10;edi&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questiongroups/edit.blade.php&#10;subst&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SubStudy.php&#10;questiongroup/c&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questiongroups/create.blade.php&#10;substudyform&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/Tabea/Forms/SubstudyForm.php&#10;questiongroupfo&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/Tabea/Forms/QuestionGroupForm.php&#10;de&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/substudies/sidebars/overview.blade.php" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.General" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -709,7 +772,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="86" y="23" width="1342" height="1102" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="1109" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32827735" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -718,12 +781,12 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32884616" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17519042" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16369048" sideWeight="0.21776815" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24895833" sideWeight="0.21826923" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32884902" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35677084" sideWeight="0.78223187" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24895833" sideWeight="0.7817308" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -748,7 +811,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.225" sideWeight="0.78223187" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24895833" sideWeight="0.78223187" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -777,124 +840,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/hello.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1112">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/substudies/sidebars/overview.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="195">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/substudies/sidebars/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="240">
-          <caret line="6" column="186" selection-start-line="4" selection-start-column="8" selection-end-line="6" selection-end-column="186" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/studies/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13623978" vertical-offset="0" max-vertical-offset="1101">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="60" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/substudies/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.625" vertical-offset="0" max-vertical-offset="1620">
-          <caret line="57" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="102" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/StudyRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="330">
-          <caret line="4" column="34" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/StudyState.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="270">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/StudyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0931174" vertical-offset="945" max-vertical-offset="3570">
-          <caret line="136" column="115" selection-start-line="136" selection-start-column="12" selection-end-line="136" selection-end-column="115" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80465585" vertical-offset="0" max-vertical-offset="3045">
-          <caret line="53" column="12" selection-start-line="53" selection-start-column="12" selection-end-line="60" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/users/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68367344" vertical-offset="78" max-vertical-offset="690">
-          <caret line="32" column="99" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="99" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/cornford/bootstrapper/src/Cornford/Bootstrapper/Bootstrap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.321429" vertical-offset="4305" max-vertical-offset="7680">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/template.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30612245" vertical-offset="0" max-vertical-offset="1155">
-          <caret line="12" column="106" selection-start-line="12" selection-start-column="106" selection-end-line="12" selection-end-column="106" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Tabea/Repositories/StudyInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Tabea/Validation/CustomValidationServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1012">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/lang/en/validation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81781375" vertical-offset="317" max-vertical-offset="1725">
-          <caret line="75" column="122" selection-start-line="75" selection-start-column="122" selection-end-line="75" selection-end-column="122" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Tabea/Forms/ActivateStudyForm.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24291497" vertical-offset="0" max-vertical-offset="988">
@@ -935,14 +880,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/OptionChoice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1012">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Tabea/Forms/QuestionForm.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30364373" vertical-offset="0" max-vertical-offset="988">
@@ -955,38 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="255">
           <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/substudies/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.875" vertical-offset="69" max-vertical-offset="3960">
-          <caret line="38" column="302" selection-start-line="38" selection-start-column="302" selection-end-line="38" selection-end-column="302" />
-          <folding>
-            <marker date="1421954972000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1421954972000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1421954972000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1421954972000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1421954972000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1421954972000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1421954972000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/QuestionGroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="330">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/SubStudy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24291497" vertical-offset="0" max-vertical-offset="1140">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1007,45 +912,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/substudies/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.0" vertical-offset="0" max-vertical-offset="690">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#1310#1328#0#HTML" expanded="true" />
-            <marker date="1427406217000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40789473" vertical-offset="92" max-vertical-offset="1110">
-          <caret line="42" column="113" selection-start-line="42" selection-start-column="113" selection-end-line="42" selection-end-column="113" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2737154" vertical-offset="998" max-vertical-offset="2070">
-          <caret line="85" column="1" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/order.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47692308" vertical-offset="0" max-vertical-offset="975">
-          <caret line="31" column="60" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
-          <folding>
-            <marker date="1427535105000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427535105000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427535105000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Tabea/Validation/CustomValidator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-36.791668" vertical-offset="932" max-vertical-offset="1920">
@@ -1062,53 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.5" vertical-offset="0" max-vertical-offset="915">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="31" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.411765" vertical-offset="0" max-vertical-offset="750">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#2179#2197#0#HTML" expanded="true" />
-            <marker date="1427504140000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427504140000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427504140000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427504140000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427504140000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/sidebars/overview.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10769231" vertical-offset="0" max-vertical-offset="975">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/sidebars/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13846155" vertical-offset="0" max-vertical-offset="975">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/questions/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.015384615" vertical-offset="120" max-vertical-offset="2070">
-          <caret line="9" column="229" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="229" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/SubStudyController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="66.541664" vertical-offset="3577" max-vertical-offset="4560">
@@ -1119,109 +938,360 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Study.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="22.5" vertical-offset="780" max-vertical-offset="1785">
-          <caret line="16" column="6" selection-start-line="13" selection-start-column="3" selection-end-line="16" selection-end-column="6" />
+        <state vertical-scroll-proportion="-32.5" vertical-offset="780" max-vertical-offset="1785">
+          <caret line="104" column="35" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/QuestionController.php">
+    <entry file="file://$PROJECT_DIR$/app/models/OptionChoice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.625" vertical-offset="5304" max-vertical-offset="6330">
-          <caret line="393" column="0" selection-start-line="393" selection-start-column="0" selection-end-line="411" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.13761468" vertical-offset="0" max-vertical-offset="981">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Tabea/helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.10759494" vertical-offset="552" max-vertical-offset="1500">
+          <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/js/destroy_elements.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="961">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/template.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8595213" vertical-offset="209" max-vertical-offset="1170">
+          <caret line="69" column="14" selection-start-line="69" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0253806" vertical-offset="0" max-vertical-offset="2130">
+          <caret line="133" column="1" selection-start-line="133" selection-start-column="1" selection-end-line="133" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/QuestionGroup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20291363" vertical-offset="0" max-vertical-offset="961">
+          <caret line="13" column="106" selection-start-line="13" selection-start-column="67" selection-end-line="13" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/SubStudy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28095734" vertical-offset="0" max-vertical-offset="1140">
+          <caret line="18" column="106" selection-start-line="18" selection-start-column="106" selection-end-line="18" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6170886" vertical-offset="120" max-vertical-offset="1140">
+          <caret line="56" column="89" selection-start-line="56" selection-start-column="89" selection-end-line="56" selection-end-column="89" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Question.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-36.791668" vertical-offset="212" max-vertical-offset="1230">
-          <caret line="73" column="32" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/QuestionGroupController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.958333" vertical-offset="2182" max-vertical-offset="3150">
-          <caret line="171" column="37" selection-start-line="171" selection-start-column="37" selection-end-line="171" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0" vertical-offset="60" max-vertical-offset="1080">
-          <caret line="20" column="109" selection-start-line="20" selection-start-column="109" selection-end-line="20" selection-end-column="109" />
-          <folding>
-            <marker date="1427547380000" expanded="true" signature="401:789" placeholder="..." />
-            <marker date="1427547380000" expanded="true" signature="436:788" placeholder="..." />
-            <marker date="1427547380000" expanded="true" signature="819:1012" placeholder="..." />
-            <marker date="1427547380000" expanded="true" signature="3269:3547" placeholder="..." />
-            <marker date="1427547380000" expanded="true" signature="3344:3546" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/substudies/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30991736" vertical-offset="0" max-vertical-offset="1305">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/questions/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17045455" vertical-offset="0" max-vertical-offset="2040">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="94" selection-end-column="10" />
-          <folding>
-            <marker date="1427742298000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427742298000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427742298000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427742298000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427742298000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427742298000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21694215" vertical-offset="0" max-vertical-offset="968">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/lang/de/pagestrings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.666667" vertical-offset="3377" max-vertical-offset="6015">
-          <caret line="258" column="31" selection-start-line="258" selection-start-column="5" selection-end-line="258" selection-end-column="31" />
+        <state vertical-scroll-proportion="-33.791668" vertical-offset="344" max-vertical-offset="1380">
+          <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/OptionGroup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33639145" vertical-offset="0" max-vertical-offset="981">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.27327934" vertical-offset="0" max-vertical-offset="988">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/QuestionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35384616" vertical-offset="5850" max-vertical-offset="6840">
+          <caret line="413" column="13" selection-start-line="410" selection-start-column="12" selection-end-line="413" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/studies/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52327937" vertical-offset="518" max-vertical-offset="1605">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="78" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/substudies/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.015384615" vertical-offset="0" max-vertical-offset="975">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <marker date="1428157523000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/studies/mystudies.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2257085" vertical-offset="17" max-vertical-offset="1005">
+          <caret line="16" column="87" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/tabea.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32608697" vertical-offset="0" max-vertical-offset="1012">
+          <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/studies/sidebars/overview.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="180">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/studies/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.93846154" vertical-offset="0" max-vertical-offset="1140">
+          <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="68" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/substudies/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.015384615" vertical-offset="465" max-vertical-offset="1440">
+          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+          <folding>
+            <marker date="1428158412000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428158412000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/studies/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5476923" vertical-offset="36" max-vertical-offset="1035">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="45" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/studies/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9169231" vertical-offset="576" max-vertical-offset="1575">
+          <caret line="98" column="4" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="37" />
+          <folding>
+            <marker date="1428156928000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51692307" vertical-offset="156" max-vertical-offset="1155">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="54" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/order.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61538464" vertical-offset="0" max-vertical-offset="975">
+          <caret line="40" column="123" selection-start-line="40" selection-start-column="94" selection-end-line="40" selection-end-column="123" />
+          <folding>
+            <marker date="1428160221000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428160221000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428160221000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/substudies/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8923077" vertical-offset="3105" max-vertical-offset="4080">
+          <caret line="265" column="0" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/studies/sidebars/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.045546558" vertical-offset="0" max-vertical-offset="988">
+          <caret line="3" column="15" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/QuestionGroupController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6923077" vertical-offset="1545" max-vertical-offset="3165">
+          <caret line="148" column="74" selection-start-line="148" selection-start-column="74" selection-end-line="148" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10769231" vertical-offset="0" max-vertical-offset="990">
+          <caret line="7" column="402" selection-start-line="7" selection-start-column="402" selection-end-line="7" selection-end-column="402" />
+          <folding>
+            <marker date="1428162399000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428162399000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428162399000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428162399000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428162399000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/substudies/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9230769" vertical-offset="675" max-vertical-offset="1680">
+          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="106" selection-end-column="5" />
+          <folding>
+            <marker date="1428162556000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428162556000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/questions/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10769231" vertical-offset="840" max-vertical-offset="2025">
+          <caret line="63" column="22" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+          <folding>
+            <marker date="1428162638000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428162638000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428162638000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428162638000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428162638000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7076923" vertical-offset="0" max-vertical-offset="975">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="59" selection-end-column="5" />
+          <folding>
+            <marker date="1428162556000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428162556000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/questions/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61538464" vertical-offset="825" max-vertical-offset="2055">
+          <caret line="95" column="10" selection-start-line="88" selection-start-column="4" selection-end-line="95" selection-end-column="10" />
+          <folding>
+            <marker date="1428162782000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428162782000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428162782000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428162782000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428162782000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63076925" vertical-offset="735" max-vertical-offset="1710">
+          <caret line="90" column="172" selection-start-line="90" selection-start-column="172" selection-end-line="90" selection-end-column="172" />
+          <folding>
+            <marker date="1428161147000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428161147000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428161147000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1428161147000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/questions/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34250763" vertical-offset="849" max-vertical-offset="1845">
-          <caret line="79" column="66" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="66" />
+        <state vertical-scroll-proportion="-1.25" vertical-offset="1035" max-vertical-offset="2010">
+          <caret line="71" column="88" selection-start-line="71" selection-start-column="88" selection-end-line="71" selection-end-column="88" />
           <folding>
-            <marker date="1427836059000" expanded="true" signature="310:729" placeholder="..." />
-            <marker date="1427836059000" expanded="true" signature="345:728" placeholder="..." />
-            <marker date="1427836059000" expanded="true" signature="759:996" placeholder="..." />
-            <marker date="1427836059000" expanded="true" signature="1177:1497" placeholder="..." />
-            <marker date="1427836059000" expanded="true" signature="1178:1496" placeholder="..." />
-            <marker date="1427836059000" expanded="true" signature="1190:1476" placeholder="..." />
+            <marker date="1428162891000" expanded="true" signature="310:784" placeholder="..." />
+            <marker date="1428162891000" expanded="true" signature="340:783" placeholder="..." />
+            <marker date="1428162891000" expanded="true" signature="958:1278" placeholder="..." />
+            <marker date="1428162891000" expanded="true" signature="959:1277" placeholder="..." />
+            <marker date="1428162891000" expanded="true" signature="971:1257" placeholder="..." />
+            <marker date="1428162891000" expanded="true" signature="8566:8780" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/lang/de/pagestrings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.019608" vertical-offset="1499" max-vertical-offset="6330">
+          <caret line="117" column="52" selection-start-line="117" selection-start-column="52" selection-end-line="117" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/questions/sidebars/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="300">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/sidebars/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="285">
+          <caret line="3" column="110" selection-start-line="3" selection-start-column="110" selection-end-line="3" selection-end-column="110" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/substudies/sidebars/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="315">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/substudies/sidebars/overview.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="225">
+          <caret line="3" column="115" selection-start-line="3" selection-start-column="115" selection-end-line="3" selection-end-column="115" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/sidebars/overview.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.046153847" vertical-offset="0" max-vertical-offset="975">
+          <caret line="3" column="106" selection-start-line="3" selection-start-column="106" selection-end-line="3" selection-end-column="106" />
+          <folding />
         </state>
       </provider>
     </entry>

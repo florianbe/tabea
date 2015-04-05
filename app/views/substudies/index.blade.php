@@ -36,5 +36,14 @@
     @else
         <h2>{{ trans('pagestrings.substudies_index_nosubstudies') }}</h2>
     @endif
+    <div class="list-group-item">
+        <div class="list-group-item-text">
+            <div class="row">
+                <div class="col-md-6 text-left"></div>
+                <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.substudies.create', [$substudy->id])}}"><i class="icon-plus-sign"></i>  {{ trans('pagestrings.substudies_rmenu_createlink') }}</a></div>
+            </div>
+        </div>
+    </div>
+
 @stop
 

@@ -52,6 +52,8 @@ Route::group(['before' => 'auth'], function(){
     Route::get('studies/{studies}/substudies/{substudies}/questiongroups/order', ['as' => 'studies.substudies.questionsgroups.editorder', 'uses' => 'QuestionGroupController@editOrder']);
     Route::put('studies/{studies}/substudies/{substudies}/questiongroups/order', ['as' => 'studies.substudies.questionsgroups.updateorder', 'uses' => 'QuestionGroupController@updateOrder']);
     Route::resource('studies.substudies.questiongroups', 'QuestionGroupController');
+    Route::get('studies/{studies}/substudies/{substudies}/questiongroups/{questiongroups}/order', ['as' => 'studies.substudies.questionsgroups.questions.editorder', 'uses' => 'QuestionController@editOrder']);
+    Route::put('studies/{studies}/substudies/{substudies}/questiongroups/{questiongroups}/order', ['as' => 'studies.substudies.questionsgroups.questions.updateorder', 'uses' => 'QuestionControllerr@updateOrder']);
     Route::resource('studies.substudies.questiongroups.questions', 'QuestionController');
 
     /*

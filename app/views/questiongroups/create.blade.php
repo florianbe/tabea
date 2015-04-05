@@ -42,14 +42,19 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+    <div class="list-group-item">
+        <div class="list-group-item-text">
             <div class="row">
-                <div class="col-md-12">
-                    {{ Bootstrap::submit(trans('pagestrings.questiongroup_create_createbutton')) }}
-                </div>
+                <div class="col-md-6 text-left"><a class="btn btn-primary btn-back" >{{ trans('pagestrings.back') }}</a></div>
+                <div class="col-md-6 text-right">{{ Bootstrap::submit(trans('pagestrings.questiongroup_create_createbutton')) }}</div>
             </div>
         </div>
     </div>
     {{ Form::close() }}
-    <h4></h4>
+@stop
 
+@section('javascript')
+    {{ HTML::script('js/tabea.js') }}
 @stop

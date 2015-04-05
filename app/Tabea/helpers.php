@@ -28,7 +28,7 @@ function display_alert_message()
          }
          
          
-         return ('<div class="alert alert-' . $type . '">' . $message . '</div>');
+         return ('<div class="fader alert alert-' . $type . '">' . $message . '</div>');
       }
 
       return '';

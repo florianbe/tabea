@@ -97,6 +97,7 @@ class QuestionGroupController extends \BaseController {
 	{
 		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
 		$questionGroup = QuestionGroup::where('substudy_id', '=', $substudy->id)->where('id_in_substudy', '=', $questiongroups)->firstOrFail();
+
 		return View::make('questiongroups.show')->with(['questiongroup' => $questionGroup]);
 	}
 
@@ -145,7 +146,7 @@ class QuestionGroupController extends \BaseController {
 
 			$questionGroup->save();
 
-			return Redirect::route('studies.substudies.questiongroups.edit', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study, 'questiongroup' => $questionGroup->id_in_substudy])->with('message', trans('pagestrings.substudies_edit_successmessage'));
+			return Redirect::route('studies.substudies.questiongroups.show', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study, 'questiongroup' => $questionGroup->id_in_substudy])->with('message', trans('pagestrings.substudies_edit_successmessage'));
 
 		}
 		catch (Laracasts\Validation\FormValidationException $e)
@@ -167,7 +168,7 @@ class QuestionGroupController extends \BaseController {
 		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
 		$questionGroup = QuestionGroup::where('substudy_id', '=', $substudy->id)->where('id_in_substudy', '=', $questiongroups)->firstOrFail();
 
-		if ($substudy->isStudyEditable())
+		if ($substudy->study->isStudyEditable())
 		{
 			$questionGroup->delete();
 			return Redirect::route('studies.substudies.questiongroups.index', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study])->with('message', trans('pagestrings.questiongroup_delete_successmessage'));

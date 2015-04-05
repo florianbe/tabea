@@ -11,7 +11,20 @@ class QuestionGroup extends \Eloquent {
 
     public function Questions()
     {
-        return $this->hasMany('Question', 'questiongroup_id', 'id');
+        return $this->hasMany('Question', 'questiongroup_id', 'id')->orderBy('sequence_indicator', 'ASC');
+    }
+
+    public function delete()
+    {
+        if ($this->questions)
+        {
+            foreach ($this->questions as $que)
+            {
+                $que->delete();
+            }
+        }
+
+        return parent::delete();
     }
 
 }

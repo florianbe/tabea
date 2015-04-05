@@ -14,11 +14,10 @@
     <table id ="studies" class="table table-striped ">
       <thead>
         <tr>
-          <th></th>
-          <th>{{ trans('pagestrings.studies_name') }}</th>
-          <th>{{ trans('pagestrings.studies_author') }}</th>
-          <th>{{ trans('pagestrings.studies_state') }}</th>
-          <th></th>
+            <th class="col-md-2">{{ trans('pagestrings.studies_mane_short_short') }}</th>
+            <th class="col-md-4">{{ trans('pagestrings.studies_name') }}</th>
+            <th class="col-md-3">{{ trans('pagestrings.studies_author') }}</th>
+            <th class="col-md-3">{{ trans('pagestrings.studies_state') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -29,9 +28,6 @@
           <td><a href="{{ action('StudyController@show', [$study->id]) }}">{{ $study->name}}</a></td>
           <td>{{$study->author->fullName}}</td>
           <td>{{$study->studystate->name}}</td>
-          <td>
-
-          </td>
         </tr>
         @endforeach
       </tbody>
@@ -40,6 +36,15 @@
     @else
         <h2>{{ trans('pagestrings.studies_index_nostudies') }}</h2>
     @endif
+    <div class="list-group-item">
+        <div class="list-group-item-text">
+            <div class="row">
+                <div class="col-md-6 text-left"></div>
+                <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.create')}}"><i class="icon-plus-sign"></i>  {{ trans('pagestrings.studies_rmenu_createlink') }}</a></div>
+            </div>
+        </div>
+    </div>
+
 @stop
 
 @section('javascript')
