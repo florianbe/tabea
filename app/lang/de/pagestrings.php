@@ -84,6 +84,7 @@ return array(
     //Studies RUD
     "studies_detail_header"         => "Studie: :study_name",
     "studies_create_savebutton"     => "Studie speichern",
+    "studies_edit_successmessage"   => "dam|success|Studie aktualisiert.",
 
     //Studies show
     "study_show_request_access"     => "Zugriff beantragen",
@@ -186,6 +187,11 @@ return array(
     jeden Tag im angegebenen Zeitraum. Zu diesen Zeiten ist somit täglich die Erfassung von Daten möglich bzw. findet hier
     die Signalauslösung statt.",
 
+    //DELETE
+    "substudy_delete_confirm"      => 'Soll die Teilstudie gelöscht werden?\nAlle zugehörigen Elemente (Fragegruppen, Fragen, Regeln etc.) werden ebenfalls gelöscht.',
+    "substudy_delete_successmessage"   => "dam|success|Teilstudie gelöscht",
+    "substudy_delete_successmessage_a" => "Teilstudie gelöscht",
+
     //********************************************
     //QuestionGroups
     //Right_menu
@@ -233,7 +239,7 @@ return array(
     "questiongroup_questionheader"       => "Fragen",
 
     //Delete
-    "questiongroup_delete_confirm"       => 'Soll die Fragegruppe gelöscht werden?\nAlle zugehörigen Elemente (Fragegruppen, Regeln etc.) werden ebenfalls gelöscht.',
+    "questiongroup_delete_confirm"       => 'Soll die Fragegruppe gelöscht werden?\nAlle zugehörigen Elemente (Fragen, Regeln etc.) werden ebenfalls gelöscht.',
     "questiongroup_delete_successmessage"   => "dam|success|Fragegruppe gelöscht",
     "questiongroup_delete_successmessage_a" => "Fragegruppe gelöscht",
 
@@ -301,6 +307,11 @@ return array(
     //Show
     "question_show_header"          => "Teilstudie :substudy_name | Frage anzeigen",
     "question_show_questiongroup_header"  => "Fragegruppe: :question_group",
+
+    //Edit Order
+    "question_editorder_header"         => "Teilstudie :substudy_name Fragegruppe: :question_group| Fragereihenfolge bearbeiten",
+    "question_saveorderbutton"          => "Reihenfolge speichern",
+    "question_editorder_successmessage"  => "dam|success|Fragereihenfolge aktualisiert.",
 
 
     //Delete

@@ -16,18 +16,25 @@
             <thead>
             <tr>
                 <th class="col-md-1"></th>
-                <th class="col-md-8">{{ trans('pagestrings.substudies_name') }}</th>
-                <th class="col-md-3">{{ trans('pagestrings.substudies_signal_type') }}</th>
+                <th class="col-md-2"></th>
+                <th class="col-md-7">{{ trans('pagestrings.substudies_name') }}</th>
+                <th class="col-md-2">{{ trans('pagestrings.substudies_signal_type') }}</th>
             </tr>
             </thead>
             <tbody>
             <h3></h3>
-            @foreach ($study->substudies as $substudy)
-                <tr>
-                    <td>{{ Form::model($substudy, ['route' => ['studies.substudies.destroy', "studies" => $substudy->study->id, "substudies" => $substudy->id_in_study], 'method' => 'DELETE']) }}<button type="submit" class="btn btn-link "><i class="fa fa-times fa-lg" style="color: red"></i></button>
-                        {{Form::close()}}</td>
-                    <td>{{ HTML::linkRoute('studies.substudies.show', $substudy->name, ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study]) }}</td>
-                    <td>{{ $substudy->getTriggerName() }}</td>
+            @foreach ($study->substudies->sortBy('id_in_study') as $su_index =>  $substudy)
+                <tr id="{{ 'tr_' . $substudy->id_in_study }}">
+                    <td class="vert-align">{{ $su_index + 1 }}</td>
+                    <td class="vert-align">
+                        <div class="row">
+                            <div class="col-sm-4"><a href="{{route('studies.substudies.show',['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study]) }}"><i class="fa fa-file-text-o"></i></a></div>
+                            <div class="col-sm-4"><a href="{{route('studies.substudies.edit',[$substudy->study->id, $substudy->id_in_study])}}"><i class="fa fa-pencil"></i></a></div>
+                            <div class="col-sm-4"><a href="" class="btn-delete" data-seq_id="{{ $substudy->id_in_study }}" data-token="{{ csrf_token() }}" data-item_id="{{$substudy->id_in_study }}"><i class="fa fa-trash-o"></i></a></div>
+                        </div>
+                    </td>
+                    <td class="vert-align">{{ $substudy->name}}</td>
+                    <td class="vert-align">{{ $substudy->getTriggerName()}}</td>
                 </tr>
             @endforeach
             </tbody>
@@ -40,10 +47,20 @@
         <div class="list-group-item-text">
             <div class="row">
                 <div class="col-md-6 text-left"></div>
-                <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.substudies.create', [$substudy->id])}}"><i class="icon-plus-sign"></i>  {{ trans('pagestrings.substudies_rmenu_createlink') }}</a></div>
+                <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.substudies.create', [$substudy->id])}}"><i class="fa icon-plus-sign"></i>  {{ trans('pagestrings.substudies_rmenu_createlink') }}</a></div>
             </div>
         </div>
     </div>
 
 @stop
 
+
+@section('javascript')
+    <script type="text/javascript">
+        var m_answer = '{{ trans('pagestrings.questiongroup_delete_confirm') }}';
+        var m_success = '{{ trans('pagestrings.questiongroup_delete_successmessage_a') }}';
+        var route = '{{route('studies.substudies.destroy',[$substudy->study->id, '__id__'])}}';
+        var m_error = '{{ trans('pagestrings.errormessage_reload') }}';
+    </script>
+    {{ HTML::script('js/tabea.js') }}
+@stop

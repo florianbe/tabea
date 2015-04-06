@@ -168,11 +168,16 @@ class QuestionGroupController extends \BaseController {
 		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
 		$questionGroup = QuestionGroup::where('substudy_id', '=', $substudy->id)->where('id_in_substudy', '=', $questiongroups)->firstOrFail();
 
-		if ($substudy->study->isStudyEditable())
-		{
+		if ($substudy->study->isStudyEditable()) {
 			$questionGroup->delete();
-			return Redirect::route('studies.substudies.questiongroups.index', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study])->with('message', trans('pagestrings.questiongroup_delete_successmessage'));
 
+			if (Request::ajax())
+			{
+				return 1;
+			} else
+			{
+				return Redirect::route('studies.substudies.questiongroups.index', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study])->with('message', trans('pagestrings.questiongroup_delete_successmessage'));
+			}
 		}
 	}
 

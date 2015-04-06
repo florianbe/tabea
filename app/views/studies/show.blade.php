@@ -48,7 +48,7 @@
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">{{trans('pagestrings.studies_comment')}}:</h4>
                     <div class="list-group-item-text">
-                    <p>{{$study->studies_comment}}</p>
+                    <p>{{$study->comment}}</p>
                     </div>
                 </div>
                 <div class="list-group-item">

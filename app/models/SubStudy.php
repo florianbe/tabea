@@ -68,4 +68,23 @@ class Substudy extends \Eloquent {
 		return $this->trigger_is_event ? 0 : $this->trigger_time_interval;
 	}
 
+	public function delete()
+	{
+		if ($this->surveyperiods)
+		{
+			foreach ($this->surveyperiods as $survper)
+			{
+				$survper->delete();
+			}
+		}
+		if ($this->questiongroups)
+		{
+			foreach ($this->questiongroups as $quegr)
+			{
+				$quegr->delete();
+			}
+		}
+
+		return parent::delete();
+	}
 }

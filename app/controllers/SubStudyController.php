@@ -167,7 +167,20 @@ class SubStudyController extends \BaseController {
 	 */
 	public function destroy($studies, $substudies)
 	{
-		return "He who wants to destroy must finish first";
+		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
+
+
+		if ($substudy->study->isStudyEditable()) {
+			$substudy->delete();
+
+			if (Request::ajax())
+			{
+				return 1;
+			} else
+			{
+				return Redirect::route('studies.substudies.index', ['studies' => $substudy->study->id])->with('message', trans('pagestrings.substudy_delete_successmessage'));
+			}
+		}
 	}
 
 	public function newSurveyperiod($studies, $substudies)

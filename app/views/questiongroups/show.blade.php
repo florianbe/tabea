@@ -46,12 +46,11 @@
                 <table id ="questiongroups" class="table table-striped ">
                     <thead>
                     <tr>
-                        <th class="col-sm-1"><a href="{{route('studies.substudies.questionsgroups.questions.editorder',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy])}}"><i class="fa fa-pencil fa-lg"></i></a></th>
+                        <th class="col-sm-1"><a href="{{route('studies.substudies.questiongroups.questions.editorder',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy])}}"><i class="fa fa-pencil fa-lg"></i></a></th>
                         <th class="col-sm-2"></th>
                         <th class="col-sm-2">{{ trans('pagestrings.question_shortname') }}</th>
-                        <th class="col-sm-2">{{ trans('pagestrings.question_type') }}</th>
                         <th class="col-sm-5">{{ trans('pagestrings.question_text') }}</th>
-
+                        <th class="col-sm-2">{{ trans('pagestrings.question_type') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -78,7 +77,7 @@
         <div class="list-group-item">
             <div class="list-group-item-text">
                 <div class="row">
-                    <div class="col-md-6 text-left"><a class="btn btn-primary" href="{{route('studies.substudies.questionsgroups.questions.editorder',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy])}}">{{ trans('pagestrings.editorder') }}</a></div>
+                    <div class="col-md-6 text-left"><a class="btn btn-primary" href="{{route('studies.substudies.questiongroups.questions.editorder',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy])}}">{{ trans('pagestrings.editorder') }}</a></div>
                     <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.substudies.questiongroups.questions.create', [$questiongroup->substudy->study->id,  $questiongroup->substudy->id, $questiongroup->id_in_substudy])}}"><i class="icon-plus-sign"></i>  {{ trans('pagestrings.substudies_rmenu_newquestion') }}</a></div>
                 </div>
             </div>

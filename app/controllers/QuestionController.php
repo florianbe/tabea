@@ -419,30 +419,32 @@ class QuestionController extends \BaseController {
 		}
 	}
 
-	public function editOrder($studies, $substudies, $questions)
+	public function editOrder($studies, $substudies, $questiongroups)
 	{
 		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
-		return View::make('questiongroups.order')->with(compact('substudy'));
+		$questiongroup = QuestionGroup::where('substudy_id', '=', $substudy->id)->where('id_in_substudy', "=", $questiongroups)->firstOrFail();
+		return View::make('questions.order')->with(compact('questiongroup'));
 	}
 
-	public function updateOrder($studies, $substudies, $questions)
+	public function updateOrder($studies, $substudies, $questiongroups)
 	{
 		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
-		$substudy_order = Input::get('substudy_order');
+		$questiongroup = QuestionGroup::where('substudy_id', '=', $substudy->id)->where('id_in_substudy', "=", $questiongroups)->firstOrFail();
+		$questiongroup_order = Input::get('questiongroup_order');
 
-		asort($substudy_order);
+		asort($questiongroup_order);
 
 		$sequence_order = 1;
 
-		foreach($substudy_order as $qg_id_in_substudy => $order)
+		foreach($questiongroup_order as $q_id_in_study => $order)
 		{
-			$questionGroup = $substudy->questiongroups->filter(function($item) use ($qg_id_in_substudy) { return $item->id_in_substudy == $qg_id_in_substudy; })->first();
-			$questionGroup->sequence_indicator = $sequence_order;
-			$questionGroup->save();
+			$question = $questiongroup->questions->filter(function($item) use ($q_id_in_study) { return $item->id_in_questiongroup == $q_id_in_study; })->first();
+			$question->sequence_indicator = $sequence_order;
+			$question->save();
 			$sequence_order = $sequence_order +1;
 		}
 
-		return Redirect::route('studies.substudies.questiongroups.index', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study ])->with('message', trans('pagestrings.questiongroup_editorder_successmessage'));
+		return Redirect::route('studies.substudies.questiongroups.show', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study, 'questiongroups' => $questiongroup->id_in_substudy ])->with('message', trans('pagestrings.questiongroup_editorder_successmessage'));
 	}
 
 

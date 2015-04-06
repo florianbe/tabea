@@ -162,7 +162,7 @@ class StudyController extends \BaseController {
 
             $study->save();
 
-            return Redirect::route('studies.show', ['study' => $study->id])->with('message', trans('pagestrings.studies_create_successmessage'));
+            return Redirect::route('studies.show', ['study' => $study->id])->with('message', trans('pagestrings.studies_edit_successmessage'));
         }
         catch (Laracasts\Validation\FormValidationException $e)
         {
