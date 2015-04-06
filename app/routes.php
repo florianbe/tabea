@@ -43,6 +43,8 @@ Route::group(['before' => 'auth'], function(){
     Route::get('studies/{studies}/users', ['as' => 'studies.users.view', 'uses' => 'StudyController@viewUsers']);
     Route::post('studies/{studies}/users', ['as' => 'studies.users.set', 'uses' => 'StudyController@setUsers']);
     Route::get('studies/{studies}/requests', ['as' => 'studies.requests', 'uses' => 'StudyController@showRequestsForStudy']);
+    Route::get('studies/{studies}/access', ['as' => 'studies.access', 'uses' => 'StudyController@showAccessData']);
+    Route::get('studies/{studies}/access/p', ['as' => 'studies.access.p', 'uses' => 'StudyController@showAccessDataPrint']);
     Route::resource('studies', 'StudyController');
     Route::post('studies/{studies}/substudies/{substudies}/surveytime', ['as' => 'studies.substudies.surveytime.new', 'uses' => 'SubStudyController@newSurveyperiod']);
     Route::get('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.edit', 'uses' => 'SubStudyController@editSurveyperiod']);

@@ -42,6 +42,7 @@ return array(
     "studies_rmenu_studyedit"       => "Studie bearbeiten",
     "studies_rmenu_access"          => "Zugriffsrechte",
     "studies_rmenu_requests"        => "Zugriffsanfragen",
+    "studies_rmenu_studyaccess"     => "Zugangsdaten",
 
     //Words
     "studies_name"                  => "Studie",
@@ -105,6 +106,13 @@ return array(
     "studies_showrequests_email"    => "E-Mail",
     "studies_showrequests_state"    => "Status",
     "studies_showrequests_edit"     => "Bearbeiten",
+
+    //Access Data
+    "studies_accessdata_header"     => "Studie: :study_name | Zugangsdaten",
+    "studies_accessdata_server"     => "Serveradresse",
+    "studies_accessdata_panelheader" => "Zugangsdaten",
+    "studies_accessdata_qrcode"     => "QR-Code",
+    "studies_accessdata_linktoprint"    => "Druckansicht (neues Fenster)",
 
 
     //Mail access
