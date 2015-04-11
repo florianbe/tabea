@@ -148,7 +148,7 @@ class QuestionController extends \BaseController {
 			{
 				$question->OptionGroup()->associate($optionGroup);
 			}
-			if (strtoupper(Input::get('questiontype')) == 'SINGLECHOICE')
+			elseif (strtoupper(Input::get('questiontype')) == 'SINGLECHOICE')
 			{
 				$question->OptionGroup()->associate($optiongroup_preset);
 			}

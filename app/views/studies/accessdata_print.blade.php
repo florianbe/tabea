@@ -22,37 +22,41 @@
 
 <body>
     <div class="container">
-        <div class="panel panel-primary col-md-10">
-            <div class="panel-heading">
-                <h3 class="panel-title">{{ trans('pagestrings.studies_accessdata_panelheader') }}</h3>
-            </div>
-            <div class="list-group">
-                <div class="list-group-item">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="col-md-12">
-                                <div class="row"><h4>{{ trans('pagestrings.studies_name') . ': ' . $study->name }}</h4></div>
-                                <div class="row">
-                                    <div class="row">
-                                        <div class="col-md-4"><strong>{{trans('pagestrings.studies_accessdata_server')}}:</strong></div>
-                                        <div class="col-md-8">{{ url() }}</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4"><strong>{{trans('pagestrings.studies_name_long')}}:</strong></div>
-                                        <div class="col-md-8">{{ $study->short_name }}</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4"><strong>{{trans('pagestrings.studies_studypassword')}}:</strong></div>
-                                        <div class="col-md-8">{{ $study->studypassword }}</div>
+        <div class="row">
+            <div class="col-md10">
+                <div class="panel panel-primary col-md-10">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ trans('pagestrings.studies_accessdata_panelheader') }}</h3>
+                    </div>
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        <div class="row"><h4>{{ trans('pagestrings.studies_name') . ': ' . $study->name }}</h4></div>
+                                        <div class="row">
+                                            <div class="row">
+                                                <div class="col-md-4"><strong>{{trans('pagestrings.studies_accessdata_server')}}:</strong></div>
+                                                <div class="col-md-8">{{ url() }}</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4"><strong>{{trans('pagestrings.studies_name_long')}}:</strong></div>
+                                                <div class="col-md-8">{{ $study->short_name }}</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4"><strong>{{trans('pagestrings.studies_studypassword')}}:</strong></div>
+                                                <div class="col-md-8">{{ $study->studypassword }}</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="col-md-6">
-                            <div class="col-md-12">
-                                <div class="row"><h4>{{trans('pagestrings.studies_accessdata_qrcode')}}</h4></div>
-                                <div class="row"><div id="qrcodeCanvas" ></div></div>
+                                <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        <div class="row"><h4>{{trans('pagestrings.studies_accessdata_qrcode')}}</h4></div>
+                                        <div class="row"><div id="qrcodeCanvas" ></div></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

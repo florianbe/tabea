@@ -26,6 +26,7 @@ class QuestionGroupController extends \BaseController {
 	public function index($studies, $substudies)
 	{
 		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
+
 		return View::make('questiongroups.index')->with(compact('substudy'));
 	}
 
@@ -77,7 +78,7 @@ class QuestionGroupController extends \BaseController {
 			$questionGroup->save();
 
 
-			return Redirect::route('studies.substudies.questiongroups.edit', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study, 'questiongroup' => $questionGroup->id_in_substudy])->with('message', trans('pagestrings.substudies_create_successmessage'));
+			return Redirect::route('studies.substudies.questiongroups.show', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study, 'questiongroup' => $questionGroup->id_in_substudy])->with('message', trans('pagestrings.substudies_create_successmessage'));
 
 		}
 		catch (Laracasts\Validation\FormValidationException $e)

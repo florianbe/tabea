@@ -56,11 +56,13 @@
 
 
 @section('javascript')
+    @if( (count($study->substudies) > 0) )
     <script type="text/javascript">
         var m_answer = '{{ trans('pagestrings.questiongroup_delete_confirm') }}';
         var m_success = '{{ trans('pagestrings.questiongroup_delete_successmessage_a') }}';
         var route = '{{route('studies.substudies.destroy',[$substudy->study->id, '__id__'])}}';
         var m_error = '{{ trans('pagestrings.errormessage_reload') }}';
     </script>
+    @endif
     {{ HTML::script('js/tabea.js') }}
 @stop

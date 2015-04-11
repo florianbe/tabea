@@ -6,6 +6,7 @@
     </ul>
     <ul class="nav nav-sidebar">
         <li class="{{set_class('studies.substudies.questiongroups.show')}} {{set_class('studies.substudies.questiongroups.edit')}}">{{ HTML::linkRoute('studies.substudies.questiongroups.show', trans('pagestrings.questiongroups_rmenu_showlink'), [$studyId, $substudyId, $questiongroupId])}}</li>
+        <li class="{{set_class('studies.substudies.questiongroups.rules.index')}} {{set_class('studies.substudies.questiongroups.rules.edit')}}">{{ HTML::linkRoute('studies.substudies.questiongroups.rules.show', trans('pagestrings.rules_rmenu_showlink'), [$studyId, $substudyId, $questiongroupId])}}</li>
     </ul>
 @endif
 

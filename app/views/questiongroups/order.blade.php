@@ -14,8 +14,8 @@
         <table id ="questiongroups" class="table table-striped ">
             <thead>
             <tr>
-                <th class="col-md-1"></th>
-                <th class="col-md-3">{{ trans('pagestrings.questiongroup_shortname') }}</th>
+                <th class="col-md-2"></th>
+                <th class="col-md-2">{{ trans('pagestrings.questiongroup_shortname') }}</th>
                 <th class="col-md-5">{{ trans('pagestrings.questiongroup_name') }}</th>
                 <th class="col-md-2">{{ trans('pagestrings.questiongroup_countquestions') }}</th>
             </tr>

@@ -22,7 +22,7 @@ class OptionGroup extends \Eloquent {
         }
         else
         {
-            foreach ($this->OptionChoices() as $choice)
+            foreach ($this->optionchoices as $choice)
             {
                 $choice->delete();
             }

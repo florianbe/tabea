@@ -24,6 +24,11 @@ class Question extends \Eloquent {
         return $this->belongsTo('OptionGroup', 'optiongroup_id');
     }
 
+    public function Rules()
+    {
+        return $this->hasMany('Rule', 'question_id');
+    }
+
     public function GetOptionGroupCode()
     {
         if ($this->optiongroup == null)
@@ -63,6 +68,7 @@ class Question extends \Eloquent {
     public function delete()
     {
         $counter = 1;
+
         foreach ($this->questiongroup->questions as $q)
         {
             if ($q->id != $this->id)
@@ -72,13 +78,29 @@ class Question extends \Eloquent {
                 $counter = $counter + 1;
             }
         }
-        if ($this->questionrestriction)
+
+        if ($this->questionrestriction != null)
         {
             $this->questionrestriction->delete();
         }
-        if ($this->optiongroup && $this->optiongroup->is_predefined == false)
+
+
+        if ($this->optiongroup != null && $this->optiongroup->is_predefined == false)
         {
-            $this->optiongroup->delete();
+
+            $og = $this->optiongroup;
+            $this->optiongroup_id = null;
+            $this->save();
+            $og->delete();
+
+        }
+
+        if ($this->rules != null)
+        {
+            foreach ($this->rules as $rule)
+            {
+                $rule->delete();
+            }
         }
 
         return parent::delete();

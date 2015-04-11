@@ -14,6 +14,11 @@ class QuestionGroup extends \Eloquent {
         return $this->hasMany('Question', 'questiongroup_id', 'id')->orderBy('sequence_indicator', 'ASC');
     }
 
+    public function Rules()
+    {
+        return $this->hasMany('Rule', 'questiongroup_id');
+    }
+
     public function delete()
     {
         if ($this->questions)
@@ -21,6 +26,13 @@ class QuestionGroup extends \Eloquent {
             foreach ($this->questions as $que)
             {
                 $que->delete();
+            }
+        }
+        if ($this->rules)
+        {
+            foreach ($this->rules as $rule)
+            {
+                $rule->delete();
             }
         }
 

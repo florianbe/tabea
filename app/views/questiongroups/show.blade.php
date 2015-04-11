@@ -96,12 +96,14 @@
 @stop
 
 @section('javascript')
+    @if(count($questiongroup->questions) > 0)
     <script type="text/javascript">
         var m_answer = '{{ trans('pagestrings.question_delete_confirm') }}';
         var m_success = '{{ trans('pagestrings.questions_delete_successmessage_a') }}';
         var route = '{{route('studies.substudies.questiongroups.questions.destroy',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy, '__id__'])}}';
         var m_error = '{{ trans('pagestrings.errormessage_reload') }}';
     </script>
+    @endif
     {{ HTML::script('js/tabea.js') }}
 @stop
 

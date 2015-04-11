@@ -326,6 +326,33 @@ return array(
     "question_delete_confirm"               => 'Soll die Frage wirklich gelöscht werden? \nAlle zugeordneten Elemente werden ebenfalls gelöscht.',
     "questions_delete_successmessage"       => "dam|success|Frage gelöscht",
     "questions_delete_successmessage_a"     => "Frage gelöscht",
+
+
+    //********************************************
+    //Rules
+    "rules_index_header"                => "Teilstudie :substudy_name | Regeln",
+    "rules_infotext"                    => "Die Teilstudie wird nur angezeigt, wenn mindestens eine der im Folgenden aufgelisteten Bedingungen erfüllt ist.",
+    "rules_no_rules_found"              => "Keine Regeln vorhanden",
+    "rules_question_shortname"          => "Kurzname Frage",
+    "rules_question_name"               => "Fragetext",
+    "rules_questiongroup"               => "Fragegruppe",
+    "rules_answer"                      => "Zielantwort",
+    "rules_rmenu_showlink"              => "Regeln",
+    "rules_question"                    => "Frage",
+    "rules_new_panelheader"             => "Neue Regel",
+    "rules_delete_confirm"              => 'Soll die Regel wirklich gelöscht werden?',
+    "rules_new_createbutton"            => "Regel erstellen",
+    "rules_create_successmessage"       => "dam|success|Regel erstellt",
+
+    "rules_edit_header"                => "Teilstudie :substudy_name | Regel bearbeiten",
+    "rules_edit_panelheader"            => "Regel bearbeiten",
+    "rules_edit_createbutton"           => "Regel aktualisieren",
+    "rules_edit_successmessage"       => "dam|success|Regel aktualisiert",
+
+    "rules_delete_successmessage"       => "dam|success|Regel gelöscht",
+    "rules_delete_successmessage_a"     => "Regel gelöscht",
+
+
     //********************************************
     //Requests
     //Right_menu
