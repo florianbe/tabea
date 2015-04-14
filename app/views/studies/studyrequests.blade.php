@@ -14,19 +14,19 @@
     <table id="studies" class="table table-striped">
       <thead>
         <tr>
-          <th>{{ trans('pagestrings.studies_showrequests_fullname') }}</th>
-          <th>{{ trans('pagestrings.studies_showrequests_email') }}</th>
-          <th>{{ trans('pagestrings.studies_showrequests_state') }}</th>
-          <th></th>
+            <th class="col-md-2"></th>
+            <th class="col-md-3">{{ trans('pagestrings.studies_showrequests_state') }}</th>
+            <th class="col-md-4">{{ trans('pagestrings.studies_showrequests_fullname') }}</th>
+            <th class="col-md-4">{{ trans('pagestrings.studies_showrequests_email') }}</th>
         </tr>
       </thead>
       <tbody>
         @foreach ($studyRequests as $sRequest)
         <tr>
-          <td>{{ $sRequest->requestingUser->full_name }}</td>
-          <td>{{ $sRequest->requestingUser->email }}</td>
-          <td>{{ !($sRequest->is_viewed) ? trans('pagestrings.studyrequests_index_open') : trans('pagestrings.studyrequests_index_denied') }}</td>
-          <td><a href="{{ route('requests.edit', [$sRequest->id]) }}"><i class="fa fa-pencil"></i> {{ trans('pagestrings.studies_showrequests_edit') }}</a></td>
+            <td><a href="{{ route('requests.edit', [$sRequest->id]) }}"><i class="fa fa-pencil"></i></a></td>
+            <td>{{ !($sRequest->is_viewed) ? trans('pagestrings.studyrequests_index_open') : trans('pagestrings.studyrequests_index_denied') }}</td>
+            <td>{{ $sRequest->requestingUser->full_name }}</td>
+            <td>{{ $sRequest->requestingUser->email }}</td>
         </tr>
         @endforeach
       </tbody>

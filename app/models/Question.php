@@ -106,4 +106,58 @@ class Question extends \Eloquent {
         return parent::delete();
     }
 
+    public function copy_to_questiongroup(QuestionGroup $target_questiongroup)
+    {
+        $question = new Question;
+
+        $question->shortname = $this->shortname;
+        $question->text = $this->text;
+        $question->sequence_indicator = $this->sequence_indicator;
+        $question->id_in_questiongroup = $this->id_in_questiongroup;
+        $question->answer_required = $this->answer_required;
+        $question->QuestionType()->associate($this->questiontype);
+
+        if ($this->optiongroup != null)
+        {
+            if ($this->optiongroup->is_predefined)
+            {
+                $question->OptionGroup()->associate($this->optiongroup);
+            }
+            else
+            {
+                $optiongroup = new OptionGroup;
+                $optiongroup->code = $this->optiongroup->code;
+                $optiongroup->is_predefined = $this->optiongroup->is_predefined;
+                $optiongroup->as_dropdown = $this->optiongroup->as_dropdown;
+                $optiongroup->save();
+
+                foreach ($this->optiongroup->optionchoices as $oc)
+                {
+                    $optionchoice = new OptionChoice;
+                    $optionchoice->code = $oc->code;
+                    $optiongroup->description = $this->description;
+                    $optionchoice->value = $oc->value;
+
+                    $optionchoice->OptionGroup()->associate($optiongroup);
+                    $optionchoice->save();
+                }
+            }
+        }
+        if ($this->questionrestriction != null)
+        {
+            $questionrestriction = new QuestionRestriction;
+            $questionrestriction->min_numeric = $this->questionrestriction->min_numeric;
+            $questionrestriction->max_numeric = $this->questionrestriction->max_numeric;
+            $questionrestriction->step_numeric = $this->questionrestriction->step_numeric;
+            $questionrestriction->min_integer = $this->questionrestriction->min_integer;
+            $questionrestriction->max_integer = $this->questionrestriction->max_integer;
+            $questionrestriction->step_integer = $this->questionrestriction->step_integer;
+
+            $questionrestriction->Question()->associate($question);
+            $questionrestriction->save();
+        }
+
+        $question->save();
+    }
+
 }

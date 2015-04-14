@@ -96,6 +96,9 @@ class RulesController extends \BaseController {
 
 		$dd_data = Rule::getDropDownData($substudy, $questiongroup->sequence_indicator);
 
+
+		//return $rule->question;
+
 		return View::make('rules.edit')->with(compact('questiongroup'))->with(compact('select_questiongroup'))->with(compact('dd_data'))->with(compact('rule'));
 	}
 

@@ -67,6 +67,11 @@ Route::group(['before' => 'auth'], function(){
     Route::resource('requests', 'StudyRequestController', ['except' => ['create']]);
 });
 
+Route::group(['prefix' => 'api/v1'], function(){
+    Route::get('testsubjects/new', function(){ return 'Hi';});
+    Route::get('studydata/{id}', array('uses' => 'ApiController@getStudy'));
+});
+
 
 //Studies Routes: expanded to ease use of filters
 

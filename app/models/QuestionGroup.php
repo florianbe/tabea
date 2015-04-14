@@ -21,14 +21,14 @@ class QuestionGroup extends \Eloquent {
 
     public function delete()
     {
-        if ($this->questions)
+        if ($this->questions != null)
         {
             foreach ($this->questions as $que)
             {
                 $que->delete();
             }
         }
-        if ($this->rules)
+        if ($this->rules != null)
         {
             foreach ($this->rules as $rule)
             {
@@ -37,6 +37,34 @@ class QuestionGroup extends \Eloquent {
         }
 
         return parent::delete();
+    }
+
+    public function copy_to_substudy(Substudy $target_substudy)
+    {
+        $questiongroup = new QuestionGroup;
+        $questiongroup->id_in_substudy = $this->id_in_substudy;
+        $questiongroup->name = $this->name;
+        $questiongroup->shortname = $this->shortname;
+        $questiongroup->description = $this->description;
+        $questiongroup->comment = $this->comment;
+        $questiongroup->sequence_indicator = $this->sequence_indicator;
+        $questiongroup->random_questionorder = $this->random_questionorder;
+
+        $questiongroup->SubStudy()->associate($target_substudy);
+        $questiongroup->save();
+
+        foreach ($this->questions as $question)
+        {
+            $question->copy_to_questiongroup($questiongroup);
+        }
+
+        foreach ($this->rules as $rule)
+        {
+            $rule->copy_to_questiongroup($rule);
+        }
+
+        $questiongroup->save();
+
     }
 
 }

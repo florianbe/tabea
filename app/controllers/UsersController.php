@@ -61,7 +61,7 @@ class UsersController extends \BaseController {
 			$user->save();
 
 			Mail::send('emails.auth.newuser', array('user'=>$user, 'password' => $password), function($message) use ($user){
-    	    $message->to('florian.binoeder@gmail.com', $user->full_name)->subject( trans('pagestrings.users_mail_new_subject'));
+    	    $message->to($user->email, $user->full_name)->subject( trans('pagestrings.users_mail_new_subject'));
     		});
 
             return Redirect::route('admin.users.index')->with('message', trans('pagestrings.users_create_success', ['full_name' => $user->full_name]));

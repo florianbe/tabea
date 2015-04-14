@@ -73,7 +73,7 @@ class StudyRequestController extends \BaseController {
             'link_torequest' => HTML::linkRoute('requests.edit', trans('pagestrings.studyrequest_mailauthor_linkto'), [$studyRequest->id]),
             'study_name' => $study->name
         ], function($message) use ($study, $link_request) {
-            $message->to('florian.binoeder@gmail.com', $study->author->full_name)->subject(trans('pagestrings.studyrequest_mailauthor_subject'));
+            $message->to($study->author->email, $study->author->full_name)->subject(trans('pagestrings.studyrequest_mailauthor_subject'));
         });
         return Redirect::route('studies.index')->with('message', trans('pagestrings.studyrequest_create_success'));
     }

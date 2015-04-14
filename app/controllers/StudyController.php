@@ -38,7 +38,7 @@ class StudyController extends \BaseController
 
         $studies_authored = Auth::user()->studiesAuthored()->get();
         $studies_contributing = Auth::user()->studiesContributing()->get();
-        $studies_readable = Auth::user()->studiesReadable();
+        $studies_readable = Auth::user()->studiesReadable()->get();
 
         $studies_my = [
             trans('pagestrings.studies_role_author') => $studies_authored,

@@ -99,4 +99,10 @@ class Rule extends \Eloquent
 
         return $dd_data;
     }
+
+
+    public function copy_to_questiongroup(QuestionGroup $target_questiongroup)
+    {
+        
+    }
 }

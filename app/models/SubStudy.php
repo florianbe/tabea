@@ -87,4 +87,27 @@ class Substudy extends \Eloquent {
 
 		return parent::delete();
 	}
+
+	public function copy_to_study(Study $target_study)
+	{
+		$substudy = new Substudy;
+		$substudy->id_in_study = $this->id_in_study;
+		$substudy->name = $this->name;
+		$substudy->description = $this->description;
+		$substudy->comment = $this->comment;
+		$substudy->sequence_indicator = $this->sequence_indicator;
+		$substudy->trigger_is_event = $this->trigger_is_event;
+		$substudy->trigger_is_timefix = $this->trigger_is_timefix;
+		$substudy->trigger_time_interval = $this->trigger_time_interval;
+
+		$substudy->study()->associate($target_study);
+		$substudy->save();
+
+		foreach ($this->questiongroups as $questiongroup)
+		{
+			$questiongroup->copy_to_substudy($substudy);
+		}
+
+		$substudy->save();
+	}
 }

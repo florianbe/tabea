@@ -111,4 +111,43 @@ class Study extends Eloquent
     {
         return ($this->studystate->code == 'ARCHIVED') ? false : true;
     }
+
+    public function delete()
+    {
+        if ($this->substudies)
+        {
+            foreach($this->substudies as $sustu)
+            {
+                $sustu->delete();
+            }
+        }
+
+        return parent::delete();
+    }
+
+    public function copy()
+    {
+        $study = new Study;
+
+        $study->short_name = $this->short_name . '(K)';
+        $study->name = $this->name . '(Kopie)';
+        $study->description = $this->description;
+        $study->comment = $this->comment;
+        $study->studypassword = $this->studypassword;
+        $study->studystate()->associate(StudyState::where('code', '=', 'DESIGN')->firstOrFail());
+        $study->author()->associate(Auth::user());
+
+        $study->save();
+
+        foreach ($this->substudies as $ss)
+        {
+            $ss->copy_to_study($study);
+        }
+
+        $study->save();
+
+        return $study;
+
+    }
+
 }
