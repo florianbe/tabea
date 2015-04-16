@@ -40,6 +40,7 @@ return array(
     "studies_rmenu_mystudieslink"   => "Meine Studien",
     "studies_rmenu_studyshow"       => "Studiendaten",
     "studies_rmenu_studyedit"       => "Studie bearbeiten",
+    "studies_rmenu_studyresults"    => "Studienergebnisse",
     "studies_rmenu_access"          => "Zugriffsrechte",
     "studies_rmenu_requests"        => "Zugriffsanfragen",
     "studies_rmenu_studyaccess"     => "Zugangsdaten",
@@ -114,6 +115,21 @@ return array(
     "studies_accessdata_qrcode"     => "QR-Code",
     "studies_accessdata_linktoprint"    => "Druckansicht (neues Fenster)",
 
+    //Delete
+    "studies_delete_deletebutton"   => "Studie löschen",
+
+    "studies_delete_confirm"      => 'Soll die Studie gelöscht werden?\nAlle zugehörigen Elemente (Fragegruppen, Fragen, Regeln etc.) werden ebenfalls gelöscht.',
+    "studies_delete_successmessage"   => "dam|success|Studie gelöscht",
+    "studies_delete_successmessage_a" => "Studie gelöscht",
+
+    //Copy
+    "studies_copy_copybutton"       => "Studie kopieren",
+    "studies_copy_successmessage"   => "dam|success|Studie kopiert",
+
+    //Results
+    "studies_results_header"        => "Studienergebnisse",
+    "studies_results_no_results"    => "Es liegen noch keine Erhebungsdaten vor",
+
 
     //Mail access
     "studyrequest_mailaccess_subject"           => "TaBEA: Neuer Studienzugriff",
@@ -168,6 +184,10 @@ return array(
     "short_Su"      => "So",
     "short_MoFr"    => "Mo-Fr",
     "short_MoSu"    => "Mo-So",
+
+    "substudies_surveyperiod_delete_confirm"    => "Soll der Erhebungszeitraum gelöscht werden?",
+    "substudies_surveyperiod_deletemessage_a"    => "Erhebungszeitraum gelöscht.",
+
 
     //Create
     "substudies_create_header"          => "Studie :study_name | Neue Teilstudie",

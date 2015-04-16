@@ -6,7 +6,9 @@
 </ul>
 <ul class="nav nav-sidebar">
     <li class="{{set_class('studies.substudies.questiongroups.index')}} {{set_class('studies.substudies.questionsgroups.editorder')}}">{{ HTML::linkRoute('studies.substudies.questiongroups.index', trans('pagestrings.substudies_rmenu_questiongrouplinkind'), [$studyId, $substudyId])}}</li>
+   @if($study_editable && $canContribute)
     <li class="{{set_class('studies.substudies.questiongroups.create')}}">{{ HTML::linkRoute('studies.substudies.questiongroups.create', trans('pagestrings.substudies_rmenu_questiongrouplinknew'), [$studyId, $substudyId])}}</li>
+   @endif
 </ul>
 @endif
 

@@ -21,9 +21,6 @@ Route::post('login', array('as' => 'login.store', 'uses' => 'SessionsController@
 
 Route::group(['before' => 'auth'], function(){
 
-    Route::get('testroute', function(){
-       dd(DB::table('studystates')->where('code', '=', 'DESIGN')->get(['id'])[0]->id);
-    });
     /*
      * Logout
      */
@@ -45,20 +42,25 @@ Route::group(['before' => 'auth'], function(){
     Route::get('studies/{studies}/requests', ['as' => 'studies.requests', 'uses' => 'StudyController@showRequestsForStudy']);
     Route::get('studies/{studies}/access', ['as' => 'studies.access', 'uses' => 'StudyController@showAccessData']);
     Route::get('studies/{studies}/access/print', ['as' => 'studies.access.p', 'uses' => 'StudyController@showAccessDataPrint']);
-    Route::resource('studies', 'StudyController');
-    Route::post('studies/{studies}/substudies/{substudies}/surveytime', ['as' => 'studies.substudies.surveytime.new', 'uses' => 'SubStudyController@newSurveyperiod']);
-    Route::get('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.edit', 'uses' => 'SubStudyController@editSurveyperiod']);
-    Route::put('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.update', 'uses' => 'SubStudyController@updateSurveyperiod']);
-    Route::delete('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.delete', 'uses' => 'SubStudyController@deleteSurveyperiod']);
-    Route::resource('studies.substudies', 'SubStudyController');
-    Route::get('studies/{studies}/substudies/{substudies}/questiongroups/order', ['as' => 'studies.substudies.questionsgroups.editorder', 'uses' => 'QuestionGroupController@editOrder']);
-    Route::put('studies/{studies}/substudies/{substudies}/questiongroups/order', ['as' => 'studies.substudies.questionsgroups.updateorder', 'uses' => 'QuestionGroupController@updateOrder']);
-    Route::resource('studies.substudies.questiongroups', 'QuestionGroupController');
-    Route::get('studies/{studies}/substudies/{substudies}/questiongroups/{questiongroups}/order', ['as' => 'studies.substudies.questiongroups.questions.editorder', 'uses' => 'QuestionController@editOrder']);
-    Route::put('studies/{studies}/substudies/{substudies}/questiongroups/{questiongroups}/order', ['as' => 'studies.substudies.questiongroups.questions.updateorder', 'uses' => 'QuestionController@updateOrder']);
-    Route::resource('studies.substudies.questiongroups.questions', 'QuestionController');
-    Route::resource('studies.substudies.questiongroups.rules', 'RulesController');
-    Route::get('studies/{studies}/substudies/{substudies}/questiongroups/{questiongroups}/questions/{questions}/delete', ['uses' => 'QuestionController@destroy']);
+    Route::get('studies/{studies}/results', ['as' => 'studies.results', 'uses' => 'StudyController@showResults']);
+    Route::get('studies/{studies}/copy', ['as' => 'studies.copy', 'uses' => 'StudyController@copyStudy']);
+
+    Route::group(['before' => 'studystate_editable'], function(){
+        Route::resource('studies', 'StudyController');
+        Route::post('studies/{studies}/substudies/{substudies}/surveytime', ['as' => 'studies.substudies.surveytime.new', 'uses' => 'SubStudyController@newSurveyperiod']);
+        Route::get('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.edit', 'uses' => 'SubStudyController@editSurveyperiod']);
+        Route::put('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.update', 'uses' => 'SubStudyController@updateSurveyperiod']);
+        Route::delete('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.delete', 'uses' => 'SubStudyController@deleteSurveyperiod']);
+        Route::resource('studies.substudies', 'SubStudyController');
+        Route::get('studies/{studies}/substudies/{substudies}/questiongroups/order', ['as' => 'studies.substudies.questionsgroups.editorder', 'uses' => 'QuestionGroupController@editOrder']);
+        Route::put('studies/{studies}/substudies/{substudies}/questiongroups/order', ['as' => 'studies.substudies.questionsgroups.updateorder', 'uses' => 'QuestionGroupController@updateOrder']);
+        Route::resource('studies.substudies.questiongroups', 'QuestionGroupController');
+        Route::get('studies/{studies}/substudies/{substudies}/questiongroups/{questiongroups}/order', ['as' => 'studies.substudies.questiongroups.questions.editorder', 'uses' => 'QuestionController@editOrder']);
+        Route::put('studies/{studies}/substudies/{substudies}/questiongroups/{questiongroups}/order', ['as' => 'studies.substudies.questiongroups.questions.updateorder', 'uses' => 'QuestionController@updateOrder']);
+        Route::resource('studies.substudies.questiongroups.questions', 'QuestionController');
+        Route::resource('studies.substudies.questiongroups.rules', 'RulesController');
+        Route::get('studies/{studies}/substudies/{substudies}/questiongroups/{questiongroups}/questions/{questions}/delete', ['uses' => 'QuestionController@destroy']);
+    });
 
     /*
      * Study Access requests

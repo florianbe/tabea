@@ -5,7 +5,7 @@
 @section('header', trans('pagestrings.questiongroup_show_header', ['substudy_name' => $questiongroup->substudy->name, 'questiongroup_name' => $questiongroup->name]))
 
 @section('sidebar')
-    @include('questiongroups.sidebars.detail', ['studyId' => $questiongroup->substudy->study->id, 'substudyId'=> $questiongroup->substudy->id_in_study, 'questiongroupId' => $questiongroup->id_in_substudy, 'hasAccess' => Auth::user()->hasAccessToStudy($questiongroup->substudy->study), 'canContribute' => (Auth::user()->isAdmin || $questiongroup->substudy->study->contributors->contains(Auth::user()))])
+    @include('questiongroups.sidebars.detail', ['studyId' => $questiongroup->substudy->study->id, 'substudyId'=> $questiongroup->substudy->id_in_study, 'questiongroupId' => $questiongroup->id_in_substudy, 'hasAccess' => Auth::user()->hasAccessToStudy($questiongroup->substudy->study), 'canContribute' => ($questiongroup->substudy->study->hasEditAccess(Auth::user()))])
 @stop
 
 @section('content')
@@ -46,7 +46,7 @@
                 <table id ="questiongroups" class="table table-striped ">
                     <thead>
                     <tr>
-                        <th class="col-sm-1"><a href="{{route('studies.substudies.questiongroups.questions.editorder',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy])}}"><i class="fa fa-pencil fa-lg"></i></a></th>
+                        <th class="col-sm-1">@if($questiongroup->substudy->study->isStudyEditable() && ($questiongroup->substudy->study->hasEditAccess(Auth::user())))<a href="{{route('studies.substudies.questiongroups.questions.editorder',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy])}}"><i class="fa fa-pencil fa-lg"></i></a>@endif</th>
                         <th class="col-sm-2"></th>
                         <th class="col-sm-2">{{ trans('pagestrings.question_shortname') }}</th>
                         <th class="col-sm-5">{{ trans('pagestrings.question_text') }}</th>
@@ -61,8 +61,10 @@
                             <td class="vert-align">
                                 <div class="row">
                                     <div class="col-sm-4"><a href="{{route('studies.substudies.questiongroups.questions.show',['studies' => $questiongroup->substudy->study->id, 'substudies' => $questiongroup->substudy->id_in_study, "questiongroups" => $questiongroup->id_in_substudy, "questions" => $question->id_in_questiongroup]) }}"><i class="fa fa-file-text-o"></i></a></div>
+                                    @if($questiongroup->substudy->study->isStudyEditable() && ($questiongroup->substudy->study->hasEditAccess(Auth::user())))
                                     <div class="col-sm-4"><a href="{{route('studies.substudies.questiongroups.questions.edit',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy, $question->id_in_questiongroup])}}"><i class="fa fa-pencil"></i></a></div>
                                     <div class="col-sm-4"><a href="" class="btn-delete" data-seq_id="{{ $question->sequence_indicator }}" data-token="{{ csrf_token() }}" data-item_id="{{$question->id_in_questiongroup }}"><i class="fa fa-trash-o"></i></a></div>
+                                    @endif
                                 </div>
                             </td>
                             <td class="vert-align">{{ $question->shortname }}</td>
@@ -74,6 +76,7 @@
                 </table>
             </div>
         </div>
+        @if($questiongroup->substudy->study->isStudyEditable() && ($questiongroup->substudy->study->hasEditAccess(Auth::user())))
         <div class="list-group-item">
             <div class="list-group-item-text">
                 <div class="row">
@@ -82,7 +85,9 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
+    @if($questiongroup->substudy->study->isStudyEditable() && ($questiongroup->substudy->study->hasEditAccess(Auth::user())))
     <div class="list-group-item">
         <div class="list-group-item-text">
             <div class="row">
@@ -91,12 +96,12 @@
             </div>
         </div>
     </div>
-
+    @endif
 
 @stop
 
 @section('javascript')
-    @if(count($questiongroup->questions) > 0)
+    @if(count($questiongroup->questions) > 0 && $questiongroup->substudy->study->isStudyEditable() && ($questiongroup->substudy->study->hasEditAccess(Auth::user())))
     <script type="text/javascript">
         var m_answer = '{{ trans('pagestrings.question_delete_confirm') }}';
         var m_success = '{{ trans('pagestrings.questions_delete_successmessage_a') }}';

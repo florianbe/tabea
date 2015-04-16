@@ -103,6 +103,6 @@ class Rule extends \Eloquent
 
     public function copy_to_questiongroup(QuestionGroup $target_questiongroup)
     {
-        
+
     }
 }

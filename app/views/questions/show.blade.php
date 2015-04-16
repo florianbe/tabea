@@ -5,11 +5,10 @@
 @section('header', trans('pagestrings.question_show_header', ['substudy_name'=>$question->questiongroup->substudy->name]))
 
 @section('sidebar')
-    @include('questions.sidebars.detail', ['studyId' => $question->questiongroup->substudy->study->id, 'substudyId' => $question->questiongroup->substudy->id, 'questiongroupId' => $question->questiongroup->id_in_substudy, 'questionId' => $question->id_in_questiongroup,  'hasAccess' => Auth::user()->hasAccessToStudy($question->questiongroup->substudy->study), 'canContribute' => (Auth::user()->isAdmin || $question->questiongroup->substudy->study->contributors->contains(Auth::user()))])
+    @include('questions.sidebars.detail', ['studyId' => $question->questiongroup->substudy->study->id, 'substudyId' => $question->questiongroup->substudy->id, 'questiongroupId' => $question->questiongroup->id_in_substudy, 'questionId' => $question->id_in_questiongroup,  'hasAccess' => Auth::user()->hasAccessToStudy($question->questiongroup->substudy->study), 'canContribute' => ($question->questiongroup->substudy->study->hasEditAccess(Auth::user()))])
 @stop
 @section('content')
     <h2>{{trans('pagestrings.question_show_questiongroup_header', ['question_group' => $question->questiongroup->name ])}}</h2>
-    {{ Form::open(['route' => ['studies.substudies.questiongroups.questions.update', "studies" => $question->questiongroup->substudy->study->id, "substudies" => $question->questiongroup->substudy->id_in_study, "questiongroups" => $question->questiongroup->id_in_substudy, "questions" => $question->id_in_questiongroup], 'method' => 'PUT']) }}
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">{{ trans('pagestrings.question_edit_panelheader') }}</h3>
@@ -116,6 +115,7 @@
 
         </div>
     </div>
+    @if($question->questiongroup->substudy->study->isStudyEditable() && ($question->questiongroup->substudy->study->hasEditAccess(Auth::user())))
     <div class="list-group-item">
         <div class="list-group-item-text">
             <div class="row">
@@ -124,5 +124,6 @@
             </div>
         </div>
     </div>
+    @endif
 
 @stop

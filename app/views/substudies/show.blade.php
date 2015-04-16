@@ -5,7 +5,7 @@
 @section('header', (trans('pagestrings.substudies_detail_header', ['study_name' => $substudy->study->name, 'substudy_name' => $substudy->name])))
 
 @section('sidebar')
-    @include('substudies.sidebars.detail', ['studyId' => $substudy->study->id, 'substudyId'=> $substudy->id_in_study, 'hasAccess' => Auth::user()->hasAccessToStudy($substudy->study), 'canContribute' => (Auth::user()->isAdmin || $substudy->study->contributors->contains(Auth::user()))])
+    @include('substudies.sidebars.detail', ['studyId' => $substudy->study->id, 'substudyId'=> $substudy->id_in_study, 'hasAccess' => Auth::user()->hasAccessToStudy($substudy->study), 'canContribute' => ($substudy->study->hasEditAccess(Auth::user()))])
 @stop
 @section('content')
     <div class="panel panel-primary">
@@ -78,6 +78,7 @@
             </div>
         </div>
     </div>
+    @if($substudy->study->isStudyEditable() && ($substudy->study->hasEditAccess(Auth::user())))
     <div class="list-group-item">
         <div class="list-group-item-text">
             <div class="row">
@@ -86,5 +87,5 @@
             </div>
         </div>
     </div>
-
+    @endif
 @stop

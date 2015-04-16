@@ -5,9 +5,10 @@
 @section('header', trans('pagestrings.substudies_create_header', ['study_name'=>$study->name]))
 
 @section('sidebar')
-    @include('substudies.sidebars.overview', ['studyId' => $study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($study), 'canContribute' => (Auth::user()->isAdmin || $study->contributors->contains(Auth::user()))])
+    @include('substudies.sidebars.overview', ['studyId' => $study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($study), 'canContribute' => ($study->hasEditAccess(Auth::user())), 'study_editable' => $study->isStudyEditable()])
 @stop
 @section('content')
+    @if($study->isStudyEditable() && ($study->hasEditAccess(Auth::user())))
     {{ Form::open(['route' => ['studies.substudies.store', "studies" => $study->id], 'method' => 'POST']) }}
     <div class="panel panel-primary">
         <div class="panel-heading">
@@ -56,7 +57,7 @@
         </div>
     </div>
 {{ Form::close() }}
-
+@endif
 @stop
 
 

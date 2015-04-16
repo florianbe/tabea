@@ -5,10 +5,11 @@
 @section('header', trans('pagestrings.questiongroup_editorder_header', ['study_name'=>$substudy->study->name, 'substudy_name'=>$substudy->name]))
 
 @section('sidebar')
-    @include('questiongroups.sidebars.overview', ['studyId' => $substudy->study->id, 'substudyId'=> $substudy->id_in_study, 'hasAccess' => Auth::user()->hasAccessToStudy($substudy->study), 'canContribute' => (Auth::user()->isAdmin || $substudy->study->contributors->contains(Auth::user()))])
+    @include('questiongroups.sidebars.overview', ['studyId' => $substudy->study->id, 'substudyId'=> $substudy->id_in_study, 'hasAccess' => Auth::user()->hasAccessToStudy($substudy->study), 'canContribute' => ($substudy->study->hasEditAccess(Auth::user()))])
 @stop
 
 @section('content')
+    @if($substudy->study->isStudyEditable() && ($substudy->study->hasEditAccess(Auth::user())))
     @if( (count($substudy->questiongroups) > 0) )
         {{ Form::open(['route' => ['studies.substudies.questionsgroups.updateorder', "studies" => $substudy->study->id, "substudies" => $substudy->id_in_study], 'method' => 'PUT']) }}
         <table id ="questiongroups" class="table table-striped ">
@@ -45,6 +46,7 @@
         {{Form::close()}}
     @else
         <h2>{{ trans('pagestrings.questiongroup_index_questiongroups') }}</h2>
+    @endif
     @endif
 @stop
 

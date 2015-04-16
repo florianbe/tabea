@@ -8,8 +8,6 @@
        @include('studies.sidebars.detail', ['studyId' => $studyRequest->study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($studyRequest->study)])
 @stop
 @section('content')
-
-
     {{ Form::open(['route' => ['requests.update',   'requests' => $studyRequest->id], 'method' => 'PUT']) }}
         <div class="row">
             <div class="col-md-4"><strong>{{trans('pagestrings.studies_showrequests_fullname')}}:</strong></div>

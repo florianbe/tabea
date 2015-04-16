@@ -5,10 +5,11 @@
 @section('header', trans('pagestrings.questiongroup_create_header', ['study_name'=>$substudy->study->name, 'substudy_name'=>$substudy->name]))
 
 @section('sidebar')
-    @include('questiongroups.sidebars.overview', ['studyId' => $substudy->study->id, 'substudyId'=> $substudy->id_in_study, 'hasAccess' => Auth::user()->hasAccessToStudy($substudy->study), 'canContribute' => (Auth::user()->isAdmin || $substudy->study->contributors->contains(Auth::user()))])
+    @include('questiongroups.sidebars.overview', ['studyId' => $substudy->study->id, 'substudyId'=> $substudy->id_in_study, 'hasAccess' => Auth::user()->hasAccessToStudy($substudy->study), 'canContribute' => ($substudy->study->hasEditAccess(Auth::user())), 'study_editable' => $substudy->study->isStudyEditable()])
 @stop
 
 @section('content')
+    @if($substudy->study->isStudyEditable() && ($substudy->study->hasEditAccess(Auth::user())))
     {{ Form::open(['route' => ['studies.substudies.questiongroups.store', "studies" => $substudy->study->id, "substudies" => $substudy->id_in_study], 'method' => 'POST']) }}
     <div class="panel panel-primary">
         <div class="panel-heading">
@@ -53,6 +54,7 @@
         </div>
     </div>
     {{ Form::close() }}
+    @endif
 @stop
 
 @section('javascript')

@@ -5,9 +5,10 @@
 @section('header', trans('pagestrings.substudies_edit_header', ['study_name'=>$substudy->study->name, 'substudy_name'=>$substudy->name]))
 
 @section('sidebar')
-    @include('substudies.sidebars.detail', ['studyId' => $substudy->study->id, 'substudyId'=> $substudy->id_in_study, 'hasAccess' => Auth::user()->hasAccessToStudy($substudy->study), 'canContribute' => (Auth::user()->isAdmin || $substudy->study->contributors->contains(Auth::user()))])
+    @include('substudies.sidebars.detail', ['studyId' => $substudy->study->id, 'substudyId'=> $substudy->id_in_study, 'hasAccess' => Auth::user()->hasAccessToStudy($substudy->study), 'canContribute' => ($substudy->study->hasEditAccess(Auth::user()))])
 @stop
 @section('content')
+    @if($substudy->study->isStudyEditable() && ($substudy->study->hasEditAccess(Auth::user())))
     {{ Form::model($substudy, ['route' => ['studies.substudies.update', "studies" => $substudy->study->id, "substudies" => $substudy->id_in_study], 'method' => 'PUT']) }}
     <div class="panel panel-primary">
         <div class="panel-heading">
@@ -67,6 +68,7 @@
         <table id ="surveyperiods" class="table table-striped ">
             <thead>
             <tr>
+                <th class="col-sm-1"></th>
                 <th class="col-sm-2">{{ trans('pagestrings.substudies_surveyperiod_start_short') }}</th>
                 <th class="col-sm-2">{{ trans('pagestrings.substudies_surveyperiod_end_short') }}</th>
                 <th class="col-sm-1">{{ trans('pagestrings.short_Mo') }}</th>
@@ -76,7 +78,6 @@
                 <th class="col-sm-1">{{ trans('pagestrings.short_Fr') }}</th>
                 <th class="col-sm-1">{{ trans('pagestrings.short_Sa') }}</th>
                 <th class="col-sm-1">{{ trans('pagestrings.short_Su') }}</th>
-                <th class="col-sm-1"></th>
             </tr>
             </thead>
             <tbody>
@@ -85,14 +86,16 @@
                 @if($survPer != $surveyperiod)
                 <tr>
                     <td>
-                        <a href="{{route('studies.substudies.surveytime.edit', ["studies" => $survPer->substudy->study->id, "substudies" => $survPer->substudy->id_in_study, "surveytime" => $survPer->id_in_substudy])}}"><i class="fa fa-pencil"></i></a>  {{ format_datetime_to_display($survPer->start_date) }}</td>
+                        <div class="row text-center">
+                            <div class="col-md-6"><a href="{{route('studies.substudies.surveytime.edit', ["studies" => $survPer->substudy->study->id, "substudies" => $survPer->substudy->id_in_study, "surveytime" => $survPer->id_in_substudy])}}"><i class="fa fa-pencil"></i></a></div>
+                            <div class="col-md-6"><div class="col-sm-4"><a href="" class="btn-delete" data-token="{{ csrf_token() }}" data-item_id="{{$survPer->id_in_substudy }}"><i class="fa fa-trash-o"></i></a></div></div>
+                        </div>
+                    </td>
+                    <td>{{ format_datetime_to_display($survPer->start_date) }}</td>
                     <td>{{ format_datetime_to_display($survPer->end_date) }}</td>
                     @foreach($survPer->getWeekdays() as $day => $set)
                     <td>{{ $set ? '<i class="fa fa-check-square-o fa-lg"></i>' : '' }}</td>
                     @endforeach
-                    <td>
-                        {{ Form::model($survPer, ['route' => ['studies.substudies.surveytime.delete', "studies" => $survPer->substudy->study->id, "substudies" => $survPer->substudy->id_in_study, "surveytime" => $survPer->id_in_substudy], 'method' => 'DELETE']) }}<button type="submit" class="btn btn-link "><i class="fa fa-times fa-lg" style="color: red"></i></button>{{Form::close()}}</td>
-                    </td>
                 </tr>
                 @endif
             @endforeach
@@ -213,6 +216,7 @@
 
         </div>
     </div>
+    @endif
 @stop
 
 
@@ -262,6 +266,17 @@
                 $('.hidable').hide();
             }
         })
+        @if( (count($substudy->questiongroups) > 0 && $substudy->study->isStudyEditable()) && ($substudy->study->hasEditAccess(Auth::user())) )
+            var m_answer = '{{ trans('pagestrings.substudies_surveyperiod_delete_confirm') }}';
+            var m_success = '{{ trans('pagestrings.substudies_surveyperiod_deletemessage_a') }}';
+            var route = '{{route('studies.substudies.surveytime.delete',[$substudy->study->id, $substudy->id_in_study, '__id__'])}}';
+            var m_error = '{{ trans('pagestrings.errormessage_reload') }}';
+        @endif
     </script>
+
+
+
+
+
     {{ HTML::script('js/tabea.js') }}
 @stop

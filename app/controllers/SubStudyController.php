@@ -305,9 +305,18 @@ class SubStudyController extends \BaseController {
 		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
 		$surveyperiod = $substudy->SurveyPeriods()->where('id_in_substudy', '=', $surveytime)->firstOrFail();
 
-		$surveyperiod->delete();
+		if ($substudy->study->isStudyEditable()) {
+			$surveyperiod->delete();
 
-		return Redirect::route('studies.substudies.edit', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study, 'surveyperiod' => null])->with('message', trans('pagestrings.substudies_edit_surveyperiod_deletemessage'));
+			if (Request::ajax())
+			{
+				return 1;
+			} else
+			{
+				return Redirect::route('studies.substudies.edit', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study, 'surveyperiod' => null])->with('message', trans('pagestrings.substudies_edit_surveyperiod_deletemessage'));
+			}
+
+		}
 	}
 
 }

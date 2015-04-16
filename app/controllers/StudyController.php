@@ -237,5 +237,21 @@ class StudyController extends \BaseController
         return View::make('studies.accessdata_print')->with(compact('study'));
     }
 
+    public function showResults($studies)
+    {
+        $study = Study::findOrFail($studies);
+
+        return View::make('studies.results')->with(compact('study'));
+
+    }
+
+    public function copyStudy($studies)
+    {
+        $study = Study::findOrFail($studies);
+
+        $copied_study = $study->copy();
+
+        return Redirect::route('studies.show', ['study' => $copied_study->id])->with('message', trans('pagestrings.study_access_set_success'));
+    }
 
 }

@@ -5,7 +5,7 @@
 @section('header', trans('pagestrings.substudies_index_header', ['study_name' => $study->name])))
 
 @section('sidebar')
-    @include('substudies.sidebars.overview', ['studyId' => $study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($study), 'canContribute' => (Auth::user()->isAdmin || $study->contributors->contains(Auth::user()))])
+    @include('substudies.sidebars.overview', ['studyId' => $study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($study), 'canContribute' => ($study->hasEditAccess(Auth::user())), 'study_editable' => $study->isStudyEditable()])
 @stop
 @section('content')
 
@@ -29,8 +29,10 @@
                     <td class="vert-align">
                         <div class="row">
                             <div class="col-sm-4"><a href="{{route('studies.substudies.show',['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study]) }}"><i class="fa fa-file-text-o"></i></a></div>
+                            @if($study->isStudyEditable() && ($study->hasEditAccess(Auth::user())))
                             <div class="col-sm-4"><a href="{{route('studies.substudies.edit',[$substudy->study->id, $substudy->id_in_study])}}"><i class="fa fa-pencil"></i></a></div>
                             <div class="col-sm-4"><a href="" class="btn-delete" data-seq_id="{{ $substudy->id_in_study }}" data-token="{{ csrf_token() }}" data-item_id="{{$substudy->id_in_study }}"><i class="fa fa-trash-o"></i></a></div>
+                            @endif
                         </div>
                     </td>
                     <td class="vert-align">{{ $substudy->name}}</td>
@@ -43,6 +45,7 @@
     @else
         <h2>{{ trans('pagestrings.substudies_index_nosubstudies') }}</h2>
     @endif
+    @if($study->isStudyEditable() && ($study->hasEditAccess(Auth::user())))
     <div class="list-group-item">
         <div class="list-group-item-text">
             <div class="row">
@@ -51,12 +54,12 @@
             </div>
         </div>
     </div>
-
+    @endif
 @stop
 
 
 @section('javascript')
-    @if( (count($study->substudies) > 0) )
+    @if( (count($study->substudies) > 0 && ($study->hasEditAccess(Auth::user()))) )
     <script type="text/javascript">
         var m_answer = '{{ trans('pagestrings.questiongroup_delete_confirm') }}';
         var m_success = '{{ trans('pagestrings.questiongroup_delete_successmessage_a') }}';

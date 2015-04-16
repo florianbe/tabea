@@ -5,10 +5,11 @@
 @section('header', trans('pagestrings.questiongroup_edit_header', ['study_name'=>$questiongroup->substudy->study->name, 'substudy_name'=>$questiongroup->substudy->name]))
 
 @section('sidebar')
-    @include('questiongroups.sidebars.detail', ['studyId' => $questiongroup->substudy->study->id, 'substudyId'=> $questiongroup->substudy->id_in_study, 'questiongroupId' => $questiongroup->id_in_substudy, 'hasAccess' => Auth::user()->hasAccessToStudy($questiongroup->substudy->study), 'canContribute' => (Auth::user()->isAdmin || $questiongroup->substudy->study->contributors->contains(Auth::user()))])
+    @include('questiongroups.sidebars.detail', ['studyId' => $questiongroup->substudy->study->id, 'substudyId'=> $questiongroup->substudy->id_in_study, 'questiongroupId' => $questiongroup->id_in_substudy, 'hasAccess' => Auth::user()->hasAccessToStudy($questiongroup->substudy->study), 'canContribute' => ($questiongroup->substudy->study->hasEditAccess(Auth::user()))])
 @stop
 
 @section('content')
+    @if($questiongroup->substudy->study->isStudyEditable() && ($questiongroup->substudy->study->hasEditAccess(Auth::user())))
     {{ Form::open(['route' => ['studies.substudies.questiongroups.update', "studies" => $questiongroup->substudy->study->id, "substudies" => $questiongroup->substudy->id_in_study, "questiongroup" => $questiongroup->id_in_substudy], 'method' => 'PUT']) }}
     <div class="panel panel-primary">
         <div class="panel-heading">
@@ -53,7 +54,7 @@
         </div>
     </div>
     {{ Form::close() }}
-
+    @endif
 @stop
 
 @section('javascript')

@@ -95,6 +95,18 @@ Route::filter('is_study_contributor_or_admin', function($route)
 
 });
 
+Route::filter('studystate_editable', function($route)
+{
+	$studyId = $route->getParameter('studies');
+	$study = Study::findOrFail($studyId);
+
+	if (!(Request::getMethod() == 'GET') && !($study->isStudyEditable()))
+	{
+		return Response::make('Unauthorized', 401);
+	}
+
+});
+
 
 Route::filter('auth.basic', function()
 {
