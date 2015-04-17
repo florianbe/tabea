@@ -251,7 +251,7 @@ class StudyController extends \BaseController
 
         $copied_study = $study->copy();
 
-        return Redirect::route('studies.show', ['study' => $copied_study->id])->with('message', trans('pagestrings.study_access_set_success'));
+        return Redirect::route('studies.show', ['study' => $copied_study->id])->with('message', trans('pagestrings.studies_copy_successmessage'));
     }
 
 }

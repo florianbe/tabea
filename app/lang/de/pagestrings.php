@@ -130,7 +130,6 @@ return array(
     "studies_results_header"        => "Studienergebnisse",
     "studies_results_no_results"    => "Es liegen noch keine Erhebungsdaten vor",
 
-
     //Mail access
     "studyrequest_mailaccess_subject"           => "TaBEA: Neuer Studienzugriff",
     "studyrequest_mailaccess_header"            => "Neuer Studienzugriff",

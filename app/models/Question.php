@@ -116,6 +116,7 @@ class Question extends \Eloquent {
         $question->id_in_questiongroup = $this->id_in_questiongroup;
         $question->answer_required = $this->answer_required;
         $question->QuestionType()->associate($this->questiontype);
+        $question->QuestionGroup()->associate($target_questiongroup);
 
         if ($this->optiongroup != null)
         {
@@ -135,7 +136,7 @@ class Question extends \Eloquent {
                 {
                     $optionchoice = new OptionChoice;
                     $optionchoice->code = $oc->code;
-                    $optiongroup->description = $this->description;
+                    $optionchoice->description = $oc->description;
                     $optionchoice->value = $oc->value;
 
                     $optionchoice->OptionGroup()->associate($optiongroup);
@@ -143,6 +144,9 @@ class Question extends \Eloquent {
                 }
             }
         }
+
+        $question->save();
+
         if ($this->questionrestriction != null)
         {
             $questionrestriction = new QuestionRestriction;
@@ -155,9 +159,9 @@ class Question extends \Eloquent {
 
             $questionrestriction->Question()->associate($question);
             $questionrestriction->save();
+
         }
 
-        $question->save();
     }
 
 }

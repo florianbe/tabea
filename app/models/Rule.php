@@ -103,6 +103,47 @@ class Rule extends \Eloquent
 
     public function copy_to_questiongroup(QuestionGroup $target_questiongroup)
     {
+        $rule = new Rule;
 
+        $source_qg = $target_questiongroup->substudy->questiongroups->filter(function($qg) {
+            return $qg->id_in_substudy == $this->question->questiongroup->id_in_substudy;
+        })->first();
+
+        $source_q = $source_qg->questions->filter(function($q) {
+            return $q->id_in_questiongroup == $this->question->id_in_questiongroup;
+        })->first();
+
+        $rule->Question()->associate($source_q);
+
+        $rule->QuestionGroup()->associate($target_questiongroup);
+
+        $rule->is_answer_boolean = $this->is_answer_boolean;
+
+        $rule->save();
+
+        if($rule->is_answer_boolean)
+        {
+            $rule->answer_boolean = $this->answer_boolean;
+        }
+        else
+        {
+            $index = 0;
+
+            foreach ($this->question->optiongroup->optionchoices as $choice)
+            {
+                if ($choice->code == $this->optionchoice->code)
+                {
+                    break;
+                }
+                else
+                {
+                    $index = $index+1;
+                }
+            }
+
+            $rule->OptionChoice()->associate($rule->question->optiongroup->optionchoices[$index]);
+        }
+
+        $rule->save();
     }
 }
