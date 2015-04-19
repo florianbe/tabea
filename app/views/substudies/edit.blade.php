@@ -184,15 +184,15 @@
         <div class="col-md-3">
             <div class="row">
                 <br>
-                <div class="checkbox-inline"><label><input type="checkbox" name="days[]" value="MO" checked="{{$surveyperiod->isDaySet('MO') ? 'true' : 'false'}}"><strong>{{ trans('pagestrings.short_Mo') }} </strong></label></div>
-                <div class="checkbox-inline"><label><input type="checkbox" name="days[]" value="TU" checked="{{$surveyperiod->isDaySet('TU') ? 'true' : 'false'}}"><strong>{{ trans('pagestrings.short_Tu') }} </strong></label></div>
-                <div class="checkbox-inline"><label><input type="checkbox" name="days[]" value="WE" checked="{{$surveyperiod->isDaySet('WE') ? 'true' : 'false'}}"><strong>{{ trans('pagestrings.short_We') }} </strong></label></div>
-                <div class="checkbox-inline"><label><input type="checkbox" name="days[]" value="TH" checked="{{$surveyperiod->isDaySet('TH') ? 'true' : 'false'}}"><strong>{{ trans('pagestrings.short_Th') }} </strong></label></div>
-                <div class="checkbox-inline"><label><input type="checkbox" name="days[]" value="FR" checked="{{$surveyperiod->isDaySet('FR') ? 'true' : 'false'}}"><strong>{{ trans('pagestrings.short_Fr') }} </strong></label></div>
+                <div class="checkbox-inline"><label><input type="checkbox" name="days[]" value="MO" {{$surveyperiod->isDaySet('MO') ? 'checked="checked"' : ''}}><strong>{{ trans('pagestrings.short_Mo') }} </strong></label></div>
+                <div class="checkbox-inline"><label><input type="checkbox" name="days[]" value="TU" {{$surveyperiod->isDaySet('TU') ? 'checked="checked"' : ''}}><strong>{{ trans('pagestrings.short_Tu') }} </strong></label></div>
+                <div class="checkbox-inline"><label><input type="checkbox" name="days[]" value="WE" {{$surveyperiod->isDaySet('WE') ? 'checked="checked"' : ''}}><strong>{{ trans('pagestrings.short_We') }} </strong></label></div>
+                <div class="checkbox-inline"><label><input type="checkbox" name="days[]" value="TH" {{$surveyperiod->isDaySet('TH') ? 'checked="checked"' : ''}}><strong>{{ trans('pagestrings.short_Th') }} </strong></label></div>
+                <div class="checkbox-inline"><label><input type="checkbox" name="days[]" value="FR" {{$surveyperiod->isDaySet('FR') ? 'checked="checked"' : ''}}><strong>{{ trans('pagestrings.short_Fr') }} </strong></label></div>
             </div>
             <div class="row">
-                <div class="checkbox-inline"><label><input type="checkbox" name="days[]" value="SA" checked="{{$surveyperiod->isDaySet('SA') ? 'true' : 'false'}}"><strong>{{ trans('pagestrings.short_Sa') }} </strong></label></div>
-                <div class="checkbox-inline"><label><input type="checkbox" name="days[]" value="SU" checked="{{$surveyperiod->isDaySet('SU') ? 'true' : 'false'}}"><strong>{{ trans('pagestrings.short_Su') }} </strong></label></div>
+                <div class="checkbox-inline"><label><input type="checkbox" name="days[]" value="SA" {{$surveyperiod->isDaySet('SA') ? 'checked="checked"' : ''}}><strong>{{ trans('pagestrings.short_Sa') }} </strong></label></div>
+                <div class="checkbox-inline"><label><input type="checkbox" name="days[]" value="SU" {{$surveyperiod->isDaySet('SU') ? 'checked="checked"' : ''}}><strong>{{ trans('pagestrings.short_Su') }} </strong></label></div>
             </div>
         </div>
         <div class="col-md-1">

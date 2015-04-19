@@ -80,7 +80,7 @@ class StudyController extends \BaseController
             $study->author()->associate(Auth::user());
 
             $study->save();
-            return Redirect::route('studies.edit', ['study' => $study->id])->with('message', trans('pagestrings.studies_create_successmessage'));
+            return Redirect::route('studies.edit', ['study' => $study->id])->with('message', trans('pagestrings.studies_create_successmessage'))->with('val_msg', null);
 
         } catch (Laracasts\Validation\FormValidationException $e) {
             return Redirect::back()->withInput()->withErrors($e->getErrors());
@@ -112,7 +112,7 @@ class StudyController extends \BaseController
     {
         $study = Study::findOrFail($studies);
 
-        return View::make('studies.edit')->with(compact('study'));
+        return View::make('studies.edit')->with(compact('study'))->with('val_msg', null);
     }
 
     /**
@@ -142,10 +142,46 @@ class StudyController extends \BaseController
                 $input = Input::only('name', 'short_name', 'studypassword', 'description', 'comment', 'accessible_from', 'accessible_until', 'uploadable_until');
 
                 //Complete validation if studystate is change to planned, otherwise "soft" validation
-                if ($studyStateCode == 'PLANNED') {
-                    $this->activateStudyForm->validate($input);
-                    //TODO: Validate substudies: at least one, all must validate itself
+                if ($studystate->code == 'PLANNED') {
 
+                    $this->activateStudyForm->validate($input);
+                    $val_msg = '';
+
+
+                    if (count($study->substudies) <= 0)
+                    {
+                        $val_msg = $val_msg . '<br/>' . $study->name . ': ' . trans('pagestrings.studies_validate_substudy_none');
+                    }
+                    else
+                    {
+                        foreach ($study->substudies as $su_stu)
+                        {
+                            if (count($su_stu->surveyperiods) <= 0)
+                            {
+                                $val_msg = $val_msg . '<br/>' . $su_stu->name . ': ' . trans('pagestrings.studies_validate_surveytime_none');
+                            }
+
+                            if (count($su_stu->questiongroups) <= 0)
+                            {
+                                $val_msg = $val_msg . '<br/>' . $su_stu->name . ': ' . trans('pagestrings.studies_validate_questiongroups_none');
+                            }
+                            else
+                            {
+                                foreach ($su_stu->questiongroups as $qu_gr) {
+                                    if (count($qu_gr->questions) <= 0)
+                                    {
+                                        $val_msg = $val_msg . '<br/>' . $qu_gr->name . ': ' . trans('pagestrings.studies_validate_questions_none');
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (strlen($val_msg) > 1)
+                    {
+                        Session::flash('object_validation', $val_msg);
+                        return Redirect::back()->withInput();
+                    }
                 } else {
                     $this->createStudyForm->validate($input);
                 }
@@ -158,9 +194,9 @@ class StudyController extends \BaseController
 
             $study->save();
 
-            return Redirect::route('studies.show', ['study' => $study->id])->with('message', trans('pagestrings.studies_edit_successmessage'));
+            return Redirect::route('studies.show', ['study' => $study->id])->with('message', trans('pagestrings.studies_edit_successmessage'))->with('val_msg', null);
         } catch (Laracasts\Validation\FormValidationException $e) {
-            return Redirect::back()->withInput()->withErrors($e->getErrors());
+            return Redirect::back()->withInput()->withErrors($e->getErrors())->with('val_msg', null);
         }
     }
 
@@ -212,7 +248,25 @@ class StudyController extends \BaseController
      */
     public function destroy($studies)
     {
-        //
+        $study = Study::findOrFail($studies);
+
+        if ($study->canDeleteStudy(Auth::user()))
+        {
+            $study->delete();
+
+            if (Request::ajax())
+            {
+                return 1;
+            } else
+            {
+                return Redirect::route('studies.index')->with('message', trans('pagestrings.studies_delete_successmessage'));
+            }
+        }
+        else
+        {
+            return 'unauthorized';
+        }
+
     }
 
     public function showRequestsForStudy($studies)

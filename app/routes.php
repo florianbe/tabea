@@ -44,9 +44,9 @@ Route::group(['before' => 'auth'], function(){
     Route::get('studies/{studies}/access/print', ['as' => 'studies.access.p', 'uses' => 'StudyController@showAccessDataPrint']);
     Route::get('studies/{studies}/results', ['as' => 'studies.results', 'uses' => 'StudyController@showResults']);
     Route::get('studies/{studies}/copy', ['as' => 'studies.copy', 'uses' => 'StudyController@copyStudy']);
+    Route::resource('studies', 'StudyController');
 
     Route::group(['before' => 'studystate_editable'], function(){
-        Route::resource('studies', 'StudyController');
         Route::post('studies/{studies}/substudies/{substudies}/surveytime', ['as' => 'studies.substudies.surveytime.new', 'uses' => 'SubStudyController@newSurveyperiod']);
         Route::get('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.edit', 'uses' => 'SubStudyController@editSurveyperiod']);
         Route::put('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.update', 'uses' => 'SubStudyController@updateSurveyperiod']);

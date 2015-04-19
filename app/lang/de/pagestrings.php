@@ -115,6 +115,12 @@ return array(
     "studies_accessdata_qrcode"     => "QR-Code",
     "studies_accessdata_linktoprint"    => "Druckansicht (neues Fenster)",
 
+    //Validation
+    "studies_validate_substudy_none"    => "Die Studie muss über mindestens eine Teilstudie verfügen",
+    "studies_validate_surveytime_none"  => "Die Teilstudie muss über mindestens einen Erhebungszeitraum verfügen",
+    "studies_validate_questiongroups_none"  => "Die Teilstudie muss über mindestens eine Fragegruppe verfügen",
+    "studies_validate_questions_none"   => "Die Fragegruppe muss über mindestens eine Frage verfügen",
+
     //Delete
     "studies_delete_deletebutton"   => "Studie löschen",
 
@@ -129,6 +135,8 @@ return array(
     //Results
     "studies_results_header"        => "Studienergebnisse",
     "studies_results_no_results"    => "Es liegen noch keine Erhebungsdaten vor",
+
+
 
     //Mail access
     "studyrequest_mailaccess_subject"           => "TaBEA: Neuer Studienzugriff",

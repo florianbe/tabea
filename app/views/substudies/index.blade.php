@@ -50,7 +50,7 @@
         <div class="list-group-item-text">
             <div class="row">
                 <div class="col-md-6 text-left"></div>
-                <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.substudies.create', [$substudy->id])}}"><i class="fa icon-plus-sign"></i>  {{ trans('pagestrings.substudies_rmenu_createlink') }}</a></div>
+                <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.substudies.create', [$study->id])}}"><i class="fa icon-plus-sign"></i>  {{ trans('pagestrings.substudies_rmenu_createlink') }}</a></div>
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@
     <script type="text/javascript">
         var m_answer = '{{ trans('pagestrings.questiongroup_delete_confirm') }}';
         var m_success = '{{ trans('pagestrings.questiongroup_delete_successmessage_a') }}';
-        var route = '{{route('studies.substudies.destroy',[$substudy->study->id, '__id__'])}}';
+        var route = '{{route('studies.substudies.destroy',[$study->id, '__id__'])}}';
         var m_error = '{{ trans('pagestrings.errormessage_reload') }}';
     </script>
     @endif

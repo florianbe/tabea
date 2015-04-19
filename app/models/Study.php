@@ -164,4 +164,18 @@ class Study extends Eloquent
 
     }
 
+    public function canDeleteStudy(User $user)
+    {
+
+        if ($user->is_admin)
+        {
+            return true;
+        }
+        if (($this->studystate->code == 'DESIGN' || $this->studystate->code == 'PLANNED') && $this->hasEditAccess($user))
+        {
+            return true;
+        }
+        return false;
+    }
+
 }

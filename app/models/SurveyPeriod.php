@@ -60,7 +60,7 @@ class SurveyPeriod extends \Eloquent {
 	{
 		$weekdays = $this->getWeekdays();
 
-		return (array_key_exists($daycode, $weekdays) ? $weekdays[$daycode] : false);
+		return $weekdays[$daycode];
 	}
 
 	public function SubStudy()

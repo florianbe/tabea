@@ -5,7 +5,7 @@
 @section('header', (trans('pagestrings.studies_detail_header', ['study_name' => $study->name])))
 
 @section('sidebar')
-       @include('studies.sidebars.detail', ['studyId' => $study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($study), 'canContribute' => (Auth::user()->isAdmin || $study->contributors->contains(Auth::user()))])
+    @include('studies.sidebars.detail', ['studyId' => $study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($study), 'canContribute' => $study->hasEditAccess(Auth::user())])
 @stop
 @section('content')
 
@@ -64,8 +64,13 @@
                 {{ show_errors_for('uploadable_until', $errors) }}
 
                 {{ Bootstrap::select('studystate', trans('pagestrings.studies_state'), $study->getStudystateOptions(), $study->studystate->code, [], [$study->isStateEditable() ? '' : 'disabled']) }}
+
             </div>
         </div>
+    @if (Session::has('object_validation'))
+        <div class="alert alert-danger" role="alert">{{Session::get('object_validation')}}</div>
+    @endif
+
         <div class="list-group-item">
             <div class="list-group-item-text">
                 <div class="row">
@@ -74,7 +79,10 @@
                 </div>
             </div>
         </div>
-        {{ Form::close() }}  
+        {{ Form::close() }}
+
+
+
 @stop
 
 @section('javascript')
