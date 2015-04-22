@@ -68,6 +68,42 @@ class Substudy extends \Eloquent {
 		return $this->trigger_is_event ? 0 : $this->trigger_time_interval;
 	}
 
+	public function getSurveyTimes()
+	{
+
+		$carbon_days = [
+			'MO'	=> \Carbon\Carbon::MONDAY,
+			'TU' 	=> \Carbon\Carbon::TUESDAY,
+			'WE'	=> \Carbon\Carbon::WEDNESDAY,
+			'TH'	=> \Carbon\Carbon::THURSDAY,
+			'FR'	=> \Carbon\Carbon::FRIDAY,
+			'SA'	=> \Carbon\Carbon::SATURDAY,
+			'SU'	=> \Carbon\Carbon::SUNDAY
+		];
+
+		$survey_times = [];
+
+		if ($this->getTrigger() != 'EVENT')
+		{
+			foreach ($this->surveyperiods as $surv_per)
+			{
+				$signals = [];
+				foreach ($this->surveyperiods as $surv_per) {
+
+					$step_date = $surv_per->start_date;
+					$step_time = $surv_per->start_date;
+
+					while ($step_date <= $surv_per->end_date)
+					{
+
+					}
+
+				}
+			}
+		}
+
+	}
+
 	public function delete()
 	{
 		if ($this->surveyperiods)

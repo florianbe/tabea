@@ -17,54 +17,74 @@
 
             <div class="panel-body">
 
-                <!-- Name fields -->
-                {{ Bootstrap::text('name', trans('pagestrings.studies_name_long'), $study->name, [], [$study->isStudyEditable() ? '' : 'disabled']) }}
-                {{ show_errors_for('name', $errors) }}
-
-                {{ Bootstrap::text('short_name', trans('pagestrings.studies_name_short'), $study->short_name, [], [$study->isStudyEditable() ? '' : 'disabled']) }}
-                {{ show_errors_for('short_name', $errors) }}
-
-                 {{ Bootstrap::text('studypassword', trans('pagestrings.studies_studypassword'), $study->studypassword, [], [$study->isStudyEditable() ? '' : 'disabled']) }}
-                 {{ show_errors_for('studypassword', $errors) }}
-
-                {{ Bootstrap::textarea('description', trans('pagestrings.studies_description'), $study->description, [], [$study->isStudyEditable() ? '' : 'disabled', 'rows' => '4'] ) }}
-                {{ show_errors_for('description', $errors) }}
-
-                {{ Bootstrap::textarea('comment', trans('pagestrings.studies_comment'), $study->comment, [], [$study->isStudyEditable() ? '' : 'disabled', 'rows' => '4']) }}
-                {{ show_errors_for('comment', $errors) }}
-
-                <div class="form-group">
-                <label for="accessible_from" class="control-label ">{{ trans('pagestrings.studies_accessible_from_label') }}</label>
-                    <div id="date_accessible_from" class="input-group date datepicker">
-                        <input  class="form-control" name="accessible_from" type="text" id="accessible_from" {{ date_for_picker($study->accessible_from) }} {{$study->isStudyEditable() ? '' : 'disabled'}} />
-                        <span class="input-group-addon"><span class="fa fa-calendar"></span>
-                        </span>
+                <div class="row">
+                    <div class="col-md-12">
+                        {{ Bootstrap::text('name', trans('pagestrings.studies_name_long'), $study->name, [], [$study->isStudyEditable() ? '' : 'disabled']) }}
+                        {{ show_errors_for('name', $errors) }}
                     </div>
                 </div>
-                {{ show_errors_for('accessible_from', $errors) }}
-
-                <div class="form-group">
-                <label for="accessible_until" class="control-label ">{{ trans('pagestrings.studies_accessible_until_label') }}</label>
-                    <div id="date_accessible_until" class="input-group date datepicker">
-                        <input class="form-control" name="accessible_until" type="text" id="accessible_until" {{ date_for_picker($study->accessible_until) }} {{$study->isStudyEditable() ? '' : 'disabled'}} />
-                        <span class="input-group-addon"><span class="fa fa-calendar"></span>
-                        </span>
+                <div class="row">
+                    <div class="col-md-4">
+                        {{ Bootstrap::text('short_name', trans('pagestrings.studies_name_short'), $study->short_name, [], [$study->isStudyEditable() ? '' : 'disabled']) }}
+                        {{ show_errors_for('short_name', $errors) }}
+                    </div>
+                    <div class="col-md-8">
+                        {{ Bootstrap::text('studypassword', trans('pagestrings.studies_studypassword'), $study->studypassword, [], [$study->isStudyEditable() ? '' : 'disabled']) }}
+                        {{ show_errors_for('studypassword', $errors) }}
                     </div>
                 </div>
-                {{ show_errors_for('accessible_until', $errors) }}
-
-                <div class="form-group">
-                    <label for="uploadable_until" class="control-label ">{{ trans('pagestrings.studies_uploadable_until_label') }}</label>
-                    <div id="date_accessible_from" class="input-group date datepicker">
-                        <input class="form-control" name="uploadable_until" type="text" id="uploadable_until" {{ date_for_picker($study->uploadable_until) }} {{$study->isStudyEditable() ? '' : 'disabled'}} />
-                        <span class="input-group-addon"><span class="fa fa-calendar"></span>
-                        </span>
+                <div class="row">
+                    <div class="col-md-12">
+                        {{ Bootstrap::textarea('description', trans('pagestrings.studies_description'), $study->description, [], [$study->isStudyEditable() ? '' : 'disabled', 'rows' => '4'] ) }}
+                        {{ show_errors_for('description', $errors) }}
                     </div>
                 </div>
-                {{ show_errors_for('uploadable_until', $errors) }}
-
-                {{ Bootstrap::select('studystate', trans('pagestrings.studies_state'), $study->getStudystateOptions(), $study->studystate->code, [], [$study->isStateEditable() ? '' : 'disabled']) }}
-
+                <div class="row">
+                    <div class="col-md-12">
+                        {{ Bootstrap::textarea('comment', trans('pagestrings.studies_comment'), $study->comment, [], [$study->isStudyEditable() ? '' : 'disabled', 'rows' => '4']) }}
+                        {{ show_errors_for('comment', $errors) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="accessible_from" class="control-label ">{{ trans('pagestrings.studies_accessible_from_label') }}</label>
+                            <div id="date_accessible_from" class="input-group date datepicker">
+                                <input  class="form-control" name="accessible_from" type="text" id="accessible_from" {{ date_for_picker($study->accessible_from) }} {{$study->isStudyEditable() ? '' : 'disabled'}} />
+                        <span class="input-group-addon"><span class="fa fa-calendar"></span>
+                        </span>
+                            </div>
+                        </div>
+                        {{ show_errors_for('accessible_from', $errors) }}
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="accessible_until" class="control-label ">{{ trans('pagestrings.studies_accessible_until_label') }}</label>
+                            <div id="date_accessible_until" class="input-group date datepicker">
+                                <input class="form-control" name="accessible_until" type="text" id="accessible_until" {{ date_for_picker($study->accessible_until) }} {{$study->isStudyEditable() ? '' : 'disabled'}} />
+                        <span class="input-group-addon"><span class="fa fa-calendar"></span>
+                        </span>
+                            </div>
+                        </div>
+                        {{ show_errors_for('accessible_until', $errors) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="uploadable_until" class="control-label ">{{ trans('pagestrings.studies_uploadable_until_label') }}</label>
+                            <div id="date_accessible_from" class="input-group date datepicker">
+                                <input class="form-control" name="uploadable_until" type="text" id="uploadable_until" {{ date_for_picker($study->uploadable_until) }} {{$study->isStudyEditable() ? '' : 'disabled'}} />
+                        <span class="input-group-addon"><span class="fa fa-calendar"></span>
+                        </span>
+                            </div>
+                        </div>
+                        {{ show_errors_for('uploadable_until', $errors) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ Bootstrap::select('studystate', trans('pagestrings.studies_state'), $study->getStudystateOptions(), $study->studystate->code, [], [$study->isStateEditable() ? '' : 'disabled']) }}
+                    </div>
+                </div>
             </div>
         </div>
     @if (Session::has('object_validation'))

@@ -100,6 +100,7 @@ class SubStudyController extends \BaseController {
 		$study = Study::findOrFail($studies);
 		$substudy = Substudy::where('study_id', '=', $study->id)->where('id_in_study', '=', $substudies)->firstOrFail();
 
+
 		return View::make('substudies.show')->with(compact('substudy'));
 	}
 
@@ -115,7 +116,9 @@ class SubStudyController extends \BaseController {
 		$study = Study::findOrFail($studies);
 		$substudy = Substudy::where('study_id', '=', $study->id)->where('id_in_study', '=', $substudies)->firstOrFail();
 
-		return View::make('substudies.edit')->with(compact('substudy'))->with(['surveyperiod' => null]);
+		$surveyperiod = null;
+
+		return View::make('substudies.edit')->with(compact('substudy'))->with(compact('surveyperiod'));
 	}
 
 	/**
@@ -146,9 +149,17 @@ class SubStudyController extends \BaseController {
 			$substudy->description = Input::get('description');
 			$substudy->comment = Input::get('comment');
 
+			if ($substudy->getTrigger() == 'EVENT' && count($substudy->surveyperiods) > 0)
+			{
+				foreach($substudy->surveyperiods as $surv_per)
+				{
+					$surv_per->delete();
+				}
+			}
+
 			$substudy->save();
 
-			return Redirect::route('studies.substudies.edit', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study, 'surveyperiod' => null])->with('message', trans('pagestrings.substudies_edit_successmessage'));
+			return Redirect::route('studies.substudies.show', ['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study, 'surveyperiod' => null])->with('message', trans('pagestrings.substudies_edit_successmessage'));
 
 		}
 		catch (Laracasts\Validation\FormValidationException $e)
@@ -242,6 +253,8 @@ class SubStudyController extends \BaseController {
 	{
 		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
 		$surveyperiod = $substudy->SurveyPeriods()->where('id_in_substudy', '=', $surveytime)->firstOrFail();
+
+
 
 		return View::make('substudies.edit', ['study' => $substudy->study, 'substudy' => $substudy, 'surveyperiod' => $surveyperiod]);
 	}

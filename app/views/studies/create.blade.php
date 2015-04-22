@@ -10,73 +10,91 @@
 @section('content') 
 
     {{ Form::open(['route' => 'studies.store', ]) }}
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">{{ trans('pagestrings.studies_create_panelheader') }}</h3>
-            </div>
-
-            <div class="panel-body">
-
-                <!-- Name fields -->
-                {{ Bootstrap::text('name', trans('pagestrings.studies_name_long')) }}
-                {{ show_errors_for('name', $errors) }}
-
-                {{ Bootstrap::text('short_name', trans('pagestrings.studies_name_short')) }}
-                {{ show_errors_for('short_name', $errors) }}
-
-                 {{ Bootstrap::text('studypassword', trans('pagestrings.studies_studypassword')) }}
-                 {{ show_errors_for('studypassword', $errors) }}
-
-                {{ Bootstrap::textarea('description', trans('pagestrings.studies_description') , null, [], ['rows' => '4'])}}
-                {{ show_errors_for('description', $errors) }}
-
-                {{ Bootstrap::textarea('comment', trans('pagestrings.studies_comment') , null, [], ['rows' => '4'])}}
-                {{ show_errors_for('comment', $errors) }}
-
-
-                <div class="form-group">
-                <label for="accessible_from" class="control-label ">{{ trans('pagestrings.studies_accessible_from_label') }}</label>
-                    <div id="date_accessible_from" class="input-group date datepicker">
-                        <input class="form-control" name="accessible_from" type="text" id="accessible_from"/>
-                        <span class="input-group-addon"><span class="fa fa-calendar"></span>
-                        </span>
-                    </div>
-                </div>
-                {{ show_errors_for('accessible_from', $errors) }}
-
-                <div class="form-group">
-                <label for="accessible_until" class="control-label ">{{ trans('pagestrings.studies_accessible_until_label') }}</label>
-                    <div id="date_accessible_until" class="input-group date datepicker">
-                        <input class="form-control" name="accessible_until" type="text" id="accessible_until"/>
-                        <span class="input-group-addon"><span class="fa fa-calendar"></span>
-                        </span>
-                    </div>
-                </div>
-                {{ show_errors_for('accessible_until', $errors) }}
-
-                <div class="form-group">
-                    <label for="uploadable_until" class="control-label ">{{ trans('pagestrings.studies_uploadable_until_label') }}</label>
-                    <div id="date_accessible_from" class="input-group date datepicker">
-                        <input class="form-control" name="uploadable_until" type="text" id="uploadable_until"/>
-                        <span class="input-group-addon"><span class="fa fa-calendar"></span>
-                        </span>
-                    </div>
-                </div>
-                {{ show_errors_for('uploadable_until', $errors) }}
-
-
-            </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ trans('pagestrings.studies_create_panelheader') }}</h3>
         </div>
 
-        <div class="list-group-item">
-            <div class="list-group-item-text">
-                <div class="row">
-                    <div class="col-md-6 text-left"><a class="btn btn-primary btn-back" >{{ trans('pagestrings.back') }}</a></div>
-                    <div class="col-md-6 text-right">{{ Bootstrap::submit(trans('pagestrings.studies_create_createbutton')) }}</div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-12">
+                    {{ Bootstrap::text('name', trans('pagestrings.studies_name_long')) }}
+                    {{ show_errors_for('name', $errors) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    {{ Bootstrap::text('short_name', trans('pagestrings.studies_name_short')) }}
+                    {{ show_errors_for('short_name', $errors) }}
+                </div>
+                <div class="col-md-8">
+                    {{ Bootstrap::text('studypassword', trans('pagestrings.studies_studypassword')) }}
+                    {{ show_errors_for('studypassword', $errors) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {{ Bootstrap::textarea('description', trans('pagestrings.studies_description') , null, [], ['rows' => '4'])}}
+                    {{ show_errors_for('description', $errors) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {{ Bootstrap::textarea('comment', trans('pagestrings.studies_comment') , null, [], ['rows' => '4'])}}
+                    {{ show_errors_for('comment', $errors) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="accessible_from" class="control-label ">{{ trans('pagestrings.studies_accessible_from_label') }}</label>
+                        <div id="date_accessible_from" class="input-group date datepicker">
+                            <input class="form-control" name="accessible_from" type="text" id="accessible_from"/>
+                        <span class="input-group-addon"><span class="fa fa-calendar"></span>
+                        </span>
+                        </div>
+                    </div>
+                    {{ show_errors_for('accessible_from', $errors) }}
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="accessible_until" class="control-label ">{{ trans('pagestrings.studies_accessible_until_label') }}</label>
+                        <div id="date_accessible_until" class="input-group date datepicker">
+                            <input class="form-control" name="accessible_until" type="text" id="accessible_until"/>
+                        <span class="input-group-addon"><span class="fa fa-calendar"></span>
+                        </span>
+                        </div>
+                    </div>
+                    {{ show_errors_for('accessible_until', $errors) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="uploadable_until" class="control-label ">{{ trans('pagestrings.studies_uploadable_until_label') }}</label>
+                        <div id="date_accessible_from" class="input-group date datepicker">
+                            <input class="form-control" name="uploadable_until" type="text" id="uploadable_until"/>
+                        <span class="input-group-addon"><span class="fa fa-calendar"></span>
+                        </span>
+                        </div>
+                    </div>
+                    {{ show_errors_for('uploadable_until', $errors) }}
+                </div>
+                <div class="col-md-6">
                 </div>
             </div>
         </div>
-        {{ Form::close() }}
+    </div>
+    <div class="list-group-item">
+        <div class="list-group-item-text">
+            <div class="row">
+                <div class="col-md-6 text-left"><a class="btn btn-primary btn-back" >{{ trans('pagestrings.back') }}</a></div>
+                <div class="col-md-6 text-right">{{ Bootstrap::submit(trans('pagestrings.studies_create_createbutton')) }}</div>
+            </div>
+        </div>
+    </div>
+    {{ Form::close() }}
 @stop
 
 @section('javascript')

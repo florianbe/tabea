@@ -1,28 +1,27 @@
 <?php
 
-class SurveyPeriod extends \Eloquent {
+class SurveyPeriod extends \Eloquent
+{
 	protected $fillable = [];
 
 	protected $dayCodes = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'];
 
 	protected $table = 'surveyperiods';
 
-	protected $dates =[
+	protected $dates = [
 		'start_date', 'end_date'
 	];
 
 	public function setStartDateAttribute($value)
 	{
-		if ($value != null)
-		{
+		if ($value != null) {
 			$this->attributes['start_date'] = \Carbon\Carbon::createFromFormat('d.m.Y H:i', $value)->toDateTimeString();
 		}
 	}
 
 	public function setEndDateAttribute($value)
 	{
-		if ($value != null)
-		{
+		if ($value != null) {
 			$this->attributes['end_date'] = \Carbon\Carbon::createFromFormat('d.m.Y H:i', $value)->toDateTimeString();
 		}
 	}
@@ -30,8 +29,7 @@ class SurveyPeriod extends \Eloquent {
 	public function setWeekdays($weekdays)
 	{
 		$setDays = '';
-		foreach($weekdays as $day=>$set)
-		{
+		foreach ($weekdays as $day => $set) {
 			$setDays = $set ? $setDays . ';' . $day : $setDays;
 		}
 
@@ -43,8 +41,7 @@ class SurveyPeriod extends \Eloquent {
 		$setInDb = explode(';', $this->weekday_list);
 		$setDays = [];
 
-		foreach($this->dayCodes as $day)
-		{
+		foreach ($this->dayCodes as $day) {
 			$setDays[$day] = in_array($day, $setInDb);
 		}
 
@@ -63,8 +60,16 @@ class SurveyPeriod extends \Eloquent {
 		return $weekdays[$daycode];
 	}
 
+	public function isDaySetIso($integer)
+	{
+		$weekdays = $this->getWeekdays();
+		$keys = array_keys($weekdays);
+		return $weekdays[$keys[$integer -1]];
+	}
+
 	public function SubStudy()
 	{
 		return $this->belongsTo('SubStudy', 'substudy_id');
 	}
+
 }

@@ -5,7 +5,7 @@
 @section('header', trans('pagestrings.questiongroup_index_header', ['study_name'=>$substudy->study->name, 'substudy_name'=>$substudy->name]))
 
 @section('sidebar')
-    @include('questiongroups.sidebars.overview', ['studyId' => $substudy->study->id, 'substudyId'=> $substudy->id_in_study, 'hasAccess' => Auth::user()->hasAccessToStudy($substudy->study), 'canContribute' => ($substudy->study->hasEditAccess(Auth::user()))])
+    @include('questiongroups.sidebars.overview', ['studyId' => $substudy->study->id, 'substudyId'=> $substudy->id_in_study, 'hasAccess' => Auth::user()->hasAccessToStudy($substudy->study), 'canContribute' => ($substudy->study->hasEditAccess(Auth::user())), 'study_editable' => $substudy->study->isStudyEditable()])
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
         <table id ="questiongroups" class="table table-striped ">
             <thead>
             <tr>
-                <th class="col-md-1">@if(($substudy->study->hasEditAccess(Auth::user())))<a href="{{route('studies.substudies.questionsgroups.editorder',[$substudy->study->id, $substudy->id_in_study])}}"><i class="fa fa-pencil fa-lg"></i></a>@endif</th>
+                <th class="col-md-1">@if(((count($substudy->questiongroups) > 0) && $substudy->study->hasEditAccess(Auth::user())))<a href="{{route('studies.substudies.questionsgroups.editorder',[$substudy->study->id, $substudy->id_in_study])}}"><i class="fa fa-pencil fa-lg"></i></a>@endif</th>
                 <th class="col-md-2"></th>
                 <th class="col-md-2">{{ trans('pagestrings.questiongroup_shortname') }}</th>
                 <th class="col-md-5">{{ trans('pagestrings.questiongroup_name') }}</th>
@@ -30,7 +30,7 @@
                     <td class="vert-align">
                         <div class="row">
                             <div class="col-sm-4"><a href="{{route('studies.substudies.questiongroups.show',['studies' => $questiongroup->substudy->study->id, 'substudies' => $questiongroup->substudy->id_in_study, "questiongroups" => $questiongroup->id_in_substudy]) }}"><i class="fa fa-file-text-o"></i></a></div>
-                            @if($substudy->study->isStudyEditable() && ($substudy->study->hasEditAccess(Auth::user())))
+                            @if($substudy->study->isStudyEditable() && ($substudy->study->hasEditAccess(Auth::user())) && count($substudy->questiongroups) > 0)
                             <div class="col-sm-4"><a href="{{route('studies.substudies.questiongroups.edit',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy])}}"><i class="fa fa-pencil"></i></a></div>
                             <div class="col-sm-4"><a href="" class="btn-delete" data-seq_id="{{ $questiongroup->sequence_indicator }}" data-token="{{ csrf_token() }}" data-item_id="{{$questiongroup->id_in_substudy }}"><i class="fa fa-trash-o"></i></a></div>
                             @endif

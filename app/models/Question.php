@@ -142,6 +142,7 @@ class Question extends \Eloquent {
                     $optionchoice->OptionGroup()->associate($optiongroup);
                     $optionchoice->save();
                 }
+                $question->OptionGroup()->associate($optiongroup);
             }
         }
 

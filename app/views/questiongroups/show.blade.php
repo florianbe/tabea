@@ -27,18 +27,22 @@
                     <div class="col-md-3">{{$questiongroup->random_questionorder ?  trans('pagestrings.yes') : trans('pagestrings.no')}}</div>
                 </div>
             </div>
+            @if($questiongroup->comment)
             <div class="list-group-item">
                 <h4 class="list-group-item-heading">{{trans('pagestrings.questiongroup_comment')}}:</h4>
                 <div class="list-group-item-text">
                     <p>{{$questiongroup->comment}}</p>
                 </div>
             </div>
+            @endif
+            @if($questiongroup->description)
             <div class="list-group-item">
                 <h4 class="list-group-item-heading">{{trans('pagestrings.questiongroup_description')}}:</h4>
                 <div class="list-group-item-text">
                     <p>{{$questiongroup->description}}</p>
                 </div>
             </div>
+            @endif
         </div>
         <div class="list-group-item">
             <h4 class="list-group-item-heading">{{ trans('pagestrings.questiongroup_questionheader')  }}</h4>
@@ -46,7 +50,7 @@
                 <table id ="questiongroups" class="table table-striped ">
                     <thead>
                     <tr>
-                        <th class="col-sm-1">@if($questiongroup->substudy->study->isStudyEditable() && ($questiongroup->substudy->study->hasEditAccess(Auth::user())))<a href="{{route('studies.substudies.questiongroups.questions.editorder',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy])}}"><i class="fa fa-pencil fa-lg"></i></a>@endif</th>
+                        <th class="col-sm-1">@if($questiongroup->substudy->study->isStudyEditable() && ($questiongroup->substudy->study->hasEditAccess(Auth::user())) && (count($questiongroup->questions)>0))<a href="{{route('studies.substudies.questiongroups.questions.editorder',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy])}}"><i class="fa fa-pencil fa-lg"></i></a>@endif</th>
                         <th class="col-sm-2"></th>
                         <th class="col-sm-2">{{ trans('pagestrings.question_shortname') }}</th>
                         <th class="col-sm-5">{{ trans('pagestrings.question_text') }}</th>
@@ -80,8 +84,8 @@
         <div class="list-group-item">
             <div class="list-group-item-text">
                 <div class="row">
-                    <div class="col-md-6 text-left"><a class="btn btn-primary" href="{{route('studies.substudies.questiongroups.questions.editorder',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy])}}">{{ trans('pagestrings.editorder') }}</a></div>
-                    <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.substudies.questiongroups.questions.create', [$questiongroup->substudy->study->id,  $questiongroup->substudy->id, $questiongroup->id_in_substudy])}}"><i class="icon-plus-sign"></i>  {{ trans('pagestrings.substudies_rmenu_newquestion') }}</a></div>
+                    <div class="col-md-6 text-left">@if(count($questiongroup->questions)>0)<a class="btn btn-primary" href="{{route('studies.substudies.questiongroups.questions.editorder',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy])}}">{{ trans('pagestrings.editorder') }}</a>@endif</div>
+                    <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.substudies.questiongroups.questions.create', [$questiongroup->substudy->study->id,  $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy])}}"><i class="icon-plus-sign"></i>  {{ trans('pagestrings.substudies_rmenu_newquestion') }}</a></div>
                 </div>
             </div>
         </div>

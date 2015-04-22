@@ -54,8 +54,8 @@ return array(
     "studies_studypassword"         => "Studienpasswort",
     "studies_description"           => "Beschreibung (durch Probanden lesbar)",
     "studies_comment"               => "Kommentar (nur in Weboberfläche lesbar)",
-    "studies_accessible_from_label"     => "Bereitstellung der Studiendaten ab",
-    "studies_accessible_until_label"    => "Bereitstellung der Studiendaten bis",
+    "studies_accessible_from_label"     => "Studienstart",
+    "studies_accessible_until_label"    => "Studienende",
     "studies_uploadable_until_label"    => "Upload von Antwortdaten bis",
     "studies_state"                 => "Studienstatus",
     "studies_role"                  => "Zugriffsrechte",
@@ -304,6 +304,7 @@ return array(
     "question_typename_MULTICHOICE"  => "Mehrfachauswahl",
     "question_typename_MOODMAP"      => "Moodmap",
 
+
     "question_optiongroup_LIKERT_4"  => "Likert 4",
     "question_optiongroup_LIKERT_5"  => "Likert 5",
     "question_optiongroup_LIKERT_6"  => "Likert 6",
@@ -321,6 +322,7 @@ return array(
     "question_max_numeric"           => "Maximum",
     "question_step_numeric"          => "Schrittweite",
     "question_no_config"             => "keine weiteren Angaben erforderlich",
+    "question_optiongroup"           => "Item-Typ",
 
     "question_choice_selfdef_info"   => "Bitte pro Zeile einen Datensatz nach dem Muster 'DATENWERT;ANZEIGETEXT' eingeben.",
 

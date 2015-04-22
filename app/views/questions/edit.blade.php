@@ -5,7 +5,7 @@
 @section('header', trans('pagestrings.question_edit_header', ['substudy_name'=>$question->questiongroup->substudy->name]))
 
 @section('sidebar')
-    @include('questions.sidebars.detail', ['studyId' => $question->questiongroup->substudy->study->id, 'substudyId' => $question->questiongroup->substudy->id, 'questiongroupId' => $question->questiongroup->id, 'questionId' => $question->id_in_questiongroup, 'hasAccess' => Auth::user()->hasAccessToStudy($question->questiongroup->substudy->study), 'canContribute' => ($question->questiongroup->substudy->study->hasEditAccess(Auth::user()))])
+    @include('questions.sidebars.detail', ['studyId' => $question->questiongroup->substudy->study->id, 'substudyId' => $question->questiongroup->substudy->id_in_study, 'questiongroupId' => $question->questiongroup->id_in_substudy, 'questionId' => $question->id_in_questiongroup,  'hasAccess' => Auth::user()->hasAccessToStudy($question->questiongroup->substudy->study), 'canContribute' => ($question->questiongroup->substudy->study->hasEditAccess(Auth::user()))])
 @stop
 @section('content')
     @if($question->questiongroup->substudy->study->isStudyEditable() && ($question->questiongroup->substudy->study->hasEditAccess(Auth::user())))

@@ -5,10 +5,10 @@
 @section('header', trans('pagestrings.question_create_header', ['substudy_name'=>$questiongroup->substudy->name]))
 
 @section('sidebar')
-    @include('questiongroups.sidebars.detail', ['studyId' => $questiongroup->substudy->study->id, 'substudyId' => $questiongroup->substudy->id, 'questiongroupId' => $questiongroup->id,  'hasAccess' => Auth::user()->hasAccessToStudy($questiongroup->substudy->study), 'canContribute' => ($questiongroup->substudy->study->hasEditAccess(Auth::user()))])
+    @include('questiongroups.sidebars.detail', ['studyId' => $questiongroup->substudy->study->id, 'substudyId' => $questiongroup->substudy->id_in_study, 'questiongroupId' => $questiongroup->id_in_substudy,  'hasAccess' => Auth::user()->hasAccessToStudy($questiongroup->substudy->study), 'canContribute' => ($questiongroup->substudy->study->hasEditAccess(Auth::user()))])
 @stop
 @section('content')
-    @if($question->questiongroup->substudy->study->isStudyEditable() && ($questiongroup->substudy->study->hasEditAccess(Auth::user())))
+    @if($questiongroup->substudy->study->isStudyEditable() && ($questiongroup->substudy->study->hasEditAccess(Auth::user())))
     <h2>{{trans('pagestrings.question_create_questiongroup_header', ['question_group' => $questiongroup->name ])}}</h2>
     {{ Form::open(['route' => ['studies.substudies.questiongroups.questions.store', "studies" => $questiongroup->substudy->study->id, "substudies" => $questiongroup->substudy->id_in_study, "questiongroups" => $questiongroup->id_in_substudy], 'method' => 'POST']) }}
     <div class="panel panel-primary">

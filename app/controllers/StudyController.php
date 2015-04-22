@@ -156,7 +156,7 @@ class StudyController extends \BaseController
                     {
                         foreach ($study->substudies as $su_stu)
                         {
-                            if (count($su_stu->surveyperiods) <= 0)
+                            if ($su_stu->getTrigger() != 'EVENT' && count($su_stu->surveyperiods) <= 0)
                             {
                                 $val_msg = $val_msg . '<br/>' . $su_stu->name . ': ' . trans('pagestrings.studies_validate_surveytime_none');
                             }

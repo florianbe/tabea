@@ -28,7 +28,7 @@
                         <div class="col-md-4"><strong>{{$substudy->getTrigger() == 'FIX' ? trans('pagestrings.substudies_signal_timefixtime') : trans('pagestrings.substudies_signal_timeflextime')}}:</strong></div>
                         <div class="col-md-8">{{$substudy->trigger_time_interval}}</div>
                     </div>
-                    @endif()
+                    @endif
                 </div>
             </div>
             <div class="list-group-item">
@@ -43,6 +43,7 @@
                     <p>{{$substudy->description}}</p>
                 </div>
             </div>
+            @if($substudy->getTrigger() != "EVENT")
             <div class="list-group-item">
                 <h4 class="list-group-item-heading">{{ trans('pagestrings.substudies_surveyperiod_header') }}</h4>
                 @if($substudy->SurveyPeriods->count() <= 0)
@@ -76,6 +77,7 @@
                     </table>
                 @endif
             </div>
+            @endif
         </div>
     </div>
     @if($substudy->study->isStudyEditable() && ($substudy->study->hasEditAccess(Auth::user())))
