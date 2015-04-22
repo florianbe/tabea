@@ -12,6 +12,19 @@ class SurveyPeriod extends \Eloquent
 		'start_date', 'end_date'
 	];
 
+	public static function boot()
+	{
+		parent::boot();
+
+		// Attach event handler, on saving
+		SurveyPeriod::saving(function($surveyperiod)
+		{
+			//Touch associated Study
+			$surveyperiod->substudy->study->touch();
+
+		});
+	}
+
 	public function setStartDateAttribute($value)
 	{
 		if ($value != null) {

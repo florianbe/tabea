@@ -5,6 +5,19 @@ class Rule extends \Eloquent
     protected $fillable = [];
     protected $table = 'rules';
 
+    public static function boot()
+    {
+        parent::boot();
+
+        // Attach event handler, on saving
+        Rule::saving(function($rule)
+        {
+            //Touch associated Study
+            $rule->questiongroup->substudy->study->touch();
+
+        });
+    }
+
     public function QuestionGroup()
     {
         return $this->belongsTo('QuestionGroup', 'questiongroup_id');

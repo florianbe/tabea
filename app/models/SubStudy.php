@@ -3,6 +3,19 @@
 class Substudy extends \Eloquent {
 	protected $fillable = [];
 
+	public static function boot()
+	{
+		parent::boot();
+
+		// Attach event handler, on saving
+		Substudy::saving(function($substudy)
+		{
+			//Touch associated Study
+			$substudy->study->touch();
+
+		});
+	}
+
 	public function Study()
 	{
 		return $this->belongsTo('Study');

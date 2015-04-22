@@ -4,6 +4,19 @@ class QuestionGroup extends \Eloquent {
     protected $fillable = [];
     protected $table = 'questiongroups';
 
+    public static function boot()
+    {
+        parent::boot();
+
+        // Attach event handler, on saving
+        QuestionGroup::saving(function($questiongroup)
+        {
+            //Touch associated Study
+            $questiongroup->substudy->study->touch();
+
+        });
+    }
+
     public function SubStudy()
     {
         return $this->belongsTo('SubStudy', 'substudy_id');
