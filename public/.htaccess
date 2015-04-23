@@ -2,7 +2,9 @@
     <IfModule mod_negotiation.c>
         Options -MultiViews
     </IfModule>
-
+    # CHECK which option is allowed
+    # Options +FollowSymlinks
+    Options +SymLinksIfOwnerMatch
     RewriteEngine On
 
     # Redirect Trailing Slashes...
