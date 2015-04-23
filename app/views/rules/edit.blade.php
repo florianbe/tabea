@@ -5,7 +5,7 @@
 @section('header', trans('pagestrings.rules_index_header', ['study_name'=>$questiongroup->substudy->study->name, 'substudy_name'=>$questiongroup->substudy->name]))
 
 @section('sidebar')
-    @include('questiongroups.sidebars.detail', ['studyId' => $questiongroup->substudy->study->id, 'substudyId'=> $questiongroup->substudy->id_in_study, 'questiongroupId' => $questiongroup->id_in_substudy, 'hasAccess' => Auth::user()->hasAccessToStudy($questiongroup->substudy->study), 'canContribute' => ($study->hasEditAccess(Auth::user()))])
+    @include('questiongroups.sidebars.detail', ['studyId' => $questiongroup->substudy->study->id, 'substudyId'=> $questiongroup->substudy->id_in_study, 'questiongroupId' => $questiongroup->id_in_substudy, 'hasAccess' => Auth::user()->hasAccessToStudy($questiongroup->substudy->study), 'canContribute' => ($questiongroup->substudy->study->hasEditAccess(Auth::user()))])
 @stop
 
 @section('content')
@@ -40,7 +40,7 @@
         <h2>{{ trans('pagestrings.rules_no_rules_found') }}</h2>
     @endif
     <hr/>
-    @if($questiongroup->substudy->study->isStudyEditable() && ($study->hasEditAccess(Auth::user())))
+    @if($questiongroup->substudy->study->isStudyEditable() && ($questiongroup->substudy->study->hasEditAccess(Auth::user())))
         {{ Form::open(['route' => ['studies.substudies.questiongroups.rules.update', "studies" => $questiongroup->substudy->study->id, "substudies" => $questiongroup->substudy->id_in_study, "questiongroup" => $questiongroup->id_in_substudy, "rules" => $rule->id_in_questiongroup], 'method' => 'PUT']) }}
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -79,7 +79,7 @@
 @section('javascript')
     {{ HTML::script('js/tabea.js') }}
     <script type="text/javascript">
-        @if($questiongroup->substudy->study->isStudyEditable() && ($study->hasEditAccess(Auth::user())))
+        @if($questiongroup->substudy->study->isStudyEditable() && ($questiongroup->substudy->study->hasEditAccess(Auth::user())))
         var m_answer = '{{ trans('pagestrings.rules_delete_confirm') }}';
         var m_success = '{{ trans('pagestrings.rules_delete_successmessage_a') }}';
         var route = '{{route('studies.substudies.questiongroups.rules.destroy',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy, '__id__'])}}';

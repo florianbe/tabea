@@ -36,12 +36,18 @@ class SessionsController extends \BaseController {
 	{
 		$input = Input::only('email', 'password');
 
-		if (Auth::attempt($input))
-		{
+		if (Auth::attempt($input)) {
+			$studies = Study::all();
+			foreach ($studies as $study)
+			{
+				$study->updateStudyState();
+			}
+
             if(Auth::user()->must_reset_password)
             {
                 return Redirect::route('profile.show')->with('message', trans('pagestrings.profile_change_password'));
             }
+
 			return Redirect::intended(route('home'));
 		}
 

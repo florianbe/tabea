@@ -70,7 +70,7 @@
 
                         @endif</div>
                     <div class="col-md-4 text-center"><a class="btn btn-primary" href="{{route('studies.copy', [$study->id])}}">{{ trans('pagestrings.studies_copy_copybutton') }}</a></div>
-                    <div class="col-md-4 text-right">@if($study->hasEditAccess(Auth::user()))<a class="btn btn-primary" href="{{route('studies.edit', [$study->id])}}"><i class="icon-plus-sign"></i>  {{ trans('pagestrings.studies_rmenu_studyedit') }}</a>@endif</div>
+                    <div class="col-md-4 text-right">@if($study->hasEditAccess(Auth::user()) && $study->studystate->code != "ARCHIVED")<a class="btn btn-primary" href="{{route('studies.edit', [$study->id])}}"><i class="icon-plus-sign"></i>  {{ trans('pagestrings.studies_rmenu_studyedit') }}</a>@endif</div>
                 </div>
             </div>
         </div>

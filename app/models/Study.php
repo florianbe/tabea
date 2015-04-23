@@ -49,6 +49,26 @@ class Study extends Eloquent
         return $this->belongsTo('StudyState');
     }
 
+    public function updateStudyState()
+    {
+        if ($this->accessible_from && $this->uploadable_until) {
+            $start_date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $this->accessible_from);
+            $end_date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $this->uploadable_until);
+
+            if (Carbon::now()->gte($start_date)) {
+
+                if (Carbon::now()->gte($end_date) && $this->studystate->code == 'RUNNING') {
+                    $this->studystate()->associate(StudyState::where('code', '=', 'CLOSED')->firstOrFail());
+                    $this->save();
+                }
+                if ($this->studystate->code == 'PLANNED') {
+                    $this->studystate()->associate(StudyState::where('code', '=', 'RUNNING')->firstOrFail());
+                    $this->save();
+                }
+            }
+        }
+    }
+
     public function author()
     {
         return $this->belongsTo('User');

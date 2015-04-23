@@ -30,6 +30,7 @@ class StudyController extends \BaseController
     public function index()
     {
         $studies = Study::all();
+
         return View::make('studies.index')->with(compact('studies'));
     }
 
