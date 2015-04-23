@@ -35,13 +35,15 @@ class CreateStudiesTable extends Migration {
 
             $table->text('name');
             $table->text('short_name', 20);
-            $table->text('description')->nullable();
-            $table->text('comment')->nullable();
             $table->text('studypassword');
 
             $table->dateTime('accessible_from')->nullable();
             $table->dateTime('accessible_until')->nullable();
             $table->dateTime('uploadable_until')->nullable();
+
+            $table->text('description')->nullable();
+            $table->text('comment')->nullable();
+
 
             $table->integer('author_id')->unsigned();
             $table->foreign('author_id')->references('id')->on('users');

@@ -28,5 +28,4 @@ return array(
     'admin_firstname'   => 'Florian',
     'admin_lastname'    => 'Binoeder',
     'admin_password'    => 'password',
-
 );

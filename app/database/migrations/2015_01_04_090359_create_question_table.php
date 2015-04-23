@@ -61,12 +61,13 @@ class CreateQuestionTable extends Migration {
 		Schema::create('optionchoices', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->text('code')->nullable();
-			$table->text('description')->nullable();
-			$table->text('value');
 
 			$table->integer('optiongroup_id')->unsigned();
 			$table->foreign('optiongroup_id')->references('id')->on('optiongroups');
+
+			$table->text('code')->nullable();
+			$table->text('value');
+			$table->text('description')->nullable();
 
 			$table->timestamps();
 		});
@@ -111,16 +112,18 @@ class CreateQuestionTable extends Migration {
 		Schema::create('questions', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->text('shortname');
-			$table->text('text');
-			$table->text('comment')->nullable();
-			$table->integer('sequence_indicator');
-			$table->integer('id_in_questiongroup');
-			$table->boolean('answer_required');
 
 			$table->integer('questiongroup_id')->unsigned();
 			$table->foreign('questiongroup_id')->references('id')->on('questiongroups');
+			$table->integer('id_in_questiongroup');
+			$table->integer('sequence_indicator');
 
+			$table->text('shortname');
+			$table->text('text');
+			$table->boolean('answer_required');
+
+			$table->text('comment')->nullable();
+			
 			$table->integer('questiontype_id')->unsigned();
 			$table->foreign('questiontype_id')->references('id')->on('questiontypes');
 

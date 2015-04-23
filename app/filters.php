@@ -11,9 +11,13 @@
 |
 */
 
-App::before(function($request)
+App::before( function( $request )
 {
-	//
+	if (!Config::get('app.debug')) {
+		if (!Request::secure()) {
+			return Redirect::secure(Request::path());
+		}
+	}
 });
 
 

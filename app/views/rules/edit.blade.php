@@ -23,14 +23,14 @@
             </thead>
             <tbody>
             <h3></h3>
-            @foreach ($questiongroup->rules as $rule)
-                <tr id="{{ 'tr_' . $rule->id_in_questiongroup }}">
+            @foreach ($questiongroup->rules as $rule_item)
+                <tr id="{{ 'tr_' . $rule_item->id_in_questiongroup }}">
                     <td class="vert-align">
                     </td>
-                    <td class="vert-align">{{ $rule->question->shortname }}</td>
-                    <td class="vert-align">{{ $rule->question->text}}</td>
-                    <td class="vert-align">{{ $rule->getAnswerText() }}</td>
-                    <td class="vert-align">{{ $rule->question->questiongroup->shortname }}</td>
+                    <td class="vert-align">{{ $rule_item->question->shortname }}</td>
+                    <td class="vert-align">{{ $rule_item->question->text}}</td>
+                    <td class="vert-align">{{ $rule_item->getAnswerText() }}</td>
+                    <td class="vert-align">{{ $rule_item->question->questiongroup->shortname }}</td>
                 </tr>
             @endforeach
             </tbody>
@@ -72,6 +72,9 @@
                 </div>
             </div>
         </div>
+        <div value="{{$rule->question->questiongroup->id_in_substudy}}" id="qg_val"></div>
+        <div value="{{$rule->question->id_in_questiongroup}}" id="q_val"></div>
+        <div value="{{$rule->getAnswerCode()}}" id="a_val"></div>
         {{ Form::close() }}
     @endif
 @stop
@@ -88,12 +91,14 @@
         var dd_data = jQuery.parseJSON('{{json_encode($dd_data)}}');
 
         $( document ).ready(function() {
+
+
             rules_SetQuestionGroupField();
-            $('#questiongroups').val('{{$rule->question->questiongroup->id_in_substudy}}');
+            $('#questiongroups').val($('#qg_val').attr('value'));
             rules_setQuestionField();
-            $('#questions').val('{{$rule->question->id_in_questiongroup}}');
+            $('#questions').val($('#q_val').attr('value'));
             rules_setAnswerField();
-            $('#answers').val('{{$rule->getAnswerCode()}}');
+            $('#answers').val($('#a_val').attr('value'));
         });
 
         $('#questiongroups').change(function () {

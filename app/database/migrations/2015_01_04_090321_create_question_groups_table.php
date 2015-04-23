@@ -15,20 +15,22 @@ class CreateQuestionGroupsTable extends Migration {
 		Schema::create('questiongroups', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->timestamps();
-
-			$table->integer('id_in_substudy');
 
 			$table->integer('substudy_id')->unsigned();
 			$table->foreign('substudy_id')->references('id')->on('substudies');
 
+			$table->integer('id_in_substudy');
+
 			$table->text('name');
 			$table->text('shortname');
-			$table->text('description')->nullable();
-			$table->text('comment')->nullable();
+
 			$table->integer('sequence_indicator');
 			$table->boolean('random_questionorder');
 
+			$table->text('description')->nullable();
+			$table->text('comment')->nullable();
+
+			$table->timestamps();
 		});
 	}
 

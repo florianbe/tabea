@@ -83,7 +83,7 @@
 <script type="text/javascript">
     $('#qrcodeCanvas').qrcode({
         size: "180",
-        text: "http://tabea.dev:8080/go/2019"
+        text: "{{ url() }}?study={{$study->short_name}}&password={{$study->studypassword}}"
     });
 </script>
 </html>

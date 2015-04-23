@@ -71,10 +71,10 @@ class QuestionGroup extends \Eloquent {
             $question->copy_to_questiongroup($questiongroup);
         }
 
-//        foreach ($this->rules as $rule)
-//        {
-//            $rule->copy_to_questiongroup($questiongroup);
-//        }
+        foreach ($this->rules as $rule)
+        {
+            $rule->copy_to_questiongroup($questiongroup);
+        }
 
         $questiongroup->save();
 

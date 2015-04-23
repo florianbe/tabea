@@ -15,10 +15,7 @@ class StudyController extends \BaseController
         $this->activateStudyForm = $activateStudyForm;
 
         $this->beforeFilter('auth');
-        $this->beforeFilter('is_study_contributor_or_admin', ['only' => ['edit', 'update']]);
-        $this->beforeFilter('is_study_contributor_or_admin', ['only' => ['viewUsers', 'setUsers']]);
-        $this->beforeFilter('is_study_contributor_or_admin', ['only' => ['showRequestsForStudy']]);
-
+        $this->beforeFilter('is_study_contributor_or_admin', ['only' => ['edit', 'update', 'destroy', 'viewUsers', 'setUsers', 'showRequestsForStudy']]);
     }
 
     /**

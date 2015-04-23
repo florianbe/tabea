@@ -15,8 +15,6 @@ class CreateQuestionRulesTable extends Migration {
 		Schema::create('rules', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->timestamps();
-
 
 			$table->integer('question_id')->unsigned();
 			$table->foreign('question_id')->references('id')->on('questions');
@@ -32,6 +30,7 @@ class CreateQuestionRulesTable extends Migration {
 			$table->integer('optionchoice_id')->unsigned()->nullable();
 			$table->foreign('optionchoice_id')->references('id')->on('optionchoices');
 
+			$table->timestamps();
 		});
 
 	}

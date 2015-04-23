@@ -21,7 +21,7 @@
                             <div class="row">
                                 <div class="row">
                                     <div class="col-md-4"><strong>{{trans('pagestrings.studies_accessdata_server')}}:</strong></div>
-                                    <div class="col-md-8">{{ url() }}</div>
+                                    <div class="col-md-8">{{ url()}}</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4"><strong>{{trans('pagestrings.studies_name_long')}}:</strong></div>
@@ -59,7 +59,7 @@
     <script type="text/javascript">
         $('#qrcodeCanvas').qrcode({
             size: "180",
-            text: "http://tabea.dev:8080/go/2019"
+            text: "{{ url() }}?study={{$study->short_name}}&password={{$study->studypassword}}"
         });
     </script>
 @stop

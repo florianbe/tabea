@@ -25,6 +25,7 @@ class CreateRequestsTable extends Migration {
             $table->boolean('as_contributor');
             $table->boolean('is_viewed')->nullable();
             $table->boolean('is_accepted')->nullable();
+
             $table->text('comment')->nullable();
 
 			$table->timestamps();

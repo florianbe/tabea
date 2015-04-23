@@ -46,7 +46,7 @@ Route::group(['before' => 'auth'], function(){
     Route::get('studies/{studies}/copy', ['as' => 'studies.copy', 'uses' => 'StudyController@copyStudy']);
     Route::resource('studies', 'StudyController');
 
-    Route::group(['before' => 'studystate_editable'], function(){
+    Route::group(['before' => ['studystate_editable', 'has_study_access']], function(){
         Route::post('studies/{studies}/substudies/{substudies}/surveytime', ['as' => 'studies.substudies.surveytime.new', 'uses' => 'SubStudyController@newSurveyperiod']);
         Route::get('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.edit', 'uses' => 'SubStudyController@editSurveyperiod']);
         Route::put('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.update', 'uses' => 'SubStudyController@updateSurveyperiod']);
@@ -59,7 +59,7 @@ Route::group(['before' => 'auth'], function(){
         Route::put('studies/{studies}/substudies/{substudies}/questiongroups/{questiongroups}/order', ['as' => 'studies.substudies.questiongroups.questions.updateorder', 'uses' => 'QuestionController@updateOrder']);
         Route::resource('studies.substudies.questiongroups.questions', 'QuestionController');
         Route::resource('studies.substudies.questiongroups.rules', 'RulesController');
-        Route::get('studies/{studies}/substudies/{substudies}/questiongroups/{questiongroups}/questions/{questions}/delete', ['uses' => 'QuestionController@destroy']);
+
     });
 
     /*
@@ -69,9 +69,10 @@ Route::group(['before' => 'auth'], function(){
     Route::resource('requests', 'StudyRequestController', ['except' => ['create']]);
 });
 
-Route::group(['prefix' => 'api/v1'], function(){
-    Route::get('testsubjects/new', function(){ return 'Hi';});
-    Route::get('studydata/{id}', array('uses' => 'ApiController@getStudy'));
+Route::group(['prefix' => 'api/v1/study'], function(){
+    Route::get('/{shortname}/getid', array('as' => 'api.getid', 'uses' => 'ApiController@getStudyId'));
+    Route::get('/{id}/testsubjects/new', function(){ return 'Hi';});
+    Route::get('/{id}/studydata/', array('as' => 'api.getstudy', 'uses' => 'ApiController@getStudy'));
 });
 
 

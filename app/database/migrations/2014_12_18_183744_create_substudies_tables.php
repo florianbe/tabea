@@ -15,28 +15,29 @@ class CreateSubstudiesTables extends Migration {
 		Schema::create('substudies', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->timestamps();
-
-			$table->integer('id_in_study');
 
 			$table->integer('study_id')->unsigned();
 			$table->foreign('study_id')->references('id')->on('studies');
 
+			$table->integer('id_in_study');
+
 			$table->text('name');
-			$table->text('description')->nullable();
-			$table->text('comment')->nullable();
-			$table->integer('sequence_indicator');
 
 			$table->boolean('trigger_is_event');
 			$table->boolean('trigger_is_timefix');
 			$table->integer('trigger_time_interval');
+
+			$table->text('description')->nullable();
+			$table->text('comment')->nullable();
+			$table->integer('sequence_indicator');
+
+			$table->timestamps();
 
 		});
 
         Schema::create('surveyperiods', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->timestamps();
 
 			$table->integer('id_in_substudy');
 
@@ -47,6 +48,8 @@ class CreateSubstudiesTables extends Migration {
 			$table->dateTime('start_date');
 			$table->dateTime('end_date');
 			$table->string('weekday_list');
+
+			$table->timestamps();
         });
 
 	}

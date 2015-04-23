@@ -49,7 +49,7 @@ class Rule extends \Eloquent
     {
         if ($this->is_answer_boolean)
         {
-            return $this->answer_boolean == true ? "1" : "0";
+            return $this->answer_boolean == true ? "1" : "2";
         }
         else
         {
@@ -126,6 +126,8 @@ class Rule extends \Eloquent
             return $q->id_in_questiongroup == $this->question->id_in_questiongroup;
         })->first();
 
+        $rule->id_in_questiongroup = $this->id_in_questiongroup;
+
         $rule->Question()->associate($source_q);
 
         $rule->QuestionGroup()->associate($target_questiongroup);
@@ -140,21 +142,15 @@ class Rule extends \Eloquent
         }
         else
         {
-            $index = 0;
-
-            foreach ($this->question->optiongroup->optionchoices as $choice)
+            foreach($rule->question->optiongroup->optionchoices as $choice)
             {
                 if ($choice->code == $this->optionchoice->code)
                 {
+                    $rule->OptionChoice()->associate($choice);
+                    $rule->save();
                     break;
                 }
-                else
-                {
-                    $index = $index+1;
-                }
             }
-
-            $rule->OptionChoice()->associate($rule->question->optiongroup->optionchoices[$index]);
         }
 
         $rule->save();
