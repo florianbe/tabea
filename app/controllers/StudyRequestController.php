@@ -126,7 +126,7 @@ class StudyRequestController extends \BaseController {
             if ($state == '3' || $state == '4')
             {
                 $as_contrib = ($state == '3' ? false : true);
-                $studyRequest->study->users->attach($studyRequest->requestingUser->id, ['is_contributor' => $as_contrib]);
+                $studyRequest->study->users()->attach($studyRequest->requestingUser->id, ['is_contributor' => $as_contrib]);
 
                 sendMailStudyAccess($study, $studyRequest->requestingUser);
 
