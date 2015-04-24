@@ -11,7 +11,7 @@
 			<p>{{Lang::get('pagestrings.studyrequest_mailaccess_body', ['study_name' => $study_name])}}</p>
 
             <ul>
-            <li>{{ $ink_to_study }}</li>
+            <li>{{ $link_to_study }}</li>
             </ul>
 		</div>
 	</body>
