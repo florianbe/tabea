@@ -172,15 +172,8 @@ class Study extends Eloquent
 
     public function hasEditAccess(User $user)
     {
-        foreach($this->contributors() as $u)
-        {
-            if ($u->id == $user->id)
-            {
-                return true;
-            }
-        }
 
-        return $user->is_admin ? true : false;
+        return $this->contributors->contains($user->id) ? true : ($user->is_admin ? true : false);
 
     }
 

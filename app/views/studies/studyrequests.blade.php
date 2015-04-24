@@ -10,7 +10,7 @@
 @section('content') 
 
 
-    @if( (count($studyRequests) > 0) )
+    @if( (count($study->studyrequests) > 0) )
     <table id="studies" class="table table-striped">
       <thead>
         <tr>
@@ -21,7 +21,7 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($studyRequests as $sRequest)
+        @foreach ($study->studyrequests as $sRequest)
         <tr>
             <td><a href="{{ route('requests.edit', [$sRequest->id]) }}"><i class="fa fa-pencil"></i></a></td>
             <td>{{ !($sRequest->is_viewed) ? trans('pagestrings.studyrequests_index_open') : trans('pagestrings.studyrequests_index_denied') }}</td>
