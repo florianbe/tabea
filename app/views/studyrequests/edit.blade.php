@@ -5,7 +5,8 @@
 @section('header', trans('pagestrings.studyrequests_edit_header', ['study_name' => $studyRequest->study->name]))
 
 @section('sidebar')
-       @include('studies.sidebars.detail', ['studyId' => $studyRequest->study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($studyRequest->study)])
+       @include('studies.sidebars.detail', ['studyId' => $studyRequest->study->id, 'hasAccess' => Auth::user()->hasAccessToStudy($studyRequest->study), 'canContribute' => $studyRequest->study->hasEditAccess(Auth::user())])
+
 @stop
 @section('content')
     {{ Form::open(['route' => ['requests.update',   'requests' => $studyRequest->id], 'method' => 'PUT']) }}
