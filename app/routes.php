@@ -70,7 +70,7 @@ Route::group(['before' => 'auth'], function(){
 });
 
 Route::group(['prefix' => 'api/v1/study'], function(){
-    Route::get('/{shortname}/getid', array('as' => 'api.getid', 'uses' => 'ApiController@getStudyId'));
+    Route::get('/getid', array('as' => 'api.getid', 'uses' => 'ApiController@getStudyId'));
     Route::get('/{id}/testsubjects/new', function(){ return 'Hi';});
     Route::get('/{id}/studydata/', array('as' => 'api.getstudy', 'uses' => 'ApiController@getStudy'));
 });

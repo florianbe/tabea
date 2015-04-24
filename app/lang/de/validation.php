@@ -61,7 +61,7 @@ return array(
     "required_without" => ":attribute muss angegeben werden wenn :values nicht ausgefüllt wurde.",
     "required_without_all" => ":attribute muss angegeben werden wenn keines der Felder :values ausgefüllt wurde.",
     "same"             => ":attribute und :other müssen übereinstimmen.",
-    "step_between"     => ":attribute muss eine mögliche Schrittweite zwischen Anfangs- und Endwert sein.",
+    "stepbetween"     => "Muss eine mögliche :attribute zwischen Anfangs- und Endwert sein.",
     "size"             => array(
         "numeric" => ":attribute muss gleich :size sein.",
         "file"    => ":attribute muss :size Kilobyte groß sein.",

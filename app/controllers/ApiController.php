@@ -9,6 +9,43 @@ class ApiController extends \BaseController {
 	{
 		$this->studyTransformer = $studyTransformer;
 	}
+
+	public function getStudyId()
+	{
+		try
+		{
+			if (Input::has('study') && Input::has('password'))
+			{
+				$short_name = Input::get('study');
+				$studypassword = Input::get('password');
+
+				$studies = Study::where('short_name', '=', $short_name)->where('studypassword', '=', $studypassword)->get();
+
+				foreach ($studies as $study) {
+					if ($study->studystate->code != 'CLOSED' && $study->studystate->code != 'ARCHIVED')
+					{
+						return $study->id;
+					}
+				}
+
+				return "not found";
+
+			}
+			else
+			{
+				return "not found";
+			}
+
+		}
+		catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e)
+		{
+			return "not found";
+		}
+
+
+
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 * GET /api
