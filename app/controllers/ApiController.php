@@ -15,6 +15,8 @@ class ApiController extends \BaseController {
 
 		$data = [];
 
+
+
 		try
 		{
 			if (Input::has('study') && Input::has('password'))
@@ -28,6 +30,7 @@ class ApiController extends \BaseController {
 					if ($study->studystate->code != 'CLOSED' && $study->studystate->code != 'ARCHIVED')
 					{
 						$data['study_id'] = intval($study->id);
+
 						return Response::json(['data' => $data], 200);
 					}
 				}

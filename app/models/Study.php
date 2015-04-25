@@ -144,6 +144,7 @@ class Study extends Eloquent
 
         return parent::delete();
     }
+    
 
     public function copy()
     {

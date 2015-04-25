@@ -85,13 +85,13 @@ class Substudy extends \Eloquent {
 	{
 
 		$carbon_days = [
-			'MO'	=> \Carbon\Carbon::MONDAY,
-			'TU' 	=> \Carbon\Carbon::TUESDAY,
-			'WE'	=> \Carbon\Carbon::WEDNESDAY,
-			'TH'	=> \Carbon\Carbon::THURSDAY,
-			'FR'	=> \Carbon\Carbon::FRIDAY,
-			'SA'	=> \Carbon\Carbon::SATURDAY,
-			'SU'	=> \Carbon\Carbon::SUNDAY
+			\Carbon\Carbon::MONDAY 		=> 'MO',
+			\Carbon\Carbon::TUESDAY 	=> 'TU',
+			\Carbon\Carbon::WEDNESDAY	=> 'WE',
+			\Carbon\Carbon::THURSDAY	=> 'TH',
+			\Carbon\Carbon::FRIDAY		=> 'FR',
+			\Carbon\Carbon::SATURDAY	=> 'SA',
+			\Carbon\Carbon::SUNDAY		=> 'SU'
 		];
 
 		$survey_times = [];
@@ -100,20 +100,57 @@ class Substudy extends \Eloquent {
 		{
 			foreach ($this->surveyperiods as $surv_per)
 			{
-				$signals = [];
 				foreach ($this->surveyperiods as $surv_per) {
+					$step_date = clone $surv_per->start_date;
 
-					$step_date = $surv_per->start_date;
-					$step_time = $surv_per->start_date;
+					$start_date = clone $step_date;
+					$end_time = clone $start_date;
+					$end_time->addHour();
 
-					while ($step_date <= $surv_per->end_date)
+					$end_time->hour = $surv_per->end_date->hour;
+					$end_time->minute = $surv_per->end_date->minute;
+					$end_time->second = $surv_per->end_date->second;
+
+
+					while ($step_date->lte($surv_per->end_date))
 					{
+						if ($surv_per->isDaySet($carbon_days[$step_date->dayOfWeek]))
+						{
 
+							while ($step_date->lte($end_time))
+							{
+
+
+								$add = $this->trigger_time_interval * 60;
+
+								$step_date->addSeconds($add);
+
+								if ($this->getTrigger() == 'FLEX')
+								{
+									$flex = mt_rand(0, $add) - ($add / 2);
+									$step_date->addSeconds($flex);
+								}
+
+								$signal = [];
+								$signal['id'] = count($survey_times);
+								if ($step_date->lte($end_time))
+								{
+									$signal['time'] = $step_date->toDateTimeString();
+									$survey_times[] = $signal;
+								}
+							}
+						}
+						$step_date->addDay();
+						$end_time->addDay();
+						$step_date->hour = $start_date->hour;
+						$step_date->minute = $start_date->minute;
+						$step_date->second = $start_date->second;
 					}
-
 				}
 			}
 		}
+
+		return $survey_times;
 
 	}
 

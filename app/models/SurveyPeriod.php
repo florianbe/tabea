@@ -85,4 +85,14 @@ class SurveyPeriod extends \Eloquent
 		return $this->belongsTo('SubStudy', 'substudy_id');
 	}
 
+	public function getStartTime()
+	{
+		\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $this->start_date);
+	}
+
+	public function getEndTime()
+	{
+		\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $this->start_date);
+	}
+
 }
