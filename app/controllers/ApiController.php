@@ -12,6 +12,9 @@ class ApiController extends \BaseController {
 
 	public function getStudyId()
 	{
+
+		$data = [];
+
 		try
 		{
 			if (Input::has('study') && Input::has('password'))
@@ -24,22 +27,41 @@ class ApiController extends \BaseController {
 				foreach ($studies as $study) {
 					if ($study->studystate->code != 'CLOSED' && $study->studystate->code != 'ARCHIVED')
 					{
-						return $study->id;
+						$data['study_id'] = intval($study->id);
+						return Response::json(['data' => $data], 200);
 					}
 				}
 
-				return "not found";
+				$error = [];
+				$error['code'] = 404;
+				$error['text'] = 'item not found';
+
+				$data['error'] = $error;
+
+				return Response::json(['data' => $data], 200);
 
 			}
 			else
 			{
-				return "not found";
+				$error = [];
+				$error['code'] = 404;
+				$error['text'] = 'item not found';
+
+				$data['error'] = $error;
+
+				return Response::json(['data' => $data], 200);
 			}
 
 		}
 		catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e)
 		{
-			return "not found";
+			$error = [];
+			$error['code'] = 404;
+			$error['text'] = 'item not found';
+
+			$data['error'] = $error;
+
+			return Response::json([$data], 200);
 		}
 
 
