@@ -69,10 +69,11 @@ Route::group(['before' => 'auth'], function(){
     Route::resource('requests', 'StudyRequestController', ['except' => ['create']]);
 });
 
-Route::group(['prefix' => 'api/v1/study'], function(){
-    Route::get('/getid', array('as' => 'api.getid', 'uses' => 'ApiController@getStudyId'));
-    Route::get('/{id}/testsubjects/new', function(){ return 'Hi';});
-    Route::get('/{id}/studydata/', array('as' => 'api.getstudy', 'uses' => 'ApiController@getStudy'));
+Route::group(['prefix' => 'api/v1/'], function(){
+    Route::get('testsubjects/new', array('as' => 'api.user.new', 'uses' => 'ApiController@newUserId'));
+    Route::get('study/getid', array('as' => 'api.study.getid', 'uses' => 'ApiController@getStudyId'));
+    Route::get('study/{id}', array('as' => 'api.study.getstudy', 'uses' => 'ApiController@getStudy'));
+    Route::post('study/{id}', array('as' => 'api.study.poststudy', 'uses' => 'ApiController@postStudyData'));
 });
 
 

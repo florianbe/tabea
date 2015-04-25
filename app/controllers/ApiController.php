@@ -15,8 +15,6 @@ class ApiController extends \BaseController {
 
 		$data = [];
 
-
-
 		try
 		{
 			if (Input::has('study') && Input::has('password'))
@@ -69,6 +67,28 @@ class ApiController extends \BaseController {
 
 
 
+	}
+
+	public function newUserId()
+	{
+		$test_subject = new TestSubject;
+
+		$ts_names = TestSubjectNames::all();
+		$test_subject->name_text = $ts_names[rand(0, count($ts_names)-1)]->name;
+
+		$testsubjects = TestSubject::all();
+		$test_subject->name_counter = count($testsubjects) > 0 ? $testsubjects->max('name_counter') + 1 : 1;
+
+		$test_subject->save();
+
+		$data = [];
+		$test_subject_data = [];
+		$test_subject_data['id'] = $test_subject->id;
+		$test_subject_data['name'] = $test_subject->getSubjectName();
+
+		$data['testsubject'] = $test_subject_data;
+
+		return Response::json(['data' => $data], 200);
 	}
 
 	/**
