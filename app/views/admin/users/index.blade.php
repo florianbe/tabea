@@ -22,8 +22,7 @@
         <h3></h3>
         @foreach ($users as $user)
         <tr>
-          <td><a href="{{ action('UsersController@edit', [$user->id]) }}"><i class="fa fa-pencil"></i></a>&nbsp&nbsp
-          <a href="{{ action('UsersController@show', [$user->id]) }}"><i class="fa fa-list"></i></a></td>
+          <td><a href="{{ action('UsersController@edit', [$user->id]) }}"><i class="fa fa-pencil"></i></a></td>
           <td>{{ $user->last_name }}</td>
           <td>{{ $user->first_name }}</td>
           <td><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
@@ -46,8 +45,7 @@
                 <h3></h3>
                 @foreach ($admins as $admin)
                 <tr>
-                  <td><a href="{{ action('UsersController@edit', [$admin->id]) }}"><i class="fa fa-pencil"></i></a>&nbsp&nbsp
-                  <a href="{{ action('UsersController@show', [$admin->id]) }}"><i class="fa fa-list"></i></a></td>
+                  <td><a href="{{ action('UsersController@edit', [$admin->id]) }}"><i class="fa fa-pencil"></i></a></td>
                   <td>{{ $admin->last_name }}</td>
                   <td>{{ $admin->first_name }}</td>
                   <td><a href="mailto:{{ $admin->email }}">{{ $admin->email }}</a></td>
