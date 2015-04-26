@@ -18,9 +18,11 @@
             $data['id']                 = intval($study->id);
             $data['title']              = $study->name;
             $data['description']        = $study->description;
-            $data['start_date']         = $study->accessible_from;
-            $data['end_date']           = $study->accessible_until;
-            $data['finalupload_date']   = $study->uploadable_until;
+            $data['version']            = $study->updated_at->toDateTimeString();
+            $data['start_date']         = $study->accessible_from->toDateTimeString();
+            $data['end_date']           = $study->accessible_until->toDateTimeString();
+            $data['finalupload_date']   = $study->uploadable_until->toDateTimeString();
+
 
             $data['state']  = $study->studystate->code == 'DESIGN' ? 'DRAFT' : 'PUBLISHED';
 
@@ -37,20 +39,7 @@
                 $ss_data['trigger']     = $substudy->getTrigger();
                 $ss_data['trigger_interval']    = $substudy->getTriggerInterval();
 
-                //SURVEY PERIOD
-                $surveyperiods = [];
-                foreach ($substudy->surveyperiods as $surv_per)
-                {
-                    $sp_data = [];
-
-                    $sp_data['id']          = count($surveyperiods) + 1;
-                    $sp_data['start_date']  = $surv_per->start_date;
-                    $sp_data['end_date']    = $surv_per->end_date;
-                    $sp_data['days']        = $surv_per->getWeekdays();
-
-                    $surveyperiods[ count($surveyperiods) + 1]   = $sp_data;
-                }
-                $ss_data['surveyperiods']   = $surveyperiods;
+                $ss_data['trigger_signals']     = $substudy->getSurveyTimes();
 
                 //QUESTION GROUPS
                 $questiongroups = [];
@@ -58,22 +47,78 @@
                 {
                     $qg_data = [];
 
-                    $qg_data['id']          = $qg->id_in_substudy;
+                    $qg_data['id']          = intval($qg->id_in_substudy);
                     $qg_data['name']        = $qg->name;
-                    $qg_data['seq_id']      = $qg->sequence_indicator;
+                    $qg_data['seq_id']      = intval($qg->sequence_indicator);
                     $qg_data['random_order']    = (boolean) $qg->random_questionorder;
-                    //QUESTIONS
-
-
-
+                    $qg_data['questions']   = [];
 
                     //RULES
+                    if ($qg->rules && count($qg->rules) > 0)
+                    {
+                        $qg_data['rules'] = [];
+                        foreach($qg->rules as $rule)
+                        {
+                            $r_data = [];
+                            $r_data['question_id']      = intval($rule->question_id);
+                            $r_data['answer_value']     = $rule->getAnswerCode();
 
-                    $questiongroups[count($questiongroups) + 1] = $qg_data;
+                            $qg_data['rules'][] = $r_data;
+                        }
+                    }
+
+                    //QUESTIONS
+                    foreach($qg->questions as $q)
+                    {
+                        $q_data = [];
+                        $q_data['id']                   = intval($q->id);
+                        $q_data['id_in_questiongroup']   = intval($q->id_in_questiongroup);
+                        $q_data['seq_id']               = intval($q->sequence_indicator);
+                        $q_data['tpye']                 = $q->questiontype->code;
+                        $q_data['mandatory']            = (boolean) $q->answer_required;
+                        $q_data['text']                 = $q->text;
+
+                        //RESTRICTIONS
+                        if($q->questionrestriction)
+                        {
+                            if ($q->min_numeric || $q->min_integer)
+                            {
+                                $q_data['min']      =   $q->min_numeric ? $q->min_numeric : $q->min_integer;
+                            }
+                            if ($q->max_numeric || $q->max_integer)
+                            {
+                                $q_data['max']      =   $q->max_numeric ? $q->max_numeric : $q->max_integer;
+                            }
+                            if ($q->step_numeric || $q->step_integer)
+                            {
+                                $q_data['step']      =   $q->step_numeric ? $q->step_numeric : $q->step_integer;
+                            }
+                        }
+
+                        //OPTIONS
+                        if ($q->optiongroup)
+                        {
+                            $op_data = [];
+                            foreach($q->optiongroup->optionchoices as $oc)
+                            {
+                                $oc_data = [];
+                                $oc_data['code']        = $oc->code;
+                                $oc_data['description'] = $oc->description;
+                                $oc_data['value']       = $oc->value;
+
+                                $op_data[count($op_data) + 1] = $oc_data;
+                            }
+                            $q_data['options'] = $oc_data;
+                        }
+
+                        $qg_data['questions'][] = $q_data;
+                    }
+
+                    $questiongroups[] = $qg_data;
                 }
                 $ss_data['questiongroups']   = $questiongroups;
 
-                $substudies[count($substudies) +1] = $ss_data;
+                $substudies[] = $ss_data;
             }
             $data['substudies']     = $substudies;
             return $data;

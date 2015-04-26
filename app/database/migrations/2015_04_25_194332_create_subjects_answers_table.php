@@ -52,6 +52,8 @@ class CreateSubjectsAnswersTable extends Migration {
 			$table->integer('question_id')->unsigned();
 			$table->foreign('question_id')->references('id')->on('questions');
 
+			$table->boolean('test');
+
 			$table->integer('answergroup');
 
 			$table->string('answer');

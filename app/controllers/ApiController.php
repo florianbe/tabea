@@ -101,8 +101,6 @@ class ApiController extends \BaseController {
 	{
 		$study = Study::findOrFail($id);
 
-
-
 		return Response::json([
 			'data'	=>	$this->studyTransformer->transform($study)
 			],200
