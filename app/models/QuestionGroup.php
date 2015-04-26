@@ -13,6 +13,7 @@ class QuestionGroup extends \Eloquent {
         {
             //Touch associated Study
             $questiongroup->substudy->study->touch();
+            $questiongroup->substudy->touch();
 
         });
     }

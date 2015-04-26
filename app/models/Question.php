@@ -11,9 +11,10 @@ class Question extends \Eloquent {
         // Attach event handler, on saving
         Question::saving(function($question)
         {
-            //Touch associated Study
+            //Touch associated models
             $question->questiongroup->substudy->study->touch();
-
+            $question->questiongroup->substudy->touch();
+            $question->questiongroup->touch();
         });
     }
 

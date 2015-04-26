@@ -36,6 +36,7 @@
                 $ss_data['id']          = intval($substudy->id_in_study);
                 $ss_data['title']       = $substudy->name;
                 $ss_data['description'] = $substudy->description;
+                $ss_data['version']     = $substudy->updated_at->toDateTimeString();
                 $ss_data['trigger']     = $substudy->getTrigger();
                 $ss_data['trigger_interval']    = $substudy->getTriggerInterval();
 
@@ -49,6 +50,7 @@
 
                     $qg_data['id']          = intval($qg->id_in_substudy);
                     $qg_data['name']        = $qg->name;
+                    $qg_data['version']     = $qg->updated_at->toDateTimeString();
                     $qg_data['seq_id']      = intval($qg->sequence_indicator);
                     $qg_data['random_order']    = (boolean) $qg->random_questionorder;
                     $qg_data['questions']   = [];
@@ -72,8 +74,9 @@
                     {
                         $q_data = [];
                         $q_data['id']                   = intval($q->id);
-                        $q_data['id_in_questiongroup']   = intval($q->id_in_questiongroup);
+                        $q_data['id_in_questiongroup']  = intval($q->id_in_questiongroup);
                         $q_data['seq_id']               = intval($q->sequence_indicator);
+                        $q_data['version']              = $q->updated_at->toDateTimeString();
                         $q_data['tpye']                 = $q->questiontype->code;
                         $q_data['mandatory']            = (boolean) $q->answer_required;
                         $q_data['text']                 = $q->text;

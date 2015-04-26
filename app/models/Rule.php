@@ -12,9 +12,10 @@ class Rule extends \Eloquent
         // Attach event handler, on saving
         Rule::saving(function($rule)
         {
-            //Touch associated Study
+            //Touch associated Models
             $rule->questiongroup->substudy->study->touch();
-
+            $rule->questiongroup->substudy->touch();
+            $rule->questiongroup->touch();
         });
     }
 

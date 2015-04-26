@@ -72,6 +72,7 @@ Route::group(['before' => 'auth'], function(){
 Route::group(['prefix' => 'api/v1/'], function(){
     Route::get('testsubjects/new', array('as' => 'api.user.new', 'uses' => 'ApiController@newUserId'));
     Route::get('study/getid', array('as' => 'api.study.getid', 'uses' => 'ApiController@getStudyId'));
+    Route::get('study/{id}/version', array('as' => 'api.study.getstudyversion', 'uses' => 'ApiController@getStudyVersion'));
     Route::get('study/{id}', array('as' => 'api.study.getstudy', 'uses' => 'ApiController@getStudy'));
     Route::post('study/{id}', array('as' => 'api.study.poststudy', 'uses' => 'ApiController@postStudyData'));
 });
