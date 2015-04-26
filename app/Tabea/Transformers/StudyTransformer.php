@@ -12,19 +12,19 @@
 
         public function transform($study)
         {
-            $data = [];
+            $s_data = [];
 
             //STUDY
-            $data['id']                 = intval($study->id);
-            $data['title']              = $study->name;
-            $data['description']        = $study->description;
-            $data['version']            = $study->updated_at->toDateTimeString();
-            $data['start_date']         = $study->accessible_from->toDateTimeString();
-            $data['end_date']           = $study->accessible_until->toDateTimeString();
-            $data['finalupload_date']   = $study->uploadable_until->toDateTimeString();
+            $s_data['id']                 = intval($study->id);
+            $s_data['title']              = $study->name;
+            $s_data['description']        = $study->description;
+            $s_data['version']            = $study->updated_at->toDateTimeString();
+            $s_data['start_date']         = $study->accessible_from->toDateTimeString();
+            $s_data['end_date']           = $study->accessible_until->toDateTimeString();
+            $s_data['finalupload_date']   = $study->uploadable_until->toDateTimeString();
 
 
-            $data['state']  = $study->studystate->code == 'DESIGN' ? 'DRAFT' : 'PUBLISHED';
+            $s_data['state']  = $study->studystate->code == 'DESIGN' ? 'DRAFT' : 'PUBLISHED';
 
             //SUBSTUDIES
             $substudies = [];
@@ -120,7 +120,9 @@
 
                 $substudies[] = $ss_data;
             }
-            $data['substudies']     = $substudies;
+            $s_data['substudies']     = $substudies;
+            $data['study'] = $s_data;
+
             return $data;
         }
 

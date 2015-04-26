@@ -4,6 +4,11 @@ class ApiController extends \BaseController {
 
 
 	protected $studyTransformer;
+	protected $error_messages = [
+		'not_found'		=>	[ 'code' => 484, 'message' => 'item not found'],
+		'unauthorized'	=>	[ 'code' => 481, 'message' => 'user not authorized'],
+		'deprecated'	=>	[ 'code' => 486, 'message' => 'deprecated study version']
+	];
 
 	function __construct(\Tabea\Transformers\StudyTransformer $studyTransformer)
 	{
@@ -12,7 +17,6 @@ class ApiController extends \BaseController {
 
 	public function getStudyId()
 	{
-
 		$data = [];
 
 		try
@@ -32,41 +36,20 @@ class ApiController extends \BaseController {
 						return Response::json(['data' => $data], 200);
 					}
 				}
-
-				$error = [];
-				$error['code'] = 404;
-				$error['text'] = 'item not found';
-
-				$data['error'] = $error;
-
+				$data['error'] = $this->error_messages['not_found'];
 				return Response::json(['data' => $data], 200);
-
 			}
 			else
 			{
-				$error = [];
-				$error['code'] = 404;
-				$error['text'] = 'item not found';
-
-				$data['error'] = $error;
-
+				$data['error'] = $this->error_messages['not_found'];
 				return Response::json(['data' => $data], 200);
 			}
-
 		}
 		catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e)
 		{
-			$error = [];
-			$error['code'] = 404;
-			$error['text'] = 'item not found';
-
-			$data['error'] = $error;
-
+			$data['error'] = $this->error_messages['not_found'];
 			return Response::json([$data], 200);
 		}
-
-
-
 	}
 
 	public function newUserId()
@@ -77,6 +60,15 @@ class ApiController extends \BaseController {
 		$test_subject->name_text = $ts_names[rand(0, count($ts_names)-1)]->name;
 
 		$testsubjects = TestSubject::all();
+		$testsubjects = $testsubjects->filter(function($ts) use ($test_subject)
+		{
+			if($ts->name_text == $test_subject->name_text)
+			{
+				return $ts;
+			}
+
+		});
+
 		$test_subject->name_counter = count($testsubjects) > 0 ? $testsubjects->max('name_counter') + 1 : 1;
 
 		$test_subject->save();
@@ -91,90 +83,31 @@ class ApiController extends \BaseController {
 		return Response::json(['data' => $data], 200);
 	}
 
-	/**
-	 * Display a listing of the resource.
-	 * GET /api
-	 *
-	 * @return Response
-	 */
+
 	public function getStudy($id)
 	{
-		$study = Study::findOrFail($id);
-
-		return Response::json([
-			'data'	=>	$this->studyTransformer->transform($study)
-			],200
-		);
+		try
+		{
+			$study = Study::findOrFail($id);
+			if ( Input::has('password') && Input::get('password') == $study->studypassword)
+			{
+				return Response::json([
+					'data'	=>	$this->studyTransformer->transform($study)
+				],200);
+			}
+			else
+			{
+				$data['error'] = $this->error_messages['unauthorized'];
+				return Response::json(['data' => $data], 200);
+			}
+		}
+		catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e)
+		{
+			$data['error'] = $this->error_messages['not_found'];
+			return Response::json([$data], 200);
+		}
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /api/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /api
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-	/**
-	 * Display the specified resource.
-	 * GET /api/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /api/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /api/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /api/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+	
 
 }
