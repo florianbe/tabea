@@ -16,6 +16,12 @@ class Rule extends \Eloquent
             $rule->questiongroup->substudy->study->touch();
             $rule->questiongroup->substudy->touch();
             $rule->questiongroup->touch();
+
+            $rule->version ? $rule->version = $rule->version + 1 : $rule->version = 1;
+            $rule->questiongroup->version ? $rule->questiongroup->version = $rule->questiongroup->version + 1 : $rule->questiongroup->version = 1;
+            $rule->questiongroup->substudy->version ? $rule->questiongroup->substudy->version = $rule->questiongroup->substudy->version + 1 : $rule->questiongroup->substudy->version = 1;
+            $rule->questiongroup->substudy->study->version ? $rule->questiongroup->substudy->study->version = $rule->questiongroup->substudy->study->version + 1 : $rule->questiongroup->substudy->study->version = 1;
+
         });
     }
 

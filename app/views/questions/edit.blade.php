@@ -78,7 +78,7 @@
                     </div>
 
                     <div class="col-md-6 typeoption selfsinglechoice multichoice">
-                        {{ Bootstrap::textarea('selfdef_choice', trans('pagestrings.question_selfdef_values'), $question->questionrestriction ? $question->GetSelfDefValues() : null, [], ['rows' => '5'])}}
+                        {{ Bootstrap::textarea('selfdef_choice', trans('pagestrings.question_selfdef_values'), $question->GetSelfDefValues() ? $question->GetSelfDefValues() : null, [], ['rows' => '5'])}}
                         <p class="bg-primary text-center">{{trans('pagestrings.question_choice_selfdef_info')}}</p>
                         {{ show_errors_for('selfdef_choice', $errors) }}
                     </div>
@@ -118,8 +118,8 @@
         };
 
         $(document).ready(function(){
-            showSelfsinglechoide();
             showOptions();
+            showSelfsinglechoide();
         });
 
         $('#questiontype').change(function(){

@@ -12,7 +12,8 @@ class Substudy extends \Eloquent {
 		{
 			//Touch associated Study
 			$substudy->study->touch();
-
+			$substudy->version ? $substudy->version = $substudy->version + 1 : $substudy->version = 1;
+			$substudy->study->version ? $substudy->study->version = $substudy->study->version + 1 : $substudy->study->version = 1;
 		});
 	}
 

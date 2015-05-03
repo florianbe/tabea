@@ -76,6 +76,7 @@ class QuestionController extends \BaseController {
 			// Get mandatory restrictions according to questiontype
 			$questionType = QuestionType::where('code', '=', strtoupper(Input::get('questiontype')))->firstOrFail();
 			$optiongroup_preset = null;
+			$optionGroup = null;
 
 			$this->questionForm->setRules('shortname', $this->questionForm->getRules('shortname') . 'NULL,id,questiongroup_id,' .  $questiongroup->id);
 
@@ -336,7 +337,7 @@ class QuestionController extends \BaseController {
 			{
 				$question->OptionGroup()->associate($optionGroup);
 			}
-			if (strtoupper(Input::get('questiontype')) == 'SINGLECHOICE')
+			elseif (strtoupper(Input::get('questiontype')) == 'SINGLECHOICE')
 			{
 				$question->OptionGroup()->associate($optiongroup_preset);
 			}

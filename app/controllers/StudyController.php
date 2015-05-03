@@ -72,7 +72,7 @@ class StudyController extends \BaseController
             $study->fill(Input::only('name', 'short_name', 'studypassword', 'comment', 'description', 'accessible_from', 'accessible_until', 'uploadable_until'));
 
             $studystate = StudyState::where('code', '=', 'DESIGN')->firstOrFail();
-
+            $study->version = 1;
 
             $study->studystate()->associate($studystate);
             $study->author()->associate(Auth::user());
@@ -189,7 +189,7 @@ class StudyController extends \BaseController
             } else if ($study->isStateEditable()) {
                 $study->studystate()->associate($studystate);
             }
-
+            $study->version = $study->version + 1;
             $study->save();
 
             return Redirect::route('studies.show', ['study' => $study->id])->with('message', trans('pagestrings.studies_edit_successmessage'))->with('val_msg', null);

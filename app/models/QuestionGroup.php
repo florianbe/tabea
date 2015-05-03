@@ -15,6 +15,11 @@ class QuestionGroup extends \Eloquent {
             $questiongroup->substudy->study->touch();
             $questiongroup->substudy->touch();
 
+            $questiongroup->version ? $questiongroup->version = $questiongroup->version + 1 : $questiongroup->version = 1;
+            $questiongroup->version ? $questiongroup->version = $questiongroup->version + 1 : $questiongroup->version = 1;
+            $questiongroup->substudy->version ? $questiongroup->substudy->version = $questiongroup->substudy->version + 1 : $questiongroup->substudy->version = 1;
+            $questiongroup->substudy->study->version ? $questiongroup->substudy->study->version = $questiongroup->substudy->study->version + 1 : $questiongroup->substudy->study->version = 1;
+
         });
     }
 
