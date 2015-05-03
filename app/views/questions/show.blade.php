@@ -85,8 +85,8 @@
                                     @endif
                                     @if ($question->questiontype->code == 'SINGLECHOICE')
                                         <div class="col-md-5">
-                                            <div class="row text-right"><strong>{{ trans('pagestrings.question_optiongroup') }}</strong></div>
-                                            <div class="row text-right">{{ $question->optiongroup->code ? trans('pagestrings.question_optiongroup_' . $question->optiongroup->code) : '' }}</div>
+                                            <div class="row text-right"><strong>{{ $question->optiongroup->is_predefined ? trans('pagestrings.question_optiongroup' . $question->optiongroup->code) : '' }}</strong></div>
+                                            <div class="row text-right">{{ $question->optiongroup->is_predefined ? trans('pagestrings.question_optiongroup_' . $question->optiongroup->code) : '' }}</div>
                                         </div>
                                         <div class="col-md-1"></div>
                                     @endif
