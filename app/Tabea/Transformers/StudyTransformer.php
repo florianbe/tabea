@@ -18,7 +18,7 @@
             $s_data['id']                 = intval($study->id);
             $s_data['title']              = $study->name;
             $s_data['description']        = $study->description;
-            $s_data['version']            = $study->updated_at->toDateTimeString();
+            $s_data['version']            = intval($study->version);
             $s_data['start_date']         = $study->accessible_from->toDateTimeString();
             $s_data['end_date']           = $study->accessible_until->toDateTimeString();
             $s_data['finalupload_date']   = $study->uploadable_until->toDateTimeString();
@@ -36,9 +36,8 @@
                 $ss_data['id']          = intval($substudy->id_in_study);
                 $ss_data['title']       = $substudy->name;
                 $ss_data['description'] = $substudy->description;
-                $ss_data['version']     = $substudy->updated_at->toDateTimeString();
+                $ss_data['version']     = intval($substudy->version);
                 $ss_data['trigger']     = $substudy->getTrigger();
-                $ss_data['trigger_interval']    = $substudy->getTriggerInterval();
 
                 $ss_data['trigger_signals']     = $substudy->getSurveyTimes();
 
@@ -50,7 +49,7 @@
 
                     $qg_data['id']          = intval($qg->id_in_substudy);
                     $qg_data['name']        = $qg->name;
-                    $qg_data['version']     = $qg->updated_at->toDateTimeString();
+                    $qg_data['version']     = intval($qg->version);
                     $qg_data['seq_id']      = intval($qg->sequence_indicator);
                     $qg_data['random_order']    = (boolean) $qg->random_questionorder;
                     $qg_data['questions']   = [];
@@ -76,7 +75,7 @@
                         $q_data['id']                   = intval($q->id);
                         $q_data['id_in_questiongroup']  = intval($q->id_in_questiongroup);
                         $q_data['seq_id']               = intval($q->sequence_indicator);
-                        $q_data['version']              = $q->updated_at->toDateTimeString();
+                        $q_data['version']              = intval($q->version);
                         $q_data['tpye']                 = $q->questiontype->code;
                         $q_data['mandatory']            = (boolean) $q->answer_required;
                         $q_data['text']                 = $q->text;
@@ -101,6 +100,7 @@
                         //OPTIONS
                         if ($q->optiongroup)
                         {
+
                             $op_data = [];
                             foreach($q->optiongroup->optionchoices as $oc)
                             {
@@ -111,7 +111,7 @@
 
                                 $op_data[count($op_data) + 1] = $oc_data;
                             }
-                            $q_data['options'] = $oc_data;
+                            $q_data['options'][] = $op_data;
                         }
 
                         $qg_data['questions'][] = $q_data;
@@ -124,9 +124,9 @@
                 $substudies[] = $ss_data;
             }
             $s_data['substudies']     = $substudies;
-            $data['study'] = $s_data;
 
-            return $data;
+
+            return $s_data;
         }
 
     }

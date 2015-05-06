@@ -6,8 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c4cf31e-4872-4c8e-a207-9cdde5289d48" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questions/show.blade.php" afterPath="$PROJECT_DIR$/app/views/questions/show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ApiController.php" afterPath="$PROJECT_DIR$/app/controllers/ApiController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Tabea/Transformers/StudyTransformer.php" afterPath="$PROJECT_DIR$/app/Tabea/Transformers/StudyTransformer.php" />
     </list>
     <ignored path="tabea.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,6 +42,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="StudyTransformer.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Tabea/Transformers/StudyTransformer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.5" vertical-offset="1443" max-vertical-offset="2055">
+              <caret line="121" column="63" selection-start-line="121" selection-start-column="63" selection-end-line="121" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="QuestionController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/QuestionController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -52,10 +62,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/questions/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39215687" vertical-offset="1065" max-vertical-offset="2070">
+            <state vertical-scroll-proportion="-10.0" vertical-offset="1065" max-vertical-offset="2070">
               <caret line="87" column="44" selection-start-line="87" selection-start-column="44" selection-end-line="87" selection-end-column="44" />
               <folding>
                 <marker date="1430687206000" expanded="true" signature="310:759" placeholder="..." />
@@ -66,10 +76,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.333333" vertical-offset="514" max-vertical-offset="1350">
+              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/ApiController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.75980395" vertical-offset="1965" max-vertical-offset="2595">
+              <caret line="162" column="39" selection-start-line="162" selection-start-column="39" selection-end-line="162" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="SubStudy.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/SubStudy.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.125" vertical-offset="15" max-vertical-offset="3075">
+            <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="3075">
               <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="15" selection-end-column="130" />
               <folding />
             </state>
@@ -127,9 +157,7 @@
         <option value="$PROJECT_DIR$/app/models/TestSubjectNames.php" />
         <option value="$PROJECT_DIR$/app/models/TestSubject.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_04_25_194332_create_subjects_answers_table.php" />
-        <option value="$PROJECT_DIR$/app/Tabea/Transformers/StudyTransformer.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
-        <option value="$PROJECT_DIR$/app/controllers/ApiController.php" />
         <option value="$PROJECT_DIR$/app/views/admin/users/index.blade.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_05_03_195401_add_version_columns.php" />
         <option value="$PROJECT_DIR$/app/models/SubStudy.php" />
@@ -140,6 +168,8 @@
         <option value="$PROJECT_DIR$/app/views/questions/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/QuestionController.php" />
         <option value="$PROJECT_DIR$/app/views/questions/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Tabea/Transformers/StudyTransformer.php" />
+        <option value="$PROJECT_DIR$/app/controllers/ApiController.php" />
       </list>
     </option>
   </component>
@@ -365,7 +395,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="questions/show&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questions/show.blade.php&#10;question&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Question.php&#10;questionc&#9;null&#9;null&#10;studycon&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/StudyController.php&#10;rul&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Rule.php&#10;rout&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/routes.php&#10;apicon&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/ApiController.php&#10;studytr&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/Tabea/Transformers/StudyTransformer.php&#10;questiongroup&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/QuestionGroup.php&#10;tests&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/TestSubject.php&#10;rule&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Rule.php&#10;optiongroup&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/OptionGroup.php&#10;Question.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Question.php&#10;substu&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SubStudy.php&#10;test&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/TestSubject.php&#10;questiongroupcon&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/QuestionGroupController.php&#10;S&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SurveyPeriod.php&#10;substudy&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SubStudy.php&#10;surv&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SurveyPeriod.php&#10;study.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Study.php&#10;study&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/StudyController.php&#10;api&#9;null&#9;null&#10;lang/&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang&#10;fil&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/filters.php&#10;Study.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Study.php&#10;stud&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/studies/studyrequests.blade.php&#10;studyre&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/studies/studyrequests.blade.php&#10;stu&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/StudyController.php&#10;page&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang/de/pagestrings.php&#10;helper&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/Tabea/helpers.php&#10;studyrequ&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/StudyRequestController.php&#10;app.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/config/app.php&#10;routes.p&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/routes.php&#10;composer.json&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/composer.json&#10;ma&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/config/mail.php&#10;route&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/routes.php&#10;questiongrou&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/QuestionGroup.php&#10;sub&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SubStudy.php&#10;rules/ed&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/rules/edit.blade.php&#10;RuleCon&#9;null&#9;null&#10;studies/sho&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/studies/show.blade.php&#10;Sub&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SubStudy.php&#10;Survep&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SurveyPeriod.php&#10;Substu&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SubStudy.php&#10;QuestionG&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/QuestionGroup.php&#10;que&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Question.php&#10;optionch&#9;null&#9;null&#10;question.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Question.php&#10;pages&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang/de/pagestrings.php&#10;questiongroups/show&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questiongroups/show.blade.php" />
+    <property name="SearchEverywhereHistoryKey" value="studytrans&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/Tabea/Transformers/StudyTransformer.php&#10;apicon&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/ApiController.php&#10;routes.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/routes.php&#10;questions/show&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/questions/show.blade.php&#10;question&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Question.php&#10;questionc&#9;null&#9;null&#10;studycon&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/StudyController.php&#10;rul&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Rule.php&#10;rout&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/routes.php&#10;studytr&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/Tabea/Transformers/StudyTransformer.php&#10;questiongroup&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/QuestionGroup.php&#10;tests&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/TestSubject.php&#10;rule&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Rule.php&#10;optiongroup&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/OptionGroup.php&#10;Question.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Question.php&#10;substu&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SubStudy.php&#10;test&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/TestSubject.php&#10;questiongroupcon&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/QuestionGroupController.php&#10;S&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SurveyPeriod.php&#10;substudy&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SubStudy.php&#10;surv&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SurveyPeriod.php&#10;study.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Study.php&#10;study&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/StudyController.php&#10;api&#9;null&#9;null&#10;lang/&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang&#10;fil&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/filters.php&#10;Study.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Study.php&#10;stud&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/studies/studyrequests.blade.php&#10;studyre&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/studies/studyrequests.blade.php&#10;stu&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/StudyController.php&#10;page&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/lang/de/pagestrings.php&#10;helper&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/Tabea/helpers.php&#10;studyrequ&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/controllers/StudyRequestController.php&#10;app.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/config/app.php&#10;routes.p&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/routes.php&#10;composer.json&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/composer.json&#10;ma&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/config/mail.php&#10;route&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/routes.php&#10;questiongrou&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/QuestionGroup.php&#10;sub&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SubStudy.php&#10;rules/ed&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/rules/edit.blade.php&#10;RuleCon&#9;null&#9;null&#10;studies/sho&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/views/studies/show.blade.php&#10;Sub&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SubStudy.php&#10;Survep&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SurveyPeriod.php&#10;Substu&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/SubStudy.php&#10;QuestionG&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/QuestionGroup.php&#10;que&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Question.php&#10;optionch&#9;null&#9;null&#10;question.php&#9;FILE&#9;file:///Users/lankin/src/laravel/code/tabea/app/models/Question.php" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.General" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -710,22 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Tabea/Transformers/StudyTransformer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5792683" vertical-offset="0" max-vertical-offset="2055">
-          <caret line="38" column="84" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51829267" vertical-offset="1095" max-vertical-offset="2535">
-          <caret line="107" column="48" selection-start-line="107" selection-start-column="48" selection-end-line="107" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Answer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1008">
@@ -737,13 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0060975607" vertical-offset="321" max-vertical-offset="1305">
           <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6292482" vertical-offset="364" max-vertical-offset="1350">
-          <caret line="74" column="34" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -779,14 +786,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/SubStudy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.125" vertical-offset="15" max-vertical-offset="3075">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="15" selection-end-column="130" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/QuestionGroup.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30643514" vertical-offset="15" max-vertical-offset="1410">
@@ -807,14 +806,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.6127451" vertical-offset="3225" max-vertical-offset="4695">
           <caret line="191" column="50" selection-start-line="191" selection-start-column="50" selection-end-line="191" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Study.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.875" vertical-offset="75" max-vertical-offset="3000">
-          <caret line="24" column="81" selection-start-line="24" selection-start-column="81" selection-end-line="24" selection-end-column="81" />
           <folding />
         </state>
       </provider>
@@ -841,6 +832,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/questions/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0" vertical-offset="1065" max-vertical-offset="2070">
+          <caret line="87" column="44" selection-start-line="87" selection-start-column="44" selection-end-line="87" selection-end-column="44" />
+          <folding>
+            <marker date="1430687206000" expanded="true" signature="310:759" placeholder="..." />
+            <marker date="1430687206000" expanded="true" signature="340:758" placeholder="..." />
+            <marker date="1430687206000" expanded="true" signature="9143:9366" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/SubStudy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="3075">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="15" selection-end-column="130" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/QuestionController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.25" vertical-offset="4911" max-vertical-offset="6885">
@@ -849,15 +860,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/questions/show.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/models/Study.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39215687" vertical-offset="1065" max-vertical-offset="2070">
-          <caret line="87" column="44" selection-start-line="87" selection-start-column="44" selection-end-line="87" selection-end-column="44" />
-          <folding>
-            <marker date="1430687206000" expanded="true" signature="310:759" placeholder="..." />
-            <marker date="1430687206000" expanded="true" signature="340:758" placeholder="..." />
-            <marker date="1430687206000" expanded="true" signature="9143:9366" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="-11.875" vertical-offset="75" max-vertical-offset="3000">
+          <caret line="24" column="81" selection-start-line="24" selection-start-column="81" selection-end-line="24" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Tabea/Transformers/StudyTransformer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.5" vertical-offset="1443" max-vertical-offset="2055">
+          <caret line="121" column="63" selection-start-line="121" selection-start-column="63" selection-end-line="121" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.333333" vertical-offset="514" max-vertical-offset="1350">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75980395" vertical-offset="1965" max-vertical-offset="2595">
+          <caret line="162" column="39" selection-start-line="162" selection-start-column="39" selection-end-line="162" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
