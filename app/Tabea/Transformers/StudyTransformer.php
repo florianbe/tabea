@@ -76,32 +76,41 @@
                         $q_data['id_in_questiongroup']  = intval($q->id_in_questiongroup);
                         $q_data['seq_id']               = intval($q->sequence_indicator);
                         $q_data['version']              = intval($q->version);
-                        $q_data['tpye']                 = $q->questiontype->code;
+                        $q_data['type']                 = $q->questiontype->code;
                         $q_data['mandatory']            = (boolean) $q->answer_required;
                         $q_data['text']                 = $q->text;
 
                         //RESTRICTIONS
-                        if($q->questionrestriction)
+                        if ($q->questionrestriction) {
+                            if ($q->questionrestriction->min_numeric || $q->questionrestriction->min_integer) {
+                                $q_data['min'] = $q->questionrestriction->min_numeric ? $q->questionrestriction->min_numeric : $q->questionrestriction->min_integer;
+                            } else {
+                                $q_data['min'] = false;
+                            }
+
+                            if ($q->questionrestriction->max_numeric || $q->questionrestriction->max_integer) {
+                                $q_data['max'] = $q->questionrestriction->max_numeric != NULL ? $q->questionrestriction->max_numeric : $q->questionrestriction->max_integer;
+                            } else {
+                                $q_data['max'] = false;
+                            }
+                            if ($q->questionrestriction->step_numeric || $q->questionrestriction->step_integer) {
+                                $q_data['step'] = $q->questionrestriction->step_numeric != NULL ? $q->questionrestriction->step_numeric : $q->questionrestriction->step_integer;
+                            } else {
+                                $q_data['step'] = false;
+                            }
+                        }
+                        else
                         {
-                            if ($q->min_numeric || $q->min_integer)
-                            {
-                                $q_data['min']      =   $q->min_numeric ? $q->min_numeric : $q->min_integer;
-                            }
-                            if ($q->max_numeric || $q->max_integer)
-                            {
-                                $q_data['max']      =   $q->max_numeric ? $q->max_numeric : $q->max_integer;
-                            }
-                            if ($q->step_numeric || $q->step_integer)
-                            {
-                                $q_data['step']      =   $q->step_numeric ? $q->step_numeric : $q->step_integer;
-                            }
+                            $q_data['min']  = false;
+                            $q_data['max']  = false;
+                            $q_data['step'] = false;
                         }
 
                         //OPTIONS
                         if ($q->optiongroup)
                         {
 
-                            $op_data = [];
+                            $q_data['options'] = [];
                             foreach($q->optiongroup->optionchoices as $oc)
                             {
                                 $oc_data = [];
@@ -109,9 +118,9 @@
                                 $oc_data['description'] = $oc->description;
                                 $oc_data['value']       = $oc->value;
 
-                                $op_data[count($op_data) + 1] = $oc_data;
+                                $q_data['options'][] = $oc_data;
                             }
-                            $q_data['options'][] = $op_data;
+
                         }
 
                         $qg_data['questions'][] = $q_data;
