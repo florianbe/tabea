@@ -12,16 +12,8 @@ class Rule extends \Eloquent
         // Attach event handler, on saving
         Rule::saving(function($rule)
         {
-            //Touch associated Models
-            $rule->questiongroup->substudy->study->touch();
-            $rule->questiongroup->substudy->touch();
-            $rule->questiongroup->touch();
-
-            $rule->version ? $rule->version = $rule->version + 1 : $rule->version = 1;
-            $rule->questiongroup->version ? $rule->questiongroup->version = $rule->questiongroup->version + 1 : $rule->questiongroup->version = 1;
-            $rule->questiongroup->substudy->version ? $rule->questiongroup->substudy->version = $rule->questiongroup->substudy->version + 1 : $rule->questiongroup->substudy->version = 1;
-            $rule->questiongroup->substudy->study->version ? $rule->questiongroup->substudy->study->version = $rule->questiongroup->substudy->study->version + 1 : $rule->questiongroup->substudy->study->version = 1;
-
+            $rule->version = $rule->version ? $rule->version + 1 : 1;
+            $rule->questiongroup->save();
         });
     }
 
@@ -56,11 +48,11 @@ class Rule extends \Eloquent
     {
         if ($this->is_answer_boolean)
         {
-            return $this->answer_boolean == true ? "1" : "2";
+            return $this->answer_boolean == true ? "JA" : "NEIN";
         }
         else
         {
-            return $this->question->optiongroup->optionchoices->find($this->optionchoice_id)->code;
+            return $this->question->optiongroup->optionchoices->find($this->optionchoice_id)->value;
         }
     }
 

@@ -20,7 +20,7 @@ class SurveyPeriod extends \Eloquent
 		SurveyPeriod::saving(function($surveyperiod)
 		{
 			//Touch associated Study
-			$surveyperiod->substudy->study->touch();
+			$surveyperiod->substudy->save();
 
 		});
 	}

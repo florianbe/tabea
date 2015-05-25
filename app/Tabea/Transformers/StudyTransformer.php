@@ -49,6 +49,7 @@
 
                     $qg_data['id']          = intval($qg->id_in_substudy);
                     $qg_data['name']        = $qg->name;
+                    $qg_data['description'] = $qg->description;
                     $qg_data['version']     = intval($qg->version);
                     $qg_data['seq_id']      = intval($qg->sequence_indicator);
                     $qg_data['random_order']    = (boolean) $qg->random_questionorder;

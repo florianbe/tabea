@@ -14,11 +14,16 @@
 /* 
  * Authentication
  */
-Route::when('*', 'csrf', ['post', 'put', 'patch', 'delete']);
+Route::when('login', 'csrf', ['post', 'put', 'patch', 'delete']);
+Route::when('profile/*', 'csrf', ['post', 'put', 'patch', 'delete']);
+Route::when('studies', 'csrf', ['post', 'put', 'patch', 'delete']);
+Route::when('studies/*', 'csrf', ['post', 'put', 'patch', 'delete']);
+Route::when('requests/*', 'csrf', ['post', 'put', 'patch', 'delete']);
+
+
+
 Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));
 Route::post('login', array('as' => 'login.store', 'uses' => 'SessionsController@store'));
-
-
 Route::group(['before' => 'auth'], function(){
 
     /*
@@ -69,16 +74,6 @@ Route::group(['before' => 'auth'], function(){
     Route::resource('requests', 'StudyRequestController', ['except' => ['create']]);
 });
 
-Route::group(['prefix' => 'api/v1/'], function(){
-    Route::get('testsubjects/new', array('as' => 'api.user.new', 'uses' => 'ApiController@newUserId'));
-    Route::get('study/getid', array('as' => 'api.study.getid', 'uses' => 'ApiController@getStudyId'));
-    Route::get('study/{id}/version', array('as' => 'api.study.getstudyversion', 'uses' => 'ApiController@getStudyVersion'));
-    Route::get('study/{id}', array('as' => 'api.study.getstudy', 'uses' => 'ApiController@getStudy'));
-    Route::post('study/{id}', array('as' => 'api.study.poststudy', 'uses' => 'ApiController@postStudyData'));
-});
-
-
-//Studies Routes: expanded to ease use of filters
 
 /*
  * Administration Panel - Access restricted to authenticated users with the role 'admin'
@@ -90,4 +85,13 @@ Route::group(array('before' => array('auth', 'admin')), function(){
 	 */
     Route::patch('admin/users/{users}/resend', ['as' => 'admin.users.resend', 'uses' => 'UsersController@resendPassword']);
 	Route::resource('admin/users', 'UsersController');
+});
+
+
+Route::group(['prefix' => 'api/v1/'], function(){
+    Route::get('testsubjects/new', array('as' => 'api.user.new', 'uses' => 'ApiController@newUserId'));
+    Route::get('study/getid', array('as' => 'api.study.getid', 'uses' => 'ApiController@getStudyId'));
+    Route::get('study/{id}/version', array('as' => 'api.study.getstudyversion', 'uses' => 'ApiController@getStudyVersion'));
+    Route::get('study/{id}', array('as' => 'api.study.getstudy', 'uses' => 'ApiController@getStudy'));
+    Route::post('study/{id}', array('as' => 'api.study.poststudy', 'uses' => 'ApiController@postStudyData'));
 });

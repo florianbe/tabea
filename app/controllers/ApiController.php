@@ -137,25 +137,24 @@ class ApiController extends \BaseController {
 		}
 	}
 
-	public function postStudy($id)
+	public function postStudyData($id)
 	{
 		try
 		{
 			$study = Study::findOrFail($id);
-			$test_subject = TestSubject::findOrFail(Input::get('subject_id'));
 
 			//TODO: handle input
-//
-//			if ( Input::has('password') && Input::get('password') == $study->studypassword)
-//			{
-//				if (Input::has('vers'))
-//
-//			}
-//			else
-//			{
-//				$data['error'] = $this->error_messages['unauthorized'];
-//				return Response::json(['data' => $data], 200);
-//			}
+
+			if ( Input::has('password') && Input::get('password') == $study->studypassword)
+			{
+				return Response::json(Input::all(), 200, $this->headers);
+
+			}
+			else
+			{
+				$data['error'] = $this->error_messages['unauthorized'];
+				return Response::json(['data' => $data], 200, $this->headers);
+			}
 		}
 		catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e)
 		{

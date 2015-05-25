@@ -11,16 +11,8 @@ class Question extends \Eloquent {
         // Attach event handler, on saving
         Question::saving(function($question)
         {
-            //Touch associated models
-            $question->questiongroup->substudy->study->touch();
-            $question->questiongroup->substudy->touch();
-            $question->questiongroup->touch();
-
-            $question->version ? $question->version = $question->version + 1 : $question->version = 1;
-            $question->questiongroup->version ? $question->questiongroup->version = $question->questiongroup->version + 1 : $question->questiongroup->version = 1;
-            $question->questiongroup->substudy->version ? $question->questiongroup->substudy->version = $question->questiongroup->substudy->version + 1 : $question->questiongroup->substudy->version = 1;
-            $question->questiongroup->substudy->study->version ? $question->questiongroup->substudy->study->version = $question->questiongroup->substudy->study->version + 1 : $question->questiongroup->substudy->study->version = 1;
-
+            $question->version = $question->version ? $question->version + 1 : 1;
+            $question->questiongroup->save();
         });
     }
 
