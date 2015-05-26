@@ -34,6 +34,10 @@ class Substudy extends \Eloquent {
 		return $this->hasMany('QuestionGroup', 'substudy_id', 'id')->orderBy('sequence_indicator', 'ASC');;
 	}
 
+	public function Questions() {
+		return $this->hasManyThrough('Question', 'QuestionGroup', 'id', 'questiongroup_id');
+	}
+
 	public function setTrigger($triggerType, $timeInterval=0)
 	{
 		if ($triggerType == 'EVENT')

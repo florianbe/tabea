@@ -50,6 +50,22 @@ Route::group(['before' => 'auth'], function(){
     Route::get('studies/{studies}/results', ['as' => 'studies.results', 'uses' => 'StudyController@showResults']);
     Route::get('studies/{studies}/copy', ['as' => 'studies.copy', 'uses' => 'StudyController@copyStudy']);
     Route::resource('studies', 'StudyController');
+    Route::get('studies/{studies}/allquestions', function ($studies) {
+        $study = Study::findOrFail($studies);
+
+        $question = QuestionGroup::find(1);
+
+        foreach($question->questions as $q) {
+            if ($q->answers) {
+                return $q->answers->max('answergroup');
+            }
+        }
+
+        return $study->getNextAnswergroupId();
+
+
+        return $substudy->questions->answers;
+    });
 
     Route::group(['before' => ['studystate_editable', 'has_study_access']], function(){
         Route::post('studies/{studies}/substudies/{substudies}/surveytime', ['as' => 'studies.substudies.surveytime.new', 'uses' => 'SubStudyController@newSurveyperiod']);

@@ -16,6 +16,10 @@ class Question extends \Eloquent {
         });
     }
 
+    public function Answers() {
+        return $this->hasMany('Answer', 'question_id');
+    }
+
     public function QuestionGroup()
     {
         return $this->belongsTo('QuestionGroup', 'questiongroup_id');

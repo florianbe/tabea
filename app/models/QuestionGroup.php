@@ -27,6 +27,7 @@ class QuestionGroup extends \Eloquent {
         return $this->hasMany('Question', 'questiongroup_id', 'id')->orderBy('sequence_indicator', 'ASC');
     }
 
+
     public function Rules()
     {
         return $this->hasMany('Rule', 'questiongroup_id');

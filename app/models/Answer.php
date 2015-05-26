@@ -1,7 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lankin
- * Date: 25/04/15
- * Time: 21:13
- */
+
+class Answer extends \Eloquent {
+    protected $fillable = [];
+    protected $table = 'answers';
+
+
+    public function Question()
+    {
+        return $this->belongsTo('Question', 'question_id');
+    }
+
+
+
+}

@@ -145,8 +145,12 @@ class ApiController extends \BaseController {
 
 			//TODO: handle input
 
-			if ( Input::has('password') && Input::get('password') == $study->studypassword)
+			if ( Input::has('password') && Input::get('password') == $study->studypassword && Input::has('subjectId'))
 			{
+				foreach(Input::get('answers') as $answer) {
+
+				}
+
 				return Response::json(Input::all(), 200, $this->headers);
 
 			}

@@ -49,6 +49,25 @@ class Study extends Eloquent
         return $this->belongsTo('StudyState');
     }
 
+    public function getNextAnswergroupId() {
+
+        $nextAnswerGroup = 1;
+
+
+        foreach($this->substudies as $substudy) {
+
+            foreach ($substudy->questiongroups as $questiongroup) {
+                if ($questiongroup->answers > 0){
+                    if ($nextAnswerGroup < ($questiongroup->answers->max('answergroup'))) {
+                        $nextAnswerGroup = $questiongroup->answers->max('answergroup') + 1;
+                    }
+                }
+            }
+        }
+        return $nextAnswerGroup;
+    }
+
+
     public function updateStudyState()
     {
         if ($this->accessible_from && $this->uploadable_until) {
