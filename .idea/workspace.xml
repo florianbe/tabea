@@ -6,13 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c4cf31e-4872-4c8e-a207-9cdde5289d48" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Answer.php" afterPath="$PROJECT_DIR$/app/models/Answer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ApiController.php" afterPath="$PROJECT_DIR$/app/controllers/ApiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Question.php" afterPath="$PROJECT_DIR$/app/models/Question.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/QuestionGroup.php" afterPath="$PROJECT_DIR$/app/models/QuestionGroup.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Study.php" afterPath="$PROJECT_DIR$/app/models/Study.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/SubStudy.php" afterPath="$PROJECT_DIR$/app/models/SubStudy.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
     </list>
     <ignored path="tabea.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,48 +35,18 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.125" vertical-offset="255" max-vertical-offset="1650">
-              <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+            <state vertical-scroll-proportion="-16.875" vertical-offset="255" max-vertical-offset="1650">
+              <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2015_05_26_130812_drop_answergroupcolumn.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_05_26_130812_drop_answergroupcolumn.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27300304" vertical-offset="0" max-vertical-offset="989">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2015_04_25_194332_create_subjects_answers_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_04_25_194332_create_subjects_answers_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.708333" vertical-offset="292" max-vertical-offset="1305">
-              <caret line="36" column="57" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Study.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Study.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.75" vertical-offset="465" max-vertical-offset="3285">
-              <caret line="61" column="86" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.392157" vertical-offset="1618" max-vertical-offset="2640">
-              <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8128898" vertical-offset="1663" max-vertical-offset="2790">
+              <caret line="163" column="62" selection-start-line="163" selection-start-column="62" selection-end-line="163" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -120,7 +85,7 @@
       <file leaf-file-name="QuestionGroupController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/QuestionGroupController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.75" vertical-offset="600" max-vertical-offset="3255">
+            <state vertical-scroll-proportion="-6.875" vertical-offset="645" max-vertical-offset="3255">
               <caret line="54" column="122" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="122" />
               <folding />
             </state>
@@ -198,14 +163,14 @@
         <option value="$PROJECT_DIR$/app/models/Rule.php" />
         <option value="$PROJECT_DIR$/app/models/SurveyPeriod.php" />
         <option value="$PROJECT_DIR$/app/Tabea/Transformers/StudyTransformer.php" />
-        <option value="$PROJECT_DIR$/app/controllers/ApiController.php" />
         <option value="$PROJECT_DIR$/app/models/Question.php" />
         <option value="$PROJECT_DIR$/app/models/SubStudy.php" />
         <option value="$PROJECT_DIR$/app/models/Answer.php" />
-        <option value="$PROJECT_DIR$/app/models/Study.php" />
         <option value="$PROJECT_DIR$/app/models/QuestionGroup.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_05_26_130812_drop_answergroupcolumn.php" />
+        <option value="$PROJECT_DIR$/app/models/Study.php" />
+        <option value="$PROJECT_DIR$/app/controllers/ApiController.php" />
       </list>
     </option>
   </component>
@@ -902,14 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/QuestionGroupController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.75" vertical-offset="600" max-vertical-offset="3255">
-          <caret line="54" column="122" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="122" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Question.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28816986" vertical-offset="0" max-vertical-offset="2835">
@@ -922,27 +879,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5460061" vertical-offset="0" max-vertical-offset="3150">
           <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="38" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.25" vertical-offset="270" max-vertical-offset="1860">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1429729203000" expanded="true" signature="401:755" placeholder="..." />
-            <marker date="1429729203000" expanded="true" signature="436:754" placeholder="..." />
-            <marker date="1429729203000" expanded="true" signature="4188:4443" placeholder="..." />
-            <marker date="1429729203000" expanded="true" signature="4240:4442" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.392157" vertical-offset="1618" max-vertical-offset="2640">
-          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -963,6 +899,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_05_26_130812_drop_answergroupcolumn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19716886" vertical-offset="0" max-vertical-offset="989">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_04_25_194332_create_subjects_answers_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2355915" vertical-offset="292" max-vertical-offset="1305">
+          <caret line="36" column="57" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Study.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3033367" vertical-offset="465" max-vertical-offset="3015">
+          <caret line="51" column="4" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.875" vertical-offset="255" max-vertical-offset="1650">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Answer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="300">
@@ -971,34 +939,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Study.php">
+    <entry file="file://$PROJECT_DIR$/app/views/questiongroups/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.75" vertical-offset="465" max-vertical-offset="3285">
-          <caret line="61" column="86" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="86" />
+        <state vertical-scroll-proportion="11.25" vertical-offset="270" max-vertical-offset="1860">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1429729203000" expanded="true" signature="401:755" placeholder="..." />
+            <marker date="1429729203000" expanded="true" signature="436:754" placeholder="..." />
+            <marker date="1429729203000" expanded="true" signature="4188:4443" placeholder="..." />
+            <marker date="1429729203000" expanded="true" signature="4240:4442" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/QuestionGroupController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.875" vertical-offset="645" max-vertical-offset="3255">
+          <caret line="54" column="122" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="122" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.125" vertical-offset="255" max-vertical-offset="1650">
-          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_04_25_194332_create_subjects_answers_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.708333" vertical-offset="292" max-vertical-offset="1305">
-          <caret line="36" column="57" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_05_26_130812_drop_answergroupcolumn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27300304" vertical-offset="0" max-vertical-offset="989">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8128898" vertical-offset="1663" max-vertical-offset="2790">
+          <caret line="163" column="62" selection-start-line="163" selection-start-column="62" selection-end-line="163" selection-end-column="62" />
           <folding />
         </state>
       </provider>
