@@ -148,20 +148,21 @@ class ApiController extends \BaseController {
 			if ( Input::has('password') && Input::get('password') == $study->studypassword && Input::has('subjectId'))
 			{
 				$testsubjectId = Input::get('subjectId');
-				foreach(Input::get('answers') as $ans) {
-					$question = Question::findOrFail($ans->question_id);
-					$answer = new Answer;
-					$answer->testsubject_id = $testsubjectId;
-					$answer->signaled_at = Carbon::createFromTimeStamp($ans->signal_date);
-					$answer->answered_at = Carbon::createFromTimeStamp($ans->answer_date);
-					$answer->test = $ans->testanswer;
-					$answer->answer = $ans->answer;
-					$answer->Question()->associate($question);
+				if (Input::has('answers')) {
+					foreach(Input::get('answers') as $ans) {
+						$question = Question::findOrFail($ans->question_id);
+						$answer = new Answer;
+						$answer->testsubject_id = $testsubjectId;
+						$answer->signaled_at = Carbon::createFromTimeStamp($ans->signal_date);
+						$answer->answered_at = Carbon::createFromTimeStamp($ans->answer_date);
+						$answer->test = $ans->testanswer;
+						$answer->answer = $ans->answer;
+						$answer->Question()->associate($question);
 
-					$answer->save();
+						$answer->save();
+					}
 				}
-
-				return Response::json(['code' => 200, text => 'Successfully saved'], 200, $this->headers);
+				return Response::json(['code' => 200, 'text' => 'Successfully saved'], 200, $this->headers);
 
 			}
 			else
