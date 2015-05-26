@@ -157,8 +157,8 @@ class ApiController extends \BaseController {
 
 						$answer = new Answer;
 						$answer->testsubject_id = $testsubjectId;
-						$answer->signaled_at = Carbon::createFromTimeStamp($ans->signal_date);
-						$answer->answered_at = Carbon::createFromTimeStamp($ans->answer_date);
+						$answer->signaled_at = \Carbon\Carbon::createFromTimeStamp($ans->signal_date);
+						$answer->answered_at = \Carbon\Carbon::createFromTimeStamp($ans->answer_date);
 						$answer->test = $ans->testanswer;
 						$answer->answer = $ans->answer;
 						$answer->question_id = $ans->question_id;
