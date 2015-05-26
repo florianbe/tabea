@@ -145,23 +145,24 @@ class ApiController extends \BaseController {
 
 			//TODO: handle input
 
-			if ( Input::has('password') && Input::get('password') == $study->studypassword && Input::has('subjectId'))
+			if ( Input::has('password') && Input::get('password') == $study->studypassword)
 			{
-				$testsubjectId = Input::get('subjectId');
+				$input = Input::json();
+				$ansArray = [];
 
+				if ($input->has('answers') && $input->has('subjectId')) {
+					$subjectId = $input->get('subjectId');
+					$ansArray = [];
+					$ansArray = $input->get('answers');
 
-				if (Input::has('answers')) {
-					$answers = Input::get('answers');
-
-					foreach($answers as $ans) {
-
+					foreach($ansArray as $ans) {
 						$answer = new Answer;
-						$answer->testsubject_id = $testsubjectId;
-						$answer->signaled_at = \Carbon\Carbon::createFromTimeStamp($ans->signal_date);
-						$answer->answered_at = \Carbon\Carbon::createFromTimeStamp($ans->answer_date);
-						$answer->test = $ans->testanswer;
-						$answer->answer = $ans->answer;
-						$answer->question_id = $ans->question_id;
+						$answer->testsubject_id = $subjectId;
+						$answer->signaled_at = \Carbon\Carbon::createFromTimeStamp(round($ans['signal_date']/1000));
+						$answer->answered_at = \Carbon\Carbon::createFromTimeStamp(round($ans['answer_date']/1000));
+						$answer->test = $ans['testanswer'];
+						$answer->answer = $ans['answer'] == null ? '' : $ans['answer'];
+						$answer->question_id = $ans['question_id'];
 
 						$answer->save();
 					}
