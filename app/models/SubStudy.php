@@ -183,7 +183,7 @@ class Substudy extends \Eloquent {
 
 					$start_date = clone $step_date;
 					$end_time = clone $start_date;
-					$end_time->addHour();
+					
 
 					$end_time->hour = $surv_per->end_date->hour;
 					$end_time->minute = $surv_per->end_date->minute;
