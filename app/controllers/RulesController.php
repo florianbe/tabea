@@ -50,10 +50,13 @@ class RulesController extends \BaseController {
 
 			$rule = new Rule;
 
-			$question = Question::where('questiongroup_id', '=', Input::get('questiongroups'))->where('id_in_questiongroup', '=', Input::get('questions'))->firstOrFail();
+			$qg_for_rule_q = QuestionGroup::where('substudy_id', '=', $substudy->id)->where('id_in_substudy', "=", Input::get('questiongroups'))->firstOrFail();
+			$question = Question::where('questiongroup_id', '=', $qg_for_rule_q->id)->where('id_in_questiongroup', '=', Input::get('questions'))->firstOrFail();
 
 			$rule->Question()->associate($question);
 			$rule->QuestionGroup()->associate($questiongroup);
+
+			
 
 			$questiongroup->rules->count() <= 0 ? $rule->id_in_questiongroup = 1 : $rule->id_in_questiongroup = ($questiongroup->rules->max('id_in_questiongroup') +1);
 

@@ -293,6 +293,8 @@ class StudyController extends \BaseController
     {
         $study = Study::findOrFail($studies);
 
+
+
         return View::make('studies.results')->with(compact('study'));
 
     }

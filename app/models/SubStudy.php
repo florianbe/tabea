@@ -160,6 +160,7 @@ class Substudy extends \Eloquent {
 
 	}
 
+
 	public function delete()
 	{
 		if ($this->surveyperiods)

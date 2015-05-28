@@ -51,7 +51,7 @@
                     @if( (count($substudy->questiongroups) > 0) && $substudy->study->isStudyEditable() && ($substudy->study->hasEditAccess(Auth::user())))
                         <a class="btn btn-primary" href="{{route('studies.substudies.questionsgroups.editorder',[$questiongroup->substudy->study->id, $questiongroup->substudy->id_in_study])}}">{{ trans('pagestrings.editorder') }}</a></div>
                     @endif
-                    <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.substudies.questiongroups.create', [$questiongroup->substudy->study->id,  $questiongroup->substudy->id])}}"><i class="icon-plus-sign"></i>  {{ trans('pagestrings.substudies_rmenu_questiongrouplinknew') }}</a></div>
+                    <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.substudies.questiongroups.create', [$questiongroup->substudy->study->id,  $questiongroup->substudy->id_in_study])}}"><i class="icon-plus-sign"></i>  {{ trans('pagestrings.substudies_rmenu_questiongrouplinknew') }}</a></div>
                 </div>
             </div>
         </div>

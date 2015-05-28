@@ -116,7 +116,9 @@ class SubStudyController extends \BaseController {
 		$study = Study::findOrFail($studies);
 		$substudy = Substudy::where('study_id', '=', $study->id)->where('id_in_study', '=', $substudies)->firstOrFail();
 
+
 		$surveyperiod = null;
+
 
 		return View::make('substudies.edit')->with(compact('substudy'))->with(compact('surveyperiod'));
 	}
