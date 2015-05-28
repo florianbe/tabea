@@ -87,6 +87,78 @@ class Substudy extends \Eloquent {
 		return $this->trigger_is_event ? 0 : $this->trigger_time_interval;
 	}
 
+	public function getSumDatapoints() {
+
+		$dp = [];
+
+		foreach ($this->questiongroups as $qg) {
+			foreach($qg->questions as $q) {
+				foreach($q->answers as $a) {
+					if (!in_array([$q->testsubject_id, $q->signaled_at], $dp)) {
+						$dp[] = [$q->testsubject_id, $q->signaled_at];
+					}
+				}
+			}
+		}
+
+		return count($dp);
+
+	}
+
+	public function getSumSubjects() {
+		$dp = [];
+
+		foreach ($this->questiongroups as $qg) {
+			foreach($qg->questions as $q) {
+				foreach($q->answers as $a) {
+					if (!in_array($q->testsubject_id, $dp)) {
+						$dp[] = $q->testsubject_id;
+					}
+				}
+			}
+		}
+
+		return count($dp);
+	}
+
+	public function getAnswers() {
+		$answers = [];
+
+		foreach ($this->questiongroups as $qg) {
+			foreach($qg->questions as $q) {
+				foreach($q->answers as $a) {
+					$ans = [];
+					$ans['q_shortname'] 		= $q->shortname;
+					$ans['q_text'] 				= $q->text;
+					$ans['subject'] 			= $a->testsubject->getSubjectName();
+					$ans['signaled_at'] 		= $a->signaled_at;
+					$ans['answered_at'] 		= $a->answered_at;
+					$ans['testanswer']			= $a->test ? 'JA' : 'NEIN';
+					$ans['answer']				= $a->answer;
+
+					$answers[]= $ans;
+				}
+			}
+		}
+
+		usort($answers, array($this, 'sortAnswers'));
+
+		$csv_header = ['q_shortname' => 'Kurzbezeichnung Frage', 'q_text' => 'Frage', 'subject' => 'Proband', 'signaled_at' => 'Signal-/Antwortgruppe', 'answered_at' => 'Antwortzeit', 'testanswer' => 'Probelauf', 'answer' => 'Antwort'];
+		array_unshift($answers, $csv_header);
+
+		return $answers;
+	}
+
+	public function sortAnswers($a, $b) {
+
+		// sort by last name
+		$retval = strnatcmp($a['subject'], $b['subject']);
+		// if last names are identical, sort by first name
+		if(!$retval) $retval = strnatcmp($a['signaled_at'], $b['signaled_at']);
+		return $retval;
+
+	}
+
 	public function getSurveyTimes()
 	{
 

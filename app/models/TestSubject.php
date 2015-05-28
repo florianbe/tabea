@@ -11,4 +11,8 @@ class TestSubject extends \Eloquent
     {
         return $this->name_text . '_' . $this->name_counter;
     }
+
+    public function Answers() {
+        return $this->hasMany('Answer', 'testsubject_id');
+    }
 }

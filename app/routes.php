@@ -55,10 +55,12 @@ Route::group(['before' => 'auth'], function(){
 
     Route::group(['before' => ['studystate_editable', 'has_study_access']], function(){
         Route::post('studies/{studies}/substudies/{substudies}/surveytime', ['as' => 'studies.substudies.surveytime.new', 'uses' => 'SubStudyController@newSurveyperiod']);
+        Route::get('studies/{studies}/substudies/{substudies}/answers', ['as' => 'studies.substudies.answers', 'uses' => 'SubStudyController@getAnswers']);
         Route::get('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.edit', 'uses' => 'SubStudyController@editSurveyperiod']);
         Route::put('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.update', 'uses' => 'SubStudyController@updateSurveyperiod']);
         Route::delete('studies/{studies}/substudies/{substudies}/surveytime/{surveytime}', ['as' => 'studies.substudies.surveytime.delete', 'uses' => 'SubStudyController@deleteSurveyperiod']);
         Route::resource('studies.substudies', 'SubStudyController');
+
         Route::get('studies/{studies}/substudies/{substudies}/questiongroups/order', ['as' => 'studies.substudies.questionsgroups.editorder', 'uses' => 'QuestionGroupController@editOrder']);
         Route::put('studies/{studies}/substudies/{substudies}/questiongroups/order', ['as' => 'studies.substudies.questionsgroups.updateorder', 'uses' => 'QuestionGroupController@updateOrder']);
         Route::resource('studies.substudies.questiongroups', 'QuestionGroupController');

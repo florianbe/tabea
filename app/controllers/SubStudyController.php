@@ -171,6 +171,37 @@ class SubStudyController extends \BaseController {
 
 	}
 
+	public function getAnswers($studies, $substudies) {
+		$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
+
+		$ans_array = $substudy->getAnswers();
+
+		$now = new DateTime();
+
+
+
+		$headers = [
+			'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'
+			,   'Content-type'        => 'text/csv'
+			,   'Content-Disposition' => 'attachment; filename=ergebnisse_' . $substudy->study->short_name . '_' . $substudy->name . '_' . $now->format('Y_m_d') . '.csv'
+			,   'Expires'             => '0'
+			,   'Pragma'              => 'public'
+		];
+
+		$callback = function() use ($ans_array)
+		{
+			$FH = fopen('php://output', 'w');
+			foreach ($ans_array as $row) {
+				fputcsv($FH, $row);
+			}
+			fclose($FH);
+		};
+
+		return Response::stream($callback, 200, $headers);
+
+
+	}
+
 	/**
 	 * Remove the specified resource from storage.
 	 * DELETE /substudy/{id}

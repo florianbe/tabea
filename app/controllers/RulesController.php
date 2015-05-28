@@ -56,7 +56,7 @@ class RulesController extends \BaseController {
 			$rule->Question()->associate($question);
 			$rule->QuestionGroup()->associate($questiongroup);
 
-			
+
 
 			$questiongroup->rules->count() <= 0 ? $rule->id_in_questiongroup = 1 : $rule->id_in_questiongroup = ($questiongroup->rules->max('id_in_questiongroup') +1);
 

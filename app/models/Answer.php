@@ -10,6 +10,11 @@ class Answer extends \Eloquent {
         return $this->belongsTo('Question', 'question_id');
     }
 
+    public function TestSubject()
+    {
+        return $this->belongsTo('TestSubject', 'testsubject_id');
+    }
+
 
 
 }
