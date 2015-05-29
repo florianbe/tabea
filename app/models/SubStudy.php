@@ -94,8 +94,8 @@ class Substudy extends \Eloquent {
 		foreach ($this->questiongroups as $qg) {
 			foreach($qg->questions as $q) {
 				foreach($q->answers as $a) {
-					if (!in_array([$q->testsubject_id, $q->signaled_at], $dp)) {
-						$dp[] = [$q->testsubject_id, $q->signaled_at];
+					if (!in_array($q->testsubject_id . ';' . $q->signaled_at, $dp)) {
+						$dp[] = $q->testsubject_id . ';' . $q->signaled_at;
 					}
 				}
 			}
@@ -183,7 +183,7 @@ class Substudy extends \Eloquent {
 
 					$start_date = clone $step_date;
 					$end_time = clone $start_date;
-					
+
 
 					$end_time->hour = $surv_per->end_date->hour;
 					$end_time->minute = $surv_per->end_date->minute;
