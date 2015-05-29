@@ -54,8 +54,8 @@
       <file leaf-file-name="SubStudy.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/SubStudy.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5365474" vertical-offset="1110" max-vertical-offset="4245">
-              <caret line="97" column="74" selection-start-line="97" selection-start-column="74" selection-end-line="97" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.933126" vertical-offset="1095" max-vertical-offset="4230">
+              <caret line="113" column="34" selection-start-line="113" selection-start-column="34" selection-end-line="113" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -1012,8 +1012,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/SubStudy.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5365474" vertical-offset="1110" max-vertical-offset="4245">
-          <caret line="97" column="74" selection-start-line="97" selection-start-column="74" selection-end-line="97" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.933126" vertical-offset="1095" max-vertical-offset="4230">
+          <caret line="113" column="34" selection-start-line="113" selection-start-column="34" selection-end-line="113" selection-end-column="34" />
           <folding />
         </state>
       </provider>

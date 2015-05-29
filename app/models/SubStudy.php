@@ -94,13 +94,12 @@ class Substudy extends \Eloquent {
 		foreach ($this->questiongroups as $qg) {
 			foreach($qg->questions as $q) {
 				foreach($q->answers as $a) {
-					if (!in_array($q->testsubject_id . ';' . $q->signaled_at, $dp)) {
-						$dp[] = $q->testsubject_id . ';' . $q->signaled_at;
+					if (!in_array($a->testsubject_id . ';' . $a->signaled_at, $dp)) {
+						$dp[] = $a->testsubject_id . ';' . $a->signaled_at;
 					}
 				}
 			}
 		}
-
 		return count($dp);
 
 	}
@@ -111,8 +110,8 @@ class Substudy extends \Eloquent {
 		foreach ($this->questiongroups as $qg) {
 			foreach($qg->questions as $q) {
 				foreach($q->answers as $a) {
-					if (!in_array($q->testsubject_id, $dp)) {
-						$dp[] = $q->testsubject_id;
+					if (!in_array($a->testsubject_id, $dp)) {
+						$dp[] = $a->testsubject_id;
 					}
 				}
 			}
