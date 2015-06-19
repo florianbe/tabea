@@ -13,10 +13,11 @@
         <thead>
         <tr>
             <th class="col-md-1"></th>
-            <th class="col-md-5">{{ trans('pagestrings.substudies_name') }}</th>
+            <th class="col-md-4">{{ trans('pagestrings.substudies_name') }}</th>
+            <th class="col-md-2">{{ trans('pagestrings.studies_results_lastupdate') }}</th>
             <th class="col-md-2">{{ trans('pagestrings.studies_results_subjects') }}</th>
             <th class="col-md-2">{{ trans('pagestrings.studies_results_datasets') }}</th>
-            <th class="col-md-2">{{ trans('pagestrings.studies_results_get') }}</th>
+            <th class="col-md-1">{{ trans('pagestrings.studies_results_get') }}</th>
         </tr>
         </thead>
         <tbody>
@@ -25,6 +26,7 @@
             <tr id="{{ 'tr_' . $substudy->id_in_study }}">
                 <td class="vert-align">{{ $su_index + 1 }}</td>
                 <td class="vert-align">{{ $substudy->name}}</td>
+                <td class="vert-align">{{ $substudy->getLastAnswerUpdateDate()}}</td>
                 <td class="vert-align">{{ $substudy->getSumSubjects()}}</td>
                 <td class="vert-align">{{ $substudy->getSumDatapoints()}}</td>
                 <td class="vert-align"><a href="{{route('studies.substudies.answers',['studies' => $substudy->study->id, 'substudies' => $substudy->id_in_study]) }}"><i class="fa fa-file-text-o"></i></a></td>

@@ -120,6 +120,21 @@ class Substudy extends \Eloquent {
 		return count($dp);
 	}
 
+	public function getLastAnswerUpdateDate() {
+		$last_answer_update = null;
+
+		foreach ($this->questiongroups as $qg) {
+			foreach ($qg->questions as $q) {
+				foreach ($q->answers as $a) {
+					if ($last_answer_update == null || $a->created_at > $last_answer_update) {
+						$last_answer_update = $a->created_at;
+					}
+				}
+			}
+		}
+		return $last_answer_update->format('d.m.Y H:i');
+	}
+
 	public function getAnswers() {
 		$answers = [];
 

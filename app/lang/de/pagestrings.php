@@ -135,6 +135,7 @@ return array(
     //Results
     "studies_results_header"        => "Studienergebnisse",
     "studies_results_no_results"    => "Es liegen noch keine Erhebungsdaten vor",
+    "studies_results_lastupdate"    => "Letzte Aktualisierung",
     "studies_results_subjects"      => "# Probanden",
     "studies_results_datasets"      => "# Datensets",
     "studies_results_get"           => "csv-Datei",
