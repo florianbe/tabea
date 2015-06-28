@@ -63,7 +63,8 @@ class RulesController extends \BaseController {
 			if ($question->questiontype->code == 'BOOLEAN')
 			{
 				$rule->is_answer_boolean = true;
-				$rule->answer_boolean = (Input::get('questions') == '1' ? true : false);
+				$rule->answer_boolean = (Input::get('answers') == '1' ? true : false);
+				
 			}
 			else
 			{
