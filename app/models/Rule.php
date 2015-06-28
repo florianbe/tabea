@@ -86,7 +86,7 @@ class Rule extends \Eloquent
                             $dropddowndata[$qg_count]['questions'][$q_count]['answers'][1]['id'] = 1;
                             $dropddowndata[$qg_count]['questions'][$q_count]['answers'][1]['text'] = trans('pagestrings.yes');
 
-                            $dropddowndata[$qg_count]['questions'][$q_count]['answers'][2]['id'] = 2;
+                            $dropddowndata[$qg_count]['questions'][$q_count]['answers'][2]['id'] = 0;
                             $dropddowndata[$qg_count]['questions'][$q_count]['answers'][2]['text'] = trans('pagestrings.no');
 
                         }
