@@ -64,7 +64,7 @@ class RulesController extends \BaseController {
 			{
 				$rule->is_answer_boolean = true;
 				$rule->answer_boolean = (Input::get('answers') == '1' ? true : false);
-				
+
 			}
 			else
 			{

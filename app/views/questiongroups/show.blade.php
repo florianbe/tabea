@@ -96,7 +96,7 @@
         <div class="list-group-item-text">
             <div class="row">
                 <div class="col-md-6 text-left"></div>
-                <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.substudies.questiongroups.edit', [$questiongroup->substudy->study->id,  $questiongroup->substudy->id, $questiongroup->id_in_substudy])}}"><i class="icon-plus-sign"></i>  {{ trans('pagestrings.questiongroups_rmenu_editlink') }}</a></div>
+                <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{route('studies.substudies.questiongroups.edit', [$questiongroup->substudy->study->id,  $questiongroup->substudy->id_in_study, $questiongroup->id_in_substudy])}}"><i class="icon-plus-sign"></i>  {{ trans('pagestrings.questiongroups_rmenu_editlink') }}</a></div>
             </div>
         </div>
     </div>

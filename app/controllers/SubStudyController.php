@@ -178,6 +178,7 @@ class SubStudyController extends \BaseController {
 
 		$now = new DateTime();
 
+		return $substudy->questions;
 
 
 		$headers = [
