@@ -137,11 +137,14 @@ class Substudy extends \Eloquent {
 
 	public function getAnswers() {
 		$answers = [];
+		$results = [];
+
 
 		foreach ($this->questiongroups as $qg) {
-			foreach($qg->questions as $q) {
+			foreach($qg-> questions as $q) {
 				foreach($q->answers as $a) {
 					$ans = [];
+					$ans['q_id']				= $q->id;
 					$ans['q_shortname'] 		= $q->shortname;
 					$ans['q_text'] 				= $q->text;
 					$ans['subject'] 			= $a->testsubject->getSubjectName();
@@ -154,13 +157,49 @@ class Substudy extends \Eloquent {
 				}
 			}
 		}
-
 		usort($answers, array($this, 'sortAnswers'));
 
-		$csv_header = ['q_shortname' => 'Kurzbezeichnung Frage', 'q_text' => 'Frage', 'subject' => 'Proband', 'signaled_at' => 'Signal-/Antwortgruppe', 'answered_at' => 'Antwortzeit', 'testanswer' => 'Probelauf', 'answer' => 'Antwort'];
-		array_unshift($answers, $csv_header);
+		$res = [];
+		//Build unique questionsets
+		foreach ($answers as $answer) {
+			if (count($results) < 1 || $results[count($results)-1]['subject'] != $answer['subject'] || $results[count($results)-1]['signaled_at'] != $answer['signaled_at']){
+				if (count($results) > 1){
+					$res = [];
+				}
+				$res['subject'] = $answer['subject'];
+				$res['signaled_at'] = $answer['signaled_at'];
+				$res['answered_at'] = $answer['answered_at'];
+				$res['testanswer'] = $answer['testanswer'];
 
-		return $answers;
+				$results[] = $res;
+			}
+		}
+
+
+		//Add answers to results array and build header
+		$csv_header = [];
+
+		for	($i = 0; $i < count($results); $i++) {
+			foreach($this->questiongroups as $qg) {
+				foreach($qg->questions as $q){
+					$csv_header[$q->id] = $q->shortname;
+					$results[$i][$q->id] = ' ';
+					foreach ($answers as $a) {
+						if ($a['signaled_at'] == $results[$i]['signaled_at'] && $a['subject'] == $results[$i]['subject'] && $a['q_id'] == $q->id) {
+							$results[$i][$q->id] = $a['answer'];
+							continue;
+						}
+					}
+				}
+			}
+		}
+
+		$csv_header = array_merge(['subject' => 'Proband', 'signaled_at' => 'Signal-/Antwortgruppe', 'answered_at' => 'Antwortzeit', 'testanswer' => 'Probelauf'], $csv_header);
+
+
+		array_unshift($results, $csv_header);
+
+		return $results;
 	}
 
 	public function sortAnswers($a, $b) {
