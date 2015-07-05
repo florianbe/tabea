@@ -15,6 +15,8 @@ return array(
     "login_login"           => "Anmelden",
     "login_error"           => "dam|error|E-Mail und/oder Passwort falsch.",
 
+    "welcome"               => "über die Navigation oben können Sie Studien auswählen, Zugriffsanfragen bearbeiten oder Ihr Passwort ändern.",
+
     //Logout
     "logout_success"        => "dam|success|Abmeldung erfolgreich.",
 
