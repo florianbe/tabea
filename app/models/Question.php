@@ -81,6 +81,7 @@ class Question extends \Eloquent {
         }
     }
 
+
     public function delete()
     {
         $counter = 1;

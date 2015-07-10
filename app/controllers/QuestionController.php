@@ -96,10 +96,10 @@ class QuestionController extends \BaseController {
 				Input::merge(array('max_integer' => '1'));
 				$this->questionForm->setRules('selfdef_choice', 'required|' . $this->questionForm->getRules('selfdef_choice'));
 			}
-			elseif(strtoupper(Input::get('questiontype')) == 'SINGLECHOICE')
+			elseif(strtoupper(Input::get('questiontype')) == 'SINGLECHOICE' && (strtoupper(Input::get('singlechoiceoption')) != 'SELF'))
 			{
-				$optiongroup_preset = OptionGroup::where('code', '=', strtoupper(Input::get('singlechoiceoption')))->firstOrFail();
-
+				//$optiongroup_preset = OptionGroup::where('code', '=', strtoupper(Input::get('singlechoiceoption')))->firstOrFail();
+				//$this->questionForm->setRules(Input::get('singlechoiceoption'), 'likert_options');
 				//Validate likert
 			}
 
@@ -139,8 +139,24 @@ class QuestionController extends \BaseController {
 						$optionChoice->save();
 					}
 				}
+			} elseif (strtoupper(Input::get('singlechoiceoption')) != 'SELF' && strtoupper(Input::get('questiontype')) == 'SINGLECHOICE') {
+				$optionGroup = new OptionGroup;
+				$optionGroup->code = Input::get('singlechoiceoption') .  '-' . $substudy->study->short_name . '-' . $question->shortname;
+				$optionGroup->is_predefined = false;
 
+				$optionGroup->save();
 
+				$countOptions = 0;
+
+				foreach (Input::get(Input::get('singlechoiceoption')) as $sc_opt) {
+					$countOptions = $countOptions + 1;
+					$optionChoice = new OptionChoice;
+					$optionChoice->code = $question->shortname . '_' . (string)$countOptions;
+					$optionChoice->value = $countOptions;
+					$optionChoice->description = $sc_opt;
+					$optionChoice->OptionGroup()->associate($optionGroup);
+					$optionChoice->save();
+				}
 			}
 
 			$questiongroup->questions->count() <= 0 ? $question->id_in_questiongroup = 1 : $question->id_in_questiongroup = ($questiongroup->questions->max('id_in_questiongroup') +1);
@@ -155,7 +171,7 @@ class QuestionController extends \BaseController {
 			}
 			elseif (strtoupper(Input::get('questiontype')) == 'SINGLECHOICE')
 			{
-				$question->OptionGroup()->associate($optiongroup_preset);
+				$question->OptionGroup()->associate($optionGroup);
 			}
 
 			$question->save();
@@ -253,7 +269,9 @@ class QuestionController extends \BaseController {
 		try
 		{
 			$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
+
 			$questiongroup = QuestionGroup::where('substudy_id', '=', $substudy->id)->where('id_in_substudy', "=", $questiongroups)->firstOrFail();
+
 			$question = Question::where('questiongroup_id', '=', $questiongroup->id)->where('id_in_questiongroup', "=", $questions)->firstOrFail();
 
 			// Invoke custom validation rules based on db settings & uniqueness of shortname in questiongroup
@@ -280,7 +298,9 @@ class QuestionController extends \BaseController {
 			}
 			elseif(strtoupper(Input::get('questiontype')) == 'SINGLECHOICE')
 			{
-				$optiongroup_preset = OptionGroup::where('code', '=', strtoupper(Input::get('singlechoiceoption')))->firstOrFail();
+				//$optiongroup_preset = OptionGroup::where('code', '=', strtoupper(Input::get('singlechoiceoption')))->firstOrFail();
+				Input::merge(array('max_integer' => '1'));
+				$this->questionForm->setRules('selfdef_choice', 'required|' . $this->questionForm->getRules('selfdef_choice'));
 			}
 
 
@@ -292,8 +312,9 @@ class QuestionController extends \BaseController {
 			$question->answer_required = Input::has('answer_required');
 
 
-			if ((strtoupper(Input::get('singlechoiceoption')) == 'SELF' && strtoupper(Input::get('questiontype')) == 'SINGLECHOICE') || strtoupper(Input::get('questiontype')) == 'MULTICHOICE')
+			if ((strtoupper(Input::get('questiontype')) == 'SINGLECHOICE') || strtoupper(Input::get('questiontype')) == 'MULTICHOICE')
 			{
+
 				//Check for existing optiongroup, delete existing choices
 				if ($question->optiongroup && $question->optiongroup->is_predefined == false)
 				{
@@ -343,7 +364,8 @@ class QuestionController extends \BaseController {
 			}
 			elseif (strtoupper(Input::get('questiontype')) == 'SINGLECHOICE')
 			{
-				$question->OptionGroup()->associate($optiongroup_preset);
+				$question->OptionGroup()->associate($optionGroup);
+				//$question->OptionGroup()->associate($optiongroup_preset);
 			}
 
 			$question->save();

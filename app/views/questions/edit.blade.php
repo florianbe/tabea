@@ -65,7 +65,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-6 typeoption singlechoice">
-                        {{ Bootstrap::select('singlechoiceoption', trans('pagestrings.question_type'), $optiondropdown, $question->GetOptionGroupCode()) }}
+                        {{-- Bootstrap::select('singlechoiceoption', trans('pagestrings.question_type'), $optiondropdown, $question->GetOptionGroupCode()) --}}
                     </div>
 
                     <div class="col-md-3 typeoption multichoice">
@@ -77,11 +77,12 @@
                         {{ show_errors_for('max_integer', $errors) }}
                     </div>
 
-                    <div class="col-md-6 typeoption selfsinglechoice multichoice">
+                    <div class="col-md-6 typeoption singlechoice multichoice">
                         {{ Bootstrap::textarea('selfdef_choice', trans('pagestrings.question_selfdef_values'), $question->GetSelfDefValues() ? $question->GetSelfDefValues() : null, [], ['rows' => '5'])}}
                         <p class="bg-primary text-center">{{trans('pagestrings.question_choice_selfdef_info')}}</p>
                         {{ show_errors_for('selfdef_choice', $errors) }}
                     </div>
+
                 </div>
             </div>
 
@@ -108,27 +109,16 @@
             $(sigsel).show();
         };
 
-        var showSelfsinglechoide = function(){
-            if ($('#singlechoiceoption').val() == 'SELF' && $('#questiontype').val() == 'SINGLECHOICE'){
-                $('.selfsinglechoice').show();
-            }
-            else{
-                $('.selfsinglechoice').hide();
-            }
-        };
 
         $(document).ready(function(){
             showOptions();
-            showSelfsinglechoide();
         });
 
         $('#questiontype').change(function(){
             showOptions();
         });
 
-        $('#singlechoiceoption').change(function(){
-            showSelfsinglechoide();
-        });
+
     </script>
     {{ HTML::script('js/tabea.js') }}
 @stop

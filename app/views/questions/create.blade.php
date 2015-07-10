@@ -89,7 +89,7 @@
                         @for ($i = 1; $i <= 4; $i++)
                             <div class="row">
                                 <div class="col-md-3 text-right">{{$i}}.</div>
-                                <div class="col-md-9">{{ Form::text('likert4[]') }}</div>
+                                <div class="col-md-9">{{ Form::text('LIKERT_4[]') }}</div>
                             </div>
                         @endfor
                         </div>
@@ -103,7 +103,7 @@
                             @for ($i = 1; $i <= 5; $i++)
                                 <div class="row">
                                     <div class="col-md-3">{{$i}}.</div>
-                                    <div class="col-md-9">{{ Form::text('likert5[]') }}</div>
+                                    <div class="col-md-9">{{ Form::text('LIKERT_5[]') }}</div>
                                 </div>
                             @endfor
                         </div>
@@ -117,7 +117,7 @@
                             @for ($i = 1; $i <=6; $i++)
                                 <div class="row">
                                     <div class="col-md-3">{{$i}}.</div>
-                                    <div class="col-md-9">{{ Form::text('likert6[]') }}</div>
+                                    <div class="col-md-9">{{ Form::text('LIKERT_6[]') }}</div>
                                 </div>
                             @endfor
                         </div>
@@ -131,7 +131,7 @@
                             @for ($i = 1; $i <= 7; $i++)
                                 <div class="row">
                                     <div class="col-md-3">{{$i}}.</div>
-                                    <div class="col-md-9">{{ Form::text('likert7[]') }}</div>
+                                    <div class="col-md-9">{{ Form::text('LIKERT_7[]') }}</div>
                                 </div>
                             @endfor
                         </div>
@@ -145,7 +145,7 @@
                             @for ($i = 1; $i <= 10; $i++)
                                 <div class="row">
                                     <div class="col-md-3">{{$i}}.</div>
-                                    <div class="col-md-9">{{ Form::text('likert10[]') }}</div>
+                                    <div class="col-md-9">{{ Form::text('LIKERT_10[]') }}</div>
                                 </div>
                             @endfor
                         </div>

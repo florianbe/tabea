@@ -276,7 +276,7 @@ class Substudy extends \Eloquent {
 					$step_date->second = $start_date->second;
 				}
 			}
-		
+
 		}
 
 		return $survey_times;
