@@ -14,7 +14,7 @@ class PagesController extends \BaseController {
 
     public function showHome()
     {
-        return View::make('hello');
+        return View::make('pages.hello');
     }
 
 	public function showProfile()

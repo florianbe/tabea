@@ -69,6 +69,7 @@ class QuestionController extends \BaseController {
 	{
 		try
 		{
+
 			$substudy = Substudy::where('study_id', '=', $studies)->where('id_in_study', '=', $substudies)->firstOrFail();
 			$questiongroup = QuestionGroup::where('substudy_id', '=', $substudy->id)->where('id_in_substudy', "=", $questiongroups)->firstOrFail();
 
@@ -98,7 +99,10 @@ class QuestionController extends \BaseController {
 			elseif(strtoupper(Input::get('questiontype')) == 'SINGLECHOICE')
 			{
 				$optiongroup_preset = OptionGroup::where('code', '=', strtoupper(Input::get('singlechoiceoption')))->firstOrFail();
+
+				//Validate likert
 			}
+
 
 
 			$this->questionForm->validate(Input::all());

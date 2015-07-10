@@ -120,4 +120,24 @@ class CustomValidator extends \Illuminate\Validation\Validator {
         return true;
     }
 
+    /**
+     * Validate if the provided array
+     * contains no empty strings
+     *
+     * @param  string  $attribute
+     * @param  mixed   $value
+     * @param  array   $parameters
+     * @return bool
+     */
+    protected function validateLikertOptions($attribute, $value, $parameters)
+    {
+        foreach ($value as $likertitem) {
+            if (strlen($likertitem) < 1) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 }

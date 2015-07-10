@@ -75,16 +75,83 @@
                         {{ Bootstrap::number('max_integer', trans('pagestrings.question_max_integer')) }}
                         {{ show_errors_for('max_integer', $errors) }}
                     </div>
-                    <div class="col-md-6 typeoption selfsinglechoice multichoice">
+                    <div class="col-md-6 typeoption selopt selfsinglechoice multichoice">
                         {{ Bootstrap::textarea('selfdef_choice', trans('pagestrings.question_selfdef_values'), null, [], ['rows' => '5'])}}
                         <p class="bg-primary text-center">{{trans('pagestrings.question_choice_selfdef_info')}}</p>
                         {{ show_errors_for('selfdef_choice', $errors) }}
-
+                    </div>
+                    <div class="col-md-6 typeoption selopt likert4">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3 text-right"><strong>{{trans('pagestrings.question_selfdef_datavalue')}}</strong></div>
+                                <div class="col-md-9"><strong>{{trans('pagestrings.question_selfdef_displayvalue')}}</strong></div>
+                            </div>
+                        @for ($i = 1; $i <= 4; $i++)
+                            <div class="row">
+                                <div class="col-md-3 text-right">{{$i}}.</div>
+                                <div class="col-md-9">{{ Form::text('likert4[]') }}</div>
+                            </div>
+                        @endfor
+                        </div>
+                    </div>
+                    <div class="col-md-6 typeoption selopt likert5">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3 text-right"><strong>{{trans('pagestrings.question_selfdef_datavalue')}}</strong></div>
+                                <div class="col-md-9"><strong>{{trans('pagestrings.question_selfdef_displayvalue')}}</strong></div>
+                            </div>
+                            @for ($i = 1; $i <= 5; $i++)
+                                <div class="row">
+                                    <div class="col-md-3">{{$i}}.</div>
+                                    <div class="col-md-9">{{ Form::text('likert5[]') }}</div>
+                                </div>
+                            @endfor
+                        </div>
+                    </div>
+                    <div class="col-md-6 typeoption selopt likert6">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3 text-right"><strong>{{trans('pagestrings.question_selfdef_datavalue')}}</strong></div>
+                                <div class="col-md-9"><strong>{{trans('pagestrings.question_selfdef_displayvalue')}}</strong></div>
+                            </div>
+                            @for ($i = 1; $i <=6; $i++)
+                                <div class="row">
+                                    <div class="col-md-3">{{$i}}.</div>
+                                    <div class="col-md-9">{{ Form::text('likert6[]') }}</div>
+                                </div>
+                            @endfor
+                        </div>
+                    </div>
+                    <div class="col-md-6 typeoption selopt likert7">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3 text-right"><strong>{{trans('pagestrings.question_selfdef_datavalue')}}</strong></div>
+                                <div class="col-md-9"><strong>{{trans('pagestrings.question_selfdef_displayvalue')}}</strong></div>
+                            </div>
+                            @for ($i = 1; $i <= 7; $i++)
+                                <div class="row">
+                                    <div class="col-md-3">{{$i}}.</div>
+                                    <div class="col-md-9">{{ Form::text('likert7[]') }}</div>
+                                </div>
+                            @endfor
+                        </div>
+                    </div>
+                    <div class="col-md-6 typeoption selopt likert10">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3 text-right"><strong>{{trans('pagestrings.question_selfdef_datavalue')}}</strong></div>
+                                <div class="col-md-9"><strong>{{trans('pagestrings.question_selfdef_displayvalue')}}</strong></div>
+                            </div>
+                            @for ($i = 1; $i <= 10; $i++)
+                                <div class="row">
+                                    <div class="col-md-3">{{$i}}.</div>
+                                    <div class="col-md-9">{{ Form::text('likert10[]') }}</div>
+                                </div>
+                            @endfor
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
     <div class="list-group-item">
         <div class="list-group-item-text">
             <div class="row">
@@ -107,21 +174,37 @@
         };
 
         var showSelfsinglechoide = function(){
-            if ($('#singlechoiceoption').val() == 'SELF' && $('#questiontype').val() == 'SINGLECHOICE'){
-                $('.selfsinglechoice').show();
-            }
-            else{
-                $('.selfsinglechoice').hide();
+            if ($('#questiontype').val() == 'SINGLECHOICE'){
+
+                $('.selopt').hide();
+
+                if ($('#singlechoiceoption').val() == 'SELF'){
+                    $('.selfsinglechoice').show();
+                } else if ($('#singlechoiceoption').val() == 'LIKERT_4'){
+                    $('.likert4').show();
+                } else if ($('#singlechoiceoption').val() == 'LIKERT_5'){
+                    $('.likert5').show();
+                } else if ($('#singlechoiceoption').val() == 'LIKERT_6'){
+                    $('.likert6').show();
+                } else if ($('#singlechoiceoption').val() == 'LIKERT_7'){
+                    $('.likert7').show();
+                } else if ($('#singlechoiceoption').val() == 'LIKERT_10'){
+                    $('.likert10').show();
+                }
+
+            } else{
+                $('.selopt').hide();
             }
         };
 
         $(document).ready(function(){
-            showSelfsinglechoide();
             showOptions();
+            showSelfsinglechoide();
         });
 
         $('#questiontype').change(function(){
             showOptions();
+            showSelfsinglechoide();
         });
 
         $('#singlechoiceoption').change(function(){
