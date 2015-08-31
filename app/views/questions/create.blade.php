@@ -198,13 +198,14 @@
         };
 
         $(document).ready(function(){
-            showOptions();
             showSelfsinglechoide();
+            showOptions();
+
         });
 
         $('#questiontype').change(function(){
-            showOptions();
             showSelfsinglechoide();
+            showOptions();
         });
 
         $('#singlechoiceoption').change(function(){
