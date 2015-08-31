@@ -308,7 +308,7 @@ return array(
     "question_typename_BOOLEAN"      => "Ja/Nein",
     "question_typename_SINGLECHOICE" => "Einfachauswahl",
     "question_typename_MULTICHOICE"  => "Mehrfachauswahl",
-    "question_typename_MOODMAP"      => "Moodmap",
+    "question_typename_MOODMAP"      => "Circumplex",
 
 
     "question_optiongroup_LIKERT_4"  => "Likert 4",
